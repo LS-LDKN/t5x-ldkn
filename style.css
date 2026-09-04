@@ -344,4 +344,50 @@ footer {
         text-align: center;
     }
 }
+member-detail {
+    max-width: 700px;
+    margin: 35px auto 0;
+    padding: 35px;
+    background: #0b1228;
+    border: 1px solid #00e5ff;
+    border-radius: 20px;
+    display: none;
+    animation: showDetail .4s ease;
+}
+
+.member-detail.active {
+    display: block;
+}
+
+.member-detail h2 {
+    color: #00e5ff;
+    margin-bottom: 10px;
+}
+
+.member-detail p {
+    color: #aeb7c9;
+    line-height: 1.7;
+    margin: 10px 0;
+}
+
+.member-detail h3 {
+    margin-top: 20px;
+    color: white;
+}
+
+@keyframes showDetail {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.team-card {
+    cursor: pointer;
+}
 ```
