@@ -68,43 +68,53 @@
         <p>THE PEOPLE</p>
         <h2>Meet Our <span>Team</span></h2>
     </div>
+<section id="team" class="section dark">
+    <div class="section-title">
+        <p>THE PEOPLE</p>
+        <h2>Meet Our <span>Team</span></h2>
+    </div>
 
-    <div class="team-card" onclick="openProfile('lakhan')">
-    <div class="avatar">L</div>
-    <h3>Lakhan Ji</h3>
-    <p>Founder / Developer</p>
-</div>
+    <div class="team-grid">
 
-        <div class="team-card">
+        <div class="team-card" onclick="showMember('lakhan')">
+            <div class="avatar">L</div>
+            <h3>Lakhan Ji</h3>
+            <p>Founder / Developer</p>
+        </div>
+
+        <div class="team-card" onclick="showMember('drishti')">
             <div class="avatar">D</div>
             <h3>Drishti</h3>
             <p>Team Member</p>
         </div>
 
-        <div class="team-card">
+        <div class="team-card" onclick="showMember('khushi')">
             <div class="avatar">K</div>
             <h3>Khushi Goel</h3>
             <p>Team Member</p>
         </div>
 
-        <div class="team-card">
+        <div class="team-card" onclick="showMember('Davansh Goel')">
+            <div class="avatar">N</div>
+            <h3>Davansh Goel</h3>
+            <p>Team Member</p>
+        </div>
+
+    </div>
+ <div class="team-card" onclick="showMember('nirdesh')">
             <div class="avatar">N</div>
             <h3>Nirdesh</h3>
             <p>Team Member</p>
         </div>
-     
-        <div class="team-card">
-            <div class="avatar">N</div>
-            <h3>Devansh Goel</h3>
-            <p>Team Member</p>
-        </div>
-      
-        <div class="team-card">
-            <div class="avatar">+</div>
-            <h3>Coming Soon</h3>
-            <p>Team Member</p>
-        </div>
 
+    </div>
+
+    <div id="member-detail" class="member-detail">
+        <h2 id="member-name"></h2>
+        <p id="member-role"></p>
+        <p id="member-bio"></p>
+        <h3>Skills</h3>
+        <p id="member-skills"></p>
     </div>
 </section>
 
