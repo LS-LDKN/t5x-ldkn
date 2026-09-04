@@ -69,13 +69,11 @@
         <h2>Meet Our <span>Team</span></h2>
     </div>
 
-    <div class="team-grid">
-
-        <div class="team-card">
-            <div class="avatar">L</div>
-            <h3>Lakhan Ji</h3>
-            <p>Team Member</p>
-        </div>
+    <div class="team-card" onclick="openProfile('lakhan')">
+    <div class="avatar">L</div>
+    <h3>Lakhan Ji</h3>
+    <p>Founder / Developer</p>
+</div>
 
         <div class="team-card">
             <div class="avatar">D</div>
@@ -185,6 +183,29 @@
     <p>© 2026 T5X LDKN Online Team</p> 
 </footer>
 <script src="script.js"></script>
+    <div id="lakhan" class="profile-modal">
+    <div class="profile-box">
+        <button class="close" onclick="closeProfile()">×</button>
+
+        <div class="avatar big">L</div>
+
+        <h2>Lakhan Ji</h2>
+        <p class="role">Founder / Developer</p>
+
+        <p class="bio">
+            Founder and developer of T5X LDKN, focused on building
+            creative digital projects and exploring modern technology.
+        </p>
+
+        <h3>Skills</h3>
+        <div class="skills">
+            <span>AI</span>
+            <span>Coding</span>
+            <span>Web Development</span>
+            <span>Hacking</span>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
