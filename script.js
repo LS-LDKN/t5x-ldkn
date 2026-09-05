@@ -1,74 +1,24 @@
-const members = {
-
-    lakhan: {
-        name: "Lakhan Ji",
-        role: "Founder / Developer",
-        bio: "Founder and developer of T5X LDKN, working on AI, coding and digital technology projects.",
-        skills: "AI • Coding • Web Development • Hacking"
-    },
-
-    drishti: {
-        name: "Drishti",
-        role: "Team Member",
-        bio: "Member of the T5X LDKN technology team.",
-        skills: "Technology • Teamwork"
-    },
-
-    khushi: {
-        name: "Khushi Goel",
-        role: "Team Member",
-        bio: "Member of the T5X LDKN technology team.",
-        skills: "Technology • Teamwork"
-    },
-
-    nirdesh: {
-        name: "Nirdesh",
-        role: "Team Member",
-        bio: "Member of the T5X LDKN technology team.",
-        skills: "Technology • Teamwork"
-    },
-
-    devansh: {
-        name: "Davansh Goel",
-        role: "Team Member",
-        bio: "Member of the T5X LDKN technology team.",
-        skills: "Technology • Teamwork"
-    }
-};
-
-
-function showMember(member) {
-
-    const data = members[member];
-
-    if (!data) return;
-
-    document.getElementById("member-name").textContent =
-        data.name;
-
-    document.getElementById("member-role").textContent =
-        data.role;
-
-    document.getElementById("member-bio").textContent =
-        data.bio;
-
-    document.getElementById("member-skills").textContent =
-        data.skills;
-
-    document
-        .getElementById("member-detail")
-        .classList.add("active");
-}
-
-
 /* =========================
    REAL TIME CHAT
 ========================= */
 
 let chatUnsubscribe = null;
 
+const ADMIN_UID = "oNSKRlCO5SeQ4gXtyyNB7CDK7dx1";
 
-/* OPEN USER CHAT */
+
+/* =========================
+   CREATE SAME CHAT ID
+========================= */
+
+function getChatId(userId) {
+    return [ADMIN_UID, userId].sort().join("_");
+}
+
+
+/* =========================
+   OPEN USER CHAT
+========================= */
 
 window.openChat = function () {
 
@@ -79,7 +29,6 @@ window.openChat = function () {
         return;
     }
 
-    // Logged-in user ki UID use hogi
     loadChat(user.uid);
 };
 
@@ -88,7 +37,7 @@ window.openChat = function () {
    LOAD USER CHAT
 ========================= */
 
-function loadChat(user.uid) {
+function loadChat(userId) {
 
     const messagesBox =
         document.getElementById("chatMessages");
@@ -100,77 +49,94 @@ function loadChat(user.uid) {
         chatUnsubscribe = null;
     }
 
-    const messagesRef =
-        collection(
-            db,
-            "chats",
-            userId,
-            "messages"
-        );
+    const chatId = getChatId(userId);
 
-    const messagesQuery =
-        query(
-            messagesRef,
-            orderBy("createdAt", "asc")
-        );
+    const messagesRef = collection(
+        db,
+        "chats",
+        chatId,
+        "messages"
+    );
 
-    chatUnsubscribe =
-        onSnapshot(
-            messagesQuery,
+    chatUnsubscribe = onSnapshot(
+        messagesRef,
+        (snapshot) => {
 
-            (snapshot) => {
+            messagesBox.innerHTML = "";
 
-                messagesBox.innerHTML = "";
+            const messages = [];
 
-                if (snapshot.empty) {
+            snapshot.forEach((messageDoc) => {
 
-                    messagesBox.innerHTML =
-                        `<p class="chat-empty">
-                            Start chatting with T5X LDKN Admin 👋
-                        </p>`;
-
-                    return;
-                }
-
-                snapshot.forEach((messageDoc) => {
-
-                    const data =
-                        messageDoc.data();
-
-                    const div =
-                        document.createElement("div");
-
-                    div.className =
-                        "chat-message " +
-                        (
-                            data.senderType === "user"
-                                ? "user"
-                                : "admin"
-                        );
-
-                    div.textContent =
-                        data.text || "";
-
-                    messagesBox.appendChild(div);
+                messages.push({
+                    id: messageDoc.id,
+                    ...messageDoc.data()
                 });
 
-                messagesBox.scrollTop =
-                    messagesBox.scrollHeight;
-            },
+            });
 
-            (error) => {
+            /* Sort by createdAt */
+            messages.sort((a, b) => {
 
-                console.error(
-                    "Chat error:",
-                    error
-                );
+                const timeA =
+                    a.createdAt?.seconds || 0;
+
+                const timeB =
+                    b.createdAt?.seconds || 0;
+
+                return timeA - timeB;
+            });
+
+
+            if (messages.length === 0) {
 
                 messagesBox.innerHTML =
                     `<p class="chat-empty">
-                        Unable to load chat.
+                        Start chatting with T5X LDKN Admin 👋
                     </p>`;
+
+                return;
             }
-        );
+
+
+            messages.forEach((data) => {
+
+                const div =
+                    document.createElement("div");
+
+                div.className =
+                    "chat-message " +
+                    (
+                        data.senderId === userId
+                            ? "user"
+                            : "admin"
+                    );
+
+                div.textContent =
+                    data.text || "";
+
+                messagesBox.appendChild(div);
+
+            });
+
+
+            messagesBox.scrollTop =
+                messagesBox.scrollHeight;
+        },
+
+        (error) => {
+
+            console.error(
+                "Chat error:",
+                error
+            );
+
+            messagesBox.innerHTML =
+                `<p class="chat-empty">
+                    Unable to load chat.
+                </p>`;
+        }
+    );
 }
 
 
@@ -197,24 +163,35 @@ window.sendMessage = async function () {
 
     if (!text) return;
 
+
     try {
+
+        const chatId =
+            getChatId(user.uid);
+
 
         await addDoc(
             collection(
                 db,
                 "chats",
-                user.uid,
+                chatId,
                 "messages"
             ),
             {
                 text: text,
                 senderId: user.uid,
+                senderName:
+                    user.displayName ||
+                    "User",
                 senderType: "user",
-                createdAt: serverTimestamp()
+                createdAt:
+                    serverTimestamp()
             }
         );
 
+
         input.value = "";
+
 
     } catch (error) {
 
@@ -251,4 +228,3 @@ document.addEventListener(
         }
     }
 );
-```
