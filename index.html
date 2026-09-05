@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -23,6 +22,8 @@ body{
     background:#050816;
     color:white;
 }
+
+/* NAVBAR */
 
 nav{
     position:sticky;
@@ -66,6 +67,8 @@ nav{
     border-radius:20px;
     color:#00e5ff !important;
 }
+
+/* HERO */
 
 .hero{
     min-height:85vh;
@@ -118,6 +121,8 @@ nav{
     color:#00e5ff;
 }
 
+/* SECTIONS */
+
 section{
     padding:80px 7%;
 }
@@ -132,6 +137,8 @@ section{
     color:#00e5ff;
 }
 
+/* ABOUT */
+
 .about{
     max-width:900px;
     margin:auto;
@@ -140,6 +147,8 @@ section{
     font-size:18px;
     line-height:1.8;
 }
+
+/* SKILLS */
 
 .cards{
     display:grid;
@@ -172,6 +181,8 @@ section{
     color:#aab4c9;
     line-height:1.6;
 }
+
+/* TEAM */
 
 .team-card{
     max-width:350px;
@@ -210,6 +221,8 @@ section{
     color:#aab4c9;
     line-height:1.6;
 }
+
+/* AUTH */
 
 .auth-section{
     display:none;
@@ -259,11 +272,6 @@ input:focus{
     cursor:pointer;
 }
 
-.auth-btn:disabled{
-    opacity:.5;
-    cursor:not-allowed;
-}
-
 .switch{
     text-align:center;
     margin-top:18px;
@@ -295,6 +303,8 @@ input:focus{
     text-decoration:underline;
 }
 
+/* USER */
+
 #userPanel{
     display:none;
 }
@@ -312,6 +322,8 @@ input:focus{
     border-radius:20px;
     cursor:pointer;
 }
+
+/* DASHBOARD */
 
 .dashboard-section{
     display:none;
@@ -384,6 +396,11 @@ input:focus{
     margin-top:30px;
     text-align:center;
 }
+
+
+/* =========================
+   CHAT
+========================= */
 
 .chat-box{
     margin-top:30px;
@@ -462,6 +479,11 @@ input:focus{
     width:110px;
     margin:0;
 }
+
+
+/* =========================
+   ADMIN PANEL
+========================= */
 
 .admin-section{
     display:none;
@@ -569,12 +591,18 @@ input:focus{
     color:#71809d;
 }
 
+
+/* FOOTER */
+
 footer{
     text-align:center;
     padding:30px;
     border-top:1px solid #18233f;
     color:#71809d;
 }
+
+
+/* MOBILE */
 
 @media(max-width:700px){
 
@@ -623,379 +651,301 @@ footer{
     }
 }
 </style>
-
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+
 <nav>
 
-```
-<div class="logo">
-    T5X<span>LDKN</span>
-</div>
+    <div class="logo">
+        T5X<span>LDKN</span>
+    </div>
 
-<div class="nav-links">
+    <div class="nav-links">
 
-    <a href="#home" onclick="showHome()">Home</a>
-    <a href="#about" onclick="showHome()">About</a>
-    <a href="#team" onclick="showHome()">Team</a>
+        <a href="#home" onclick="showHome()">Home</a>
+        <a href="#about" onclick="showHome()">About</a>
+        <a href="#team" onclick="showHome()">Team</a>
 
-    <span id="authButtons">
-        <a href="#auth" class="nav-btn" onclick="showLogin()">Login</a>
-    </span>
+        <span id="authButtons">
+            <a href="#auth" class="nav-btn" onclick="showLogin()">Login</a>
+        </span>
 
-    <span id="userPanel">
+        <span id="userPanel">
 
-        <a href="#dashboard"
-           class="nav-btn"
-           onclick="showDashboard()">
-            Dashboard
-        </a>
+            <a href="#dashboard"
+               class="nav-btn"
+               onclick="showDashboard()">
+                Dashboard
+            </a>
 
-        <a href="#admin"
-           class="nav-btn"
-           id="adminButton"
-           style="display:none;"
-           onclick="showAdmin()">
-            Admin
-        </a>
+            <a href="#admin"
+               class="nav-btn"
+               id="adminButton"
+               style="display:none;"
+               onclick="showAdmin()">
+                Admin
+            </a>
 
-        <span class="user-name" id="userName"></span>
+            <span class="user-name" id="userName"></span>
 
-        <button class="logout" onclick="logout()">
-            Logout
-        </button>
+            <button class="logout" onclick="logout()">
+                Logout
+            </button>
 
-    </span>
+        </span>
 
-</div>
-```
+    </div>
 
 </nav>
+
+
+<!-- MAIN WEBSITE -->
 
 <main id="homePage">
 
 <section class="hero" id="home">
 
-```
-<div class="hero-content">
+    <div class="hero-content">
 
-    <h1>
-        Welcome to <span>T5X LDKN</span>
-    </h1>
+        <h1>
+            Welcome to <span>T5X LDKN</span>
+        </h1>
 
-    <p>
-        A technology and coding community focused on
-        AI, programming, web development and modern technology.
-    </p>
+        <p>
+            A technology and coding community focused on
+            AI, programming, web development and modern technology.
+        </p>
 
-    <div class="hero-buttons">
+        <div class="hero-buttons">
 
-        <a href="#about" class="btn primary">
-            Explore
-        </a>
+            <a href="#about" class="btn primary">
+                Explore
+            </a>
 
-        <a href="#team" class="btn secondary">
-            Our Team
-        </a>
+            <a href="#team" class="btn secondary">
+                Our Team
+            </a>
+
+        </div>
 
     </div>
 
-</div>
-```
-
 </section>
+
 
 <section id="about">
 
-```
-<h2 class="title">
-    About <span>T5X LDKN</span>
-</h2>
+    <h2 class="title">
+        About <span>T5X LDKN</span>
+    </h2>
 
-<p class="about">
-    T5X LDKN is a technology-focused platform created for
-    learning, building and exploring modern digital technology.
-    Our interests include Artificial Intelligence, Coding,
-    Web Development and innovative software projects.
-</p>
-```
+    <p class="about">
+        T5X LDKN is a technology-focused platform created for
+        learning, building and exploring modern digital technology.
+        Our interests include Artificial Intelligence, Coding,
+        Web Development and innovative software projects.
+    </p>
 
 </section>
+
 
 <section>
 
-```
-<h2 class="title">
-    What We <span>Do</span>
-</h2>
+    <h2 class="title">
+        What We <span>Do</span>
+    </h2>
 
-<div class="cards">
+    <div class="cards">
 
-    <div class="card">
-        <h3>AI</h3>
-        <p>
-            Exploring Artificial Intelligence,
-            AI tools and intelligent applications.
-        </p>
+        <div class="card">
+            <h3>AI</h3>
+            <p>
+                Exploring Artificial Intelligence,
+                AI tools and intelligent applications.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Coding</h3>
+            <p>
+                Learning programming and building
+                useful software projects.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Web Development</h3>
+            <p>
+                Creating modern, responsive and
+                interactive websites.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Technology</h3>
+            <p>
+                Exploring new technologies and
+                turning ideas into projects.
+            </p>
+        </div>
+
     </div>
-
-    <div class="card">
-        <h3>Coding</h3>
-        <p>
-            Learning programming and building
-            useful software projects.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>Web Development</h3>
-        <p>
-            Creating modern, responsive and
-            interactive websites.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>Technology</h3>
-        <p>
-            Exploring new technologies and
-            turning ideas into projects.
-        </p>
-    </div>
-
-</div>
-```
 
 </section>
 
+
 <section id="team">
 
-```
-<h2 class="title">
-    Our <span>Team</span>
-</h2>
+    <h2 class="title">
+        Our <span>Team</span>
+    </h2>
 
-<div class="cards">
+    <div class="cards">
 
-    <div class="team-card">
-        <div class="avatar">L</div>
-        <h3>Lakhan Ji</h3>
-        <div class="role">Founder & Developer</div>
-        <p>
-            Founder and developer of T5X LDKN.
-            Interested in AI, Coding and Web Development.
-        </p>
+        <div class="team-card">
+            <div class="avatar">L</div>
+            <h3>Lakhan Ji</h3>
+            <div class="role">Founder & Developer</div>
+            <p>
+                Founder and developer of T5X LDKN.
+                Interested in AI, Coding and Web Development.
+            </p>
+        </div>
+
+        <div class="team-card">
+            <div class="avatar">D</div>
+            <h3>Drishti</h3>
+            <div class="role">Team Member</div>
+            <p>
+                Team member of T5X LDKN,
+                contributing to the technology community
+                and projects.
+            </p>
+        </div>
+
+        <div class="team-card">
+            <div class="avatar">K</div>
+            <h3>khushi Goel</h3>
+            <div class="role">Team Member</div>
+            <p>
+                Team member of T5X LDKN,
+                contributing to the technology community
+                and projects.
+            </p>
+        </div>
+
+        <div class="team-card">
+            <div class="avatar">D</div>
+            <h3>Devansh Goel</h3>
+            <div class="role">Team Member</div>
+            <p>
+                Team member of T5X LDKN,
+                contributing to the technology community
+                and projects.
+            </p>
+        </div>
+
+        <div class="team-card">
+            <div class="avatar">N</div>
+            <h3>Nirdesh</h3>
+            <div class="role">Team Member</div>
+            <p>
+                Team member of T5X LDKN,
+                contributing to the technology community
+                and projects.
+            </p>
+        </div>
+
     </div>
-
-    <div class="team-card">
-        <div class="avatar">D</div>
-        <h3>Drishti</h3>
-        <div class="role">Team Member</div>
-        <p>
-            Team member of T5X LDKN,
-            contributing to the technology community
-            and projects.
-        </p>
-    </div>
-
-    <div class="team-card">
-        <div class="avatar">K</div>
-        <h3>khushi Goel</h3>
-        <div class="role">Team Member</div>
-        <p>
-            Team member of T5X LDKN,
-            contributing to the technology community
-            and projects.
-        </p>
-    </div>
-
-    <div class="team-card">
-        <div class="avatar">D</div>
-        <h3>Devansh Goel</h3>
-        <div class="role">Team Member</div>
-        <p>
-            Team member of T5X LDKN,
-            contributing to the technology community
-            and projects.
-        </p>
-    </div>
-
-    <div class="team-card">
-        <div class="avatar">N</div>
-        <h3>Nirdesh</h3>
-        <div class="role">Team Member</div>
-        <p>
-            Team member of T5X LDKN,
-            contributing to the technology community
-            and projects.
-        </p>
-    </div>
-
-</div>
-```
 
 </section>
 
 </main>
 
+
+<!-- DASHBOARD -->
+
 <section class="dashboard-section" id="dashboard">
 
-```
-<h2 class="title">
-    User <span>Dashboard</span>
-</h2>
+    <h2 class="title">
+        User <span>Dashboard</span>
+    </h2>
 
-<div class="dashboard-box">
+    <div class="dashboard-box">
 
-    <div class="welcome-box">
+        <div class="welcome-box">
 
-        <h2>
-            Welcome, <span id="dashboardName">User</span> 👋
-        </h2>
+            <h2>
+                Welcome, <span id="dashboardName">User</span> 👋
+            </h2>
 
-        <p>
-            Welcome to your T5X LDKN dashboard.
-            Your account is successfully logged in.
-        </p>
-
-    </div>
-
-    <div class="dashboard-cards">
-
-        <div class="dashboard-card">
-            <div class="icon">👤</div>
-            <h3>Name</h3>
-            <p id="dashboardUserName">Loading...</p>
-        </div>
-
-        <div class="dashboard-card">
-            <div class="icon">📧</div>
-            <h3>Email</h3>
-            <p id="dashboardEmail">Loading...</p>
-        </div>
-
-        <div class="dashboard-card">
-            <div class="icon">🟢</div>
-            <h3>Account Status</h3>
-            <p>Active & Logged In</p>
-        </div>
-
-        <div class="dashboard-card">
-            <div class="icon">🚀</div>
-            <h3>T5X LDKN</h3>
-            <p>AI • Coding • Web Development</p>
-        </div>
-
-    </div>
-
-    <div class="chat-box">
-
-        <h2>
-            💬 <span>Chat with Admin</span>
-        </h2>
-
-        <div id="chatMessages" class="chat-messages">
-
-            <p class="chat-empty">
-                Start chatting with T5X LDKN Admin 👋
+            <p>
+                Welcome to your T5X LDKN dashboard.
+                Your account is successfully logged in.
             </p>
 
         </div>
 
-        <div class="chat-input-area">
+        <div class="dashboard-cards">
 
-            <input
-                type="text"
-                id="chatInput"
-                placeholder="Type your message..."
-                autocomplete="off"
-            >
+            <div class="dashboard-card">
+                <div class="icon">👤</div>
+                <h3>Name</h3>
+                <p id="dashboardUserName">Loading...</p>
+            </div>
 
-            <button
-                class="auth-btn"
-                onclick="sendMessage()">
-                Send
-            </button>
+            <div class="dashboard-card">
+                <div class="icon">📧</div>
+                <h3>Email</h3>
+                <p id="dashboardEmail">Loading...</p>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="icon">🟢</div>
+                <h3>Account Status</h3>
+                <p>Active & Logged In</p>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="icon">🚀</div>
+                <h3>T5X LDKN</h3>
+                <p>AI • Coding • Web Development</p>
+            </div>
 
         </div>
 
-    </div>
 
-    <div class="dashboard-home">
+        <!-- USER CHAT -->
 
-        <button
-            class="auth-btn"
-            style="max-width:250px;"
-            onclick="showHome()">
-            Back to Website
-        </button>
+        <div class="chat-box">
 
-    </div>
+            <h2>
+                💬 <span>Chat with Admin</span>
+            </h2>
 
-</div>
-```
+            <div id="chatMessages" class="chat-messages">
 
-</section>
-
-<section class="admin-section" id="admin">
-
-```
-<h2 class="title">
-    Admin <span>Panel</span>
-</h2>
-
-<div class="admin-box">
-
-    <div class="admin-layout">
-
-        <div class="user-list">
-
-            <h3>👥 Users</h3>
-
-            <div id="usersList">
-
-                <p style="color:#71809d;">
-                    Loading users...
+                <p class="chat-empty">
+                    Start chatting with T5X LDKN Admin 👋
                 </p>
 
             </div>
 
-        </div>
-
-        <div class="admin-chat">
-
-            <h3 class="admin-chat-title"
-                id="adminChatTitle">
-                Select a user to start chat
-            </h3>
-
-            <div
-                id="adminChatMessages"
-                class="admin-chat-messages">
-
-                <div class="no-user">
-                    👈 Select a user from the list
-                </div>
-
-            </div>
-
-            <div class="admin-chat-input">
+            <div class="chat-input-area">
 
                 <input
                     type="text"
-                    id="adminChatInput"
-                    placeholder="Type reply..."
+                    id="chatInput"
+                    placeholder="Type your message..."
                     autocomplete="off"
-                    disabled
                 >
 
                 <button
                     class="auth-btn"
-                    id="adminSendButton"
-                    onclick="adminSendMessage()"
-                    disabled>
+                    onclick="sendMessage()">
                     Send
                 </button>
 
@@ -1003,149 +953,243 @@ footer{
 
         </div>
 
+
+        <div class="dashboard-home">
+
+            <button
+                class="auth-btn"
+                style="max-width:250px;"
+                onclick="showHome()">
+                Back to Website
+            </button>
+
+        </div>
+
     </div>
 
-</div>
-```
+</section>
+
+
+<!-- ADMIN PANEL -->
+
+<section class="admin-section" id="admin">
+
+    <h2 class="title">
+        Admin <span>Panel</span>
+    </h2>
+
+    <div class="admin-box">
+
+        <div class="admin-layout">
+
+            <!-- USERS -->
+
+            <div class="user-list">
+
+                <h3>👥 Users</h3>
+
+                <div id="usersList">
+
+                    <p style="color:#71809d;">
+                        Loading users...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ADMIN CHAT -->
+
+            <div class="admin-chat">
+
+                <h3 class="admin-chat-title"
+                    id="adminChatTitle">
+                    Select a user to start chat
+                </h3>
+
+                <div
+                    id="adminChatMessages"
+                    class="admin-chat-messages">
+
+                    <div class="no-user">
+                        👈 Select a user from the list
+                    </div>
+
+                </div>
+
+                <div class="admin-chat-input">
+
+                    <input
+                        type="text"
+                        id="adminChatInput"
+                        placeholder="Type reply..."
+                        autocomplete="off"
+                        disabled
+                    >
+
+                    <button
+                        class="auth-btn"
+                        id="adminSendButton"
+                        onclick="adminSendMessage()"
+                        disabled>
+                        Send
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
+
+
+<!-- AUTH -->
 
 <section class="auth-section" id="auth">
 
-```
-<div class="auth-box">
+    <div class="auth-box">
 
-    <div id="signupForm">
 
-        <h2>Create Account</h2>
+        <!-- SIGNUP -->
 
-        <input
-            type="text"
-            id="signupName"
-            placeholder="Your Name"
-        >
+        <div id="signupForm">
 
-        <input
-            type="email"
-            id="signupEmail"
-            placeholder="Gmail"
-        >
+            <h2>Create Account</h2>
 
-        <input
-            type="password"
-            id="signupPassword"
-            placeholder="Password (6+ characters)"
-        >
+            <input
+                type="text"
+                id="signupName"
+                placeholder="Your Name"
+            >
 
-        <button class="auth-btn" onclick="signup()">
-            Create Account
-        </button>
+            <input
+                type="email"
+                id="signupEmail"
+                placeholder="Gmail"
+            >
 
-        <p class="message" id="signupMessage"></p>
+            <input
+                type="password"
+                id="signupPassword"
+                placeholder="Password (6+ characters)"
+            >
 
-        <p class="switch">
-            Already have an account?
-            <span onclick="showLogin()">Login</span>
-        </p>
+            <button class="auth-btn" onclick="signup()">
+                Create Account
+            </button>
+
+            <p class="message" id="signupMessage"></p>
+
+            <p class="switch">
+                Already have an account?
+                <span onclick="showLogin()">Login</span>
+            </p>
+
+        </div>
+
+
+        <!-- LOGIN -->
+
+        <div id="loginForm" style="display:none;">
+
+            <h2>Welcome Back</h2>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Gmail"
+            >
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+            >
+
+            <button class="auth-btn" onclick="login()">
+                Login
+            </button>
+
+            <p class="forgot">
+                <span onclick="showForgotPassword()">
+                    Forgot Password?
+                </span>
+            </p>
+
+            <p class="message" id="loginMessage"></p>
+
+            <p class="switch">
+                Don't have an account?
+                <span onclick="showSignup()">Sign Up</span>
+            </p>
+
+        </div>
+
+
+        <!-- FORGOT -->
+
+        <div id="forgotForm" style="display:none;">
+
+            <h2>Reset Password</h2>
+
+            <p style="
+                color:#aab4c9;
+                text-align:center;
+                line-height:1.6;
+                margin-bottom:15px;
+            ">
+                Enter your registered email and
+                we will send you a password reset link.
+            </p>
+
+            <input
+                type="email"
+                id="forgotEmail"
+                placeholder="Enter your Gmail"
+            >
+
+            <button
+                class="auth-btn"
+                onclick="forgotPassword()">
+                Send Reset Link
+            </button>
+
+            <p class="message" id="forgotMessage"></p>
+
+            <p class="switch">
+                Remember your password?
+                <span onclick="showLogin()">Login</span>
+            </p>
+
+        </div>
 
     </div>
-
-    <div id="loginForm" style="display:none;">
-
-        <h2>Welcome Back</h2>
-
-        <input
-            type="email"
-            id="loginEmail"
-            placeholder="Gmail"
-        >
-
-        <input
-            type="password"
-            id="loginPassword"
-            placeholder="Password"
-        >
-
-        <button class="auth-btn" onclick="login()">
-            Login
-        </button>
-
-        <p class="forgot">
-            <span onclick="showForgotPassword()">
-                Forgot Password?
-            </span>
-        </p>
-
-        <p class="message" id="loginMessage"></p>
-
-        <p class="switch">
-            Don't have an account?
-            <span onclick="showSignup()">Sign Up</span>
-        </p>
-
-    </div>
-
-    <div id="forgotForm" style="display:none;">
-
-        <h2>Reset Password</h2>
-
-        <p style="
-            color:#aab4c9;
-            text-align:center;
-            line-height:1.6;
-            margin-bottom:15px;
-        ">
-            Enter your registered email and
-            we will send you a password reset link.
-        </p>
-
-        <input
-            type="email"
-            id="forgotEmail"
-            placeholder="Enter your Gmail"
-        >
-
-        <button
-            class="auth-btn"
-            onclick="forgotPassword()">
-            Send Reset Link
-        </button>
-
-        <p class="message" id="forgotMessage"></p>
-
-        <p class="switch">
-            Remember your password?
-            <span onclick="showLogin()">Login</span>
-        </p>
-
-    </div>
-
-</div>
-```
 
 </section>
 
+
 <footer>
 
-```
-<p>
-    📧 Contact Gmail: lakhangoswami413@gmail.com
-</p>
+    <p>
+        📧 Contact Gmail: lakhangoswami413@gmail.com
+    </p>
 
-<p>
-    📞 Contact: +91 9548032485
-</p>
+    <p>
+        📞 Contact: +91 9548032485
+    </p>
 
-© 2026 T5X LDKN — All Rights Reserved
-```
+    © 2026 T5X LDKN — All Rights Reserved
 
 </footer>
 
+
 <script type="module">
 
-/* =========================
-   FIREBASE IMPORTS
-========================= */
+/* FIREBASE */
 
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
@@ -1175,36 +1219,34 @@ import {
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
-/* =========================
-   FIREBASE CONFIG
-========================= */
+/* FIREBASE CONFIG */
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBwwlCkGQcqWiULRU_6SE_zQ_kMxYBx8mk",
-  authDomain: "t5x-ldkn.firebaseapp.com",
-  databaseURL: "https://t5x-ldkn-default-rtdb.firebaseio.com",
-  projectId: "t5x-ldkn",
-  storageBucket: "t5x-ldkn.firebasestorage.app",
-  messagingSenderId: "278540583487",
-  appId: "1:278540583487:web:631a100fd6a286962eae8a",
-  measurementId: "G-LSDEL437QQ"
+    apiKey: "AIzaSyBwwlCkGQcqWiULRU_6SE_zQ_kMxYBx8mk",
+    authDomain: "t5x-ldkn.firebaseapp.com",
+    projectId: "t5x-ldkn",
+    storageBucket: "t5x-ldkn.firebasestorage.app",
+    messagingSenderId: "278540583487",
+    appId: "1:278540583487:web:631a100fd6a286962eae8a",
+    measurementId: "G-LSDEL437QQ"
 };
 
 const app = initializeApp(firebaseConfig);
+
 const auth = getAuth(app);
+
 const db = getFirestore(app);
 
 
 /* =========================
-   ADMIN UID
+   IMPORTANT
+   APNE ADMIN ACCOUNT KA UID YAHAN DALO
 ========================= */
 
 const ADMIN_UID = "oNSKRlCO5SeQ4gXtyyNB7CDK7dx1";
 
 
-/* =========================
-   VARIABLES
-========================= */
+/* VARIABLES */
 
 let chatUnsubscribe = null;
 let adminChatUnsubscribe = null;
@@ -1228,7 +1270,7 @@ window.showHome = function(){
 
 
 /* =========================
-   LOGIN PAGE
+   LOGIN
 ========================= */
 
 window.showLogin = function(){
@@ -1236,6 +1278,7 @@ window.showLogin = function(){
     document.getElementById("homePage").style.display = "none";
     document.getElementById("dashboard").style.display = "none";
     document.getElementById("admin").style.display = "none";
+
     document.getElementById("auth").style.display = "flex";
 
     document.getElementById("signupForm").style.display = "none";
@@ -1257,6 +1300,7 @@ window.showSignup = function(){
     document.getElementById("homePage").style.display = "none";
     document.getElementById("dashboard").style.display = "none";
     document.getElementById("admin").style.display = "none";
+
     document.getElementById("auth").style.display = "flex";
 
     document.getElementById("loginForm").style.display = "none";
@@ -1270,7 +1314,7 @@ window.showSignup = function(){
 
 
 /* =========================
-   FORGOT PASSWORD PAGE
+   FORGOT PASSWORD
 ========================= */
 
 window.showForgotPassword = function(){
@@ -1278,6 +1322,7 @@ window.showForgotPassword = function(){
     document.getElementById("homePage").style.display = "none";
     document.getElementById("dashboard").style.display = "none";
     document.getElementById("admin").style.display = "none";
+
     document.getElementById("auth").style.display = "flex";
 
     document.getElementById("loginForm").style.display = "none";
@@ -1299,6 +1344,7 @@ window.showDashboard = function(){
     if(!auth.currentUser){
 
         showLogin();
+
         return;
     }
 
@@ -1308,6 +1354,7 @@ window.showDashboard = function(){
     document.getElementById("dashboard").style.display = "block";
 
     updateDashboard(auth.currentUser);
+
     loadChat(auth.currentUser.uid);
 
     window.scrollTo(0,0);
@@ -1325,13 +1372,16 @@ window.showAdmin = function(){
     if(!user){
 
         showLogin();
+
         return;
     }
 
     if(user.uid !== ADMIN_UID){
 
         alert("Access denied.");
+
         showDashboard();
+
         return;
     }
 
@@ -1352,10 +1402,15 @@ window.showAdmin = function(){
 
 function updateDashboard(user){
 
-    const name = user.displayName || user.email || "User";
+    const name =
+        user.displayName || user.email || "User";
 
-    document.getElementById("dashboardName").textContent = name;
-    document.getElementById("dashboardUserName").textContent = name;
+    document.getElementById("dashboardName").textContent =
+        name;
+
+    document.getElementById("dashboardUserName").textContent =
+        name;
+
     document.getElementById("dashboardEmail").textContent =
         user.email || "No email";
 }
@@ -1415,7 +1470,7 @@ window.signup = async function(){
         );
 
 
-        /* SAVE USER */
+        /* SAVE USER IN FIRESTORE */
 
         await setDoc(
             doc(db,"users",result.user.uid),
@@ -1423,11 +1478,7 @@ window.signup = async function(){
                 uid:result.user.uid,
                 name:name,
                 email:email,
-                createdAt:serverTimestamp(),
-                updatedAt:serverTimestamp()
-            },
-            {
-                merge:true
+                createdAt:serverTimestamp()
             }
         );
 
@@ -1451,10 +1502,7 @@ window.signup = async function(){
 
     catch(error){
 
-        console.error(
-            "Signup error:",
-            error
-        );
+        console.log(error);
 
         if(error.code === "auth/email-already-in-use"){
 
@@ -1525,10 +1573,7 @@ window.login = async function(){
 
     catch(error){
 
-        console.error(
-            "Login error:",
-            error
-        );
+        console.log(error);
 
         if(
             error.code === "auth/invalid-credential" ||
@@ -1587,10 +1632,7 @@ window.forgotPassword = async function(){
 
     catch(error){
 
-        console.error(
-            "Forgot password error:",
-            error
-        );
+        console.log(error);
 
         if(error.code === "auth/invalid-email"){
 
@@ -1619,24 +1661,18 @@ window.logout = async function(){
         await signOut(auth);
 
         if(chatUnsubscribe){
-
             chatUnsubscribe();
             chatUnsubscribe = null;
-
         }
 
         if(adminChatUnsubscribe){
-
             adminChatUnsubscribe();
             adminChatUnsubscribe = null;
-
         }
 
         if(usersUnsubscribe){
-
             usersUnsubscribe();
             usersUnsubscribe = null;
-
         }
 
         selectedUserId = null;
@@ -1647,10 +1683,7 @@ window.logout = async function(){
 
     catch(error){
 
-        console.error(
-            "Logout error:",
-            error
-        );
+        console.log(error);
 
     }
 };
@@ -1673,7 +1706,6 @@ function loadChat(userId){
 
     }
 
-
     const messagesRef =
         collection(
             db,
@@ -1681,7 +1713,6 @@ function loadChat(userId){
             userId,
             "messages"
         );
-
 
     const messagesQuery =
         query(
@@ -1693,7 +1724,6 @@ function loadChat(userId){
     chatUnsubscribe =
         onSnapshot(
             messagesQuery,
-
             (snapshot) => {
 
                 messagesBox.innerHTML = "";
@@ -1745,7 +1775,6 @@ function loadChat(userId){
                             );
 
                         div.appendChild(time);
-
                     }
 
 
@@ -1781,15 +1810,14 @@ function loadChat(userId){
 
 window.sendMessage = async function(){
 
-    const user =
-        auth.currentUser;
+    const user = auth.currentUser;
 
     if(!user){
 
         showLogin();
+
         return;
     }
-
 
     const input =
         document.getElementById("chatInput");
@@ -1824,10 +1852,7 @@ window.sendMessage = async function(){
 
     catch(error){
 
-        console.error(
-            "User message error:",
-            error
-        );
+        console.error(error);
 
         alert(
             "Message send nahi hua: " +
@@ -1847,9 +1872,6 @@ function loadUsers(){
         document.getElementById("usersList");
 
 
-    if(!usersList) return;
-
-
     if(usersUnsubscribe){
 
         usersUnsubscribe();
@@ -1864,31 +1886,26 @@ function loadUsers(){
     usersUnsubscribe =
         onSnapshot(
             usersRef,
-
             (snapshot) => {
 
                 usersList.innerHTML = "";
 
 
-                let userCount = 0;
+                if(snapshot.empty){
+
+                    usersList.innerHTML =
+                        `<p style="color:#71809d;">
+                            No users found.
+                        </p>`;
+
+                    return;
+                }
 
 
                 snapshot.forEach((userDoc) => {
 
                     const user =
                         userDoc.data();
-
-
-                    /* DON'T SHOW ADMIN */
-
-                    if(user.uid === ADMIN_UID){
-
-                        return;
-
-                    }
-
-
-                    userCount++;
 
 
                     const div =
@@ -1898,7 +1915,9 @@ function loadUsers(){
                         "user-item";
 
 
-                    if(selectedUserId === user.uid){
+                    if(
+                        selectedUserId === user.uid
+                    ){
 
                         div.classList.add("active");
 
@@ -1923,44 +1942,29 @@ function loadUsers(){
                     div.appendChild(small);
 
 
-                    div.onclick =
-                        function(){
+                    div.onclick = function(){
 
-                            selectAdminUser(
-                                user.uid,
-                                user.name || "User"
-                            );
+                        selectAdminUser(
+                            user.uid,
+                            user.name || "User"
+                        );
 
-                        };
+                    };
 
 
                     usersList.appendChild(div);
 
                 });
 
-
-                if(userCount === 0){
-
-                    usersList.innerHTML =
-                        `<p style="color:#71809d;">
-                            No users found.
-                        </p>`;
-
-                }
-
             },
 
             (error) => {
 
-                console.error(
-                    "Users load error:",
-                    error
-                );
+                console.error(error);
 
                 usersList.innerHTML =
                     `<p style="color:#ff4d6d;">
-                        Unable to load users.<br><br>
-                        ${error.message}
+                        Unable to load users.
                     </p>`;
             }
         );
@@ -1976,8 +1980,7 @@ function selectAdminUser(
     userName
 ){
 
-    selectedUserId =
-        userId;
+    selectedUserId = userId;
 
 
     document.getElementById(
@@ -1999,8 +2002,6 @@ function selectAdminUser(
     loadAdminChat(userId);
 
 
-    /* Refresh active user */
-
     loadUsers();
 }
 
@@ -2015,9 +2016,6 @@ function loadAdminChat(userId){
         document.getElementById(
             "adminChatMessages"
         );
-
-
-    if(!messagesBox) return;
 
 
     if(adminChatUnsubscribe){
@@ -2046,7 +2044,6 @@ function loadAdminChat(userId){
     adminChatUnsubscribe =
         onSnapshot(
             messagesQuery,
-
             (snapshot) => {
 
                 messagesBox.innerHTML = "";
@@ -2100,7 +2097,6 @@ function loadAdminChat(userId){
                             );
 
                         div.appendChild(time);
-
                     }
 
 
@@ -2143,15 +2139,15 @@ window.adminSendMessage = async function(){
     if(!admin){
 
         showLogin();
+
         return;
     }
 
 
-    /* FIXED ADMIN UID CHECK */
-
-    if(admin.uid !== ADMIN_UID){
+    if(admin.uid !==oNSKRlCO5SeQ4gXtyyNB7CDK7dx1){
 
         alert("Access denied.");
+
         return;
     }
 
@@ -2159,6 +2155,7 @@ window.adminSendMessage = async function(){
     if(!selectedUserId){
 
         alert("Please select a user first.");
+
         return;
     }
 
@@ -2187,7 +2184,7 @@ window.adminSendMessage = async function(){
             ),
             {
                 text:text,
-                senderId:admin.uid,
+                senderId:ADMIN_UID,
                 senderType:"admin",
                 createdAt:serverTimestamp()
             }
@@ -2200,10 +2197,7 @@ window.adminSendMessage = async function(){
 
     catch(error){
 
-        console.error(
-            "Admin message error:",
-            error
-        );
+        console.error(error);
 
         alert(
             "Admin message send nahi hua: " +
@@ -2214,7 +2208,7 @@ window.adminSendMessage = async function(){
 
 
 /* =========================
-   ENTER KEY
+   ENTER KEY - USER CHAT
 ========================= */
 
 document.addEventListener(
@@ -2256,10 +2250,7 @@ document.addEventListener(
 
 function formatTime(timestamp){
 
-    if(
-        !timestamp ||
-        !timestamp.toDate
-    ){
+    if(!timestamp || !timestamp.toDate){
 
         return "";
 
@@ -2284,13 +2275,11 @@ function formatTime(timestamp){
 
 /* =========================
    AUTH STATE
-   IMPORTANT FIX
 ========================= */
 
 onAuthStateChanged(
     auth,
-
-    async (user) => {
+    (user) => {
 
         const authButtons =
             document.getElementById(
@@ -2315,47 +2304,6 @@ onAuthStateChanged(
 
         if(user){
 
-            /* =====================
-               SAVE / UPDATE USER
-               FOR OLD ACCOUNTS TOO
-            ===================== */
-
-            try{
-
-                await setDoc(
-                    doc(
-                        db,
-                        "users",
-                        user.uid
-                    ),
-                    {
-                        uid:user.uid,
-                        name:user.displayName || "User",
-                        email:user.email || "",
-                        updatedAt:serverTimestamp()
-                    },
-                    {
-                        merge:true
-                    }
-                );
-
-                console.log(
-                    "User Firestore document ready:",
-                    user.uid
-                );
-
-            }
-
-            catch(error){
-
-                console.error(
-                    "User Firestore error:",
-                    error
-                );
-
-            }
-
-
             authButtons.style.display =
                 "none";
 
@@ -2364,14 +2312,11 @@ onAuthStateChanged(
 
             userName.textContent =
                 user.displayName ||
-                user.email ||
-                "User";
+                user.email;
 
 
             updateDashboard(user);
 
-
-            /* ADMIN BUTTON */
 
             if(user.uid === ADMIN_UID){
 
@@ -2400,18 +2345,15 @@ onAuthStateChanged(
             adminButton.style.display =
                 "none";
 
-
             document.getElementById(
                 "dashboard"
             ).style.display =
                 "none";
 
-
             document.getElementById(
                 "admin"
             ).style.display =
                 "none";
-
         }
 
     }
@@ -2421,3 +2363,4 @@ onAuthStateChanged(
 
 </body>
 </html>
+```
