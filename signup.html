@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T5X LDKN | Sign Up</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: #050816;
+            color: white;
+        }
+
+        .box {
+            width: 90%;
+            max-width: 420px;
+            padding: 35px;
+            background: #0b1228;
+            border: 1px solid #00e5ff;
+            border-radius: 20px;
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #00e5ff;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 8px 0;
+            border-radius: 10px;
+            border: 1px solid #263656;
+            background: #050816;
+            color: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 25px;
+            background: #00e5ff;
+            color: #001018;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login {
+            text-align: center;
+            margin-top: 20px;
+            color: #9da7bc;
+        }
+
+        a {
+            color: #00e5ff;
+            text-decoration: none;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <div class="logo">T5X<span>LDKN</span></div>
+
+    <h2>Create Account</h2>
+
+    <input type="text" id="name" placeholder="Your Name">
+
+    <input type="email" id="email" placeholder="Gmail">
+
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="signup()">Create Account</button>
+
+    <p id="message"></p>
+
+    <div class="login">
+        Already have an account?
+        <a href="login.html">Login</a>
+    </div>
+
+</div>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    updateProfile
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBwwlCkGQcqWiULRU_6SE_zQ_kMxYBx8mk",
+  authDomain: "t5x-ldkn.firebaseapp.com",
+  projectId: "t5x-ldkn",
+  storageBucket: "t5x-ldkn.firebasestorage.app",
+  messagingSenderId: "278540583487",
+  appId: "1:278540583487:web:631a100fd6a286962eae8a",
+  measurementId: "G-LSDEL437QQ"
+};
+
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+
+window.signup = async function () {
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    const message = document.getElementById("message");
+
+    if (!name || !email || !password) {
+        message.textContent = "Please fill all fields.";
+        return;
+    }
+
+    if (password.length < 6) {
+        message.textContent = "Password must be at least 6 characters.";
+        return;
+    }
+
+    try {
+
+        const userCredential =
+            await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+        await updateProfile(userCredential.user, {
+            displayName: name
+        });
+
+        message.textContent = "Account created successfully!";
+
+        setTimeout(() => {
+            window.location.href = "login.html";
+        }, 1200);
+
+    } catch (error) {
+
+        if (error.code === "auth/email-already-in-use") {
+            message.textContent = "This email is already registered.";
+        } else {
+            message.textContent = error.message;
+        }
+    }
+};
+
+</script>
+
+</body>
+</html>
