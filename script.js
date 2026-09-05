@@ -59,7 +59,7 @@ window.openChat = function(){
         return;
     }
 
-    loadChat(user.uid);
+    loadChat(user.oNSKRlCO5SeQ4gXtyyNB7CDK7dx1);
 };
 
 
