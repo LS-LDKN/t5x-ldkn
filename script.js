@@ -88,7 +88,7 @@ window.openChat = function () {
    LOAD USER CHAT
 ========================= */
 
-function loadChat(oNSKRlCO5SeQ4gXtyyNB7CDK7dx1) {
+function loadChat("oNSKRlCO5SeQ4gXtyyNB7CDK7dx1") {
 
     const messagesBox =
         document.getElementById("chatMessages");
