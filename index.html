@@ -148,7 +148,7 @@ section{
     line-height:1.8;
 }
 
-/* SKILLS */
+/* CARDS */
 
 .cards{
     display:grid;
@@ -185,8 +185,6 @@ section{
 /* TEAM */
 
 .team-card{
-    max-width:350px;
-    margin:auto;
     background:#0b1228;
     border:1px solid #00e5ff;
     border-radius:20px;
@@ -272,6 +270,11 @@ input:focus{
     cursor:pointer;
 }
 
+.auth-btn:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
 .switch{
     text-align:center;
     margin-top:18px;
@@ -303,7 +306,7 @@ input:focus{
     text-decoration:underline;
 }
 
-/* USER */
+/* USER PANEL */
 
 #userPanel{
     display:none;
@@ -369,12 +372,6 @@ input:focus{
     border-radius:18px;
     padding:30px;
     text-align:center;
-    transition:.3s;
-}
-
-.dashboard-card:hover{
-    transform:translateY(-5px);
-    border-color:#00e5ff;
 }
 
 .dashboard-card .icon{
@@ -392,15 +389,7 @@ input:focus{
     word-break:break-word;
 }
 
-.dashboard-home{
-    margin-top:30px;
-    text-align:center;
-}
-
-
-/* =========================
-   CHAT
-========================= */
+/* CHAT */
 
 .chat-box{
     margin-top:30px;
@@ -411,7 +400,6 @@ input:focus{
 }
 
 .chat-box h2{
-    color:white;
     margin-bottom:20px;
 }
 
@@ -480,10 +468,7 @@ input:focus{
     margin:0;
 }
 
-
-/* =========================
-   ADMIN PANEL
-========================= */
+/* ADMIN */
 
 .admin-section{
     display:none;
@@ -591,7 +576,6 @@ input:focus{
     color:#71809d;
 }
 
-
 /* FOOTER */
 
 footer{
@@ -600,7 +584,6 @@ footer{
     border-top:1px solid #18233f;
     color:#71809d;
 }
-
 
 /* MOBILE */
 
@@ -655,8 +638,6 @@ footer{
 
 <body>
 
-<!-- NAVBAR -->
-
 <nav>
 
     <div class="logo">
@@ -670,7 +651,11 @@ footer{
         <a href="#team" onclick="showHome()">Team</a>
 
         <span id="authButtons">
-            <a href="#auth" class="nav-btn" onclick="showLogin()">Login</a>
+            <a href="#auth"
+               class="nav-btn"
+               onclick="showLogin()">
+                Login
+            </a>
         </span>
 
         <span id="userPanel">
@@ -702,7 +687,7 @@ footer{
 </nav>
 
 
-<!-- MAIN WEBSITE -->
+<!-- HOME -->
 
 <main id="homePage">
 
@@ -828,7 +813,7 @@ footer{
 
         <div class="team-card">
             <div class="avatar">K</div>
-            <h3>khushi Goel</h3>
+            <h3>Khushi Goel</h3>
             <div class="role">Team Member</div>
             <p>
                 Team member of T5X LDKN,
@@ -954,7 +939,7 @@ footer{
         </div>
 
 
-        <div class="dashboard-home">
+        <div style="margin-top:30px;text-align:center;">
 
             <button
                 class="auth-btn"
@@ -982,7 +967,7 @@ footer{
 
         <div class="admin-layout">
 
-            <!-- USERS -->
+            <!-- USER LIST -->
 
             <div class="user-list">
 
@@ -1052,7 +1037,6 @@ footer{
 <section class="auth-section" id="auth">
 
     <div class="auth-box">
-
 
         <!-- SIGNUP -->
 
@@ -1130,7 +1114,7 @@ footer{
         </div>
 
 
-        <!-- FORGOT -->
+        <!-- FORGOT PASSWORD -->
 
         <div id="forgotForm" style="display:none;">
 
@@ -1182,14 +1166,18 @@ footer{
         📞 Contact: +91 9548032485
     </p>
 
-    © 2026 T5X LDKN — All Rights Reserved
+    <p>
+        © 2026 T5X LDKN — All Rights Reserved
+    </p>
 
 </footer>
 
 
 <script type="module">
 
-/* FIREBASE */
+/* =========================
+   FIREBASE IMPORTS
+========================= */
 
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
@@ -1211,15 +1199,16 @@ import {
     doc,
     setDoc,
     addDoc,
-    query,
-    orderBy,
+    getDocs,
     onSnapshot,
     serverTimestamp
 }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
-/* FIREBASE CONFIG */
+/* =========================
+   FIREBASE CONFIG
+========================= */
 
 const firebaseConfig = {
     apiKey: "AIzaSyBwwlCkGQcqWiULRU_6SE_zQ_kMxYBx8mk",
@@ -1227,9 +1216,14 @@ const firebaseConfig = {
     projectId: "t5x-ldkn",
     storageBucket: "t5x-ldkn.firebasestorage.app",
     messagingSenderId: "278540583487",
-    appId: "1:278540583487:web:631a100fd6a286962eae8a",
+    appId: "1:278540583487:web:631a100fd6a286962eae8",
     measurementId: "G-LSDEL437QQ"
 };
+
+
+/* =========================
+   FIREBASE START
+========================= */
 
 const app = initializeApp(firebaseConfig);
 
@@ -1239,19 +1233,37 @@ const db = getFirestore(app);
 
 
 /* =========================
-   IMPORTANT
-   APNE ADMIN ACCOUNT KA UID YAHAN DALO
+   ADMIN UID
 ========================= */
 
-const ADMIN_UID = "oNSKRlCO5SeQ4gXtyyNB7CDK7dx1";
+const ADMIN_UID =
+    "oNSKRlCO5SeQ4gXtyyNB7CDK7dx1";
 
 
-/* VARIABLES */
+/* =========================
+   VARIABLES
+========================= */
 
 let chatUnsubscribe = null;
+
 let adminChatUnsubscribe = null;
+
 let usersUnsubscribe = null;
+
 let selectedUserId = null;
+
+
+/* =========================
+   SAME CHAT ID
+========================= */
+
+function getChatId(userId){
+
+    return [ADMIN_UID,userId]
+        .sort()
+        .join("_");
+
+}
 
 
 /* =========================
@@ -1260,32 +1272,51 @@ let selectedUserId = null;
 
 window.showHome = function(){
 
-    document.getElementById("homePage").style.display = "block";
-    document.getElementById("auth").style.display = "none";
-    document.getElementById("dashboard").style.display = "none";
-    document.getElementById("admin").style.display = "none";
+    document.getElementById("homePage")
+        .style.display = "block";
+
+    document.getElementById("auth")
+        .style.display = "none";
+
+    document.getElementById("dashboard")
+        .style.display = "none";
+
+    document.getElementById("admin")
+        .style.display = "none";
 
     window.scrollTo(0,0);
 };
 
 
 /* =========================
-   LOGIN
+   LOGIN PAGE
 ========================= */
 
 window.showLogin = function(){
 
-    document.getElementById("homePage").style.display = "none";
-    document.getElementById("dashboard").style.display = "none";
-    document.getElementById("admin").style.display = "none";
+    document.getElementById("homePage")
+        .style.display = "none";
 
-    document.getElementById("auth").style.display = "flex";
+    document.getElementById("dashboard")
+        .style.display = "none";
 
-    document.getElementById("signupForm").style.display = "none";
-    document.getElementById("forgotForm").style.display = "none";
-    document.getElementById("loginForm").style.display = "block";
+    document.getElementById("admin")
+        .style.display = "none";
 
-    document.getElementById("loginMessage").textContent = "";
+    document.getElementById("auth")
+        .style.display = "flex";
+
+    document.getElementById("signupForm")
+        .style.display = "none";
+
+    document.getElementById("forgotForm")
+        .style.display = "none";
+
+    document.getElementById("loginForm")
+        .style.display = "block";
+
+    document.getElementById("loginMessage")
+        .textContent = "";
 
     window.scrollTo(0,0);
 };
@@ -1297,39 +1328,63 @@ window.showLogin = function(){
 
 window.showSignup = function(){
 
-    document.getElementById("homePage").style.display = "none";
-    document.getElementById("dashboard").style.display = "none";
-    document.getElementById("admin").style.display = "none";
+    document.getElementById("homePage")
+        .style.display = "none";
 
-    document.getElementById("auth").style.display = "flex";
+    document.getElementById("dashboard")
+        .style.display = "none";
 
-    document.getElementById("loginForm").style.display = "none";
-    document.getElementById("forgotForm").style.display = "none";
-    document.getElementById("signupForm").style.display = "block";
+    document.getElementById("admin")
+        .style.display = "none";
 
-    document.getElementById("signupMessage").textContent = "";
+    document.getElementById("auth")
+        .style.display = "flex";
+
+    document.getElementById("loginForm")
+        .style.display = "none";
+
+    document.getElementById("forgotForm")
+        .style.display = "none";
+
+    document.getElementById("signupForm")
+        .style.display = "block";
+
+    document.getElementById("signupMessage")
+        .textContent = "";
 
     window.scrollTo(0,0);
 };
 
 
 /* =========================
-   FORGOT PASSWORD
+   FORGOT PAGE
 ========================= */
 
 window.showForgotPassword = function(){
 
-    document.getElementById("homePage").style.display = "none";
-    document.getElementById("dashboard").style.display = "none";
-    document.getElementById("admin").style.display = "none";
+    document.getElementById("homePage")
+        .style.display = "none";
 
-    document.getElementById("auth").style.display = "flex";
+    document.getElementById("dashboard")
+        .style.display = "none";
 
-    document.getElementById("loginForm").style.display = "none";
-    document.getElementById("signupForm").style.display = "none";
-    document.getElementById("forgotForm").style.display = "block";
+    document.getElementById("admin")
+        .style.display = "none";
 
-    document.getElementById("forgotMessage").textContent = "";
+    document.getElementById("auth")
+        .style.display = "flex";
+
+    document.getElementById("loginForm")
+        .style.display = "none";
+
+    document.getElementById("signupForm")
+        .style.display = "none";
+
+    document.getElementById("forgotForm")
+        .style.display = "block";
+
+    document.getElementById("forgotMessage")
+        .textContent = "";
 
     window.scrollTo(0,0);
 };
@@ -1341,21 +1396,30 @@ window.showForgotPassword = function(){
 
 window.showDashboard = function(){
 
-    if(!auth.currentUser){
+    const user = auth.currentUser;
+
+    if(!user){
 
         showLogin();
 
         return;
     }
 
-    document.getElementById("homePage").style.display = "none";
-    document.getElementById("auth").style.display = "none";
-    document.getElementById("admin").style.display = "none";
-    document.getElementById("dashboard").style.display = "block";
+    document.getElementById("homePage")
+        .style.display = "none";
 
-    updateDashboard(auth.currentUser);
+    document.getElementById("auth")
+        .style.display = "none";
 
-    loadChat(auth.currentUser.uid);
+    document.getElementById("admin")
+        .style.display = "none";
+
+    document.getElementById("dashboard")
+        .style.display = "block";
+
+    updateDashboard(user);
+
+    loadChat(user.uid);
 
     window.scrollTo(0,0);
 };
@@ -1385,10 +1449,17 @@ window.showAdmin = function(){
         return;
     }
 
-    document.getElementById("homePage").style.display = "none";
-    document.getElementById("auth").style.display = "none";
-    document.getElementById("dashboard").style.display = "none";
-    document.getElementById("admin").style.display = "block";
+    document.getElementById("homePage")
+        .style.display = "none";
+
+    document.getElementById("auth")
+        .style.display = "none";
+
+    document.getElementById("dashboard")
+        .style.display = "none";
+
+    document.getElementById("admin")
+        .style.display = "block";
 
     loadUsers();
 
@@ -1403,16 +1474,18 @@ window.showAdmin = function(){
 function updateDashboard(user){
 
     const name =
-        user.displayName || user.email || "User";
+        user.displayName ||
+        user.email ||
+        "User";
 
-    document.getElementById("dashboardName").textContent =
-        name;
+    document.getElementById("dashboardName")
+        .textContent = name;
 
-    document.getElementById("dashboardUserName").textContent =
-        name;
+    document.getElementById("dashboardUserName")
+        .textContent = name;
 
-    document.getElementById("dashboardEmail").textContent =
-        user.email || "No email";
+    document.getElementById("dashboardEmail")
+        .textContent = user.email || "No email";
 }
 
 
@@ -1423,13 +1496,16 @@ function updateDashboard(user){
 window.signup = async function(){
 
     const name =
-        document.getElementById("signupName").value.trim();
+        document.getElementById("signupName")
+        .value.trim();
 
     const email =
-        document.getElementById("signupEmail").value.trim();
+        document.getElementById("signupEmail")
+        .value.trim();
 
     const password =
-        document.getElementById("signupPassword").value;
+        document.getElementById("signupPassword")
+        .value;
 
     const message =
         document.getElementById("signupMessage");
@@ -1470,15 +1546,23 @@ window.signup = async function(){
         );
 
 
-        /* SAVE USER IN FIRESTORE */
+        /* SAVE USER */
 
         await setDoc(
-            doc(db,"users",result.user.uid),
+            doc(
+                db,
+                "users",
+                result.user.uid
+            ),
             {
                 uid:result.user.uid,
                 name:name,
                 email:email,
-                createdAt:serverTimestamp()
+                createdAt:serverTimestamp(),
+                updatedAt:serverTimestamp()
+            },
+            {
+                merge:true
             }
         );
 
@@ -1487,9 +1571,14 @@ window.signup = async function(){
             "Account created successfully!";
 
 
-        document.getElementById("signupName").value = "";
-        document.getElementById("signupEmail").value = "";
-        document.getElementById("signupPassword").value = "";
+        document.getElementById("signupName")
+            .value = "";
+
+        document.getElementById("signupEmail")
+            .value = "";
+
+        document.getElementById("signupPassword")
+            .value = "";
 
 
         setTimeout(() => {
@@ -1502,16 +1591,25 @@ window.signup = async function(){
 
     catch(error){
 
-        console.log(error);
+        console.error(
+            "Signup error:",
+            error
+        );
 
-        if(error.code === "auth/email-already-in-use"){
+        if(
+            error.code ===
+            "auth/email-already-in-use"
+        ){
 
             message.textContent =
                 "This email is already registered.";
 
         }
 
-        else if(error.code === "auth/invalid-email"){
+        else if(
+            error.code ===
+            "auth/invalid-email"
+        ){
 
             message.textContent =
                 "Please enter a valid email.";
@@ -1522,8 +1620,11 @@ window.signup = async function(){
 
             message.textContent =
                 error.message;
+
         }
+
     }
+
 };
 
 
@@ -1534,10 +1635,12 @@ window.signup = async function(){
 window.login = async function(){
 
     const email =
-        document.getElementById("loginEmail").value.trim();
+        document.getElementById("loginEmail")
+        .value.trim();
 
     const password =
-        document.getElementById("loginPassword").value;
+        document.getElementById("loginPassword")
+        .value;
 
     const message =
         document.getElementById("loginMessage");
@@ -1560,8 +1663,10 @@ window.login = async function(){
             password
         );
 
+
         message.textContent =
             "Login successful!";
+
 
         setTimeout(() => {
 
@@ -1573,11 +1678,16 @@ window.login = async function(){
 
     catch(error){
 
-        console.log(error);
+        console.error(
+            "Login error:",
+            error
+        );
 
         if(
-            error.code === "auth/invalid-credential" ||
-            error.code === "auth/wrong-password"
+            error.code ===
+            "auth/invalid-credential" ||
+            error.code ===
+            "auth/wrong-password"
         ){
 
             message.textContent =
@@ -1589,8 +1699,11 @@ window.login = async function(){
 
             message.textContent =
                 error.message;
+
         }
+
     }
+
 };
 
 
@@ -1601,7 +1714,8 @@ window.login = async function(){
 window.forgotPassword = async function(){
 
     const email =
-        document.getElementById("forgotEmail").value.trim();
+        document.getElementById("forgotEmail")
+        .value.trim();
 
     const message =
         document.getElementById("forgotMessage");
@@ -1624,29 +1738,22 @@ window.forgotPassword = async function(){
         );
 
         message.textContent =
-            "Password reset link has been sent to your email.";
+            "Password reset link has been sent.";
 
-        document.getElementById("forgotEmail").value = "";
+        document.getElementById("forgotEmail")
+            .value = "";
 
     }
 
     catch(error){
 
-        console.log(error);
+        console.error(error);
 
-        if(error.code === "auth/invalid-email"){
+        message.textContent =
+            error.message;
 
-            message.textContent =
-                "Please enter a valid email.";
-
-        }
-
-        else{
-
-            message.textContent =
-                error.message;
-        }
     }
+
 };
 
 
@@ -1661,18 +1768,24 @@ window.logout = async function(){
         await signOut(auth);
 
         if(chatUnsubscribe){
+
             chatUnsubscribe();
             chatUnsubscribe = null;
+
         }
 
         if(adminChatUnsubscribe){
+
             adminChatUnsubscribe();
             adminChatUnsubscribe = null;
+
         }
 
         if(usersUnsubscribe){
+
             usersUnsubscribe();
             usersUnsubscribe = null;
+
         }
 
         selectedUserId = null;
@@ -1683,14 +1796,15 @@ window.logout = async function(){
 
     catch(error){
 
-        console.log(error);
+        console.error(error);
 
     }
+
 };
 
 
 /* =========================
-   USER CHAT LOAD
+   USER CHAT
 ========================= */
 
 function loadChat(userId){
@@ -1703,33 +1817,61 @@ function loadChat(userId){
     if(chatUnsubscribe){
 
         chatUnsubscribe();
+        chatUnsubscribe = null;
 
     }
+
+    const chatId =
+        getChatId(userId);
+
 
     const messagesRef =
         collection(
             db,
             "chats",
-            userId,
+            chatId,
             "messages"
-        );
-
-    const messagesQuery =
-        query(
-            messagesRef,
-            orderBy("createdAt","asc")
         );
 
 
     chatUnsubscribe =
         onSnapshot(
-            messagesQuery,
+            messagesRef,
+
             (snapshot) => {
 
                 messagesBox.innerHTML = "";
 
+                const messages = [];
 
-                if(snapshot.empty){
+
+                snapshot.forEach(
+                    (messageDoc) => {
+
+                        messages.push(
+                            messageDoc.data()
+                        );
+
+                    }
+                );
+
+
+                messages.sort(
+                    (a,b) => {
+
+                        const timeA =
+                            a.createdAt?.seconds || 0;
+
+                        const timeB =
+                            b.createdAt?.seconds || 0;
+
+                        return timeA - timeB;
+
+                    }
+                );
+
+
+                if(messages.length === 0){
 
                     messagesBox.innerHTML =
                         `<p class="chat-empty">
@@ -1740,47 +1882,48 @@ function loadChat(userId){
                 }
 
 
-                snapshot.forEach((messageDoc) => {
+                messages.forEach(
+                    (data) => {
 
-                    const data =
-                        messageDoc.data();
+                        const div =
+                            document.createElement("div");
 
-                    const div =
-                        document.createElement("div");
 
-                    div.className =
-                        "chat-message " +
-                        (
-                            data.senderType === "user"
+                        div.className =
+                            "chat-message " +
+                            (
+                                data.senderType === "user"
                                 ? "user"
                                 : "admin"
-                        );
-
-
-                    div.textContent =
-                        data.text || "";
-
-
-                    if(data.createdAt){
-
-                        const time =
-                            document.createElement("span");
-
-                        time.className =
-                            "chat-time";
-
-                        time.textContent =
-                            formatTime(
-                                data.createdAt
                             );
 
-                        div.appendChild(time);
+
+                        div.textContent =
+                            data.text || "";
+
+
+                        if(data.createdAt){
+
+                            const time =
+                                document.createElement("span");
+
+                            time.className =
+                                "chat-time";
+
+                            time.textContent =
+                                formatTime(
+                                    data.createdAt
+                                );
+
+                            div.appendChild(time);
+
+                        }
+
+
+                        messagesBox.appendChild(div);
+
                     }
-
-
-                    messagesBox.appendChild(div);
-
-                });
+                );
 
 
                 messagesBox.scrollTop =
@@ -1799,6 +1942,7 @@ function loadChat(userId){
                     `<p class="chat-empty">
                         Unable to load chat.
                     </p>`;
+
             }
         );
 }
@@ -1810,7 +1954,8 @@ function loadChat(userId){
 
 window.sendMessage = async function(){
 
-    const user = auth.currentUser;
+    const user =
+        auth.currentUser;
 
     if(!user){
 
@@ -1819,29 +1964,42 @@ window.sendMessage = async function(){
         return;
     }
 
+
     const input =
-        document.getElementById("chatInput");
+        document.getElementById(
+            "chatInput"
+        );
+
 
     const text =
         input.value.trim();
+
 
     if(!text) return;
 
 
     try{
 
+        const chatId =
+            getChatId(user.uid);
+
+
         await addDoc(
             collection(
                 db,
                 "chats",
-                user.uid,
+                chatId,
                 "messages"
             ),
             {
                 text:text,
                 senderId:user.uid,
+                senderName:
+                    user.displayName ||
+                    "User",
                 senderType:"user",
-                createdAt:serverTimestamp()
+                createdAt:
+                    serverTimestamp()
             }
         );
 
@@ -1852,127 +2010,176 @@ window.sendMessage = async function(){
 
     catch(error){
 
-        console.error(error);
+        console.error(
+            "User message error:",
+            error
+        );
 
         alert(
             "Message send nahi hua: " +
             error.message
         );
+
     }
+
 };
 
 
 /* =========================
-   ADMIN LOAD USERS
+   LOAD USERS
 ========================= */
 
 function loadUsers(){
 
     const usersList =
-        document.getElementById("usersList");
+        document.getElementById(
+            "usersList"
+        );
+
+
+    if(!usersList) return;
 
 
     if(usersUnsubscribe){
 
         usersUnsubscribe();
+        usersUnsubscribe = null;
 
     }
 
 
-    const usersRef =
-        collection(db,"users");
-
-
     usersUnsubscribe =
         onSnapshot(
-            usersRef,
+            collection(db,"users"),
+
             (snapshot) => {
 
                 usersList.innerHTML = "";
 
 
-                if(snapshot.empty){
+                let count = 0;
+
+
+                snapshot.forEach(
+                    (userDoc) => {
+
+                        const user =
+                            userDoc.data();
+
+
+                        /* ADMIN KO LIST SE REMOVE */
+
+                        if(
+                            user.uid === ADMIN_UID ||
+                            userDoc.id === ADMIN_UID
+                        ){
+
+                            return;
+
+                        }
+
+
+                        count++;
+
+
+                        const div =
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        div.className =
+                            "user-item";
+
+
+                        if(
+                            selectedUserId === user.uid
+                        ){
+
+                            div.classList.add(
+                                "active"
+                            );
+
+                        }
+
+
+                        const strong =
+                            document.createElement(
+                                "strong"
+                            );
+
+
+                        strong.textContent =
+                            user.name ||
+                            "User";
+
+
+                        const small =
+                            document.createElement(
+                                "small"
+                            );
+
+
+                        small.textContent =
+                            user.email ||
+                            "";
+
+
+                        div.appendChild(strong);
+
+                        div.appendChild(small);
+
+
+                        div.onclick =
+                            function(){
+
+                                selectAdminUser(
+                                    user.uid,
+                                    user.name ||
+                                    "User"
+                                );
+
+                            };
+
+
+                        usersList.appendChild(
+                            div
+                        );
+
+                    }
+                );
+
+
+                if(count === 0){
 
                     usersList.innerHTML =
                         `<p style="color:#71809d;">
                             No users found.
                         </p>`;
 
-                    return;
                 }
-
-
-                snapshot.forEach((userDoc) => {
-
-                    const user =
-                        userDoc.data();
-
-
-                    const div =
-                        document.createElement("div");
-
-                    div.className =
-                        "user-item";
-
-
-                    if(
-                        selectedUserId === user.uid
-                    ){
-
-                        div.classList.add("active");
-
-                    }
-
-
-                    const strong =
-                        document.createElement("strong");
-
-                    strong.textContent =
-                        user.name || "User";
-
-
-                    const small =
-                        document.createElement("small");
-
-                    small.textContent =
-                        user.email || "";
-
-
-                    div.appendChild(strong);
-                    div.appendChild(small);
-
-
-                    div.onclick = function(){
-
-                        selectAdminUser(
-                            user.uid,
-                            user.name || "User"
-                        );
-
-                    };
-
-
-                    usersList.appendChild(div);
-
-                });
 
             },
 
             (error) => {
 
-                console.error(error);
+                console.error(
+                    "Load users error:",
+                    error
+                );
 
                 usersList.innerHTML =
                     `<p style="color:#ff4d6d;">
                         Unable to load users.
                     </p>`;
+
             }
         );
 }
 
 
 /* =========================
-   SELECT ADMIN USER
+   SELECT USER
 ========================= */
 
 function selectAdminUser(
@@ -1980,13 +2187,15 @@ function selectAdminUser(
     userName
 ){
 
-    selectedUserId = userId;
+    selectedUserId =
+        userId;
 
 
     document.getElementById(
         "adminChatTitle"
     ).textContent =
-        "💬 Chat with " + userName;
+        "💬 Chat with " +
+        userName;
 
 
     document.getElementById(
@@ -2002,7 +2211,24 @@ function selectAdminUser(
     loadAdminChat(userId);
 
 
-    loadUsers();
+    /* ACTIVE USER REFRESH */
+
+    const items =
+        document.querySelectorAll(
+            ".user-item"
+        );
+
+
+    items.forEach(
+        item => {
+
+            item.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
 }
 
 
@@ -2018,38 +2244,68 @@ function loadAdminChat(userId){
         );
 
 
+    if(!messagesBox) return;
+
+
     if(adminChatUnsubscribe){
 
         adminChatUnsubscribe();
+        adminChatUnsubscribe = null;
 
     }
+
+
+    const chatId =
+        getChatId(userId);
 
 
     const messagesRef =
         collection(
             db,
             "chats",
-            userId,
+            chatId,
             "messages"
-        );
-
-
-    const messagesQuery =
-        query(
-            messagesRef,
-            orderBy("createdAt","asc")
         );
 
 
     adminChatUnsubscribe =
         onSnapshot(
-            messagesQuery,
+            messagesRef,
+
             (snapshot) => {
 
                 messagesBox.innerHTML = "";
 
+                const messages = [];
 
-                if(snapshot.empty){
+
+                snapshot.forEach(
+                    (messageDoc) => {
+
+                        messages.push(
+                            messageDoc.data()
+                        );
+
+                    }
+                );
+
+
+                messages.sort(
+                    (a,b) => {
+
+                        const timeA =
+                            a.createdAt?.seconds || 0;
+
+                        const timeB =
+                            b.createdAt?.seconds || 0;
+
+                        return timeA - timeB;
+
+                    }
+                );
+
+
+                if(messages.length === 0){
 
                     messagesBox.innerHTML =
                         `<div class="no-user">
@@ -2060,49 +2316,54 @@ function loadAdminChat(userId){
                 }
 
 
-                snapshot.forEach((messageDoc) => {
+                messages.forEach(
+                    (data) => {
 
-                    const data =
-                        messageDoc.data();
-
-
-                    const div =
-                        document.createElement("div");
-
-
-                    div.className =
-                        "chat-message " +
-                        (
-                            data.senderType === "admin"
-                                ? "admin"
-                                : "user"
-                        );
-
-
-                    div.textContent =
-                        data.text || "";
-
-
-                    if(data.createdAt){
-
-                        const time =
-                            document.createElement("span");
-
-                        time.className =
-                            "chat-time";
-
-                        time.textContent =
-                            formatTime(
-                                data.createdAt
+                        const div =
+                            document.createElement(
+                                "div"
                             );
 
-                        div.appendChild(time);
+
+                        div.className =
+                            "chat-message " +
+                            (
+                                data.senderType === "admin"
+                                ? "admin"
+                                : "user"
+                            );
+
+
+                        div.textContent =
+                            data.text || "";
+
+
+                        if(data.createdAt){
+
+                            const time =
+                                document.createElement(
+                                    "span"
+                                );
+
+                            time.className =
+                                "chat-time";
+
+                            time.textContent =
+                                formatTime(
+                                    data.createdAt
+                                );
+
+                            div.appendChild(time);
+
+                        }
+
+
+                        messagesBox.appendChild(
+                            div
+                        );
+
                     }
-
-
-                    messagesBox.appendChild(div);
-
-                });
+                );
 
 
                 messagesBox.scrollTop =
@@ -2121,6 +2382,7 @@ function loadAdminChat(userId){
                     `<div class="no-user">
                         Unable to load messages.
                     </div>`;
+
             }
         );
 }
@@ -2130,7 +2392,8 @@ function loadAdminChat(userId){
    ADMIN SEND MESSAGE
 ========================= */
 
-window.adminSendMessage = async function(){
+window.adminSendMessage =
+async function(){
 
     const admin =
         auth.currentUser;
@@ -2144,7 +2407,9 @@ window.adminSendMessage = async function(){
     }
 
 
-    if(admin.uid !==oNSKRlCO5SeQ4gXtyyNB7CDK7dx1){
+    /* IMPORTANT FIX */
+
+    if(admin.uid !== ADMIN_UID){
 
         alert("Access denied.");
 
@@ -2154,7 +2419,9 @@ window.adminSendMessage = async function(){
 
     if(!selectedUserId){
 
-        alert("Please select a user first.");
+        alert(
+            "Please select a user first."
+        );
 
         return;
     }
@@ -2175,40 +2442,55 @@ window.adminSendMessage = async function(){
 
     try{
 
+        const chatId =
+            getChatId(
+                selectedUserId
+            );
+
+
         await addDoc(
             collection(
                 db,
                 "chats",
-                selectedUserId,
+                chatId,
                 "messages"
             ),
             {
                 text:text,
-                senderId:ADMIN_UID,
+                senderId:admin.uid,
+                senderName:
+                    "T5X LDKN Admin",
                 senderType:"admin",
-                createdAt:serverTimestamp()
+                createdAt:
+                    serverTimestamp()
             }
         );
 
 
         input.value = "";
 
+
     }
 
     catch(error){
 
-        console.error(error);
+        console.error(
+            "Admin message error:",
+            error
+        );
 
         alert(
             "Admin message send nahi hua: " +
             error.message
         );
+
     }
+
 };
 
 
 /* =========================
-   ENTER KEY - USER CHAT
+   ENTER TO SEND
 ========================= */
 
 document.addEventListener(
@@ -2218,12 +2500,13 @@ document.addEventListener(
         if(
             event.key === "Enter" &&
             document.activeElement &&
-            document.activeElement.id === "chatInput"
+            document.activeElement.id ===
+            "chatInput"
         ){
 
             event.preventDefault();
 
-            sendMessage();
+            window.sendMessage();
 
         }
 
@@ -2231,12 +2514,13 @@ document.addEventListener(
         if(
             event.key === "Enter" &&
             document.activeElement &&
-            document.activeElement.id === "adminChatInput"
+            document.activeElement.id ===
+            "adminChatInput"
         ){
 
             event.preventDefault();
 
-            adminSendMessage();
+            window.adminSendMessage();
 
         }
 
@@ -2245,31 +2529,32 @@ document.addEventListener(
 
 
 /* =========================
-   TIME FORMAT
+   TIME
 ========================= */
 
 function formatTime(timestamp){
 
-    if(!timestamp || !timestamp.toDate){
+    if(
+        !timestamp ||
+        !timestamp.toDate
+    ){
 
         return "";
 
     }
 
 
-    const date =
-        timestamp.toDate();
-
-
-    return date.toLocaleString(
-        "en-IN",
-        {
-            day:"2-digit",
-            month:"short",
-            hour:"2-digit",
-            minute:"2-digit"
-        }
-    );
+    return timestamp
+        .toDate()
+        .toLocaleString(
+            "en-IN",
+            {
+                day:"2-digit",
+                month:"short",
+                hour:"2-digit",
+                minute:"2-digit"
+            }
+        );
 }
 
 
@@ -2279,7 +2564,7 @@ function formatTime(timestamp){
 
 onAuthStateChanged(
     auth,
-    (user) => {
+    async (user) => {
 
         const authButtons =
             document.getElementById(
@@ -2312,10 +2597,51 @@ onAuthStateChanged(
 
             userName.textContent =
                 user.displayName ||
-                user.email;
+                user.email ||
+                "User";
 
 
             updateDashboard(user);
+
+
+            /* =========================
+               AUTO CREATE / UPDATE USER
+            ========================= */
+
+            try{
+
+                await setDoc(
+                    doc(
+                        db,
+                        "users",
+                        user.uid
+                    ),
+                    {
+                        uid:user.uid,
+                        name:
+                            user.displayName ||
+                            "User",
+                        email:
+                            user.email ||
+                            "",
+                        updatedAt:
+                            serverTimestamp()
+                    },
+                    {
+                        merge:true
+                    }
+                );
+
+            }
+
+            catch(error){
+
+                console.error(
+                    "User profile save error:",
+                    error
+                );
+
+            }
 
 
             if(user.uid === ADMIN_UID){
@@ -2345,15 +2671,6 @@ onAuthStateChanged(
             adminButton.style.display =
                 "none";
 
-            document.getElementById(
-                "dashboard"
-            ).style.display =
-                "none";
-
-            document.getElementById(
-                "admin"
-            ).style.display =
-                "none";
         }
 
     }
@@ -2363,4 +2680,3 @@ onAuthStateChanged(
 
 </body>
 </html>
-```
