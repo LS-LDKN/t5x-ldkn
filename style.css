@@ -297,6 +297,164 @@ footer {
     color: #7e899d;
 }
 
+
+/* =========================
+   MEMBER DETAIL
+========================= */
+
+.member-detail {
+    max-width: 700px;
+    margin: 35px auto 0;
+    padding: 35px;
+    background: #0b1228;
+    border: 1px solid #00e5ff;
+    border-radius: 20px;
+    display: none;
+    animation: showDetail .4s ease;
+}
+
+.member-detail.active {
+    display: block;
+}
+
+.member-detail h2 {
+    color: #00e5ff;
+    margin-bottom: 10px;
+}
+
+.member-detail p {
+    color: #aeb7c9;
+    line-height: 1.7;
+    margin: 10px 0;
+}
+
+.member-detail h3 {
+    margin-top: 20px;
+    color: white;
+}
+
+@keyframes showDetail {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.team-card {
+    cursor: pointer;
+}
+
+
+/* =========================
+   REAL-TIME CHAT
+========================= */
+
+.chat-box {
+    max-width: 900px;
+    margin: 30px auto 0;
+    background: #0b1228;
+    border: 1px solid #00e5ff;
+    border-radius: 20px;
+    padding: 25px;
+    text-align: left;
+    box-shadow: 0 0 35px rgba(0,229,255,.08);
+}
+
+.chat-box h2 {
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.chat-box h2 span {
+    color: #00e5ff;
+}
+
+.chat-messages {
+    height: 350px;
+    overflow-y: auto;
+    padding: 15px;
+    background: #050816;
+    border: 1px solid #1c2a49;
+    border-radius: 15px;
+}
+
+.chat-empty {
+    text-align: center;
+    color: #71809d;
+    margin-top: 140px;
+}
+
+.chat-message {
+    max-width: 75%;
+    padding: 10px 14px;
+    margin: 8px 0;
+    border-radius: 15px;
+    word-break: break-word;
+    line-height: 1.5;
+}
+
+.chat-message.user {
+    margin-left: auto;
+    background: #00e5ff;
+    color: #001018;
+    border-bottom-right-radius: 4px;
+}
+
+.chat-message.admin {
+    margin-right: auto;
+    background: #18233f;
+    color: white;
+    border-bottom-left-radius: 4px;
+}
+
+.chat-time {
+    display: block;
+    font-size: 10px;
+    margin-top: 5px;
+    opacity: .7;
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.chat-input-area input {
+    margin: 0;
+    flex: 1;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid #1c2a49;
+    background: #050816;
+    color: white;
+    outline: none;
+}
+
+.chat-input-area input:focus {
+    border-color: #00e5ff;
+}
+
+.chat-input-area input::placeholder {
+    color: #71809d;
+}
+
+.chat-input-area .auth-btn {
+    width: 110px;
+    margin: 0;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 800px) {
 
     header {
@@ -343,50 +501,29 @@ footer {
         text-align: center;
     }
 }
-member-detail {
-    max-width: 700px;
-    margin: 35px auto 0;
-    padding: 35px;
-    background: #0b1228;
-    border: 1px solid #00e5ff;
-    border-radius: 20px;
-    display: none;
-    animation: showDetail .4s ease;
-}
 
-.member-detail.active {
-    display: block;
-}
 
-.member-detail h2 {
-    color: #00e5ff;
-    margin-bottom: 10px;
-}
+@media (max-width: 600px) {
 
-.member-detail p {
-    color: #aeb7c9;
-    line-height: 1.7;
-    margin: 10px 0;
-}
-
-.member-detail h3 {
-    margin-top: 20px;
-    color: white;
-}
-
-@keyframes showDetail {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
+    .chat-box {
+        padding: 15px;
+        border-radius: 15px;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .chat-messages {
+        height: 300px;
     }
-}
 
-.team-card {
-    cursor: pointer;
+    .chat-message {
+        max-width: 88%;
+    }
+
+    .chat-input-area {
+        flex-direction: column;
+    }
+
+    .chat-input-area .auth-btn {
+        width: 100%;
+    }
+
 }
-```
