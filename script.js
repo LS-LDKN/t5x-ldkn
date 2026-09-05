@@ -44,3 +44,175 @@ function showMember(member) {
 
     document.getElementById("member-detail").classList.add("active");
 }
+/* =========================
+   REAL TIME CHAT
+========================= */
+
+let chatUnsubscribe = null;
+
+window.openChat = function(){
+
+    const user = auth.currentUser;
+
+    if(!user){
+        showLogin();
+        return;
+    }
+
+    loadChat(user.uid);
+};
+
+
+function loadChat(userId){
+
+    const messagesBox =
+        document.getElementById("chatMessages");
+
+    if(!messagesBox) return;
+
+    if(chatUnsubscribe){
+        chatUnsubscribe();
+    }
+
+    const messagesRef =
+        collection(
+            db,
+            "chats",
+            userId,
+            "messages"
+        );
+
+    const messagesQuery =
+        query(
+            messagesRef,
+            orderBy("createdAt", "asc")
+        );
+
+    chatUnsubscribe =
+        onSnapshot(
+            messagesQuery,
+            (snapshot) => {
+
+                messagesBox.innerHTML = "";
+
+                if(snapshot.empty){
+
+                    messagesBox.innerHTML =
+                        `<p class="chat-empty">
+                            Start chatting with T5X LDKN Admin 👋
+                        </p>`;
+
+                    return;
+                }
+
+                snapshot.forEach((messageDoc) => {
+
+                    const data =
+                        messageDoc.data();
+
+                    const div =
+                        document.createElement("div");
+
+                    div.className =
+                        "chat-message " +
+                        (data.senderId === userId
+                            ? "user"
+                            : "admin");
+
+                    div.textContent =
+                        data.text || "";
+
+                    messagesBox.appendChild(div);
+
+                });
+
+                messagesBox.scrollTop =
+                    messagesBox.scrollHeight;
+
+            },
+            (error) => {
+
+                console.error(
+                    "Chat error:",
+                    error
+                );
+
+                messagesBox.innerHTML =
+                    `<p class="chat-empty">
+                        Unable to load chat.
+                    </p>`;
+            }
+        );
+}
+
+
+/* SEND USER MESSAGE */
+
+window.sendMessage = async function(){
+
+    const user = auth.currentUser;
+
+    if(!user){
+        showLogin();
+        return;
+    }
+
+    const input =
+        document.getElementById("chatInput");
+
+    const text =
+        input.value.trim();
+
+    if(!text) return;
+
+    try{
+
+        await addDoc(
+            collection(
+                db,
+                "chats",
+                user.uid,
+                "messages"
+            ),
+            {
+                text: text,
+                senderId: user.uid,
+                senderType: "user",
+                createdAt: serverTimestamp()
+            }
+        );
+
+        input.value = "";
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Message send nahi hua: " +
+            error.message
+        );
+    }
+};
+
+
+/* ENTER TO SEND */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Enter" &&
+            document.activeElement &&
+            document.activeElement.id === "chatInput"
+        ){
+
+            event.preventDefault();
+
+            sendMessage();
+        }
+
+    }
+);
