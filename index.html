@@ -289,6 +289,22 @@ input:focus{
     min-height:20px;
 }
 
+/* FORGOT PASSWORD */
+
+.forgot{
+    text-align:center;
+    margin-top:15px;
+}
+
+.forgot span{
+    color:#00e5ff;
+    cursor:pointer;
+}
+
+.forgot span:hover{
+    text-decoration:underline;
+}
+
 /* USER */
 
 #userPanel{
@@ -440,13 +456,10 @@ footer{
         <a href="#home" onclick="showHome()">Home</a>
         <a href="#about" onclick="showHome()">About</a>
         <a href="#team" onclick="showHome()">Team</a>
-        <!-- LOGIN BUTTON -->
 
         <span id="authButtons">
             <a href="#auth" class="nav-btn" onclick="showLogin()">Login</a>
         </span>
-
-        <!-- USER PANEL -->
 
         <span id="userPanel">
 
@@ -472,8 +485,6 @@ footer{
 <!-- MAIN WEBSITE -->
 
 <main id="homePage">
-
-<!-- HOME -->
 
 <section class="hero" id="home">
 
@@ -860,11 +871,57 @@ footer{
                 Login
             </button>
 
+            <!-- FORGOT PASSWORD -->
+
+            <p class="forgot">
+                <span onclick="showForgotPassword()">
+                    Forgot Password?
+                </span>
+            </p>
+
             <p class="message" id="loginMessage"></p>
 
             <p class="switch">
                 Don't have an account?
                 <span onclick="showSignup()">Sign Up</span>
+            </p>
+
+        </div>
+
+
+        <!-- FORGOT PASSWORD FORM -->
+
+        <div id="forgotForm" style="display:none;">
+
+            <h2>Reset Password</h2>
+
+            <p style="
+                color:#aab4c9;
+                text-align:center;
+                line-height:1.6;
+                margin-bottom:15px;
+            ">
+                Enter your registered email and
+                we will send you a password reset link.
+            </p>
+
+            <input
+                type="email"
+                id="forgotEmail"
+                placeholder="Enter your Gmail"
+            >
+
+            <button
+                class="auth-btn"
+                onclick="forgotPassword()">
+                Send Reset Link
+            </button>
+
+            <p class="message" id="forgotMessage"></p>
+
+            <p class="switch">
+                Remember your password?
+                <span onclick="showLogin()">Login</span>
             </p>
 
         </div>
@@ -898,6 +955,7 @@ import {
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
+    sendPasswordResetEmail,
     updateProfile,
     onAuthStateChanged,
     signOut
@@ -949,6 +1007,8 @@ window.showLogin = function(){
 
     document.getElementById("signupForm").style.display = "none";
 
+    document.getElementById("forgotForm").style.display = "none";
+
     document.getElementById("loginForm").style.display = "block";
 
     document.getElementById("loginMessage").textContent = "";
@@ -970,9 +1030,34 @@ window.showSignup = function(){
 
     document.getElementById("loginForm").style.display = "none";
 
+    document.getElementById("forgotForm").style.display = "none";
+
     document.getElementById("signupForm").style.display = "block";
 
     document.getElementById("signupMessage").textContent = "";
+
+    window.scrollTo(0,0);
+
+};
+
+
+/* FORGOT PASSWORD PAGE */
+
+window.showForgotPassword = function(){
+
+    document.getElementById("homePage").style.display = "none";
+
+    document.getElementById("dashboard").style.display = "none";
+
+    document.getElementById("auth").style.display = "flex";
+
+    document.getElementById("loginForm").style.display = "none";
+
+    document.getElementById("signupForm").style.display = "none";
+
+    document.getElementById("forgotForm").style.display = "block";
+
+    document.getElementById("forgotMessage").textContent = "";
 
     window.scrollTo(0,0);
 
@@ -1188,6 +1273,76 @@ window.login = async function(){
 
             message.textContent =
                 "Wrong email or password.";
+
+        }
+
+        else{
+
+            message.textContent =
+                error.message;
+
+        }
+
+    }
+
+};
+
+
+/* FORGOT PASSWORD */
+
+window.forgotPassword = async function(){
+
+    const email =
+        document.getElementById("forgotEmail").value.trim();
+
+    const message =
+        document.getElementById("forgotMessage");
+
+
+    message.textContent = "";
+
+
+    if(!email){
+
+        message.textContent =
+            "Please enter your email.";
+
+        return;
+
+    }
+
+
+    try{
+
+        await sendPasswordResetEmail(
+            auth,
+            email
+        );
+
+
+        message.textContent =
+            "Password reset link has been sent to your email.";
+
+        document.getElementById("forgotEmail").value = "";
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+
+        if(error.code === "auth/invalid-email"){
+
+            message.textContent =
+                "Please enter a valid email.";
+
+        }
+
+        else if(error.code === "auth/user-not-found"){
+
+            message.textContent =
+                "No account found with this email.";
 
         }
 
