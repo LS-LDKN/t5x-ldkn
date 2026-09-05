@@ -68,6 +68,20 @@ nav{
     color:#00e5ff !important;
 }
 
+.user-name{
+    color:#00e5ff;
+    margin-right:10px;
+}
+
+.logout{
+    border:1px solid #ff4d6d;
+    background:transparent;
+    color:#ff4d6d;
+    padding:8px 15px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
 /* HERO */
 
 .hero{
@@ -306,26 +320,6 @@ input:focus{
     text-decoration:underline;
 }
 
-/* USER PANEL */
-
-#userPanel{
-    display:none;
-}
-
-.user-name{
-    color:#00e5ff;
-    margin-right:10px;
-}
-
-.logout{
-    border:1px solid #ff4d6d;
-    background:transparent;
-    color:#ff4d6d;
-    padding:8px 15px;
-    border-radius:20px;
-    cursor:pointer;
-}
-
 /* DASHBOARD */
 
 .dashboard-section{
@@ -387,6 +381,48 @@ input:focus{
 .dashboard-card p{
     color:#aab4c9;
     word-break:break-word;
+}
+
+/* EDIT PROFILE */
+
+.profile-edit-box{
+    display:none;
+    margin-top:25px;
+    background:#0b1228;
+    border:1px solid #00e5ff;
+    border-radius:20px;
+    padding:30px;
+}
+
+.profile-edit-box h2{
+    color:#00e5ff;
+    margin-bottom:20px;
+}
+
+.profile-label{
+    display:block;
+    color:#aab4c9;
+    margin-top:12px;
+    margin-bottom:5px;
+}
+
+.profile-email{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+.profile-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.profile-buttons button{
+    flex:1;
+}
+
+.cancel-btn{
+    background:#18233f;
+    color:white;
 }
 
 /* CHAT */
@@ -624,7 +660,8 @@ footer{
     }
 
     .chat-input-area,
-    .admin-chat-input{
+    .admin-chat-input,
+    .profile-buttons{
         flex-direction:column;
     }
 
@@ -658,7 +695,7 @@ footer{
             </a>
         </span>
 
-        <span id="userPanel">
+        <span id="userPanel" style="display:none;">
 
             <a href="#dashboard"
                class="nav-btn"
@@ -874,31 +911,114 @@ footer{
 
         </div>
 
+
+        <!-- PROFILE CARDS -->
+
         <div class="dashboard-cards">
 
             <div class="dashboard-card">
                 <div class="icon">👤</div>
                 <h3>Name</h3>
-                <p id="dashboardUserName">Loading...</p>
+                <p id="dashboardUserName">
+                    Loading...
+                </p>
             </div>
 
             <div class="dashboard-card">
                 <div class="icon">📧</div>
                 <h3>Email</h3>
-                <p id="dashboardEmail">Loading...</p>
+                <p id="dashboardEmail">
+                    Loading...
+                </p>
             </div>
 
             <div class="dashboard-card">
                 <div class="icon">🟢</div>
                 <h3>Account Status</h3>
-                <p>Active & Logged In</p>
+                <p>
+                    Active & Logged In
+                </p>
             </div>
 
             <div class="dashboard-card">
                 <div class="icon">🚀</div>
                 <h3>T5X LDKN</h3>
-                <p>AI • Coding • Web Development</p>
+                <p>
+                    AI • Coding • Web Development
+                </p>
             </div>
+
+        </div>
+
+
+        <!-- EDIT PROFILE BUTTON -->
+
+        <div style="
+            text-align:center;
+            margin-top:25px;
+        ">
+
+            <button
+                class="auth-btn"
+                style="max-width:250px;"
+                onclick="showEditProfile()">
+                ✏️ Edit Profile
+            </button>
+
+        </div>
+
+
+        <!-- EDIT PROFILE -->
+
+        <div
+            class="profile-edit-box"
+            id="profileEditBox">
+
+            <h2>
+                ✏️ Edit Profile
+            </h2>
+
+            <label class="profile-label">
+                Your Name
+            </label>
+
+            <input
+                type="text"
+                id="editProfileName"
+                placeholder="Enter your name"
+            >
+
+            <label class="profile-label">
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="editProfileEmail"
+                class="profile-email"
+                readonly
+            >
+
+            <div class="profile-buttons">
+
+                <button
+                    class="auth-btn"
+                    onclick="saveProfile()">
+                    💾 Save Profile
+                </button>
+
+                <button
+                    class="auth-btn cancel-btn"
+                    onclick="cancelEditProfile()">
+                    Cancel
+                </button>
+
+            </div>
+
+            <p
+                class="message"
+                id="profileMessage">
+            </p>
 
         </div>
 
@@ -911,7 +1031,9 @@ footer{
                 💬 <span>Chat with Admin</span>
             </h2>
 
-            <div id="chatMessages" class="chat-messages">
+            <div
+                id="chatMessages"
+                class="chat-messages">
 
                 <p class="chat-empty">
                     Start chatting with T5X LDKN Admin 👋
@@ -939,7 +1061,10 @@ footer{
         </div>
 
 
-        <div style="margin-top:30px;text-align:center;">
+        <div style="
+            margin-top:30px;
+            text-align:center;
+        ">
 
             <button
                 class="auth-btn"
@@ -967,8 +1092,6 @@ footer{
 
         <div class="admin-layout">
 
-            <!-- USER LIST -->
-
             <div class="user-list">
 
                 <h3>👥 Users</h3>
@@ -984,11 +1107,10 @@ footer{
             </div>
 
 
-            <!-- ADMIN CHAT -->
-
             <div class="admin-chat">
 
-                <h3 class="admin-chat-title"
+                <h3
+                    class="admin-chat-title"
                     id="adminChatTitle">
                     Select a user to start chat
                 </h3>
@@ -1062,15 +1184,22 @@ footer{
                 placeholder="Password (6+ characters)"
             >
 
-            <button class="auth-btn" onclick="signup()">
+            <button
+                class="auth-btn"
+                onclick="signup()">
                 Create Account
             </button>
 
-            <p class="message" id="signupMessage"></p>
+            <p
+                class="message"
+                id="signupMessage">
+            </p>
 
             <p class="switch">
                 Already have an account?
-                <span onclick="showLogin()">Login</span>
+                <span onclick="showLogin()">
+                    Login
+                </span>
             </p>
 
         </div>
@@ -1094,7 +1223,9 @@ footer{
                 placeholder="Password"
             >
 
-            <button class="auth-btn" onclick="login()">
+            <button
+                class="auth-btn"
+                onclick="login()">
                 Login
             </button>
 
@@ -1104,11 +1235,16 @@ footer{
                 </span>
             </p>
 
-            <p class="message" id="loginMessage"></p>
+            <p
+                class="message"
+                id="loginMessage">
+            </p>
 
             <p class="switch">
                 Don't have an account?
-                <span onclick="showSignup()">Sign Up</span>
+                <span onclick="showSignup()">
+                    Sign Up
+                </span>
             </p>
 
         </div>
@@ -1142,11 +1278,16 @@ footer{
                 Send Reset Link
             </button>
 
-            <p class="message" id="forgotMessage"></p>
+            <p
+                class="message"
+                id="forgotMessage">
+            </p>
 
             <p class="switch">
                 Remember your password?
-                <span onclick="showLogin()">Login</span>
+                <span onclick="showLogin()">
+                    Login
+                </span>
             </p>
 
         </div>
@@ -1199,7 +1340,6 @@ import {
     doc,
     setDoc,
     addDoc,
-    getDocs,
     onSnapshot,
     serverTimestamp
 }
@@ -1211,7 +1351,7 @@ from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 ========================= */
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBwwlCkGQcqWiULRU_6SE_zQ_kMxYBx8mk",
+    apiKey: "AIzaSyBwwlCkLQcqWiULRU_6SE_zQ_kMxYBx8mk",
     authDomain: "t5x-ldkn.firebaseapp.com",
     projectId: "t5x-ldkn",
     storageBucket: "t5x-ldkn.firebasestorage.app",
@@ -1225,11 +1365,14 @@ const firebaseConfig = {
    FIREBASE START
 ========================= */
 
-const app = initializeApp(firebaseConfig);
+const app =
+    initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
+const auth =
+    getAuth(app);
 
-const db = getFirestore(app);
+const db =
+    getFirestore(app);
 
 
 /* =========================
@@ -1262,7 +1405,6 @@ function getChatId(userId){
     return [ADMIN_UID,userId]
         .sort()
         .join("_");
-
 }
 
 
@@ -1315,9 +1457,6 @@ window.showLogin = function(){
     document.getElementById("loginForm")
         .style.display = "block";
 
-    document.getElementById("loginMessage")
-        .textContent = "";
-
     window.scrollTo(0,0);
 };
 
@@ -1349,15 +1488,12 @@ window.showSignup = function(){
     document.getElementById("signupForm")
         .style.display = "block";
 
-    document.getElementById("signupMessage")
-        .textContent = "";
-
     window.scrollTo(0,0);
 };
 
 
 /* =========================
-   FORGOT PAGE
+   FORGOT PASSWORD
 ========================= */
 
 window.showForgotPassword = function(){
@@ -1383,9 +1519,6 @@ window.showForgotPassword = function(){
     document.getElementById("forgotForm")
         .style.display = "block";
 
-    document.getElementById("forgotMessage")
-        .textContent = "";
-
     window.scrollTo(0,0);
 };
 
@@ -1396,7 +1529,8 @@ window.showForgotPassword = function(){
 
 window.showDashboard = function(){
 
-    const user = auth.currentUser;
+    const user =
+        auth.currentUser;
 
     if(!user){
 
@@ -1431,7 +1565,8 @@ window.showDashboard = function(){
 
 window.showAdmin = function(){
 
-    const user = auth.currentUser;
+    const user =
+        auth.currentUser;
 
     if(!user){
 
@@ -1485,8 +1620,194 @@ function updateDashboard(user){
         .textContent = name;
 
     document.getElementById("dashboardEmail")
-        .textContent = user.email || "No email";
+        .textContent =
+        user.email || "No email";
 }
+
+
+/* =========================
+   EDIT PROFILE OPEN
+========================= */
+
+window.showEditProfile = function(){
+
+    const user =
+        auth.currentUser;
+
+    if(!user){
+
+        showLogin();
+
+        return;
+    }
+
+    document.getElementById(
+        "profileEditBox"
+    ).style.display = "block";
+
+    document.getElementById(
+        "editProfileName"
+    ).value =
+        user.displayName || "";
+
+    document.getElementById(
+        "editProfileEmail"
+    ).value =
+        user.email || "";
+
+    document.getElementById(
+        "profileMessage"
+    ).textContent = "";
+
+    document.getElementById(
+        "editProfileName"
+    ).focus();
+
+};
+
+
+/* =========================
+   CANCEL EDIT PROFILE
+========================= */
+
+window.cancelEditProfile = function(){
+
+    document.getElementById(
+        "profileEditBox"
+    ).style.display = "none";
+
+    document.getElementById(
+        "profileMessage"
+    ).textContent = "";
+
+};
+
+
+/* =========================
+   SAVE PROFILE
+========================= */
+
+window.saveProfile = async function(){
+
+    const user =
+        auth.currentUser;
+
+    if(!user){
+
+        showLogin();
+
+        return;
+    }
+
+
+    const name =
+        document.getElementById(
+            "editProfileName"
+        ).value.trim();
+
+
+    const message =
+        document.getElementById(
+            "profileMessage"
+        );
+
+
+    message.textContent = "";
+
+
+    if(!name){
+
+        message.textContent =
+            "Please enter your name.";
+
+        return;
+    }
+
+
+    if(name.length < 2){
+
+        message.textContent =
+            "Name must contain at least 2 characters.";
+
+        return;
+    }
+
+
+    try{
+
+        /* UPDATE FIREBASE AUTH */
+
+        await updateProfile(
+            user,
+            {
+                displayName:name
+            }
+        );
+
+
+        /* UPDATE FIRESTORE */
+
+        await setDoc(
+            doc(
+                db,
+                "users",
+                user.uid
+            ),
+            {
+                uid:user.uid,
+                name:name,
+                email:user.email || "",
+                updatedAt:
+                    serverTimestamp()
+            },
+            {
+                merge:true
+            }
+        );
+
+
+        /* UPDATE DASHBOARD */
+
+        updateDashboard(user);
+
+
+        /* UPDATE NAVBAR */
+
+        document.getElementById(
+            "userName"
+        ).textContent = name;
+
+
+        message.textContent =
+            "✅ Profile updated successfully!";
+
+
+        setTimeout(() => {
+
+            document.getElementById(
+                "profileEditBox"
+            ).style.display = "none";
+
+            message.textContent = "";
+
+        },1200);
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Profile update error:",
+            error
+        );
+
+        message.textContent =
+            "Profile update failed: " +
+            error.message;
+
+    }
+
+};
 
 
 /* =========================
@@ -1496,21 +1817,25 @@ function updateDashboard(user){
 window.signup = async function(){
 
     const name =
-        document.getElementById("signupName")
-        .value.trim();
+        document.getElementById(
+            "signupName"
+        ).value.trim();
 
     const email =
-        document.getElementById("signupEmail")
-        .value.trim();
+        document.getElementById(
+            "signupEmail"
+        ).value.trim();
 
     const password =
-        document.getElementById("signupPassword")
-        .value;
+        document.getElementById(
+            "signupPassword"
+        ).value;
 
     const message =
-        document.getElementById("signupMessage");
+        document.getElementById(
+            "signupMessage"
+        );
 
-    message.textContent = "";
 
     if(!name || !email || !password){
 
@@ -1520,6 +1845,7 @@ window.signup = async function(){
         return;
     }
 
+
     if(password.length < 6){
 
         message.textContent =
@@ -1527,6 +1853,7 @@ window.signup = async function(){
 
         return;
     }
+
 
     try{
 
@@ -1546,8 +1873,6 @@ window.signup = async function(){
         );
 
 
-        /* SAVE USER */
-
         await setDoc(
             doc(
                 db,
@@ -1558,8 +1883,10 @@ window.signup = async function(){
                 uid:result.user.uid,
                 name:name,
                 email:email,
-                createdAt:serverTimestamp(),
-                updatedAt:serverTimestamp()
+                createdAt:
+                    serverTimestamp(),
+                updatedAt:
+                    serverTimestamp()
             },
             {
                 merge:true
@@ -1571,14 +1898,17 @@ window.signup = async function(){
             "Account created successfully!";
 
 
-        document.getElementById("signupName")
-            .value = "";
+        document.getElementById(
+            "signupName"
+        ).value = "";
 
-        document.getElementById("signupEmail")
-            .value = "";
+        document.getElementById(
+            "signupEmail"
+        ).value = "";
 
-        document.getElementById("signupPassword")
-            .value = "";
+        document.getElementById(
+            "signupPassword"
+        ).value = "";
 
 
         setTimeout(() => {
@@ -1596,32 +1926,8 @@ window.signup = async function(){
             error
         );
 
-        if(
-            error.code ===
-            "auth/email-already-in-use"
-        ){
-
-            message.textContent =
-                "This email is already registered.";
-
-        }
-
-        else if(
-            error.code ===
-            "auth/invalid-email"
-        ){
-
-            message.textContent =
-                "Please enter a valid email.";
-
-        }
-
-        else{
-
-            message.textContent =
-                error.message;
-
-        }
+        message.textContent =
+            error.message;
 
     }
 
@@ -1635,17 +1941,20 @@ window.signup = async function(){
 window.login = async function(){
 
     const email =
-        document.getElementById("loginEmail")
-        .value.trim();
+        document.getElementById(
+            "loginEmail"
+        ).value.trim();
 
     const password =
-        document.getElementById("loginPassword")
-        .value;
+        document.getElementById(
+            "loginPassword"
+        ).value;
 
     const message =
-        document.getElementById("loginMessage");
+        document.getElementById(
+            "loginMessage"
+        );
 
-    message.textContent = "";
 
     if(!email || !password){
 
@@ -1654,6 +1963,7 @@ window.login = async function(){
 
         return;
     }
+
 
     try{
 
@@ -1683,24 +1993,8 @@ window.login = async function(){
             error
         );
 
-        if(
-            error.code ===
-            "auth/invalid-credential" ||
-            error.code ===
-            "auth/wrong-password"
-        ){
-
-            message.textContent =
-                "Wrong email or password.";
-
-        }
-
-        else{
-
-            message.textContent =
-                error.message;
-
-        }
+        message.textContent =
+            error.message;
 
     }
 
@@ -1714,13 +2008,15 @@ window.login = async function(){
 window.forgotPassword = async function(){
 
     const email =
-        document.getElementById("forgotEmail")
-        .value.trim();
+        document.getElementById(
+            "forgotEmail"
+        ).value.trim();
 
     const message =
-        document.getElementById("forgotMessage");
+        document.getElementById(
+            "forgotMessage"
+        );
 
-    message.textContent = "";
 
     if(!email){
 
@@ -1730,6 +2026,7 @@ window.forgotPassword = async function(){
         return;
     }
 
+
     try{
 
         await sendPasswordResetEmail(
@@ -1737,11 +2034,13 @@ window.forgotPassword = async function(){
             email
         );
 
+
         message.textContent =
             "Password reset link has been sent.";
 
-        document.getElementById("forgotEmail")
-            .value = "";
+        document.getElementById(
+            "forgotEmail"
+        ).value = "";
 
     }
 
@@ -1770,22 +2069,22 @@ window.logout = async function(){
         if(chatUnsubscribe){
 
             chatUnsubscribe();
-            chatUnsubscribe = null;
 
+            chatUnsubscribe = null;
         }
 
         if(adminChatUnsubscribe){
 
             adminChatUnsubscribe();
-            adminChatUnsubscribe = null;
 
+            adminChatUnsubscribe = null;
         }
 
         if(usersUnsubscribe){
 
             usersUnsubscribe();
-            usersUnsubscribe = null;
 
+            usersUnsubscribe = null;
         }
 
         selectedUserId = null;
@@ -1810,16 +2109,20 @@ window.logout = async function(){
 function loadChat(userId){
 
     const messagesBox =
-        document.getElementById("chatMessages");
+        document.getElementById(
+            "chatMessages"
+        );
 
     if(!messagesBox) return;
+
 
     if(chatUnsubscribe){
 
         chatUnsubscribe();
-        chatUnsubscribe = null;
 
+        chatUnsubscribe = null;
     }
+
 
     const chatId =
         getChatId(userId);
@@ -1846,7 +2149,7 @@ function loadChat(userId){
 
 
                 snapshot.forEach(
-                    (messageDoc) => {
+                    messageDoc => {
 
                         messages.push(
                             messageDoc.data()
@@ -1866,7 +2169,6 @@ function loadChat(userId){
                             b.createdAt?.seconds || 0;
 
                         return timeA - timeB;
-
                     }
                 );
 
@@ -1883,10 +2185,12 @@ function loadChat(userId){
 
 
                 messages.forEach(
-                    (data) => {
+                    data => {
 
                         const div =
-                            document.createElement("div");
+                            document.createElement(
+                                "div"
+                            );
 
 
                         div.className =
@@ -1905,7 +2209,9 @@ function loadChat(userId){
                         if(data.createdAt){
 
                             const time =
-                                document.createElement("span");
+                                document.createElement(
+                                    "span"
+                                );
 
                             time.className =
                                 "chat-time";
@@ -1916,7 +2222,6 @@ function loadChat(userId){
                                 );
 
                             div.appendChild(time);
-
                         }
 
 
@@ -1931,17 +2236,12 @@ function loadChat(userId){
 
             },
 
-            (error) => {
+            error => {
 
                 console.error(
                     "User chat error:",
                     error
                 );
-
-                messagesBox.innerHTML =
-                    `<p class="chat-empty">
-                        Unable to load chat.
-                    </p>`;
 
             }
         );
@@ -1956,6 +2256,7 @@ window.sendMessage = async function(){
 
     const user =
         auth.currentUser;
+
 
     if(!user){
 
@@ -2043,8 +2344,8 @@ function loadUsers(){
     if(usersUnsubscribe){
 
         usersUnsubscribe();
-        usersUnsubscribe = null;
 
+        usersUnsubscribe = null;
     }
 
 
@@ -2052,22 +2353,19 @@ function loadUsers(){
         onSnapshot(
             collection(db,"users"),
 
-            (snapshot) => {
+            snapshot => {
 
                 usersList.innerHTML = "";
-
 
                 let count = 0;
 
 
                 snapshot.forEach(
-                    (userDoc) => {
+                    userDoc => {
 
                         const user =
                             userDoc.data();
 
-
-                        /* ADMIN KO LIST SE REMOVE */
 
                         if(
                             user.uid === ADMIN_UID ||
@@ -2075,7 +2373,6 @@ function loadUsers(){
                         ){
 
                             return;
-
                         }
 
 
@@ -2099,7 +2396,6 @@ function loadUsers(){
                             div.classList.add(
                                 "active"
                             );
-
                         }
 
 
@@ -2110,8 +2406,7 @@ function loadUsers(){
 
 
                         strong.textContent =
-                            user.name ||
-                            "User";
+                            user.name || "User";
 
 
                         const small =
@@ -2121,8 +2416,7 @@ function loadUsers(){
 
 
                         small.textContent =
-                            user.email ||
-                            "";
+                            user.email || "";
 
 
                         div.appendChild(strong);
@@ -2142,9 +2436,7 @@ function loadUsers(){
                             };
 
 
-                        usersList.appendChild(
-                            div
-                        );
+                        usersList.appendChild(div);
 
                     }
                 );
@@ -2156,12 +2448,11 @@ function loadUsers(){
                         `<p style="color:#71809d;">
                             No users found.
                         </p>`;
-
                 }
 
             },
 
-            (error) => {
+            error => {
 
                 console.error(
                     "Load users error:",
@@ -2179,7 +2470,7 @@ function loadUsers(){
 
 
 /* =========================
-   SELECT USER
+   SELECT ADMIN USER
 ========================= */
 
 function selectAdminUser(
@@ -2210,30 +2501,12 @@ function selectAdminUser(
 
     loadAdminChat(userId);
 
-
-    /* ACTIVE USER REFRESH */
-
-    const items =
-        document.querySelectorAll(
-            ".user-item"
-        );
-
-
-    items.forEach(
-        item => {
-
-            item.classList.remove(
-                "active"
-            );
-
-        }
-    );
-
+    loadUsers();
 }
 
 
 /* =========================
-   ADMIN CHAT LOAD
+   ADMIN CHAT
 ========================= */
 
 function loadAdminChat(userId){
@@ -2250,8 +2523,8 @@ function loadAdminChat(userId){
     if(adminChatUnsubscribe){
 
         adminChatUnsubscribe();
-        adminChatUnsubscribe = null;
 
+        adminChatUnsubscribe = null;
     }
 
 
@@ -2272,7 +2545,7 @@ function loadAdminChat(userId){
         onSnapshot(
             messagesRef,
 
-            (snapshot) => {
+            snapshot => {
 
                 messagesBox.innerHTML = "";
 
@@ -2280,7 +2553,7 @@ function loadAdminChat(userId){
 
 
                 snapshot.forEach(
-                    (messageDoc) => {
+                    messageDoc => {
 
                         messages.push(
                             messageDoc.data()
@@ -2300,7 +2573,6 @@ function loadAdminChat(userId){
                             b.createdAt?.seconds || 0;
 
                         return timeA - timeB;
-
                     }
                 );
 
@@ -2317,7 +2589,7 @@ function loadAdminChat(userId){
 
 
                 messages.forEach(
-                    (data) => {
+                    data => {
 
                         const div =
                             document.createElement(
@@ -2354,13 +2626,10 @@ function loadAdminChat(userId){
                                 );
 
                             div.appendChild(time);
-
                         }
 
 
-                        messagesBox.appendChild(
-                            div
-                        );
+                        messagesBox.appendChild(div);
 
                     }
                 );
@@ -2371,17 +2640,12 @@ function loadAdminChat(userId){
 
             },
 
-            (error) => {
+            error => {
 
                 console.error(
                     "Admin chat error:",
                     error
                 );
-
-                messagesBox.innerHTML =
-                    `<div class="no-user">
-                        Unable to load messages.
-                    </div>`;
 
             }
         );
@@ -2389,7 +2653,7 @@ function loadAdminChat(userId){
 
 
 /* =========================
-   ADMIN SEND MESSAGE
+   ADMIN SEND
 ========================= */
 
 window.adminSendMessage =
@@ -2406,8 +2670,6 @@ async function(){
         return;
     }
 
-
-    /* IMPORTANT FIX */
 
     if(admin.uid !== ADMIN_UID){
 
@@ -2469,7 +2731,6 @@ async function(){
 
         input.value = "";
 
-
     }
 
     catch(error){
@@ -2490,38 +2751,34 @@ async function(){
 
 
 /* =========================
-   ENTER TO SEND
+   ENTER SEND
 ========================= */
 
 document.addEventListener(
     "keydown",
-    function(event){
+    event => {
 
         if(
             event.key === "Enter" &&
-            document.activeElement &&
-            document.activeElement.id ===
+            document.activeElement?.id ===
             "chatInput"
         ){
 
             event.preventDefault();
 
             window.sendMessage();
-
         }
 
 
         if(
             event.key === "Enter" &&
-            document.activeElement &&
-            document.activeElement.id ===
+            document.activeElement?.id ===
             "adminChatInput"
         ){
 
             event.preventDefault();
 
             window.adminSendMessage();
-
         }
 
     }
@@ -2529,7 +2786,7 @@ document.addEventListener(
 
 
 /* =========================
-   TIME
+   FORMAT TIME
 ========================= */
 
 function formatTime(timestamp){
@@ -2540,7 +2797,6 @@ function formatTime(timestamp){
     ){
 
         return "";
-
     }
 
 
@@ -2564,7 +2820,7 @@ function formatTime(timestamp){
 
 onAuthStateChanged(
     auth,
-    async (user) => {
+    async user => {
 
         const authButtons =
             document.getElementById(
@@ -2595,6 +2851,7 @@ onAuthStateChanged(
             userPanel.style.display =
                 "inline";
 
+
             userName.textContent =
                 user.displayName ||
                 user.email ||
@@ -2604,9 +2861,7 @@ onAuthStateChanged(
             updateDashboard(user);
 
 
-            /* =========================
-               AUTO CREATE / UPDATE USER
-            ========================= */
+            /* AUTO SAVE USER */
 
             try{
 
@@ -2655,7 +2910,6 @@ onAuthStateChanged(
 
                 adminButton.style.display =
                     "none";
-
             }
 
         }
@@ -2670,7 +2924,6 @@ onAuthStateChanged(
 
             adminButton.style.display =
                 "none";
-
         }
 
     }
