@@ -1,189 +1,947 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T5X LDKN | Online Team</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>T5X LDKN</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#050816;
+    color:white;
+}
+
+/* NAVBAR */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 7%;
+    background:#080d20;
+    border-bottom:1px solid #18233f;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#00e5ff;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    align-items:center;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+}
+
+.nav-links a:hover{
+    color:#00e5ff;
+}
+
+.nav-btn{
+    border:1px solid #00e5ff;
+    padding:9px 18px;
+    border-radius:20px;
+    color:#00e5ff !important;
+}
+
+/* HERO */
+
+.hero{
+    min-height:85vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:50px 20px;
+}
+
+.hero-content{
+    max-width:800px;
+}
+
+.hero h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#00e5ff;
+}
+
+.hero p{
+    color:#aab4c9;
+    font-size:19px;
+    line-height:1.7;
+}
+
+.hero-buttons{
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 25px;
+    border-radius:30px;
+    margin:7px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:#00e5ff;
+    color:#001018;
+}
+
+.secondary{
+    border:1px solid #00e5ff;
+    color:#00e5ff;
+}
+
+/* SECTIONS */
+
+section{
+    padding:80px 7%;
+}
+
+.title{
+    text-align:center;
+    font-size:35px;
+    margin-bottom:45px;
+}
+
+.title span{
+    color:#00e5ff;
+}
+
+/* ABOUT */
+
+.about{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    color:#aab4c9;
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* SKILLS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:22px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.card{
+    background:#0b1228;
+    border:1px solid #1c2a49;
+    padding:30px;
+    border-radius:18px;
+    text-align:center;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:#00e5ff;
+}
+
+.card h3{
+    color:#00e5ff;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#aab4c9;
+    line-height:1.6;
+}
+
+/* TEAM */
+
+.team-card{
+    max-width:350px;
+    margin:auto;
+    background:#0b1228;
+    border:1px solid #00e5ff;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+}
+
+.avatar{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:#00e5ff;
+    color:#001018;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    font-weight:bold;
+    margin:0 auto 20px;
+}
+
+.team-card h3{
+    font-size:25px;
+}
+
+.role{
+    color:#00e5ff;
+    margin:10px 0;
+}
+
+.team-card p{
+    color:#aab4c9;
+    line-height:1.6;
+}
+
+/* AUTH */
+
+.auth-section{
+    display:none;
+    min-height:80vh;
+    align-items:center;
+    justify-content:center;
+}
+
+.auth-box{
+    width:90%;
+    max-width:420px;
+    background:#0b1228;
+    border:1px solid #00e5ff;
+    border-radius:20px;
+    padding:35px;
+}
+
+.auth-box h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    margin:8px 0;
+    border-radius:10px;
+    border:1px solid #263656;
+    background:#050816;
+    color:white;
+    outline:none;
+}
+
+input:focus{
+    border-color:#00e5ff;
+}
+
+.auth-btn{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border:0;
+    border-radius:25px;
+    background:#00e5ff;
+    color:#001018;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.switch{
+    text-align:center;
+    margin-top:18px;
+    color:#9da7bc;
+}
+
+.switch span{
+    color:#00e5ff;
+    cursor:pointer;
+}
+
+.message{
+    text-align:center;
+    margin-top:15px;
+    min-height:20px;
+}
+
+/* USER */
+
+#userPanel{
+    display:none;
+}
+
+.user-name{
+    color:#00e5ff;
+    margin-right:10px;
+}
+
+.logout{
+    border:1px solid #ff4d6d;
+    background:transparent;
+    color:#ff4d6d;
+    padding:8px 15px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid #18233f;
+    color:#71809d;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    nav{
+        padding:15px 5%;
+    }
+
+    .nav-links{
+        gap:12px;
+        font-size:14px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+}
+</style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">T5X<span>LDKN</span></div>
+<!-- NAVBAR -->
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#team">Team</a>
-        <a href="#projects">Projects</a>
-          <button>Sign Up</button>
-    </nav>
-</header>
+<nav>
 
-<section id="home" class="hero">
-    <div class="hero-text">
-        <div class="badge">⚡ ONLINE TECHNOLOGY TEAM</div>
+    <div class="logo">
+        T5X<span>LDKN</span>
+    </div>
 
-        <h1>We Build The<br><span>Digital Future.</span></h1>
+    <div class="nav-links">
+
+        <a href="#home" onclick="showHome()">Home</a>
+        <a href="#about" onclick="showHome()">About</a>
+        <a href="#team" onclick="showHome()">Team</a>
+
+        <span id="authButtons">
+            <a href="#auth" class="nav-btn" onclick="showLogin()">Login</a>
+        </span>
+
+        <span id="userPanel">
+            <span class="user-name" id="userName"></span>
+            <button class="logout" onclick="logout()">Logout</button>
+        </span>
+
+    </div>
+
+</nav>
+
+
+<!-- MAIN WEBSITE -->
+
+<main id="homePage">
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>
+            Welcome to <span>T5X LDKN</span>
+        </h1>
 
         <p>
-            Welcome to T5X LDKN — a creative team exploring
-            AI, coding, software and next-generation technology.
+            A technology and coding community focused on
+            AI, programming, web development and modern technology.
         </p>
 
-        <div class="buttons">
-            <a href="#team" class="btn">Meet Our Team →</a>
-            <a href="#projects" class="btn second">View Projects</a>
+        <div class="hero-buttons">
+
+            <a href="#about" class="btn primary">
+                Explore
+            </a>
+
+            <a href="#team" class="btn secondary">
+                Our Team
+            </a>
+
         </div>
+
     </div>
 
-    <div class="hero-logo">
-        <div class="circle">
-            <strong>T5X</strong>
-            <small>LDKN</small>
-        </div>
-    </div>
 </section>
 
-<section id="about" class="section">
-    <div class="section-title">
-        <p>WHO WE ARE</p>
-        <h2>About <span>T5X LDKN</span></h2>
-    </div>
 
-    <div class="about-box">
-        <p>
-            T5X LDKN is an online technology team focused on
-            Artificial Intelligence, programming, web development
-            and creative digital projects. We learn, build and
-            grow together.
-        </p>
-    </div>
+<!-- ABOUT -->
+
+<section id="about">
+
+    <h2 class="title">
+        About <span>T5X LDKN</span>
+    </h2>
+
+    <p class="about">
+        T5X LDKN is a technology-focused platform created for
+        learning, building and exploring modern digital technology.
+        Our interests include Artificial Intelligence, Coding,
+        Web Development and innovative software projects.
+    </p>
+
 </section>
 
-<section id="team" class="section dark">
-    <div class="section-title">
-        <p>THE PEOPLE</p>
-        <h2>Meet Our <span>Team</span></h2>
-    </div>
-<section id="team" class="section dark">
-    <div class="section-title">
-        <p>THE PEOPLE</p>
-        <h2>Meet Our <span>Team</span></h2>
-    </div>
 
-    <div class="team-grid">
+<!-- SKILLS -->
 
-        <div class="team-card" onclick="showMember('lakhan')">
-            <div class="avatar">L</div>
-            <h3>Lakhan Ji</h3>
-            <p>Founder / Developer</p>
+<section>
+
+    <h2 class="title">
+        What We <span>Do</span>
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>AI</h3>
+            <p>
+                Exploring Artificial Intelligence,
+                AI tools and intelligent applications.
+            </p>
         </div>
 
-        <div class="team-card" onclick="showMember('drishti')">
-            <div class="avatar">D</div>
-            <h3>Drishti</h3>
-            <p>Team Member</p>
+        <div class="card">
+            <h3>Coding</h3>
+            <p>
+                Learning programming and building
+                useful software projects.
+            </p>
         </div>
 
-        <div class="team-card" onclick="showMember('khushi')">
-            <div class="avatar">K</div>
-            <h3>Khushi Goel</h3>
-            <p>Team Member</p>
-        </div>
-
-        <div class="team-card" onclick="showMember('Davansh Goel')">
-            <div class="avatar">D</div>
-            <h3>Davansh Goel</h3>
-            <p>Team Member</p>
-         </div>
-
-         <div class="team-card" onclick="showMember('nirdesh')">
-             <div class="avatar">N</div>
-             <h3>Nirdesh</h3>
-             <p>Team Member</p>
-         </div>
-        
-         <div class="team-card" onclick="showMember('Coming Soon')">
-             <div class="avatar">+</div>
-             <h3>Coming Soon</h3>
-             <p>Team Member</p>
-          </div>
-
-    <div id="member-detail" class="member-detail">
-        <h2 id="member-name"></h2>
-        <p id="member-role"></p>
-        <p id="member-bio"></p>
-        <p id="member-skills"></p>
-    </div>
-</section>
-
-<section class="section">
-    <div class="section-title">
-        <p>WHAT WE DO</p>
-        <h2>AI & <span>Technology</span></h2>
-    </div>
-
-    <div class="feature-grid">
-
-        <div class="feature">
-            <div>🤖</div>
-            <h3>Artificial Intelligence</h3>
-            <p>Exploring AI and smart digital solutions.</p>
-        </div>
-
-        <div class="feature">
-            <div>💻</div>
-            <h3>Programming</h3>
-            <p>Building applications and software with code.</p>
-        </div>
-
-        <div class="feature">
-            <div>🌐</div>
+        <div class="card">
             <h3>Web Development</h3>
-            <p>Creating modern and responsive websites.</p>
+            <p>
+                Creating modern, responsive and
+                interactive websites.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Technology</h3>
+            <p>
+                Exploring new technologies and
+                turning ideas into projects.
+            </p>
         </div>
 
     </div>
+
 </section>
 
-<section id="projects" class="section dark">
-    <div class="section-title">
-        <p>OUR WORK</p>
-        <h2>Latest <span>Projects</span></h2>
+
+<!-- TEAM -->
+
+<section id="team">
+
+    <h2 class="title">
+        Our <span>Team</span>
+    </h2>
+
+    <div class="cards">
+
+        <div class="team-card">
+
+            <div class="avatar">
+                L
+            </div>
+
+            <h3>Lakhan Ji</h3>
+
+            <div class="role">
+                Founder & Developer
+            </div>
+
+            <p>
+                Founder and developer of T5X LDKN.
+                Interested in AI, Coding and Web Development.
+            </p>
+
+        </div>
+
+
+        <div class="team-card">
+
+            <div class="avatar">
+                D
+            </div>
+
+            <h3>Drishti</h3>
+
+            <div class="role">
+                Team Member
+            </div>
+
+            <p>
+                Team member of T5X LDKN,
+                contributing to the technology community
+                and projects.
+            </p>
+
+        </div>
+
     </div>
 
-    <div class="project-grid">
-
-        <div class="project-card">
-            <span>01</span>
-            <h3>AI Assistant</h3>
-            <p>Smart AI based digital assistant project.</p>
-        </div>
-
-        <div class="project-card">
-            <span>02</span>
-            <h3>Web Projects</h3>
-            <p>Modern websites and creative web experiences.</p>
-        </div>
-
-        <div class="project-card">
-            <span>03</span>
-            <h3>Future Tech</h3>
-            <p>New ideas and experimental technology projects.</p>
-        </div>
-
-    </div>
 </section>
 
-<section id="contact" class="contact">
-    <div>
-        <p>LET'S CONNECT</p>
-        <h2>Build Something<br>
-        <span>Awesome Together.</span></h2>
-        <p>📧 Contact Gmail: lakhangoswami413@gmail.com</p>
-        <p>📞 Contact: +91 9548032485</p>
-        </a>
+</main>
+
+
+<!-- AUTH SECTION -->
+
+<section class="auth-section" id="auth">
+
+    <div class="auth-box">
+
+        <!-- SIGNUP -->
+
+        <div id="signupForm">
+
+            <h2>Create Account</h2>
+
+            <input
+                type="text"
+                id="signupName"
+                placeholder="Your Name"
+            >
+
+            <input
+                type="email"
+                id="signupEmail"
+                placeholder="Gmail"
+            >
+
+            <input
+                type="password"
+                id="signupPassword"
+                placeholder="Password (6+ characters)"
+            >
+
+            <button class="auth-btn" onclick="signup()">
+                Create Account
+            </button>
+
+            <p class="message" id="signupMessage"></p>
+
+            <p class="switch">
+                Already have an account?
+                <span onclick="showLogin()">Login</span>
+            </p>
+
+        </div>
+
+
+        <!-- LOGIN -->
+
+        <div id="loginForm" style="display:none;">
+
+            <h2>Welcome Back</h2>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Gmail"
+            >
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+            >
+
+            <button class="auth-btn" onclick="login()">
+                Login
+            </button>
+
+            <p class="message" id="loginMessage"></p>
+
+            <p class="switch">
+                Don't have an account?
+                <span onclick="showSignup()">Sign Up</span>
+            </p>
+
+        </div>
+
     </div>
+
 </section>
+
+
+<footer>
+    © 2026 T5X LDKN — All Rights Reserved
+</footer>
+
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    updateProfile,
+    onAuthStateChanged,
+    signOut
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+/* FIREBASE */
+
+const firebaseConfig = {
+
+    apiKey: "AIzaSyBwwCkGQcqWiULRU_6SE_zQ_kMxYBx8mk",
+
+    authDomain: "t5x-ldkn.firebaseapp.com",
+
+    projectId: "t5x-ldkn",
+
+    storageBucket: "t5x-ldkn.firebasestorage.app",
+
+    messagingSenderId: "278540583487",
+
+    appId: "1:278540583487:web:631a100fd6a286962eae8a",
+
+    measurementId: "G-LSDEL437QQ"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+
+/* HOME */
+
+window.showHome = function(){
+
+    document.getElementById("homePage").style.display = "block";
+
+    document.getElementById("auth").style.display = "none";
+
+    window.scrollTo(0,0);
+
+};
+
+
+/* LOGIN PAGE */
+
+window.showLogin = function(){
+
+    document.getElementById("homePage").style.display = "none";
+
+    document.getElementById("auth").style.display = "flex";
+
+    document.getElementById("signupForm").style.display = "none";
+
+    document.getElementById("loginForm").style.display = "block";
+
+    document.getElementById("loginMessage").textContent = "";
+
+};
+
+
+/* SIGNUP PAGE */
+
+window.showSignup = function(){
+
+    document.getElementById("homePage").style.display = "none";
+
+    document.getElementById("auth").style.display = "flex";
+
+    document.getElementById("loginForm").style.display = "none";
+
+    document.getElementById("signupForm").style.display = "block";
+
+    document.getElementById("signupMessage").textContent = "";
+
+};
+
+
+/* SIGNUP */
+
+window.signup = async function(){
+
+    const name =
+        document.getElementById("signupName").value.trim();
+
+    const email =
+        document.getElementById("signupEmail").value.trim();
+
+    const password =
+        document.getElementById("signupPassword").value;
+
+    const message =
+        document.getElementById("signupMessage");
+
+
+    message.textContent = "";
+
+
+    if(!name || !email || !password){
+
+        message.textContent =
+            "Please fill all fields.";
+
+        return;
+
+    }
+
+
+    if(password.length < 6){
+
+        message.textContent =
+            "Password must be at least 6 characters.";
+
+        return;
+
+    }
+
+
+    try{
+
+        const result =
+            await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+
+        await updateProfile(
+            result.user,
+            {
+                displayName:name
+            }
+        );
+
+
+        message.textContent =
+            "Account created successfully!";
+
+
+        document.getElementById("signupName").value = "";
+        document.getElementById("signupEmail").value = "";
+        document.getElementById("signupPassword").value = "";
+
+
+        setTimeout(() => {
+
+            showHome();
+
+        },1000);
+
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+        if(error.code === "auth/email-already-in-use"){
+
+            message.textContent =
+                "This email is already registered.";
+
+        }
+
+        else if(error.code === "auth/invalid-email"){
+
+            message.textContent =
+                "Please enter a valid email.";
+
+        }
+
+        else{
+
+            message.textContent =
+                error.message;
+
+        }
+
+    }
+
+};
+
+
+/* LOGIN */
+
+window.login = async function(){
+
+    const email =
+        document.getElementById("loginEmail").value.trim();
+
+    const password =
+        document.getElementById("loginPassword").value;
+
+    const message =
+        document.getElementById("loginMessage");
+
+
+    message.textContent = "";
+
+
+    if(!email || !password){
+
+        message.textContent =
+            "Please enter email and password.";
+
+        return;
+
+    }
+
+
+    try{
+
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+
+        message.textContent =
+            "Login successful!";
+
+
+        setTimeout(() => {
+
+            showHome();
+
+        },700);
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+        if(
+            error.code === "auth/invalid-credential" ||
+            error.code === "auth/wrong-password"
+        ){
+
+            message.textContent =
+                "Wrong email or password.";
+
+        }
+
+        else{
+
+            message.textContent =
+                error.message;
+
+        }
+
+    }
+
+};
+
+
+/* LOGOUT */
+
+window.logout = async function(){
+
+    try{
+
+        await signOut(auth);
+
+        showHome();
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+    }
+
+};
+
+
+/* AUTH STATE */
+
+onAuthStateChanged(auth, (user) => {
+
+    const authButtons =
+        document.getElementById("authButtons");
+
+    const userPanel =
+        document.getElementById("userPanel");
+
+    const userName =
+        document.getElementById("userName");
+
+
+    if(user){
+
+        authButtons.style.display = "none";
+
+        userPanel.style.display = "inline";
+
+        userName.textContent =
+            user.displayName || user.email;
+
+    }
+
+    else{
+
+        authButtons.style.display = "inline";
+
+        userPanel.style.display = "none";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
