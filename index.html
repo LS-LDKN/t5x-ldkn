@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +19,7 @@ html{
 }
 
 body{
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
     background:#050816;
     color:white;
 }
@@ -289,8 +290,6 @@ input:focus{
     min-height:20px;
 }
 
-/* FORGOT PASSWORD */
-
 .forgot{
     text-align:center;
     margin-top:15px;
@@ -399,6 +398,201 @@ input:focus{
     text-align:center;
 }
 
+
+/* =========================
+   CHAT
+========================= */
+
+.chat-box{
+    margin-top:30px;
+    background:#0b1228;
+    border:1px solid #00e5ff;
+    border-radius:20px;
+    padding:25px;
+}
+
+.chat-box h2{
+    color:white;
+    margin-bottom:20px;
+}
+
+.chat-box h2 span{
+    color:#00e5ff;
+}
+
+.chat-messages{
+    height:350px;
+    overflow-y:auto;
+    padding:15px;
+    background:#050816;
+    border:1px solid #1c2a49;
+    border-radius:15px;
+}
+
+.chat-empty{
+    text-align:center;
+    color:#71809d;
+    margin-top:140px;
+}
+
+.chat-message{
+    max-width:75%;
+    padding:10px 14px;
+    margin:8px 0;
+    border-radius:15px;
+    word-break:break-word;
+    line-height:1.5;
+}
+
+.chat-message.user{
+    margin-left:auto;
+    background:#00e5ff;
+    color:#001018;
+    border-bottom-right-radius:4px;
+}
+
+.chat-message.admin{
+    margin-right:auto;
+    background:#18233f;
+    color:white;
+    border-bottom-left-radius:4px;
+}
+
+.chat-time{
+    display:block;
+    font-size:10px;
+    margin-top:5px;
+    opacity:.7;
+}
+
+.chat-input-area{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.chat-input-area input{
+    margin:0;
+    flex:1;
+}
+
+.chat-input-area .auth-btn{
+    width:110px;
+    margin:0;
+}
+
+
+/* =========================
+   ADMIN PANEL
+========================= */
+
+.admin-section{
+    display:none;
+    min-height:80vh;
+}
+
+.admin-box{
+    max-width:1100px;
+    margin:auto;
+}
+
+.admin-layout{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:20px;
+}
+
+.user-list{
+    background:#0b1228;
+    border:1px solid #1c2a49;
+    border-radius:18px;
+    padding:15px;
+    max-height:500px;
+    overflow-y:auto;
+}
+
+.user-list h3{
+    color:#00e5ff;
+    margin-bottom:15px;
+}
+
+.user-item{
+    padding:14px;
+    margin-bottom:8px;
+    background:#050816;
+    border:1px solid #1c2a49;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+.user-item:hover{
+    border-color:#00e5ff;
+}
+
+.user-item.active{
+    border-color:#00e5ff;
+    background:#10203b;
+}
+
+.user-item strong{
+    display:block;
+    color:white;
+    margin-bottom:5px;
+}
+
+.user-item small{
+    color:#71809d;
+    word-break:break-word;
+}
+
+.admin-chat{
+    background:#0b1228;
+    border:1px solid #00e5ff;
+    border-radius:18px;
+    padding:20px;
+}
+
+.admin-chat-title{
+    color:#00e5ff;
+    margin-bottom:15px;
+}
+
+.admin-chat-messages{
+    height:350px;
+    overflow-y:auto;
+    padding:15px;
+    background:#050816;
+    border-radius:15px;
+    border:1px solid #1c2a49;
+}
+
+.admin-chat-input{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.admin-chat-input input{
+    margin:0;
+    flex:1;
+}
+
+.admin-chat-input button{
+    width:110px;
+    margin:0;
+}
+
+.no-user{
+    height:100%;
+    min-height:300px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#71809d;
+}
+
+
 /* FOOTER */
 
 footer{
@@ -407,6 +601,7 @@ footer{
     border-top:1px solid #18233f;
     color:#71809d;
 }
+
 
 /* MOBILE */
 
@@ -433,10 +628,28 @@ footer{
         display:none;
     }
 
-    .dashboard-section{
+    .dashboard-section,
+    .admin-section{
         padding:50px 5%;
     }
 
+    .admin-layout{
+        grid-template-columns:1fr;
+    }
+
+    .chat-message{
+        max-width:88%;
+    }
+
+    .chat-input-area,
+    .admin-chat-input{
+        flex-direction:column;
+    }
+
+    .chat-input-area .auth-btn,
+    .admin-chat-input button{
+        width:100%;
+    }
 }
 </style>
 </head>
@@ -467,6 +680,14 @@ footer{
                class="nav-btn"
                onclick="showDashboard()">
                 Dashboard
+            </a>
+
+            <a href="#admin"
+               class="nav-btn"
+               id="adminButton"
+               style="display:none;"
+               onclick="showAdmin()">
+                Admin
             </a>
 
             <span class="user-name" id="userName"></span>
@@ -516,8 +737,6 @@ footer{
 </section>
 
 
-<!-- ABOUT -->
-
 <section id="about">
 
     <h2 class="title">
@@ -533,8 +752,6 @@ footer{
 
 </section>
 
-
-<!-- SKILLS -->
 
 <section>
 
@@ -581,8 +798,6 @@ footer{
 </section>
 
 
-<!-- TEAM -->
-
 <section id="team">
 
     <h2 class="title">
@@ -592,106 +807,57 @@ footer{
     <div class="cards">
 
         <div class="team-card">
-
-            <div class="avatar">
-                L
-            </div>
-
+            <div class="avatar">L</div>
             <h3>Lakhan Ji</h3>
-
-            <div class="role">
-                Founder & Developer
-            </div>
-
+            <div class="role">Founder & Developer</div>
             <p>
                 Founder and developer of T5X LDKN.
                 Interested in AI, Coding and Web Development.
             </p>
-
         </div>
 
-
         <div class="team-card">
-
-            <div class="avatar">
-                D
-            </div>
-
+            <div class="avatar">D</div>
             <h3>Drishti</h3>
-
-            <div class="role">
-                Team Member
-            </div>
-
+            <div class="role">Team Member</div>
             <p>
                 Team member of T5X LDKN,
                 contributing to the technology community
                 and projects.
             </p>
-
         </div>
 
-
         <div class="team-card">
-
-            <div class="avatar">
-                K
-            </div>
-
+            <div class="avatar">K</div>
             <h3>khushi Goel</h3>
-
-            <div class="role">
-                Team Member
-            </div>
-
+            <div class="role">Team Member</div>
             <p>
                 Team member of T5X LDKN,
                 contributing to the technology community
                 and projects.
             </p>
-
         </div>
 
-
         <div class="team-card">
-
-            <div class="avatar">
-                D
-            </div>
-
+            <div class="avatar">D</div>
             <h3>Devansh Goel</h3>
-
-            <div class="role">
-                Team Member
-            </div>
-
+            <div class="role">Team Member</div>
             <p>
                 Team member of T5X LDKN,
                 contributing to the technology community
                 and projects.
             </p>
-
         </div>
 
-
         <div class="team-card">
-
-            <div class="avatar">
-                N
-            </div>
-
+            <div class="avatar">N</div>
             <h3>Nirdesh</h3>
-
-            <div class="role">
-                Team Member
-            </div>
-
+            <div class="role">Team Member</div>
             <p>
                 Team member of T5X LDKN,
                 contributing to the technology community
                 and projects.
             </p>
-
         </div>
 
     </div>
@@ -724,65 +890,65 @@ footer{
 
         </div>
 
-
         <div class="dashboard-cards">
 
             <div class="dashboard-card">
-
-                <div class="icon">
-                    👤
-                </div>
-
+                <div class="icon">👤</div>
                 <h3>Name</h3>
-
-                <p id="dashboardUserName">
-                    Loading...
-                </p>
-
+                <p id="dashboardUserName">Loading...</p>
             </div>
 
-
             <div class="dashboard-card">
-
-                <div class="icon">
-                    📧
-                </div>
-
+                <div class="icon">📧</div>
                 <h3>Email</h3>
-
-                <p id="dashboardEmail">
-                    Loading...
-                </p>
-
+                <p id="dashboardEmail">Loading...</p>
             </div>
 
-
             <div class="dashboard-card">
-
-                <div class="icon">
-                    🟢
-                </div>
-
+                <div class="icon">🟢</div>
                 <h3>Account Status</h3>
+                <p>Active & Logged In</p>
+            </div>
 
-                <p>
-                    Active & Logged In
+            <div class="dashboard-card">
+                <div class="icon">🚀</div>
+                <h3>T5X LDKN</h3>
+                <p>AI • Coding • Web Development</p>
+            </div>
+
+        </div>
+
+
+        <!-- USER CHAT -->
+
+        <div class="chat-box">
+
+            <h2>
+                💬 <span>Chat with Admin</span>
+            </h2>
+
+            <div id="chatMessages" class="chat-messages">
+
+                <p class="chat-empty">
+                    Start chatting with T5X LDKN Admin 👋
                 </p>
 
             </div>
 
+            <div class="chat-input-area">
 
-            <div class="dashboard-card">
+                <input
+                    type="text"
+                    id="chatInput"
+                    placeholder="Type your message..."
+                    autocomplete="off"
+                >
 
-                <div class="icon">
-                    🚀
-                </div>
-
-                <h3>T5X LDKN</h3>
-
-                <p>
-                    AI • Coding • Web Development
-                </p>
+                <button
+                    class="auth-btn"
+                    onclick="sendMessage()">
+                    Send
+                </button>
 
             </div>
 
@@ -805,11 +971,89 @@ footer{
 </section>
 
 
-<!-- AUTH SECTION -->
+<!-- ADMIN PANEL -->
+
+<section class="admin-section" id="admin">
+
+    <h2 class="title">
+        Admin <span>Panel</span>
+    </h2>
+
+    <div class="admin-box">
+
+        <div class="admin-layout">
+
+            <!-- USERS -->
+
+            <div class="user-list">
+
+                <h3>👥 Users</h3>
+
+                <div id="usersList">
+
+                    <p style="color:#71809d;">
+                        Loading users...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ADMIN CHAT -->
+
+            <div class="admin-chat">
+
+                <h3 class="admin-chat-title"
+                    id="adminChatTitle">
+                    Select a user to start chat
+                </h3>
+
+                <div
+                    id="adminChatMessages"
+                    class="admin-chat-messages">
+
+                    <div class="no-user">
+                        👈 Select a user from the list
+                    </div>
+
+                </div>
+
+                <div class="admin-chat-input">
+
+                    <input
+                        type="text"
+                        id="adminChatInput"
+                        placeholder="Type reply..."
+                        autocomplete="off"
+                        disabled
+                    >
+
+                    <button
+                        class="auth-btn"
+                        id="adminSendButton"
+                        onclick="adminSendMessage()"
+                        disabled>
+                        Send
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- AUTH -->
 
 <section class="auth-section" id="auth">
 
     <div class="auth-box">
+
 
         <!-- SIGNUP -->
 
@@ -871,8 +1115,6 @@ footer{
                 Login
             </button>
 
-            <!-- FORGOT PASSWORD -->
-
             <p class="forgot">
                 <span onclick="showForgotPassword()">
                     Forgot Password?
@@ -889,7 +1131,7 @@ footer{
         </div>
 
 
-        <!-- FORGOT PASSWORD FORM -->
+        <!-- FORGOT -->
 
         <div id="forgotForm" style="display:none;">
 
@@ -948,6 +1190,8 @@ footer{
 
 <script type="module">
 
+/* FIREBASE */
+
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
@@ -962,109 +1206,139 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
+import {
+    getFirestore,
+    collection,
+    doc,
+    setDoc,
+    addDoc,
+    query,
+    orderBy,
+    onSnapshot,
+    serverTimestamp
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-/* FIREBASE */
+
+/* FIREBASE CONFIG */
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBwwlCkGQcqWiULRU_6SE_zQ_kMxYBx8mk",
-  authDomain: "t5x-ldkn.firebaseapp.com",
-  projectId: "t5x-ldkn",
-  storageBucket: "t5x-ldkn.firebasestorage.app",
-  messagingSenderId: "278540583487",
-  appId: "1:278540583487:web:631a100fd6a286962eae8a",
-  measurementId: "G-LSDEL437QQ"
+    apiKey: "AIzaSyBwwlCkGQcqWiULRU_6SE_zQ_kMxYBx8mk",
+    authDomain: "t5x-ldkn.firebaseapp.com",
+    projectId: "t5x-ldkn",
+    storageBucket: "t5x-ldkn.firebasestorage.app",
+    messagingSenderId: "278540583487",
+    appId: "1:278540583487:web:631a100fd6a286962eae8a",
+    measurementId: "G-LSDEL437QQ"
 };
 
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
+const db = getFirestore(app);
 
-/* HOME */
+
+/* =========================
+   IMPORTANT
+   APNE ADMIN ACCOUNT KA UID YAHAN DALO
+========================= */
+
+const ADMIN_UID = "YOUR_ADMIN_UID";
+
+
+/* VARIABLES */
+
+let chatUnsubscribe = null;
+let adminChatUnsubscribe = null;
+let usersUnsubscribe = null;
+let selectedUserId = null;
+
+
+/* =========================
+   HOME
+========================= */
 
 window.showHome = function(){
 
     document.getElementById("homePage").style.display = "block";
-
     document.getElementById("auth").style.display = "none";
-
     document.getElementById("dashboard").style.display = "none";
+    document.getElementById("admin").style.display = "none";
 
     window.scrollTo(0,0);
-
 };
 
 
-/* LOGIN PAGE */
+/* =========================
+   LOGIN
+========================= */
 
 window.showLogin = function(){
 
     document.getElementById("homePage").style.display = "none";
-
     document.getElementById("dashboard").style.display = "none";
+    document.getElementById("admin").style.display = "none";
 
     document.getElementById("auth").style.display = "flex";
 
     document.getElementById("signupForm").style.display = "none";
-
     document.getElementById("forgotForm").style.display = "none";
-
     document.getElementById("loginForm").style.display = "block";
 
     document.getElementById("loginMessage").textContent = "";
 
     window.scrollTo(0,0);
-
 };
 
 
-/* SIGNUP PAGE */
+/* =========================
+   SIGNUP PAGE
+========================= */
 
 window.showSignup = function(){
 
     document.getElementById("homePage").style.display = "none";
-
     document.getElementById("dashboard").style.display = "none";
+    document.getElementById("admin").style.display = "none";
 
     document.getElementById("auth").style.display = "flex";
 
     document.getElementById("loginForm").style.display = "none";
-
     document.getElementById("forgotForm").style.display = "none";
-
     document.getElementById("signupForm").style.display = "block";
 
     document.getElementById("signupMessage").textContent = "";
 
     window.scrollTo(0,0);
-
 };
 
 
-/* FORGOT PASSWORD PAGE */
+/* =========================
+   FORGOT PASSWORD
+========================= */
 
 window.showForgotPassword = function(){
 
     document.getElementById("homePage").style.display = "none";
-
     document.getElementById("dashboard").style.display = "none";
+    document.getElementById("admin").style.display = "none";
 
     document.getElementById("auth").style.display = "flex";
 
     document.getElementById("loginForm").style.display = "none";
-
     document.getElementById("signupForm").style.display = "none";
-
     document.getElementById("forgotForm").style.display = "block";
 
     document.getElementById("forgotMessage").textContent = "";
 
     window.scrollTo(0,0);
-
 };
 
 
-/* DASHBOARD */
+/* =========================
+   DASHBOARD
+========================= */
 
 window.showDashboard = function(){
 
@@ -1073,23 +1347,59 @@ window.showDashboard = function(){
         showLogin();
 
         return;
-
     }
 
     document.getElementById("homePage").style.display = "none";
-
     document.getElementById("auth").style.display = "none";
-
+    document.getElementById("admin").style.display = "none";
     document.getElementById("dashboard").style.display = "block";
 
     updateDashboard(auth.currentUser);
 
-    window.scrollTo(0,0);
+    loadChat(auth.currentUser.uid);
 
+    window.scrollTo(0,0);
 };
 
 
-/* UPDATE DASHBOARD */
+/* =========================
+   ADMIN PAGE
+========================= */
+
+window.showAdmin = function(){
+
+    const user = auth.currentUser;
+
+    if(!user){
+
+        showLogin();
+
+        return;
+    }
+
+    if(user.uid !== ADMIN_UID){
+
+        alert("Access denied.");
+
+        showDashboard();
+
+        return;
+    }
+
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("auth").style.display = "none";
+    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("admin").style.display = "block";
+
+    loadUsers();
+
+    window.scrollTo(0,0);
+};
+
+
+/* =========================
+   DASHBOARD DATA
+========================= */
 
 function updateDashboard(user){
 
@@ -1104,11 +1414,12 @@ function updateDashboard(user){
 
     document.getElementById("dashboardEmail").textContent =
         user.email || "No email";
-
 }
 
 
-/* SIGNUP */
+/* =========================
+   SIGNUP
+========================= */
 
 window.signup = async function(){
 
@@ -1124,9 +1435,7 @@ window.signup = async function(){
     const message =
         document.getElementById("signupMessage");
 
-
     message.textContent = "";
-
 
     if(!name || !email || !password){
 
@@ -1134,9 +1443,7 @@ window.signup = async function(){
             "Please fill all fields.";
 
         return;
-
     }
-
 
     if(password.length < 6){
 
@@ -1144,9 +1451,7 @@ window.signup = async function(){
             "Password must be at least 6 characters.";
 
         return;
-
     }
-
 
     try{
 
@@ -1166,6 +1471,19 @@ window.signup = async function(){
         );
 
 
+        /* SAVE USER IN FIRESTORE */
+
+        await setDoc(
+            doc(db,"users",result.user.uid),
+            {
+                uid:result.user.uid,
+                name:name,
+                email:email,
+                createdAt:serverTimestamp()
+            }
+        );
+
+
         message.textContent =
             "Account created successfully!";
 
@@ -1180,7 +1498,6 @@ window.signup = async function(){
             showDashboard();
 
         },700);
-
 
     }
 
@@ -1206,15 +1523,14 @@ window.signup = async function(){
 
             message.textContent =
                 error.message;
-
         }
-
     }
-
 };
 
 
-/* LOGIN */
+/* =========================
+   LOGIN
+========================= */
 
 window.login = async function(){
 
@@ -1227,9 +1543,7 @@ window.login = async function(){
     const message =
         document.getElementById("loginMessage");
 
-
     message.textContent = "";
-
 
     if(!email || !password){
 
@@ -1237,9 +1551,7 @@ window.login = async function(){
             "Please enter email and password.";
 
         return;
-
     }
-
 
     try{
 
@@ -1249,10 +1561,8 @@ window.login = async function(){
             password
         );
 
-
         message.textContent =
             "Login successful!";
-
 
         setTimeout(() => {
 
@@ -1280,15 +1590,14 @@ window.login = async function(){
 
             message.textContent =
                 error.message;
-
         }
-
     }
-
 };
 
 
-/* FORGOT PASSWORD */
+/* =========================
+   FORGOT PASSWORD
+========================= */
 
 window.forgotPassword = async function(){
 
@@ -1298,9 +1607,7 @@ window.forgotPassword = async function(){
     const message =
         document.getElementById("forgotMessage");
 
-
     message.textContent = "";
-
 
     if(!email){
 
@@ -1308,9 +1615,7 @@ window.forgotPassword = async function(){
             "Please enter your email.";
 
         return;
-
     }
-
 
     try{
 
@@ -1318,7 +1623,6 @@ window.forgotPassword = async function(){
             auth,
             email
         );
-
 
         message.textContent =
             "Password reset link has been sent to your email.";
@@ -1331,7 +1635,6 @@ window.forgotPassword = async function(){
 
         console.log(error);
 
-
         if(error.code === "auth/invalid-email"){
 
             message.textContent =
@@ -1339,32 +1642,41 @@ window.forgotPassword = async function(){
 
         }
 
-        else if(error.code === "auth/user-not-found"){
-
-            message.textContent =
-                "No account found with this email.";
-
-        }
-
         else{
 
             message.textContent =
                 error.message;
-
         }
-
     }
-
 };
 
 
-/* LOGOUT */
+/* =========================
+   LOGOUT
+========================= */
 
 window.logout = async function(){
 
     try{
 
         await signOut(auth);
+
+        if(chatUnsubscribe){
+            chatUnsubscribe();
+            chatUnsubscribe = null;
+        }
+
+        if(adminChatUnsubscribe){
+            adminChatUnsubscribe();
+            adminChatUnsubscribe = null;
+        }
+
+        if(usersUnsubscribe){
+            usersUnsubscribe();
+            usersUnsubscribe = null;
+        }
+
+        selectedUserId = null;
 
         showHome();
 
@@ -1375,51 +1687,681 @@ window.logout = async function(){
         console.log(error);
 
     }
-
 };
 
 
-/* AUTH STATE */
+/* =========================
+   USER CHAT LOAD
+========================= */
 
-onAuthStateChanged(auth, (user) => {
+function loadChat(userId){
 
-    const authButtons =
-        document.getElementById("authButtons");
+    const messagesBox =
+        document.getElementById("chatMessages");
 
-    const userPanel =
-        document.getElementById("userPanel");
+    if(!messagesBox) return;
 
-    const userName =
-        document.getElementById("userName");
+    if(chatUnsubscribe){
 
-
-    if(user){
-
-        authButtons.style.display = "none";
-
-        userPanel.style.display = "inline";
-
-        userName.textContent =
-            user.displayName || user.email;
-
-        updateDashboard(user);
+        chatUnsubscribe();
 
     }
 
-    else{
+    const messagesRef =
+        collection(
+            db,
+            "chats",
+            userId,
+            "messages"
+        );
 
-        authButtons.style.display = "inline";
+    const messagesQuery =
+        query(
+            messagesRef,
+            orderBy("createdAt","asc")
+        );
 
-        userPanel.style.display = "none";
 
-        document.getElementById("dashboard").style.display =
-            "none";
+    chatUnsubscribe =
+        onSnapshot(
+            messagesQuery,
+            (snapshot) => {
+
+                messagesBox.innerHTML = "";
+
+
+                if(snapshot.empty){
+
+                    messagesBox.innerHTML =
+                        `<p class="chat-empty">
+                            Start chatting with T5X LDKN Admin 👋
+                        </p>`;
+
+                    return;
+                }
+
+
+                snapshot.forEach((messageDoc) => {
+
+                    const data =
+                        messageDoc.data();
+
+                    const div =
+                        document.createElement("div");
+
+                    div.className =
+                        "chat-message " +
+                        (
+                            data.senderType === "user"
+                                ? "user"
+                                : "admin"
+                        );
+
+
+                    div.textContent =
+                        data.text || "";
+
+
+                    if(data.createdAt){
+
+                        const time =
+                            document.createElement("span");
+
+                        time.className =
+                            "chat-time";
+
+                        time.textContent =
+                            formatTime(
+                                data.createdAt
+                            );
+
+                        div.appendChild(time);
+                    }
+
+
+                    messagesBox.appendChild(div);
+
+                });
+
+
+                messagesBox.scrollTop =
+                    messagesBox.scrollHeight;
+
+            },
+
+            (error) => {
+
+                console.error(
+                    "User chat error:",
+                    error
+                );
+
+                messagesBox.innerHTML =
+                    `<p class="chat-empty">
+                        Unable to load chat.
+                    </p>`;
+            }
+        );
+}
+
+
+/* =========================
+   USER SEND MESSAGE
+========================= */
+
+window.sendMessage = async function(){
+
+    const user = auth.currentUser;
+
+    if(!user){
+
+        showLogin();
+
+        return;
+    }
+
+    const input =
+        document.getElementById("chatInput");
+
+    const text =
+        input.value.trim();
+
+    if(!text) return;
+
+
+    try{
+
+        await addDoc(
+            collection(
+                db,
+                "chats",
+                user.uid,
+                "messages"
+            ),
+            {
+                text:text,
+                senderId:user.uid,
+                senderType:"user",
+                createdAt:serverTimestamp()
+            }
+        );
+
+
+        input.value = "";
 
     }
 
-});
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Message send nahi hua: " +
+            error.message
+        );
+    }
+};
+
+
+/* =========================
+   ADMIN LOAD USERS
+========================= */
+
+function loadUsers(){
+
+    const usersList =
+        document.getElementById("usersList");
+
+
+    if(usersUnsubscribe){
+
+        usersUnsubscribe();
+
+    }
+
+
+    const usersRef =
+        collection(db,"users");
+
+
+    usersUnsubscribe =
+        onSnapshot(
+            usersRef,
+            (snapshot) => {
+
+                usersList.innerHTML = "";
+
+
+                if(snapshot.empty){
+
+                    usersList.innerHTML =
+                        `<p style="color:#71809d;">
+                            No users found.
+                        </p>`;
+
+                    return;
+                }
+
+
+                snapshot.forEach((userDoc) => {
+
+                    const user =
+                        userDoc.data();
+
+
+                    const div =
+                        document.createElement("div");
+
+                    div.className =
+                        "user-item";
+
+
+                    if(
+                        selectedUserId === user.uid
+                    ){
+
+                        div.classList.add("active");
+
+                    }
+
+
+                    const strong =
+                        document.createElement("strong");
+
+                    strong.textContent =
+                        user.name || "User";
+
+
+                    const small =
+                        document.createElement("small");
+
+                    small.textContent =
+                        user.email || "";
+
+
+                    div.appendChild(strong);
+                    div.appendChild(small);
+
+
+                    div.onclick = function(){
+
+                        selectAdminUser(
+                            user.uid,
+                            user.name || "User"
+                        );
+
+                    };
+
+
+                    usersList.appendChild(div);
+
+                });
+
+            },
+
+            (error) => {
+
+                console.error(error);
+
+                usersList.innerHTML =
+                    `<p style="color:#ff4d6d;">
+                        Unable to load users.
+                    </p>`;
+            }
+        );
+}
+
+
+/* =========================
+   SELECT ADMIN USER
+========================= */
+
+function selectAdminUser(
+    userId,
+    userName
+){
+
+    selectedUserId = userId;
+
+
+    document.getElementById(
+        "adminChatTitle"
+    ).textContent =
+        "💬 Chat with " + userName;
+
+
+    document.getElementById(
+        "adminChatInput"
+    ).disabled = false;
+
+
+    document.getElementById(
+        "adminSendButton"
+    ).disabled = false;
+
+
+    loadAdminChat(userId);
+
+
+    loadUsers();
+}
+
+
+/* =========================
+   ADMIN CHAT LOAD
+========================= */
+
+function loadAdminChat(userId){
+
+    const messagesBox =
+        document.getElementById(
+            "adminChatMessages"
+        );
+
+
+    if(adminChatUnsubscribe){
+
+        adminChatUnsubscribe();
+
+    }
+
+
+    const messagesRef =
+        collection(
+            db,
+            "chats",
+            userId,
+            "messages"
+        );
+
+
+    const messagesQuery =
+        query(
+            messagesRef,
+            orderBy("createdAt","asc")
+        );
+
+
+    adminChatUnsubscribe =
+        onSnapshot(
+            messagesQuery,
+            (snapshot) => {
+
+                messagesBox.innerHTML = "";
+
+
+                if(snapshot.empty){
+
+                    messagesBox.innerHTML =
+                        `<div class="no-user">
+                            No messages yet.
+                        </div>`;
+
+                    return;
+                }
+
+
+                snapshot.forEach((messageDoc) => {
+
+                    const data =
+                        messageDoc.data();
+
+
+                    const div =
+                        document.createElement("div");
+
+
+                    div.className =
+                        "chat-message " +
+                        (
+                            data.senderType === "admin"
+                                ? "admin"
+                                : "user"
+                        );
+
+
+                    div.textContent =
+                        data.text || "";
+
+
+                    if(data.createdAt){
+
+                        const time =
+                            document.createElement("span");
+
+                        time.className =
+                            "chat-time";
+
+                        time.textContent =
+                            formatTime(
+                                data.createdAt
+                            );
+
+                        div.appendChild(time);
+                    }
+
+
+                    messagesBox.appendChild(div);
+
+                });
+
+
+                messagesBox.scrollTop =
+                    messagesBox.scrollHeight;
+
+            },
+
+            (error) => {
+
+                console.error(
+                    "Admin chat error:",
+                    error
+                );
+
+                messagesBox.innerHTML =
+                    `<div class="no-user">
+                        Unable to load messages.
+                    </div>`;
+            }
+        );
+}
+
+
+/* =========================
+   ADMIN SEND MESSAGE
+========================= */
+
+window.adminSendMessage = async function(){
+
+    const admin =
+        auth.currentUser;
+
+
+    if(!admin){
+
+        showLogin();
+
+        return;
+    }
+
+
+    if(admin.uid !==oNSKRlCO5SeQ4gXtyyNB7CDK7dx1){
+
+        alert("Access denied.");
+
+        return;
+    }
+
+
+    if(!selectedUserId){
+
+        alert("Please select a user first.");
+
+        return;
+    }
+
+
+    const input =
+        document.getElementById(
+            "adminChatInput"
+        );
+
+
+    const text =
+        input.value.trim();
+
+
+    if(!text) return;
+
+
+    try{
+
+        await addDoc(
+            collection(
+                db,
+                "chats",
+                selectedUserId,
+                "messages"
+            ),
+            {
+                text:text,
+                senderId:ADMIN_UID,
+                senderType:"admin",
+                createdAt:serverTimestamp()
+            }
+        );
+
+
+        input.value = "";
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Admin message send nahi hua: " +
+            error.message
+        );
+    }
+};
+
+
+/* =========================
+   ENTER KEY - USER CHAT
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Enter" &&
+            document.activeElement &&
+            document.activeElement.id === "chatInput"
+        ){
+
+            event.preventDefault();
+
+            sendMessage();
+
+        }
+
+
+        if(
+            event.key === "Enter" &&
+            document.activeElement &&
+            document.activeElement.id === "adminChatInput"
+        ){
+
+            event.preventDefault();
+
+            adminSendMessage();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   TIME FORMAT
+========================= */
+
+function formatTime(timestamp){
+
+    if(!timestamp || !timestamp.toDate){
+
+        return "";
+
+    }
+
+
+    const date =
+        timestamp.toDate();
+
+
+    return date.toLocaleString(
+        "en-IN",
+        {
+            day:"2-digit",
+            month:"short",
+            hour:"2-digit",
+            minute:"2-digit"
+        }
+    );
+}
+
+
+/* =========================
+   AUTH STATE
+========================= */
+
+onAuthStateChanged(
+    auth,
+    (user) => {
+
+        const authButtons =
+            document.getElementById(
+                "authButtons"
+            );
+
+        const userPanel =
+            document.getElementById(
+                "userPanel"
+            );
+
+        const userName =
+            document.getElementById(
+                "userName"
+            );
+
+        const adminButton =
+            document.getElementById(
+                "adminButton"
+            );
+
+
+        if(user){
+
+            authButtons.style.display =
+                "none";
+
+            userPanel.style.display =
+                "inline";
+
+            userName.textContent =
+                user.displayName ||
+                user.email;
+
+
+            updateDashboard(user);
+
+
+            if(user.uid === ADMIN_UID){
+
+                adminButton.style.display =
+                    "inline-block";
+
+            }
+
+            else{
+
+                adminButton.style.display =
+                    "none";
+
+            }
+
+        }
+
+        else{
+
+            authButtons.style.display =
+                "inline";
+
+            userPanel.style.display =
+                "none";
+
+            adminButton.style.display =
+                "none";
+
+            document.getElementById(
+                "dashboard"
+            ).style.display =
+                "none";
+
+            document.getElementById(
+                "admin"
+            ).style.display =
+                "none";
+        }
+
+    }
+);
 
 </script>
 
 </body>
 </html>
+```
