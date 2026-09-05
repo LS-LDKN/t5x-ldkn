@@ -309,6 +309,80 @@ input:focus{
     cursor:pointer;
 }
 
+/* DASHBOARD */
+
+.dashboard-section{
+    display:none;
+    min-height:80vh;
+}
+
+.dashboard-box{
+    max-width:1000px;
+    margin:auto;
+}
+
+.welcome-box{
+    background:#0b1228;
+    border:1px solid #00e5ff;
+    border-radius:20px;
+    padding:35px;
+    margin-bottom:25px;
+}
+
+.welcome-box h2{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.welcome-box h2 span{
+    color:#00e5ff;
+}
+
+.welcome-box p{
+    color:#aab4c9;
+    line-height:1.6;
+}
+
+.dashboard-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:22px;
+}
+
+.dashboard-card{
+    background:#0b1228;
+    border:1px solid #1c2a49;
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+    transition:.3s;
+}
+
+.dashboard-card:hover{
+    transform:translateY(-5px);
+    border-color:#00e5ff;
+}
+
+.dashboard-card .icon{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.dashboard-card h3{
+    color:#00e5ff;
+    margin-bottom:10px;
+}
+
+.dashboard-card p{
+    color:#aab4c9;
+    word-break:break-word;
+}
+
+.dashboard-home{
+    margin-top:30px;
+    text-align:center;
+}
+
 /* FOOTER */
 
 footer{
@@ -339,6 +413,14 @@ footer{
         font-size:16px;
     }
 
+    .user-name{
+        display:none;
+    }
+
+    .dashboard-section{
+        padding:50px 5%;
+    }
+
 }
 </style>
 </head>
@@ -359,13 +441,28 @@ footer{
         <a href="#about" onclick="showHome()">About</a>
         <a href="#team" onclick="showHome()">Team</a>
 
+        <!-- LOGIN BUTTON -->
+
         <span id="authButtons">
             <a href="#auth" class="nav-btn" onclick="showLogin()">Login</a>
         </span>
 
+        <!-- USER PANEL -->
+
         <span id="userPanel">
+
+            <a href="#dashboard"
+               class="nav-btn"
+               onclick="showDashboard()">
+                Dashboard
+            </a>
+
             <span class="user-name" id="userName"></span>
-            <button class="logout" onclick="logout()">Logout</button>
+
+            <button class="logout" onclick="logout()">
+                Logout
+            </button>
+
         </span>
 
     </div>
@@ -379,7 +476,7 @@ footer{
 
 <!-- HOME -->
 
-    <section class="hero" id="home">
+<section class="hero" id="home">
 
     <div class="hero-content">
 
@@ -407,6 +504,7 @@ footer{
     </div>
 
 </section>
+
 
 <!-- ABOUT -->
 
@@ -522,7 +620,9 @@ footer{
             </p>
 
         </div>
-         <div class="team-card">
+
+
+        <div class="team-card">
 
             <div class="avatar">
                 K
@@ -541,6 +641,8 @@ footer{
             </p>
 
         </div>
+
+
         <div class="team-card">
 
             <div class="avatar">
@@ -560,7 +662,9 @@ footer{
             </p>
 
         </div>
-           <div class="team-card">
+
+
+        <div class="team-card">
 
             <div class="avatar">
                 N
@@ -581,11 +685,115 @@ footer{
         </div>
 
     </div>
-          
-</section>
 
 </section>
+
 </main>
+
+
+<!-- DASHBOARD -->
+
+<section class="dashboard-section" id="dashboard">
+
+    <h2 class="title">
+        User <span>Dashboard</span>
+    </h2>
+
+    <div class="dashboard-box">
+
+        <div class="welcome-box">
+
+            <h2>
+                Welcome, <span id="dashboardName">User</span> 👋
+            </h2>
+
+            <p>
+                Welcome to your T5X LDKN dashboard.
+                Your account is successfully logged in.
+            </p>
+
+        </div>
+
+
+        <div class="dashboard-cards">
+
+            <div class="dashboard-card">
+
+                <div class="icon">
+                    👤
+                </div>
+
+                <h3>Name</h3>
+
+                <p id="dashboardUserName">
+                    Loading...
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="icon">
+                    📧
+                </div>
+
+                <h3>Email</h3>
+
+                <p id="dashboardEmail">
+                    Loading...
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="icon">
+                    🟢
+                </div>
+
+                <h3>Account Status</h3>
+
+                <p>
+                    Active & Logged In
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="icon">
+                    🚀
+                </div>
+
+                <h3>T5X LDKN</h3>
+
+                <p>
+                    AI • Coding • Web Development
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-home">
+
+            <button
+                class="auth-btn"
+                style="max-width:250px;"
+                onclick="showHome()">
+                Back to Website
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 <!-- AUTH SECTION -->
 
@@ -668,9 +876,17 @@ footer{
 
 
 <footer>
-     <p>📧 Contact Gmail: lakhangoswami413@gmail.com</p>
-        <p>📞 Contact: +91 9548032485</p>
+
+    <p>
+        📧 Contact Gmail: lakhangoswami413@gmail.com
+    </p>
+
+    <p>
+        📞 Contact: +91 9548032485
+    </p>
+
     © 2026 T5X LDKN — All Rights Reserved
+
 </footer>
 
 
@@ -715,6 +931,8 @@ window.showHome = function(){
 
     document.getElementById("auth").style.display = "none";
 
+    document.getElementById("dashboard").style.display = "none";
+
     window.scrollTo(0,0);
 
 };
@@ -726,6 +944,8 @@ window.showLogin = function(){
 
     document.getElementById("homePage").style.display = "none";
 
+    document.getElementById("dashboard").style.display = "none";
+
     document.getElementById("auth").style.display = "flex";
 
     document.getElementById("signupForm").style.display = "none";
@@ -733,6 +953,8 @@ window.showLogin = function(){
     document.getElementById("loginForm").style.display = "block";
 
     document.getElementById("loginMessage").textContent = "";
+
+    window.scrollTo(0,0);
 
 };
 
@@ -743,6 +965,8 @@ window.showSignup = function(){
 
     document.getElementById("homePage").style.display = "none";
 
+    document.getElementById("dashboard").style.display = "none";
+
     document.getElementById("auth").style.display = "flex";
 
     document.getElementById("loginForm").style.display = "none";
@@ -751,7 +975,53 @@ window.showSignup = function(){
 
     document.getElementById("signupMessage").textContent = "";
 
+    window.scrollTo(0,0);
+
 };
+
+
+/* DASHBOARD */
+
+window.showDashboard = function(){
+
+    if(!auth.currentUser){
+
+        showLogin();
+
+        return;
+
+    }
+
+    document.getElementById("homePage").style.display = "none";
+
+    document.getElementById("auth").style.display = "none";
+
+    document.getElementById("dashboard").style.display = "block";
+
+    updateDashboard(auth.currentUser);
+
+    window.scrollTo(0,0);
+
+};
+
+
+/* UPDATE DASHBOARD */
+
+function updateDashboard(user){
+
+    const name =
+        user.displayName || user.email || "User";
+
+    document.getElementById("dashboardName").textContent =
+        name;
+
+    document.getElementById("dashboardUserName").textContent =
+        name;
+
+    document.getElementById("dashboardEmail").textContent =
+        user.email || "No email";
+
+}
 
 
 /* SIGNUP */
@@ -823,9 +1093,9 @@ window.signup = async function(){
 
         setTimeout(() => {
 
-            showHome();
+            showDashboard();
 
-        },1000);
+        },700);
 
 
     }
@@ -902,7 +1172,7 @@ window.login = async function(){
 
         setTimeout(() => {
 
-            showHome();
+            showDashboard();
 
         },700);
 
@@ -978,6 +1248,8 @@ onAuthStateChanged(auth, (user) => {
         userName.textContent =
             user.displayName || user.email;
 
+        updateDashboard(user);
+
     }
 
     else{
@@ -985,6 +1257,9 @@ onAuthStateChanged(auth, (user) => {
         authButtons.style.display = "inline";
 
         userPanel.style.display = "none";
+
+        document.getElementById("dashboard").style.display =
+            "none";
 
     }
 
