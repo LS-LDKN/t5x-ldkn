@@ -2,690 +2,581 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>T5X LDKN</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-    font-family:Arial,sans-serif;
-    background:#050816;
-    color:white;
+font-family:Arial,sans-serif;
+background:#050816;
+color:white;
 }
-
-/* NAVBAR */
 
 nav{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 7%;
-    background:#080d20;
-    border-bottom:1px solid #18233f;
+position:sticky;top:0;z-index:1000;
+display:flex;justify-content:space-between;align-items:center;
+padding:18px 7%;
+background:#080d20;
+border-bottom:1px solid #18233f;
 }
 
-.logo{
-    font-size:25px;
-    font-weight:bold;
-}
-
-.logo span{
-    color:#00e5ff;
-}
+.logo{font-size:25px;font-weight:bold}
+.logo span{color:#00e5ff}
 
 .nav-links{
-    display:flex;
-    gap:25px;
-    align-items:center;
+display:flex;gap:25px;align-items:center
 }
-
 .nav-links a{
-    color:white;
-    text-decoration:none;
+color:white;text-decoration:none
 }
-
-.nav-links a:hover{
-    color:#00e5ff;
-}
+.nav-links a:hover{color:#00e5ff}
 
 .nav-btn{
-    border:1px solid #00e5ff;
-    padding:9px 18px;
-    border-radius:20px;
-    color:#00e5ff !important;
+border:1px solid #00e5ff;
+padding:9px 18px;
+border-radius:20px;
+color:#00e5ff!important
 }
 
-/* HERO */
+section{padding:80px 7%}
 
 .hero{
-    min-height:85vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:50px 20px;
+min-height:85vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:50px 7%;
+gap:50px;
 }
 
 .hero-content{
-    max-width:800px;
+max-width:800px;
+flex:1;
+}
+
+.hero-badge{
+display:inline-block;
+padding:8px 16px;
+border:1px solid #00e5ff;
+border-radius:20px;
+color:#00e5ff;
+font-size:13px;
+letter-spacing:2px;
+margin-bottom:20px;
+box-shadow:0 0 15px #00e5ff22;
 }
 
 .hero h1{
-    font-size:60px;
-    margin-bottom:20px;
+font-size:60px;
+margin-bottom:20px
 }
 
-.hero h1 span{
-    color:#00e5ff;
-}
+.hero h1 span{color:#00e5ff}
 
 .hero p{
-    color:#aab4c9;
-    font-size:19px;
-    line-height:1.7;
+color:#aab4c9;
+font-size:19px;
+line-height:1.7
 }
 
-.hero-buttons{
-    margin-top:30px;
-}
+.hero-buttons{margin-top:30px}
 
 .btn{
-    display:inline-block;
-    padding:14px 25px;
-    border-radius:30px;
-    margin:7px;
-    text-decoration:none;
-    font-weight:bold;
+display:inline-block;
+padding:14px 25px;
+border-radius:30px;
+margin:7px;
+text-decoration:none;
+font-weight:bold
 }
 
 .primary{
-    background:#00e5ff;
-    color:#001018;
+background:#00e5ff;
+color:#001018
 }
 
 .secondary{
-    border:1px solid #00e5ff;
-    color:#00e5ff;
+border:1px solid #00e5ff;
+color:#00e5ff
 }
 
-/* SECTIONS */
+/* ================= LOGO ================= */
 
-section{
-    padding:80px 7%;
+.hero-logo{
+width:390px;
+min-width:320px;
+display:flex;
+align-items:center;
+justify-content:center;
 }
+
+.t5x-logo-svg{
+width:350px;
+height:350px;
+filter:drop-shadow(0 0 18px rgba(0,229,255,.35));
+animation:logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+}
+
+/* ================= GENERAL ================= */
 
 .title{
-    text-align:center;
-    font-size:35px;
-    margin-bottom:45px;
+text-align:center;
+font-size:35px;
+margin-bottom:45px
 }
-
-.title span{
-    color:#00e5ff;
-}
-
-/* ABOUT */
+.title span{color:#00e5ff}
 
 .about{
-    max-width:900px;
-    margin:auto;
-    text-align:center;
-    color:#aab4c9;
-    font-size:18px;
-    line-height:1.8;
+max-width:900px;
+margin:auto;
+text-align:center;
+color:#aab4c9;
+font-size:18px;
+line-height:1.8
 }
-
-/* CARDS */
 
 .cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:22px;
-    max-width:1000px;
-    margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:22px;
+max-width:1000px;
+margin:auto
 }
 
-.card{
-    background:#0b1228;
-    border:1px solid #1c2a49;
-    padding:30px;
-    border-radius:18px;
-    text-align:center;
-    transition:.3s;
+.card,.team-card,.dashboard-card{
+background:#0b1228;
+border:1px solid #1c2a49;
+padding:30px;
+border-radius:18px;
+text-align:center;
+transition:.3s
 }
 
-.card:hover{
-    transform:translateY(-6px);
-    border-color:#00e5ff;
+.card:hover,.dashboard-card:hover{
+transform:translateY(-6px);
+border-color:#00e5ff
 }
 
-.card h3{
-    color:#00e5ff;
-    margin-bottom:12px;
+.card h3,.dashboard-card h3{
+color:#00e5ff;
+margin-bottom:12px
 }
 
-.card p{
-    color:#aab4c9;
-    line-height:1.6;
+.card p,.team-card p,.dashboard-card p{
+color:#aab4c9;
+line-height:1.6
 }
-
-/* TEAM */
 
 .team-card{
-    background:#0b1228;
-    border:1px solid #00e5ff;
-    border-radius:20px;
-    padding:30px;
-    text-align:center;
+border-color:#00e5ff
 }
 
 .avatar{
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    background:#00e5ff;
-    color:#001018;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:30px;
-    font-weight:bold;
-    margin:0 auto 20px;
+width:90px;height:90px;
+border-radius:50%;
+background:#00e5ff;
+color:#001018;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+font-weight:bold;
+margin:0 auto 20px
 }
 
-.team-card h3{
-    font-size:25px;
-}
-
-.role{
-    color:#00e5ff;
-    margin:10px 0;
-}
-
-.team-card p{
-    color:#aab4c9;
-    line-height:1.6;
-}
+.team-card h3{font-size:25px}
+.role{color:#00e5ff;margin:10px 0}
 
 /* AUTH */
 
 .auth-section{
-    display:none;
-    min-height:80vh;
-    align-items:center;
-    justify-content:center;
+display:none;
+min-height:80vh;
+align-items:center;
+justify-content:center
 }
 
 .auth-box{
-    width:90%;
-    max-width:420px;
-    background:#0b1228;
-    border:1px solid #00e5ff;
-    border-radius:20px;
-    padding:35px;
+width:90%;
+max-width:420px;
+background:#0b1228;
+border:1px solid #00e5ff;
+border-radius:20px;
+padding:35px
 }
 
 .auth-box h2{
-    text-align:center;
-    margin-bottom:25px;
+text-align:center;
+margin-bottom:25px
 }
 
 input{
-    width:100%;
-    padding:14px;
-    margin:8px 0;
-    border-radius:10px;
-    border:1px solid #263656;
-    background:#050816;
-    color:white;
-    outline:none;
+width:100%;
+padding:14px;
+margin:8px 0;
+border-radius:10px;
+border:1px solid #263656;
+background:#050816;
+color:white;
+outline:none
 }
 
-input:focus{
-    border-color:#00e5ff;
-}
+input:focus{border-color:#00e5ff}
 
 .auth-btn{
-    width:100%;
-    padding:14px;
-    margin-top:15px;
-    border:0;
-    border-radius:25px;
-    background:#00e5ff;
-    color:#001018;
-    font-weight:bold;
-    cursor:pointer;
+width:100%;
+padding:14px;
+margin-top:15px;
+border:0;
+border-radius:25px;
+background:#00e5ff;
+color:#001018;
+font-weight:bold;
+cursor:pointer
 }
 
-.auth-btn:disabled{
-    opacity:.5;
-    cursor:not-allowed;
+.auth-btn:disabled{opacity:.5}
+
+.switch,.forgot{
+text-align:center;
+margin-top:18px;
+color:#9da7bc
 }
 
-.switch{
-    text-align:center;
-    margin-top:18px;
-    color:#9da7bc;
-}
-
-.switch span{
-    color:#00e5ff;
-    cursor:pointer;
+.switch span,.forgot span{
+color:#00e5ff;
+cursor:pointer
 }
 
 .message{
-    text-align:center;
-    margin-top:15px;
-    min-height:20px;
+text-align:center;
+margin-top:15px;
+min-height:20px
 }
 
-.forgot{
-    text-align:center;
-    margin-top:15px;
-}
-
-.forgot span{
-    color:#00e5ff;
-    cursor:pointer;
-}
-
-.forgot span:hover{
-    text-decoration:underline;
-}
-
-/* USER PANEL */
-
-#userPanel{
-    display:none;
-}
+#userPanel{display:none}
 
 .user-name{
-    color:#00e5ff;
-    margin-right:10px;
+color:#00e5ff;
+margin-right:10px
 }
 
 .logout{
-    border:1px solid #ff4d6d;
-    background:transparent;
-    color:#ff4d6d;
-    padding:8px 15px;
-    border-radius:20px;
-    cursor:pointer;
+border:1px solid #ff4d6d;
+background:transparent;
+color:#ff4d6d;
+padding:8px 15px;
+border-radius:20px;
+cursor:pointer
 }
 
 /* DASHBOARD */
 
-.dashboard-section{
-    display:none;
-    min-height:80vh;
+.dashboard-section,.admin-section{
+display:none;
+min-height:80vh
 }
 
-.dashboard-box{
-    max-width:1000px;
-    margin:auto;
+.dashboard-box,.admin-box{
+max-width:1100px;
+margin:auto
 }
 
 .welcome-box{
-    background:#0b1228;
-    border:1px solid #00e5ff;
-    border-radius:20px;
-    padding:35px;
-    margin-bottom:25px;
+background:#0b1228;
+border:1px solid #00e5ff;
+border-radius:20px;
+padding:35px;
+margin-bottom:25px
 }
 
 .welcome-box h2{
-    font-size:32px;
-    margin-bottom:10px;
+font-size:32px;
+margin-bottom:10px
 }
 
-.welcome-box h2 span{
-    color:#00e5ff;
-}
+.welcome-box h2 span{color:#00e5ff}
 
 .welcome-box p{
-    color:#aab4c9;
-    line-height:1.6;
+color:#aab4c9;
+line-height:1.6
 }
 
 .dashboard-cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:22px;
-}
-
-.dashboard-card{
-    background:#0b1228;
-    border:1px solid #1c2a49;
-    border-radius:18px;
-    padding:30px;
-    text-align:center;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:22px
 }
 
 .dashboard-card .icon{
-    font-size:35px;
-    margin-bottom:15px;
-}
-
-.dashboard-card h3{
-    color:#00e5ff;
-    margin-bottom:10px;
-}
-
-.dashboard-card p{
-    color:#aab4c9;
-    word-break:break-word;
+font-size:35px;
+margin-bottom:15px
 }
 
 /* EDIT PROFILE */
 
 .profile-edit-box{
-    display:none;
-    margin-top:25px;
-    background:#0b1228;
-    border:1px solid #00e5ff;
-    border-radius:18px;
-    padding:25px;
+display:none;
+margin-top:25px;
+background:#0b1228;
+border:1px solid #00e5ff;
+border-radius:18px;
+padding:25px
 }
 
 .profile-edit-box h3{
-    color:#00e5ff;
-    margin-bottom:15px;
+color:#00e5ff;
+margin-bottom:15px
 }
 
-.profile-edit-box .profile-label{
-    display:block;
-    color:#aab4c9;
-    margin-top:10px;
-    margin-bottom:5px;
+.profile-label{
+display:block;
+color:#aab4c9;
+margin-top:10px;
+margin-bottom:5px
 }
 
 .profile-edit-actions{
-    display:flex;
-    gap:10px;
-    margin-top:15px;
+display:flex;
+gap:10px;
+margin-top:15px
 }
 
-.profile-edit-actions button{
-    flex:1;
-}
+.profile-edit-actions button{flex:1}
 
 .profile-cancel-btn{
-    width:100%;
-    padding:14px;
-    border:1px solid #ff4d6d;
-    border-radius:25px;
-    background:transparent;
-    color:#ff4d6d;
-    font-weight:bold;
-    cursor:pointer;
+width:100%;
+padding:14px;
+border:1px solid #ff4d6d;
+border-radius:25px;
+background:transparent;
+color:#ff4d6d;
+font-weight:bold;
+cursor:pointer
 }
 
 .profile-message{
-    text-align:center;
-    margin-top:12px;
-    min-height:20px;
+text-align:center;
+margin-top:12px;
+min-height:20px
 }
 
 /* CHAT */
 
 .chat-box{
-    margin-top:30px;
-    background:#0b1228;
-    border:1px solid #00e5ff;
-    border-radius:20px;
-    padding:25px;
+margin-top:30px;
+background:#0b1228;
+border:1px solid #00e5ff;
+border-radius:20px;
+padding:25px
 }
 
-.chat-box h2{
-    margin-bottom:20px;
-}
+.chat-box h2{margin-bottom:20px}
+.chat-box h2 span{color:#00e5ff}
 
-.chat-box h2 span{
-    color:#00e5ff;
-}
-
-.chat-messages{
-    height:350px;
-    overflow-y:auto;
-    padding:15px;
-    background:#050816;
-    border:1px solid #1c2a49;
-    border-radius:15px;
+.chat-messages,.admin-chat-messages{
+height:350px;
+overflow-y:auto;
+padding:15px;
+background:#050816;
+border:1px solid #1c2a49;
+border-radius:15px
 }
 
 .chat-empty{
-    text-align:center;
-    color:#71809d;
-    margin-top:140px;
+text-align:center;
+color:#71809d;
+margin-top:140px
 }
 
 .chat-message{
-    max-width:75%;
-    padding:10px 14px;
-    margin:8px 0;
-    border-radius:15px;
-    word-break:break-word;
-    line-height:1.5;
+max-width:75%;
+padding:10px 14px;
+margin:8px 0;
+border-radius:15px;
+word-break:break-word;
+line-height:1.5
 }
 
 .chat-message.user{
-    margin-left:auto;
-    background:#00e5ff;
-    color:#001018;
-    border-bottom-right-radius:4px;
+margin-left:auto;
+background:#00e5ff;
+color:#001018;
+border-bottom-right-radius:4px
 }
 
 .chat-message.admin{
-    margin-right:auto;
-    background:#18233f;
-    color:white;
-    border-bottom-left-radius:4px;
+margin-right:auto;
+background:#18233f;
+color:white;
+border-bottom-left-radius:4px
 }
 
 .chat-time{
-    display:block;
-    font-size:10px;
-    margin-top:5px;
-    opacity:.7;
+display:block;
+font-size:10px;
+margin-top:5px;
+opacity:.7
 }
 
-.chat-input-area{
-    display:flex;
-    gap:10px;
-    margin-top:15px;
+.chat-input-area,.admin-chat-input{
+display:flex;
+gap:10px;
+margin-top:15px
 }
 
-.chat-input-area input{
-    margin:0;
-    flex:1;
+.chat-input-area input,.admin-chat-input input{
+margin:0;
+flex:1
 }
 
-.chat-input-area .auth-btn{
-    width:110px;
-    margin:0;
+.chat-input-area .auth-btn,.admin-chat-input button{
+width:110px;
+margin:0
 }
 
 /* ADMIN */
 
-.admin-section{
-    display:none;
-    min-height:80vh;
-}
-
-.admin-box{
-    max-width:1100px;
-    margin:auto;
-}
-
 .admin-layout{
-    display:grid;
-    grid-template-columns:280px 1fr;
-    gap:20px;
+display:grid;
+grid-template-columns:280px 1fr;
+gap:20px
 }
 
 .user-list{
-    background:#0b1228;
-    border:1px solid #1c2a49;
-    border-radius:18px;
-    padding:15px;
-    max-height:500px;
-    overflow-y:auto;
+background:#0b1228;
+border:1px solid #1c2a49;
+border-radius:18px;
+padding:15px;
+max-height:500px;
+overflow-y:auto
 }
 
 .user-list h3{
-    color:#00e5ff;
-    margin-bottom:15px;
+color:#00e5ff;
+margin-bottom:15px
 }
 
 .user-item{
-    padding:14px;
-    margin-bottom:8px;
-    background:#050816;
-    border:1px solid #1c2a49;
-    border-radius:12px;
-    cursor:pointer;
+padding:14px;
+margin-bottom:8px;
+background:#050816;
+border:1px solid #1c2a49;
+border-radius:12px;
+cursor:pointer
 }
 
-.user-item:hover{
-    border-color:#00e5ff;
-}
-
-.user-item.active{
-    border-color:#00e5ff;
-    background:#10203b;
+.user-item:hover,.user-item.active{
+border-color:#00e5ff;
+background:#10203b
 }
 
 .user-item strong{
-    display:block;
-    color:white;
-    margin-bottom:5px;
+display:block;
+margin-bottom:5px
 }
 
 .user-item small{
-    color:#71809d;
-    word-break:break-word;
+color:#71809d;
+word-break:break-word
 }
 
 .admin-chat{
-    background:#0b1228;
-    border:1px solid #00e5ff;
-    border-radius:18px;
-    padding:20px;
+background:#0b1228;
+border:1px solid #00e5ff;
+border-radius:18px;
+padding:20px
 }
 
 .admin-chat-title{
-    color:#00e5ff;
-    margin-bottom:15px;
-}
-
-.admin-chat-messages{
-    height:350px;
-    overflow-y:auto;
-    padding:15px;
-    background:#050816;
-    border-radius:15px;
-    border:1px solid #1c2a49;
-}
-
-.admin-chat-input{
-    display:flex;
-    gap:10px;
-    margin-top:15px;
-}
-
-.admin-chat-input input{
-    margin:0;
-    flex:1;
-}
-
-.admin-chat-input button{
-    width:110px;
-    margin:0;
+color:#00e5ff;
+margin-bottom:15px
 }
 
 .no-user{
-    height:100%;
-    min-height:300px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:#71809d;
+height:100%;
+min-height:300px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:#71809d
 }
 
 /* FOOTER */
 
 footer{
-    text-align:center;
-    padding:30px;
-    border-top:1px solid #18233f;
-    color:#71809d;
+text-align:center;
+padding:30px;
+border-top:1px solid #18233f;
+color:#71809d;
+line-height:2
 }
 
 /* MOBILE */
 
 @media(max-width:700px){
 
-    nav{
-        padding:15px 5%;
-    }
+nav{padding:15px 5%}
 
-    .nav-links{
-        gap:12px;
-        font-size:14px;
-    }
+.nav-links{
+gap:10px;
+font-size:13px
+}
 
-    .hero h1{
-        font-size:42px;
-    }
+.hero{
+flex-direction:column;
+text-align:center;
+padding:50px 20px;
+gap:30px
+}
 
-    .hero p{
-        font-size:16px;
-    }
+.hero h1{font-size:42px}
+.hero p{font-size:16px}
 
-    .user-name{
-        display:none;
-    }
+.hero-logo{
+width:100%;
+min-width:0
+}
 
-    .dashboard-section,
-    .admin-section{
-        padding:50px 5%;
-    }
+.t5x-logo-svg{
+width:270px;
+height:270px
+}
 
-    .admin-layout{
-        grid-template-columns:1fr;
-    }
+.user-name{display:none}
 
-    .chat-message{
-        max-width:88%;
-    }
+.dashboard-section,.admin-section{
+padding:50px 5%
+}
 
-    .profile-edit-actions{
-        flex-direction:column;
-    }
+.admin-layout{
+grid-template-columns:1fr
+}
 
-    .chat-input-area,
-    .admin-chat-input{
-        flex-direction:column;
-    }
+.chat-message{max-width:88%}
 
-    .chat-input-area .auth-btn,
-    .admin-chat-input button{
-        width:100%;
-    }
+.profile-edit-actions{
+flex-direction:column
+}
+
+.chat-input-area,.admin-chat-input{
+flex-direction:column
+}
+
+.chat-input-area .auth-btn,
+.admin-chat-input button{
+width:100%
+}
+
+section{padding:60px 5%}
 }
 </style>
 </head>
@@ -694,50 +585,37 @@ footer{
 
 <nav>
 
-    <div class="logo">
-        T5X<span>LDKN</span>
-    </div>
+<div class="logo">
+T5X<span>LDKN</span>
+</div>
 
-    <div class="nav-links">
+<div class="nav-links">
 
-        <a href="#home" onclick="showHome()">Home</a>
-        <a href="#about" onclick="showHome()">About</a>
-        <a href="#team" onclick="showHome()">Team</a>
+<a href="#home" onclick="showHome()">Home</a>
+<a href="#about" onclick="showHome()">About</a>
+<a href="#team" onclick="showHome()">Team</a>
 
-        <span id="authButtons">
-            <a href="#auth"
-               class="nav-btn"
-               onclick="showLogin()">
-                Login
-            </a>
-        </span>
+<span id="authButtons">
+<a href="#auth" class="nav-btn" onclick="showLogin()">Login</a>
+</span>
 
-        <span id="userPanel">
+<span id="userPanel">
 
-            <a href="#dashboard"
-               class="nav-btn"
-               onclick="showDashboard()">
-                Dashboard
-            </a>
+<a href="#dashboard" class="nav-btn" onclick="showDashboard()">Dashboard</a>
 
-            <a href="#admin"
-               class="nav-btn"
-               id="adminButton"
-               style="display:none;"
-               onclick="showAdmin()">
-                Admin
-            </a>
+<a href="#admin"
+class="nav-btn"
+id="adminButton"
+style="display:none"
+onclick="showAdmin()">Admin</a>
 
-            <span class="user-name" id="userName"></span>
+<span class="user-name" id="userName"></span>
 
-            <button class="logout" onclick="logout()">
-                Logout
-            </button>
+<button class="logout" onclick="logout()">Logout</button>
 
-        </span>
+</span>
 
-    </div>
-
+</div>
 </nav>
 
 
@@ -747,184 +625,257 @@ footer{
 
 <section class="hero" id="home">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-        <div class="hero-badge">
-            TECH • AI • CODING
-        </div>
+<div class="hero-badge">
+TECH • AI • CODING
+</div>
 
-        <h1>
-            Welcome to <span>T5X LDKN</span>
-        </h1>
+<h1>
+Welcome to <span>T5X LDKN</span>
+</h1>
 
-        <p>
-            A technology and coding community focused on
-            AI, programming, web development and modern technology.
-        </p>
+<p>
+A technology and coding community focused on
+AI, programming, web development and modern technology.
+</p>
 
-        <div class="hero-buttons">
+<div class="hero-buttons">
 
-            <a href="#about" class="btn primary">
-                Explore
-            </a>
+<a href="#about" class="btn primary">Explore</a>
+<a href="#team" class="btn secondary">Our Team</a>
 
-            <a href="#team" class="btn secondary">
-                Our Team
-            </a>
+</div>
 
-        </div>
-
-    </div>
+</div>
 
 
-    <!-- T5X LDKN LOGO -->
+<!-- GRAPHICAL T5X LDKN LOGO -->
 
-    <div class="hero-logo">
+<div class="hero-logo">
 
-        <div class="logo-circle">
+<svg class="t5x-logo-svg"
+viewBox="0 0 420 420"
+xmlns="http://www.w3.org/2000/svg">
 
-            <div class="logo-t5x">
-                T5X
-            </div>
+<defs>
 
-            <div class="logo-line"></div>
+<linearGradient id="logoGradient"
+x1="0%" y1="0%"
+x2="100%" y2="100%">
 
-            <div class="logo-ldkn">
-                LDKN
-            </div>
+<stop offset="0%" stop-color="#00e5ff"/>
+<stop offset="50%" stop-color="#00b8ff"/>
+<stop offset="100%" stop-color="#0066ff"/>
 
-        </div>
+</linearGradient>
 
-    </div>
+<filter id="glow">
+
+<feGaussianBlur
+stdDeviation="7"
+result="blur"/>
+
+<feMerge>
+<feMergeNode in="blur"/>
+<feMergeNode in="SourceGraphic"/>
+</feMerge>
+
+</filter>
+
+</defs>
+
+<!-- OUTER RING -->
+
+<circle
+cx="210" cy="210" r="190"
+fill="none"
+stroke="#00e5ff"
+stroke-width="3"
+opacity=".25"
+filter="url(#glow)"
+/>
+
+<!-- MAIN CIRCLE -->
+
+<circle
+cx="210" cy="210" r="165"
+fill="#080d20"
+stroke="url(#logoGradient)"
+stroke-width="8"
+/>
+
+<!-- INNER CIRCLE -->
+
+<circle
+cx="210" cy="210" r="145"
+fill="none"
+stroke="#00e5ff"
+stroke-width="2"
+opacity=".4"
+/>
+
+<!-- TECH LINES -->
+
+<path
+d="M65 210 H100
+M320 210 H355
+M210 65 V100
+M210 320 V355"
+stroke="#00e5ff"
+stroke-width="5"
+stroke-linecap="round"
+/>
+
+<circle cx="65" cy="210" r="5" fill="#00e5ff"/>
+<circle cx="355" cy="210" r="5" fill="#00e5ff"/>
+<circle cx="210" cy="65" r="5" fill="#00e5ff"/>
+<circle cx="210" cy="355" r="5" fill="#00e5ff"/>
+
+<!-- T5X -->
+
+<text
+x="210"
+y="195"
+text-anchor="middle"
+font-family="Arial,sans-serif"
+font-size="82"
+font-weight="900"
+letter-spacing="4"
+fill="url(#logoGradient)"
+filter="url(#glow)">
+T5X
+</text>
+
+<!-- LINE -->
+
+<line
+x1="125"
+y1="218"
+x2="295"
+y2="218"
+stroke="#00e5ff"
+stroke-width="3"
+/>
+
+<!-- LDKN -->
+
+<text
+x="210"
+y="270"
+text-anchor="middle"
+font-family="Arial,sans-serif"
+font-size="43"
+font-weight="800"
+letter-spacing="9"
+fill="white">
+LDKN
+</text>
+
+<circle cx="125" cy="295" r="4" fill="#00e5ff"/>
+<circle cx="145" cy="295" r="4" fill="#00e5ff"/>
+<circle cx="275" cy="295" r="4" fill="#00e5ff"/>
+<circle cx="295" cy="295" r="4" fill="#00e5ff"/>
+
+</svg>
+
+</div>
 
 </section>
 
 
 <section id="about">
 
-    <h2 class="title">
-        About <span>T5X LDKN</span>
-    </h2>
+<h2 class="title">
+About <span>T5X LDKN</span>
+</h2>
 
-    <p class="about">
-        T5X LDKN is a technology-focused platform created for
-        learning, building and exploring modern digital technology.
-        Our interests include Artificial Intelligence, Coding,
-        Web Development and innovative software projects.
-    </p>
+<p class="about">
+T5X LDKN is a technology-focused platform created for
+learning, building and exploring modern digital technology.
+Our interests include Artificial Intelligence, Coding,
+Web Development and innovative software projects.
+</p>
 
 </section>
 
 
 <section>
 
-    <h2 class="title">
-        What We <span>Do</span>
-    </h2>
+<h2 class="title">
+What We <span>Do</span>
+</h2>
 
-    <div class="cards">
+<div class="cards">
 
-        <div class="card">
-            <h3>AI</h3>
-            <p>
-                Exploring Artificial Intelligence,
-                AI tools and intelligent applications.
-            </p>
-        </div>
+<div class="card">
+<h3>AI</h3>
+<p>Exploring Artificial Intelligence, AI tools and intelligent applications.</p>
+</div>
 
-        <div class="card">
-            <h3>Coding</h3>
-            <p>
-                Learning programming and building
-                useful software projects.
-            </p>
-        </div>
+<div class="card">
+<h3>Coding</h3>
+<p>Learning programming and building useful software projects.</p>
+</div>
 
-        <div class="card">
-            <h3>Web Development</h3>
-            <p>
-                Creating modern, responsive and
-                interactive websites.
-            </p>
-        </div>
+<div class="card">
+<h3>Web Development</h3>
+<p>Creating modern, responsive and interactive websites.</p>
+</div>
 
-        <div class="card">
-            <h3>Technology</h3>
-            <p>
-                Exploring new technologies and
-                turning ideas into projects.
-            </p>
-        </div>
+<div class="card">
+<h3>Technology</h3>
+<p>Exploring new technologies and turning ideas into projects.</p>
+</div>
 
-    </div>
-
+</div>
 </section>
 
 
 <section id="team">
 
-    <h2 class="title">
-        Our <span>Team</span>
-    </h2>
+<h2 class="title">
+Our <span>Team</span>
+</h2>
 
-    <div class="cards">
+<div class="cards">
 
-        <div class="team-card">
-            <div class="avatar">L</div>
-            <h3>Lakhan Ji</h3>
-            <div class="role">Founder & Developer</div>
-            <p>
-                Founder and developer of T5X LDKN.
-                Interested in AI, Coding and Web Development.
-            </p>
-        </div>
+<div class="team-card">
+<div class="avatar">L</div>
+<h3>Lakhan Ji</h3>
+<div class="role">Founder & Developer</div>
+<p>Founder and developer of T5X LDKN. Interested in AI, Coding and Web Development.</p>
+</div>
 
-        <div class="team-card">
-            <div class="avatar">D</div>
-            <h3>Drishti</h3>
-            <div class="role">Team Member</div>
-            <p>
-                Team member of T5X LDKN,
-                contributing to the technology community
-                and projects.
-            </p>
-        </div>
+<div class="team-card">
+<div class="avatar">D</div>
+<h3>Drishti</h3>
+<div class="role">Team Member</div>
+<p>Team member of T5X LDKN, contributing to the technology community and projects.</p>
+</div>
 
-        <div class="team-card">
-            <div class="avatar">K</div>
-            <h3>Khushi Goel</h3>
-            <div class="role">Team Member</div>
-            <p>
-                Team member of T5X LDKN,
-                contributing to the technology community
-                and projects.
-            </p>
-        </div>
+<div class="team-card">
+<div class="avatar">K</div>
+<h3>Khushi Goel</h3>
+<div class="role">Team Member</div>
+<p>Team member of T5X LDKN, contributing to the technology community and projects.</p>
+</div>
 
-        <div class="team-card">
-            <div class="avatar">D</div>
-            <h3>Devansh Goel</h3>
-            <div class="role">Team Member</div>
-            <p>
-                Team member of T5X LDKN,
-                contributing to the technology community
-                and projects.
-            </p>
-        </div>
+<div class="team-card">
+<div class="avatar">D</div>
+<h3>Devansh Goel</h3>
+<div class="role">Team Member</div>
+<p>Team member of T5X LDKN, contributing to the technology community and projects.</p>
+</div>
 
-        <div class="team-card">
-            <div class="avatar">N</div>
-            <h3>Nirdesh</h3>
-            <div class="role">Team Member</div>
-            <p>
-                Team member of T5X LDKN,
-                contributing to the technology community
-                and projects.
-            </p>
-        </div>
+<div class="team-card">
+<div class="avatar">N</div>
+<h3>Nirdesh</h3>
+<div class="role">Team Member</div>
+<p>Team member of T5X LDKN, contributing to the technology community and projects.</p>
+</div>
 
-    </div>
-
+</div>
 </section>
 
 </main>
@@ -934,235 +885,213 @@ footer{
 
 <section class="dashboard-section" id="dashboard">
 
-    <h2 class="title">
-        User <span>Dashboard</span>
-    </h2>
+<h2 class="title">
+User <span>Dashboard</span>
+</h2>
 
-    <div class="dashboard-box">
+<div class="dashboard-box">
 
-        <div class="welcome-box">
+<div class="welcome-box">
 
-            <h2>
-                Welcome, <span id="dashboardName">User</span> 👋
-            </h2>
+<h2>
+Welcome, <span id="dashboardName">User</span> 👋
+</h2>
 
-            <p>
-                Welcome to your T5X LDKN dashboard.
-                Your account is successfully logged in.
-            </p>
+<p>
+Welcome to your T5X LDKN dashboard.
+Your account is successfully logged in.
+</p>
 
-        </div>
+</div>
 
-        <div class="dashboard-cards">
+<div class="dashboard-cards">
 
-            <div class="dashboard-card">
-                <div class="icon">👤</div>
-                <h3>Name</h3>
-                <p id="dashboardUserName">Loading...</p>
-            </div>
+<div class="dashboard-card">
+<div class="icon">👤</div>
+<h3>Name</h3>
+<p id="dashboardUserName">Loading...</p>
+</div>
 
-            <div class="dashboard-card">
-                <div class="icon">📧</div>
-                <h3>Email</h3>
-                <p id="dashboardEmail">Loading...</p>
-            </div>
+<div class="dashboard-card">
+<div class="icon">📧</div>
+<h3>Email</h3>
+<p id="dashboardEmail">Loading...</p>
+</div>
 
-            <div class="dashboard-card">
-                <div class="icon">🟢</div>
-                <h3>Account Status</h3>
-                <p>Active & Logged In</p>
-            </div>
+<div class="dashboard-card">
+<div class="icon">🟢</div>
+<h3>Account Status</h3>
+<p>Active & Logged In</p>
+</div>
 
-            <div class="dashboard-card">
-                <div class="icon">🚀</div>
-                <h3>T5X LDKN</h3>
-                <p>AI • Coding • Web Development</p>
-            </div>
+<div class="dashboard-card">
+<div class="icon">🚀</div>
+<h3>T5X LDKN</h3>
+<p>AI • Coding • Web Development</p>
+</div>
 
-        </div>
-
-
-        <!-- EDIT PROFILE -->
-
-        <div style="margin-top:25px;text-align:center;">
-
-            <button
-                class="auth-btn"
-                style="max-width:250px;"
-                onclick="showEditProfile()">
-                ✏️ Edit Profile
-            </button>
-
-        </div>
-
-        <div class="profile-edit-box" id="profileEditBox">
-
-            <h3>✏️ Edit Profile</h3>
-
-            <label class="profile-label">Name</label>
-
-            <input
-                type="text"
-                id="editProfileName"
-                placeholder="Your Name"
-                autocomplete="name"
-            >
-
-            <label class="profile-label">Email</label>
-
-            <input
-                type="email"
-                id="editProfileEmail"
-                readonly
-            >
-
-            <div class="profile-edit-actions">
-
-                <button
-                    class="auth-btn"
-                    onclick="saveProfile()">
-                    Save Changes
-                </button>
-
-                <button
-                    class="profile-cancel-btn"
-                    onclick="cancelEditProfile()">
-                    Cancel
-                </button>
-
-            </div>
-
-            <p class="profile-message" id="profileMessage"></p>
-
-        </div>
+</div>
 
 
-        <!-- USER CHAT -->
+<div style="margin-top:25px;text-align:center">
 
-        <div class="chat-box">
+<button
+class="auth-btn"
+style="max-width:250px"
+onclick="showEditProfile()">
+✏️ Edit Profile
+</button>
 
-            <h2>
-                💬 <span>Chat with Admin</span>
-            </h2>
-
-            <div id="chatMessages" class="chat-messages">
-
-                <p class="chat-empty">
-                    Start chatting with T5X LDKN Admin 👋
-                </p>
-
-            </div>
-
-            <div class="chat-input-area">
-
-                <input
-                    type="text"
-                    id="chatInput"
-                    placeholder="Type your message..."
-                    autocomplete="off"
-                >
-
-                <button
-                    class="auth-btn"
-                    onclick="sendMessage()">
-                    Send
-                </button>
-
-            </div>
-
-        </div>
+</div>
 
 
-        <div style="margin-top:30px;text-align:center;">
+<div class="profile-edit-box" id="profileEditBox">
 
-            <button
-                class="auth-btn"
-                style="max-width:250px;"
-                onclick="showHome()">
-                Back to Website
-            </button>
+<h3>✏️ Edit Profile</h3>
 
-        </div>
+<label class="profile-label">Name</label>
 
-    </div>
+<input
+type="text"
+id="editProfileName"
+placeholder="Your Name">
 
+<label class="profile-label">Email</label>
+
+<input
+type="email"
+id="editProfileEmail"
+readonly>
+
+<div class="profile-edit-actions">
+
+<button class="auth-btn" onclick="saveProfile()">
+Save Changes
+</button>
+
+<button class="profile-cancel-btn"
+onclick="cancelEditProfile()">
+Cancel
+</button>
+
+</div>
+
+<p class="profile-message" id="profileMessage"></p>
+
+</div>
+
+
+<!-- USER CHAT -->
+
+<div class="chat-box">
+
+<h2>
+💬 <span>Chat with Admin</span>
+</h2>
+
+<div id="chatMessages" class="chat-messages">
+
+<p class="chat-empty">
+Start chatting with T5X LDKN Admin 👋
+</p>
+
+</div>
+
+<div class="chat-input-area">
+
+<input
+type="text"
+id="chatInput"
+placeholder="Type your message..."
+autocomplete="off">
+
+<button
+class="auth-btn"
+onclick="sendMessage()">
+Send
+</button>
+
+</div>
+
+</div>
+
+
+<div style="margin-top:30px;text-align:center">
+
+<button
+class="auth-btn"
+style="max-width:250px"
+onclick="showHome()">
+Back to Website
+</button>
+
+</div>
+
+</div>
 </section>
 
 
-<!-- ADMIN PANEL -->
+<!-- ADMIN -->
 
 <section class="admin-section" id="admin">
 
-    <h2 class="title">
-        Admin <span>Panel</span>
-    </h2>
+<h2 class="title">
+Admin <span>Panel</span>
+</h2>
 
-    <div class="admin-box">
+<div class="admin-box">
 
-        <div class="admin-layout">
+<div class="admin-layout">
 
-            <!-- USER LIST -->
+<div class="user-list">
 
-            <div class="user-list">
+<h3>👥 Users</h3>
 
-                <h3>👥 Users</h3>
+<div id="usersList">
+<p style="color:#71809d">Loading users...</p>
+</div>
 
-                <div id="usersList">
-
-                    <p style="color:#71809d;">
-                        Loading users...
-                    </p>
-
-                </div>
-
-            </div>
+</div>
 
 
-            <!-- ADMIN CHAT -->
+<div class="admin-chat">
 
-            <div class="admin-chat">
+<h3 class="admin-chat-title" id="adminChatTitle">
+Select a user to start chat
+</h3>
 
-                <h3 class="admin-chat-title"
-                    id="adminChatTitle">
-                    Select a user to start chat
-                </h3>
+<div id="adminChatMessages"
+class="admin-chat-messages">
 
-                <div
-                    id="adminChatMessages"
-                    class="admin-chat-messages">
+<div class="no-user">
+👈 Select a user from the list
+</div>
 
-                    <div class="no-user">
-                        👈 Select a user from the list
-                    </div>
+</div>
 
-                </div>
+<div class="admin-chat-input">
 
-                <div class="admin-chat-input">
+<input
+type="text"
+id="adminChatInput"
+placeholder="Type reply..."
+autocomplete="off"
+disabled>
 
-                    <input
-                        type="text"
-                        id="adminChatInput"
-                        placeholder="Type reply..."
-                        autocomplete="off"
-                        disabled
-                    >
+<button
+class="auth-btn"
+id="adminSendButton"
+onclick="adminSendMessage()"
+disabled>
+Send
+</button>
 
-                    <button
-                        class="auth-btn"
-                        id="adminSendButton"
-                        onclick="adminSendMessage()"
-                        disabled>
-                        Send
-                    </button>
+</div>
 
-                </div>
+</div>
 
-            </div>
-
-        </div>
-
-    </div>
-
+</div>
+</div>
 </section>
 
 
@@ -1170,1789 +1099,1015 @@ footer{
 
 <section class="auth-section" id="auth">
 
-    <div class="auth-box">
+<div class="auth-box">
 
-        <!-- SIGNUP -->
+<!-- SIGNUP -->
 
-        <div id="signupForm">
+<div id="signupForm">
 
-            <h2>Create Account</h2>
+<h2>Create Account</h2>
 
-            <input
-                type="text"
-                id="signupName"
-                placeholder="Your Name"
-            >
+<input
+type="text"
+id="signupName"
+placeholder="Your Name">
 
-            <input
-                type="email"
-                id="signupEmail"
-                placeholder="Gmail"
-            >
+<input
+type="email"
+id="signupEmail"
+placeholder="Gmail">
 
-            <input
-                type="password"
-                id="signupPassword"
-                placeholder="Password (6+ characters)"
-            >
+<input
+type="password"
+id="signupPassword"
+placeholder="Password (6+ characters)">
 
-            <button class="auth-btn" onclick="signup()">
-                Create Account
-            </button>
+<button class="auth-btn" onclick="signup()">
+Create Account
+</button>
 
-            <p class="message" id="signupMessage"></p>
+<p class="message" id="signupMessage"></p>
 
-            <p class="switch">
-                Already have an account?
-                <span onclick="showLogin()">Login</span>
-            </p>
+<p class="switch">
+Already have an account?
+<span onclick="showLogin()">Login</span>
+</p>
 
-        </div>
+</div>
 
 
-        <!-- LOGIN -->
+<!-- LOGIN -->
 
-        <div id="loginForm" style="display:none;">
+<div id="loginForm" style="display:none">
 
-            <h2>Welcome Back</h2>
+<h2>Welcome Back</h2>
 
-            <input
-                type="email"
-                id="loginEmail"
-                placeholder="Gmail"
-            >
+<input
+type="email"
+id="loginEmail"
+placeholder="Gmail">
 
-            <input
-                type="password"
-                id="loginPassword"
-                placeholder="Password"
-            >
+<input
+type="password"
+id="loginPassword"
+placeholder="Password">
 
-            <button class="auth-btn" onclick="login()">
-                Login
-            </button>
+<button class="auth-btn" onclick="login()">
+Login
+</button>
 
-            <p class="forgot">
-                <span onclick="showForgotPassword()">
-                    Forgot Password?
-                </span>
-            </p>
+<p class="forgot">
+<span onclick="showForgotPassword()">
+Forgot Password?
+</span>
+</p>
 
-            <p class="message" id="loginMessage"></p>
+<p class="message" id="loginMessage"></p>
 
-            <p class="switch">
-                Don't have an account?
-                <span onclick="showSignup()">Sign Up</span>
-            </p>
+<p class="switch">
+Don't have an account?
+<span onclick="showSignup()">Sign Up</span>
+</p>
 
-        </div>
+</div>
 
 
-        <!-- FORGOT PASSWORD -->
+<!-- FORGOT -->
 
-        <div id="forgotForm" style="display:none;">
+<div id="forgotForm" style="display:none">
 
-            <h2>Reset Password</h2>
+<h2>Reset Password</h2>
 
-            <p style="
-                color:#aab4c9;
-                text-align:center;
-                line-height:1.6;
-                margin-bottom:15px;
-            ">
-                Enter your registered email and
-                we will send you a password reset link.
-            </p>
+<p style="color:#aab4c9;text-align:center;line-height:1.6;margin-bottom:15px">
+Enter your registered email and we will send you a password reset link.
+</p>
 
-            <input
-                type="email"
-                id="forgotEmail"
-                placeholder="Enter your Gmail"
-            >
+<input
+type="email"
+id="forgotEmail"
+placeholder="Enter your Gmail">
 
-            <button
-                class="auth-btn"
-                onclick="forgotPassword()">
-                Send Reset Link
-            </button>
+<button
+class="auth-btn"
+onclick="forgotPassword()">
+Send Reset Link
+</button>
 
-            <p class="message" id="forgotMessage"></p>
+<p class="message" id="forgotMessage"></p>
 
-            <p class="switch">
-                Remember your password?
-                <span onclick="showLogin()">Login</span>
-            </p>
+<p class="switch">
+Remember your password?
+<span onclick="showLogin()">Login</span>
+</p>
 
-        </div>
+</div>
 
-    </div>
-
+</div>
 </section>
 
 
 <footer>
 
-    <p>
-        📧 Contact Gmail: lakhangoswami413@gmail.com
-    </p>
-
-    <p>
-        📞 Contact: +91 9548032485
-    </p>
-
-    <p>
-        © 2026 T5X LDKN — All Rights Reserved
-    </p>
+<p>📧 Contact Gmail: lakhangoswami413@gmail.com</p>
+<p>📞 Contact: +91 9548032485</p>
+<p>© 2026 T5X LDKN — All Rights Reserved</p>
 
 </footer>
 
 
 <script type="module">
 
-/* =========================
-   FIREBASE IMPORTS
-========================= */
-
-import { initializeApp }
+import {initializeApp}
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    sendPasswordResetEmail,
-    updateProfile,
-    onAuthStateChanged,
-    signOut
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword,
+sendPasswordResetEmail,
+updateProfile,
+onAuthStateChanged,
+signOut
 }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 import {
-    getFirestore,
-    collection,
-    doc,
-    setDoc,
-    addDoc,
-    getDocs,
-    onSnapshot,
-    serverTimestamp
+getFirestore,
+collection,
+doc,
+setDoc,
+addDoc,
+onSnapshot,
+serverTimestamp
 }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
-/* =========================
-   FIREBASE CONFIG
-========================= */
-
-const firebaseConfig = {
-    apiKey: "AIzaSyBwwlCkGQcqWiULRU_6SE_zQ_kMxYBx8mk",
-    authDomain: "t5x-ldkn.firebaseapp.com",
-    projectId: "t5x-ldkn",
-    storageBucket: "t5x-ldkn.firebasestorage.app",
-    messagingSenderId: "278540583487",
-    appId: "1:278540583487:web:631a100fd6a286962eae8",
-    measurementId: "G-LSDEL437QQ"
+const firebaseConfig={
+apiKey:"AIzaSyBwwCkGQcqWiULRU_6SE_zQ_kMxYBx8mk",
+authDomain:"t5x-ldkn.firebaseapp.com",
+projectId:"t5x-ldkn",
+storageBucket:"t5x-ldkn.firebasestorage.app",
+messagingSenderId:"278540583487",
+appId:"1:278540583487:web:631a100fd6a286962eae8",
+measurementId:"G-LSDEL437QQ"
 };
 
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
 
-/* =========================
-   FIREBASE START
-========================= */
+const ADMIN_UID="oNSKRlCO5SeQ4gXtyyNB7CDK7dx1";
 
-const app = initializeApp(firebaseConfig);
+let chatUnsubscribe=null;
+let adminChatUnsubscribe=null;
+let usersUnsubscribe=null;
+let selectedUserId=null;
 
-const auth = getAuth(app);
-
-const db = getFirestore(app);
-
-
-/* =========================
-   ADMIN UID
-========================= */
-
-const ADMIN_UID =
-    "oNSKRlCO5SeQ4gXtyyNB7CDK7dx1";
-
-
-/* =========================
-   VARIABLES
-========================= */
-
-let chatUnsubscribe = null;
-
-let adminChatUnsubscribe = null;
-
-let usersUnsubscribe = null;
-
-let selectedUserId = null;
-
-
-/* =========================
-   SAME CHAT ID
-========================= */
 
 function getChatId(userId){
-
-    return [ADMIN_UID,userId]
-        .sort()
-        .join("_");
-
+return [ADMIN_UID,userId].sort().join("_");
 }
 
 
-/* =========================
-   HOME
-========================= */
+/* HOME */
 
-window.showHome = function(){
+window.showHome=function(){
 
-    document.getElementById("homePage")
-        .style.display = "block";
+document.getElementById("homePage").style.display="block";
+document.getElementById("auth").style.display="none";
+document.getElementById("dashboard").style.display="none";
+document.getElementById("admin").style.display="none";
 
-    document.getElementById("auth")
-        .style.display = "none";
-
-    document.getElementById("dashboard")
-        .style.display = "none";
-
-    document.getElementById("admin")
-        .style.display = "none";
-
-    window.scrollTo(0,0);
+window.scrollTo(0,0);
 };
 
 
-/* =========================
-   LOGIN PAGE
-========================= */
+/* LOGIN */
 
-window.showLogin = function(){
+window.showLogin=function(){
 
-    document.getElementById("homePage")
-        .style.display = "none";
+document.getElementById("homePage").style.display="none";
+document.getElementById("dashboard").style.display="none";
+document.getElementById("admin").style.display="none";
+document.getElementById("auth").style.display="flex";
 
-    document.getElementById("dashboard")
-        .style.display = "none";
+document.getElementById("signupForm").style.display="none";
+document.getElementById("forgotForm").style.display="none";
+document.getElementById("loginForm").style.display="block";
 
-    document.getElementById("admin")
-        .style.display = "none";
+document.getElementById("loginMessage").textContent="";
 
-    document.getElementById("auth")
-        .style.display = "flex";
-
-    document.getElementById("signupForm")
-        .style.display = "none";
-
-    document.getElementById("forgotForm")
-        .style.display = "none";
-
-    document.getElementById("loginForm")
-        .style.display = "block";
-
-    document.getElementById("loginMessage")
-        .textContent = "";
-
-    window.scrollTo(0,0);
+window.scrollTo(0,0);
 };
 
 
-/* =========================
-   EDIT PROFILE
-========================= */
+/* SIGNUP */
 
-window.showEditProfile = function(){
+window.showSignup=function(){
 
-    const user = auth.currentUser;
+document.getElementById("homePage").style.display="none";
+document.getElementById("dashboard").style.display="none";
+document.getElementById("admin").style.display="none";
+document.getElementById("auth").style.display="flex";
 
-    if(!user){
-        showLogin();
-        return;
-    }
+document.getElementById("loginForm").style.display="none";
+document.getElementById("forgotForm").style.display="none";
+document.getElementById("signupForm").style.display="block";
 
-    const editBox =
-        document.getElementById("profileEditBox");
+document.getElementById("signupMessage").textContent="";
 
-    const nameInput =
-        document.getElementById("editProfileName");
-
-    const emailInput =
-        document.getElementById("editProfileEmail");
-
-    const message =
-        document.getElementById("profileMessage");
-
-    nameInput.value =
-        user.displayName || "";
-
-    emailInput.value =
-        user.email || "";
-
-    message.textContent = "";
-
-    editBox.style.display = "block";
-
-    nameInput.focus();
-};
-
-window.cancelEditProfile = function(){
-
-    document.getElementById(
-        "profileEditBox"
-    ).style.display = "none";
-
-    document.getElementById(
-        "profileMessage"
-    ).textContent = "";
-};
-
-window.saveProfile = async function(){
-
-    const user = auth.currentUser;
-
-    if(!user){
-        showLogin();
-        return;
-    }
-
-    const nameInput =
-        document.getElementById("editProfileName");
-
-    const message =
-        document.getElementById("profileMessage");
-
-    const name =
-        nameInput.value.trim();
-
-    message.textContent = "";
-
-    if(!name){
-
-        message.textContent =
-            "Please enter your name.";
-
-        return;
-    }
-
-    try{
-
-        await updateProfile(
-            user,
-            {
-                displayName:name
-            }
-        );
-
-        await setDoc(
-            doc(
-                db,
-                "users",
-                user.uid
-            ),
-            {
-                uid:user.uid,
-                name:name,
-                email:user.email || "",
-                updatedAt:serverTimestamp()
-            },
-            {
-                merge:true
-            }
-        );
-
-        document.getElementById(
-            "dashboardName"
-        ).textContent = name;
-
-        document.getElementById(
-            "dashboardUserName"
-        ).textContent = name;
-
-        document.getElementById(
-            "userName"
-        ).textContent = name;
-
-        message.textContent =
-            "Profile updated successfully!";
-
-        setTimeout(() => {
-
-            document.getElementById(
-                "profileEditBox"
-            ).style.display = "none";
-
-            message.textContent = "";
-
-        },1000);
-
-    }
-
-    catch(error){
-
-        console.error(
-            "Profile update error:",
-            error
-        );
-
-        message.textContent =
-            "Profile update nahi hua: " +
-            error.message;
-    }
+window.scrollTo(0,0);
 };
 
 
-/* =========================
-   SIGNUP PAGE
-========================= */
+/* FORGOT */
 
-window.showSignup = function(){
+window.showForgotPassword=function(){
 
-    document.getElementById("homePage")
-        .style.display = "none";
+document.getElementById("homePage").style.display="none";
+document.getElementById("dashboard").style.display="none";
+document.getElementById("admin").style.display="none";
+document.getElementById("auth").style.display="flex";
 
-    document.getElementById("dashboard")
-        .style.display = "none";
+document.getElementById("loginForm").style.display="none";
+document.getElementById("signupForm").style.display="none";
+document.getElementById("forgotForm").style.display="block";
 
-    document.getElementById("admin")
-        .style.display = "none";
+document.getElementById("forgotMessage").textContent="";
 
-    document.getElementById("auth")
-        .style.display = "flex";
-
-    document.getElementById("loginForm")
-        .style.display = "none";
-
-    document.getElementById("forgotForm")
-        .style.display = "none";
-
-    document.getElementById("signupForm")
-        .style.display = "block";
-
-    document.getElementById("signupMessage")
-        .textContent = "";
-
-    window.scrollTo(0,0);
+window.scrollTo(0,0);
 };
 
 
-/* =========================
-   FORGOT PAGE
-========================= */
+/* DASHBOARD */
 
-window.showForgotPassword = function(){
+window.showDashboard=function(){
 
-    document.getElementById("homePage")
-        .style.display = "none";
+const user=auth.currentUser;
 
-    document.getElementById("dashboard")
-        .style.display = "none";
+if(!user){
+showLogin();
+return;
+}
 
-    document.getElementById("admin")
-        .style.display = "none";
+document.getElementById("homePage").style.display="none";
+document.getElementById("auth").style.display="none";
+document.getElementById("admin").style.display="none";
+document.getElementById("dashboard").style.display="block";
 
-    document.getElementById("auth")
-        .style.display = "flex";
+updateDashboard(user);
+loadChat(user.uid);
 
-    document.getElementById("loginForm")
-        .style.display = "none";
-
-    document.getElementById("signupForm")
-        .style.display = "none";
-
-    document.getElementById("forgotForm")
-        .style.display = "block";
-
-    document.getElementById("forgotMessage")
-        .textContent = "";
-
-    window.scrollTo(0,0);
+window.scrollTo(0,0);
 };
 
 
-/* =========================
-   DASHBOARD
-========================= */
+/* ADMIN */
 
-window.showDashboard = function(){
+window.showAdmin=function(){
 
-    const user = auth.currentUser;
+const user=auth.currentUser;
 
-    if(!user){
+if(!user){
+showLogin();
+return;
+}
 
-        showLogin();
+if(user.uid!==ADMIN_UID){
+alert("Access denied.");
+showDashboard();
+return;
+}
 
-        return;
-    }
+document.getElementById("homePage").style.display="none";
+document.getElementById("auth").style.display="none";
+document.getElementById("dashboard").style.display="none";
+document.getElementById("admin").style.display="block";
 
-    document.getElementById("homePage")
-        .style.display = "none";
+loadUsers();
 
-    document.getElementById("auth")
-        .style.display = "none";
-
-    document.getElementById("admin")
-        .style.display = "none";
-
-    document.getElementById("dashboard")
-        .style.display = "block";
-
-    updateDashboard(user);
-
-    loadChat(user.uid);
-
-    window.scrollTo(0,0);
+window.scrollTo(0,0);
 };
 
 
-/* =========================
-   ADMIN PAGE
-========================= */
-
-window.showAdmin = function(){
-
-    const user = auth.currentUser;
-
-    if(!user){
-
-        showLogin();
-
-        return;
-    }
-
-    if(user.uid !== ADMIN_UID){
-
-        alert("Access denied.");
-
-        showDashboard();
-
-        return;
-    }
-
-    document.getElementById("homePage")
-        .style.display = "none";
-
-    document.getElementById("auth")
-        .style.display = "none";
-
-    document.getElementById("dashboard")
-        .style.display = "none";
-
-    document.getElementById("admin")
-        .style.display = "block";
-
-    loadUsers();
-
-    window.scrollTo(0,0);
-};
-
-
-/* =========================
-   DASHBOARD DATA
-========================= */
+/* DASHBOARD DATA */
 
 function updateDashboard(user){
 
-    const name =
-        user.displayName ||
-        user.email ||
-        "User";
+const name=user.displayName||user.email||"User";
 
-    document.getElementById("dashboardName")
-        .textContent = name;
-
-    document.getElementById("dashboardUserName")
-        .textContent = name;
-
-    document.getElementById("dashboardEmail")
-        .textContent = user.email || "No email";
+document.getElementById("dashboardName").textContent=name;
+document.getElementById("dashboardUserName").textContent=name;
+document.getElementById("dashboardEmail").textContent=user.email||"No email";
+document.getElementById("userName").textContent=name;
 }
 
 
-/* =========================
-   SIGNUP
-========================= */
+/* EDIT PROFILE */
 
-window.signup = async function(){
+window.showEditProfile=function(){
 
-    const name =
-        document.getElementById("signupName")
-        .value.trim();
+const user=auth.currentUser;
 
-    const email =
-        document.getElementById("signupEmail")
-        .value.trim();
+if(!user){
+showLogin();
+return;
+}
 
-    const password =
-        document.getElementById("signupPassword")
-        .value;
+document.getElementById("editProfileName").value=user.displayName||"";
+document.getElementById("editProfileEmail").value=user.email||"";
+document.getElementById("profileMessage").textContent="";
+document.getElementById("profileEditBox").style.display="block";
 
-    const message =
-        document.getElementById("signupMessage");
-
-    message.textContent = "";
-
-    if(!name || !email || !password){
-
-        message.textContent =
-            "Please fill all fields.";
-
-        return;
-    }
-
-    if(password.length < 6){
-
-        message.textContent =
-            "Password must be at least 6 characters.";
-
-        return;
-    }
-
-    try{
-
-        const result =
-            await createUserWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
-
-
-        await updateProfile(
-            result.user,
-            {
-                displayName:name
-            }
-        );
-
-
-        /* SAVE USER */
-
-        await setDoc(
-            doc(
-                db,
-                "users",
-                result.user.uid
-            ),
-            {
-                uid:result.user.uid,
-                name:name,
-                email:email,
-                createdAt:serverTimestamp(),
-                updatedAt:serverTimestamp()
-            },
-            {
-                merge:true
-            }
-        );
-
-
-        message.textContent =
-            "Account created successfully!";
-
-
-        document.getElementById("signupName")
-            .value = "";
-
-        document.getElementById("signupEmail")
-            .value = "";
-
-        document.getElementById("signupPassword")
-            .value = "";
-
-
-        setTimeout(() => {
-
-            showDashboard();
-
-        },700);
-
-    }
-
-    catch(error){
-
-        console.error(
-            "Signup error:",
-            error
-        );
-
-        if(
-            error.code ===
-            "auth/email-already-in-use"
-        ){
-
-            message.textContent =
-                "This email is already registered.";
-
-        }
-
-        else if(
-            error.code ===
-            "auth/invalid-email"
-        ){
-
-            message.textContent =
-                "Please enter a valid email.";
-
-        }
-
-        else{
-
-            message.textContent =
-                error.message;
-
-        }
-
-    }
-
+document.getElementById("editProfileName").focus();
 };
 
 
-/* =========================
-   LOGIN
-========================= */
+window.cancelEditProfile=function(){
 
-window.login = async function(){
-
-    const email =
-        document.getElementById("loginEmail")
-        .value.trim();
-
-    const password =
-        document.getElementById("loginPassword")
-        .value;
-
-    const message =
-        document.getElementById("loginMessage");
-
-    message.textContent = "";
-
-    if(!email || !password){
-
-        message.textContent =
-            "Please enter email and password.";
-
-        return;
-    }
-
-    try{
-
-        await signInWithEmailAndPassword(
-            auth,
-            email,
-            password
-        );
-
-
-        message.textContent =
-            "Login successful!";
-
-
-        setTimeout(() => {
-
-            showDashboard();
-
-        },700);
-
-    }
-
-    catch(error){
-
-        console.error(
-            "Login error:",
-            error
-        );
-
-        if(
-            error.code ===
-            "auth/invalid-credential" ||
-            error.code ===
-            "auth/wrong-password"
-        ){
-
-            message.textContent =
-                "Wrong email or password.";
-
-        }
-
-        else{
-
-            message.textContent =
-                error.message;
-
-        }
-
-    }
-
+document.getElementById("profileEditBox").style.display="none";
+document.getElementById("profileMessage").textContent="";
 };
 
 
-/* =========================
-   FORGOT PASSWORD
-========================= */
+window.saveProfile=async function(){
 
-window.forgotPassword = async function(){
+const user=auth.currentUser;
 
-    const email =
-        document.getElementById("forgotEmail")
-        .value.trim();
+if(!user){
+showLogin();
+return;
+}
 
-    const message =
-        document.getElementById("forgotMessage");
+const name=document.getElementById("editProfileName").value.trim();
+const message=document.getElementById("profileMessage");
 
-    message.textContent = "";
+if(!name){
+message.textContent="Please enter your name.";
+return;
+}
 
-    if(!email){
+try{
 
-        message.textContent =
-            "Please enter your email.";
+await updateProfile(user,{displayName:name});
 
-        return;
-    }
+await setDoc(
+doc(db,"users",user.uid),
+{
+uid:user.uid,
+name:name,
+email:user.email||"",
+updatedAt:serverTimestamp()
+},
+{merge:true}
+);
 
-    try{
+updateDashboard(user);
 
-        await sendPasswordResetEmail(
-            auth,
-            email
-        );
+message.textContent="Profile updated successfully!";
 
-        message.textContent =
-            "Password reset link has been sent.";
+setTimeout(()=>{
+document.getElementById("profileEditBox").style.display="none";
+message.textContent="";
+},1000);
 
-        document.getElementById("forgotEmail")
-            .value = "";
+}
 
-    }
+catch(error){
 
-    catch(error){
-
-        console.error(error);
-
-        message.textContent =
-            error.message;
-
-    }
-
+console.error(error);
+message.textContent="Profile update nahi hua: "+error.message;
+}
 };
 
 
-/* =========================
-   LOGOUT
-========================= */
+/* SIGNUP */
 
-window.logout = async function(){
+window.signup=async function(){
 
-    try{
+const name=document.getElementById("signupName").value.trim();
+const email=document.getElementById("signupEmail").value.trim();
+const password=document.getElementById("signupPassword").value;
+const message=document.getElementById("signupMessage");
 
-        await signOut(auth);
+message.textContent="";
 
-        if(chatUnsubscribe){
+if(!name||!email||!password){
+message.textContent="Please fill all fields.";
+return;
+}
 
-            chatUnsubscribe();
-            chatUnsubscribe = null;
+if(password.length<6){
+message.textContent="Password must be at least 6 characters.";
+return;
+}
 
-        }
+try{
 
-        if(adminChatUnsubscribe){
+const result=await createUserWithEmailAndPassword(
+auth,email,password
+);
 
-            adminChatUnsubscribe();
-            adminChatUnsubscribe = null;
+await updateProfile(result.user,{
+displayName:name
+});
 
-        }
+await setDoc(
+doc(db,"users",result.user.uid),
+{
+uid:result.user.uid,
+name:name,
+email:email,
+createdAt:serverTimestamp(),
+updatedAt:serverTimestamp()
+},
+{merge:true}
+);
 
-        if(usersUnsubscribe){
+message.textContent="Account created successfully!";
 
-            usersUnsubscribe();
-            usersUnsubscribe = null;
+document.getElementById("signupName").value="";
+document.getElementById("signupEmail").value="";
+document.getElementById("signupPassword").value="";
 
-        }
+setTimeout(()=>showDashboard(),700);
 
-        selectedUserId = null;
+}
 
-        showHome();
+catch(error){
 
-    }
+if(error.code==="auth/email-already-in-use")
+message.textContent="This email is already registered.";
+else if(error.code==="auth/invalid-email")
+message.textContent="Please enter a valid email.";
+else
+message.textContent=error.message;
 
-    catch(error){
-
-        console.error(error);
-
-    }
-
+}
 };
 
 
-/* =========================
-   USER CHAT
-========================= */
+/* LOGIN */
+
+window.login=async function(){
+
+const email=document.getElementById("loginEmail").value.trim();
+const password=document.getElementById("loginPassword").value;
+const message=document.getElementById("loginMessage");
+
+message.textContent="";
+
+if(!email||!password){
+message.textContent="Please enter email and password.";
+return;
+}
+
+try{
+
+await signInWithEmailAndPassword(
+auth,email,password
+);
+
+message.textContent="Login successful!";
+
+setTimeout(()=>showDashboard(),700);
+
+}
+
+catch(error){
+
+if(
+error.code==="auth/invalid-credential"||
+error.code==="auth/wrong-password"
+)
+message.textContent="Wrong email or password.";
+else
+message.textContent=error.message;
+
+}
+};
+
+
+/* FORGOT PASSWORD */
+
+window.forgotPassword=async function(){
+
+const email=document.getElementById("forgotEmail").value.trim();
+const message=document.getElementById("forgotMessage");
+
+message.textContent="";
+
+if(!email){
+message.textContent="Please enter your email.";
+return;
+}
+
+try{
+
+await sendPasswordResetEmail(auth,email);
+
+message.textContent="Password reset link has been sent.";
+document.getElementById("forgotEmail").value="";
+
+}
+catch(error){
+message.textContent=error.message;
+}
+};
+
+
+/* LOGOUT */
+
+window.logout=async function(){
+
+try{
+
+await signOut(auth);
+
+if(chatUnsubscribe){
+chatUnsubscribe();
+chatUnsubscribe=null;
+}
+
+if(adminChatUnsubscribe){
+adminChatUnsubscribe();
+adminChatUnsubscribe=null;
+}
+
+if(usersUnsubscribe){
+usersUnsubscribe();
+usersUnsubscribe=null;
+}
+
+selectedUserId=null;
+showHome();
+
+}
+catch(error){
+console.error(error);
+}
+};
+
+
+/* USER CHAT */
 
 function loadChat(userId){
 
-    const messagesBox =
-        document.getElementById("chatMessages");
+const box=document.getElementById("chatMessages");
 
-    if(!messagesBox) return;
+if(chatUnsubscribe){
+chatUnsubscribe();
+chatUnsubscribe=null;
+}
 
-    if(chatUnsubscribe){
+const ref=collection(
+db,
+"chats",
+getChatId(userId),
+"messages"
+);
 
-        chatUnsubscribe();
-        chatUnsubscribe = null;
+chatUnsubscribe=onSnapshot(
+ref,
+snapshot=>{
 
-    }
+box.innerHTML="";
 
-    const chatId =
-        getChatId(userId);
+let messages=[];
 
+snapshot.forEach(d=>messages.push(d.data()));
 
-    const messagesRef =
-        collection(
-            db,
-            "chats",
-            chatId,
-            "messages"
-        );
+messages.sort((a,b)=>
+(a.createdAt?.seconds||0)-
+(b.createdAt?.seconds||0)
+);
 
+if(!messages.length){
 
-    chatUnsubscribe =
-        onSnapshot(
-            messagesRef,
+box.innerHTML=
+`<p class="chat-empty">
+Start chatting with T5X LDKN Admin 👋
+</p>`;
 
-            (snapshot) => {
+return;
+}
 
-                messagesBox.innerHTML = "";
+messages.forEach(data=>{
 
-                const messages = [];
+const div=document.createElement("div");
 
+div.className=
+"chat-message "+
+(data.senderType==="user"?"user":"admin");
 
-                snapshot.forEach(
-                    (messageDoc) => {
+div.textContent=data.text||"";
 
-                        messages.push(
-                            messageDoc.data()
-                        );
+if(data.createdAt){
 
-                    }
-                );
+const time=document.createElement("span");
 
+time.className="chat-time";
+time.textContent=formatTime(data.createdAt);
 
-                messages.sort(
-                    (a,b) => {
+div.appendChild(time);
+}
 
-                        const timeA =
-                            a.createdAt?.seconds || 0;
+box.appendChild(div);
 
-                        const timeB =
-                            b.createdAt?.seconds || 0;
+});
 
-                        return timeA - timeB;
+box.scrollTop=box.scrollHeight;
 
-                    }
-                );
+},
+error=>{
 
+console.error(error);
 
-                if(messages.length === 0){
-
-                    messagesBox.innerHTML =
-                        `<p class="chat-empty">
-                            Start chatting with T5X LDKN Admin 👋
-                        </p>`;
-
-                    return;
-                }
-
-
-                messages.forEach(
-                    (data) => {
-
-                        const div =
-                            document.createElement("div");
-
-
-                        div.className =
-                            "chat-message " +
-                            (
-                                data.senderType === "user"
-                                ? "user"
-                                : "admin"
-                            );
-
-
-                        div.textContent =
-                            data.text || "";
-
-
-                        if(data.createdAt){
-
-                            const time =
-                                document.createElement("span");
-
-                            time.className =
-                                "chat-time";
-
-                            time.textContent =
-                                formatTime(
-                                    data.createdAt
-                                );
-
-                            div.appendChild(time);
-
-                        }
-
-
-                        messagesBox.appendChild(div);
-
-                    }
-                );
-
-
-                messagesBox.scrollTop =
-                    messagesBox.scrollHeight;
-
-            },
-
-            (error) => {
-
-                console.error(
-                    "User chat error:",
-                    error
-                );
-
-                messagesBox.innerHTML =
-                    `<p class="chat-empty">
-                        Unable to load chat.
-                    </p>`;
-
-            }
-        );
+box.innerHTML=
+`<p class="chat-empty">
+Unable to load chat.
+</p>`;
+}
+);
 }
 
 
-/* =========================
-   USER SEND MESSAGE
-========================= */
+/* USER SEND */
 
-window.sendMessage = async function(){
+window.sendMessage=async function(){
 
-    const user =
-        auth.currentUser;
+const user=auth.currentUser;
 
-    if(!user){
+if(!user){
+showLogin();
+return;
+}
 
-        showLogin();
+const input=document.getElementById("chatInput");
+const text=input.value.trim();
 
-        return;
-    }
+if(!text)return;
 
+try{
 
-    const input =
-        document.getElementById(
-            "chatInput"
-        );
+await addDoc(
+collection(
+db,
+"chats",
+getChatId(user.uid),
+"messages"
+),
+{
+text:text,
+senderId:user.uid,
+senderName:user.displayName||"User",
+senderType:"user",
+createdAt:serverTimestamp()
+}
+);
 
+input.value="";
 
-    const text =
-        input.value.trim();
+}
+catch(error){
 
+alert("Message send nahi hua: "+error.message);
 
-    if(!text) return;
-
-
-    try{
-
-        const chatId =
-            getChatId(user.uid);
-
-
-        await addDoc(
-            collection(
-                db,
-                "chats",
-                chatId,
-                "messages"
-            ),
-            {
-                text:text,
-                senderId:user.uid,
-                senderName:
-                    user.displayName ||
-                    "User",
-                senderType:"user",
-                createdAt:
-                    serverTimestamp()
-            }
-        );
-
-
-        input.value = "";
-
-    }
-
-    catch(error){
-
-        console.error(
-            "User message error:",
-            error
-        );
-
-        alert(
-            "Message send nahi hua: " +
-            error.message
-        );
-
-    }
-
+}
 };
 
 
-/* =========================
-   LOAD USERS
-========================= */
+/* LOAD USERS */
 
 function loadUsers(){
 
-    const usersList =
-        document.getElementById(
-            "usersList"
-        );
+const box=document.getElementById("usersList");
 
-
-    if(!usersList) return;
-
-
-    if(usersUnsubscribe){
-
-        usersUnsubscribe();
-        usersUnsubscribe = null;
-
-    }
-
-
-    usersUnsubscribe =
-        onSnapshot(
-            collection(db,"users"),
-
-            (snapshot) => {
-
-                usersList.innerHTML = "";
-
-
-                let count = 0;
-
-
-                snapshot.forEach(
-                    (userDoc) => {
-
-                        const user =
-                            userDoc.data();
-
-
-                        /* ADMIN KO LIST SE REMOVE */
-
-                        if(
-                            user.uid === ADMIN_UID ||
-                            userDoc.id === ADMIN_UID
-                        ){
-
-                            return;
-
-                        }
-
-
-                        count++;
-
-
-                        const div =
-                            document.createElement(
-                                "div"
-                            );
-
-
-                        div.className =
-                            "user-item";
-
-
-                        if(
-                            selectedUserId === user.uid
-                        ){
-
-                            div.classList.add(
-                                "active"
-                            );
-
-                        }
-
-
-                        const strong =
-                            document.createElement(
-                                "strong"
-                            );
-
-
-                        strong.textContent =
-                            user.name ||
-                            "User";
-
-
-                        const small =
-                            document.createElement(
-                                "small"
-                            );
-
-
-                        small.textContent =
-                            user.email ||
-                            "";
-
-
-                        div.appendChild(strong);
-
-                        div.appendChild(small);
-
-
-                        div.onclick =
-                            function(){
-
-                                selectAdminUser(
-                                    user.uid,
-                                    user.name ||
-                                    "User"
-                                );
-
-                            };
-
-
-                        usersList.appendChild(
-                            div
-                        );
-
-                    }
-                );
-
-
-                if(count === 0){
-
-                    usersList.innerHTML =
-                        `<p style="color:#71809d;">
-                            No users found.
-                        </p>`;
-
-                }
-
-            },
-
-            (error) => {
-
-                console.error(
-                    "Load users error:",
-                    error
-                );
-
-                usersList.innerHTML =
-                    `<p style="color:#ff4d6d;">
-                        Unable to load users.
-                    </p>`;
-
-            }
-        );
+if(usersUnsubscribe){
+usersUnsubscribe();
+usersUnsubscribe=null;
 }
 
+usersUnsubscribe=onSnapshot(
+collection(db,"users"),
+snapshot=>{
 
-/* =========================
-   SELECT USER
-========================= */
+box.innerHTML="";
+let count=0;
 
-function selectAdminUser(
-    userId,
-    userName
-){
+snapshot.forEach(userDoc=>{
 
-    selectedUserId =
-        userId;
+const user=userDoc.data();
 
+if(
+user.uid===ADMIN_UID||
+userDoc.id===ADMIN_UID
+)return;
 
-    document.getElementById(
-        "adminChatTitle"
-    ).textContent =
-        "💬 Chat with " +
-        userName;
+count++;
 
+const div=document.createElement("div");
+div.className="user-item";
 
-    document.getElementById(
-        "adminChatInput"
-    ).disabled = false;
+if(selectedUserId===user.uid)
+div.classList.add("active");
 
+const strong=document.createElement("strong");
+strong.textContent=user.name||"User";
 
-    document.getElementById(
-        "adminSendButton"
-    ).disabled = false;
+const small=document.createElement("small");
+small.textContent=user.email||"";
 
+div.appendChild(strong);
+div.appendChild(small);
 
-    loadAdminChat(userId);
+div.onclick=()=>{
+selectAdminUser(
+user.uid,
+user.name||"User"
+);
+};
 
+box.appendChild(div);
 
-    /* ACTIVE USER REFRESH */
+});
 
-    const items =
-        document.querySelectorAll(
-            ".user-item"
-        );
+if(count===0){
 
-
-    items.forEach(
-        item => {
-
-            item.classList.remove(
-                "active"
-            );
-
-        }
-    );
+box.innerHTML=
+`<p style="color:#71809d">
+No users found.
+</p>`;
 
 }
 
+},
+error=>{
 
-/* =========================
-   ADMIN CHAT LOAD
-========================= */
+box.innerHTML=
+`<p style="color:#ff4d6d">
+Unable to load users.
+</p>`;
+
+}
+);
+}
+
+
+/* SELECT USER */
+
+function selectAdminUser(userId,userName){
+
+selectedUserId=userId;
+
+document.getElementById("adminChatTitle")
+.textContent="💬 Chat with "+userName;
+
+document.getElementById("adminChatInput").disabled=false;
+document.getElementById("adminSendButton").disabled=false;
+
+loadAdminChat(userId);
+
+document.querySelectorAll(".user-item")
+.forEach(item=>item.classList.remove("active"));
+}
+
+
+/* ADMIN CHAT */
 
 function loadAdminChat(userId){
 
-    const messagesBox =
-        document.getElementById(
-            "adminChatMessages"
-        );
+const box=document.getElementById("adminChatMessages");
 
+if(adminChatUnsubscribe){
+adminChatUnsubscribe();
+adminChatUnsubscribe=null;
+}
 
-    if(!messagesBox) return;
+adminChatUnsubscribe=onSnapshot(
+collection(
+db,
+"chats",
+getChatId(userId),
+"messages"
+),
+snapshot=>{
 
+box.innerHTML="";
 
-    if(adminChatUnsubscribe){
+let messages=[];
 
-        adminChatUnsubscribe();
-        adminChatUnsubscribe = null;
+snapshot.forEach(d=>messages.push(d.data()));
 
-    }
+messages.sort((a,b)=>
+(a.createdAt?.seconds||0)-
+(b.createdAt?.seconds||0)
+);
 
+if(!messages.length){
 
-    const chatId =
-        getChatId(userId);
+box.innerHTML=
+`<div class="no-user">
+No messages yet.
+</div>`;
 
+return;
+}
 
-    const messagesRef =
-        collection(
-            db,
-            "chats",
-            chatId,
-            "messages"
-        );
+messages.forEach(data=>{
 
+const div=document.createElement("div");
 
-    adminChatUnsubscribe =
-        onSnapshot(
-            messagesRef,
+div.className=
+"chat-message "+
+(data.senderType==="admin"?"admin":"user");
 
-            (snapshot) => {
+div.textContent=data.text||"";
 
-                messagesBox.innerHTML = "";
+if(data.createdAt){
 
-                const messages = [];
+const time=document.createElement("span");
 
+time.className="chat-time";
+time.textContent=formatTime(data.createdAt);
 
-                snapshot.forEach(
-                    (messageDoc) => {
+div.appendChild(time);
 
-                        messages.push(
-                            messageDoc.data()
-                        );
+}
 
-                    }
-                );
+box.appendChild(div);
 
+});
 
-                messages.sort(
-                    (a,b) => {
+box.scrollTop=box.scrollHeight;
 
-                        const timeA =
-                            a.createdAt?.seconds || 0;
+},
+error=>{
 
-                        const timeB =
-                            b.createdAt?.seconds || 0;
+box.innerHTML=
+`<div class="no-user">
+Unable to load messages.
+</div>`;
 
-                        return timeA - timeB;
-
-                    }
-                );
-
-
-                if(messages.length === 0){
-
-                    messagesBox.innerHTML =
-                        `<div class="no-user">
-                            No messages yet.
-                        </div>`;
-
-                    return;
-                }
-
-
-                messages.forEach(
-                    (data) => {
-
-                        const div =
-                            document.createElement(
-                                "div"
-                            );
-
-
-                        div.className =
-                            "chat-message " +
-                            (
-                                data.senderType === "admin"
-                                ? "admin"
-                                : "user"
-                            );
-
-
-                        div.textContent =
-                            data.text || "";
-
-
-                        if(data.createdAt){
-
-                            const time =
-                                document.createElement(
-                                    "span"
-                                );
-
-                            time.className =
-                                "chat-time";
-
-                            time.textContent =
-                                formatTime(
-                                    data.createdAt
-                                );
-
-                            div.appendChild(time);
-
-                        }
-
-
-                        messagesBox.appendChild(
-                            div
-                        );
-
-                    }
-                );
-
-
-                messagesBox.scrollTop =
-                    messagesBox.scrollHeight;
-
-            },
-
-            (error) => {
-
-                console.error(
-                    "Admin chat error:",
-                    error
-                );
-
-                messagesBox.innerHTML =
-                    `<div class="no-user">
-                        Unable to load messages.
-                    </div>`;
-
-            }
-        );
+}
+);
 }
 
 
-/* =========================
-   ADMIN SEND MESSAGE
-========================= */
+/* ADMIN SEND */
 
-window.adminSendMessage =
-async function(){
+window.adminSendMessage=async function(){
 
-    const admin =
-        auth.currentUser;
+const admin=auth.currentUser;
 
+if(!admin){
+showLogin();
+return;
+}
 
-    if(!admin){
+if(admin.uid!==ADMIN_UID){
+alert("Access denied.");
+return;
+}
 
-        showLogin();
+if(!selectedUserId){
+alert("Please select a user first.");
+return;
+}
 
-        return;
-    }
+const input=document.getElementById("adminChatInput");
+const text=input.value.trim();
 
+if(!text)return;
 
-    /* IMPORTANT FIX */
+try{
 
-    if(admin.uid !== ADMIN_UID){
+await addDoc(
+collection(
+db,
+"chats",
+getChatId(selectedUserId),
+"messages"
+),
+{
+text:text,
+senderId:admin.uid,
+senderName:"T5X LDKN Admin",
+senderType:"admin",
+createdAt:serverTimestamp()
+}
+);
 
-        alert("Access denied.");
+input.value="";
 
-        return;
-    }
+}
+catch(error){
 
+alert(
+"Admin message send nahi hua: "+
+error.message
+);
 
-    if(!selectedUserId){
-
-        alert(
-            "Please select a user first."
-        );
-
-        return;
-    }
-
-
-    const input =
-        document.getElementById(
-            "adminChatInput"
-        );
-
-
-    const text =
-        input.value.trim();
-
-
-    if(!text) return;
-
-
-    try{
-
-        const chatId =
-            getChatId(
-                selectedUserId
-            );
-
-
-        await addDoc(
-            collection(
-                db,
-                "chats",
-                chatId,
-                "messages"
-            ),
-            {
-                text:text,
-                senderId:admin.uid,
-                senderName:
-                    "T5X LDKN Admin",
-                senderType:"admin",
-                createdAt:
-                    serverTimestamp()
-            }
-        );
-
-
-        input.value = "";
-
-
-    }
-
-    catch(error){
-
-        console.error(
-            "Admin message error:",
-            error
-        );
-
-        alert(
-            "Admin message send nahi hua: " +
-            error.message
-        );
-
-    }
-
+}
 };
 
 
-/* =========================
-   ENTER TO SEND
-========================= */
+/* ENTER SEND */
 
-document.addEventListener(
-    "keydown",
-    function(event){
+document.addEventListener("keydown",event=>{
 
-        if(
-            event.key === "Enter" &&
-            document.activeElement &&
-            document.activeElement.id ===
-            "chatInput"
-        ){
+if(event.key!=="Enter")return;
 
-            event.preventDefault();
+if(
+document.activeElement?.id==="chatInput"
+){
+event.preventDefault();
+sendMessage();
+}
 
-            window.sendMessage();
+if(
+document.activeElement?.id==="adminChatInput"
+){
+event.preventDefault();
+adminSendMessage();
+}
 
-        }
-
-
-        if(
-            event.key === "Enter" &&
-            document.activeElement &&
-            document.activeElement.id ===
-            "adminChatInput"
-        ){
-
-            event.preventDefault();
-
-            window.adminSendMessage();
-
-        }
-
-    }
-);
+});
 
 
-/* =========================
-   TIME
-========================= */
+/* TIME */
 
 function formatTime(timestamp){
 
-    if(
-        !timestamp ||
-        !timestamp.toDate
-    ){
+if(!timestamp?.toDate)return"";
 
-        return "";
-
-    }
-
-
-    return timestamp
-        .toDate()
-        .toLocaleString(
-            "en-IN",
-            {
-                day:"2-digit",
-                month:"short",
-                hour:"2-digit",
-                minute:"2-digit"
-            }
-        );
+return timestamp.toDate().toLocaleString(
+"en-IN",
+{
+day:"2-digit",
+month:"short",
+hour:"2-digit",
+minute:"2-digit"
+}
+);
 }
 
 
-/* =========================
-   AUTH STATE
-========================= */
+/* AUTH STATE */
 
-onAuthStateChanged(
-    auth,
-    async (user) => {
+onAuthStateChanged(auth,async user=>{
 
-        const authButtons =
-            document.getElementById(
-                "authButtons"
-            );
+const authButtons=document.getElementById("authButtons");
+const userPanel=document.getElementById("userPanel");
+const userName=document.getElementById("userName");
+const adminButton=document.getElementById("adminButton");
 
-        const userPanel =
-            document.getElementById(
-                "userPanel"
-            );
+if(user){
 
-        const userName =
-            document.getElementById(
-                "userName"
-            );
+authButtons.style.display="none";
+userPanel.style.display="inline";
 
-        const adminButton =
-            document.getElementById(
-                "adminButton"
-            );
+userName.textContent=
+user.displayName||
+user.email||
+"User";
 
+updateDashboard(user);
 
-        if(user){
+try{
 
-            authButtons.style.display =
-                "none";
-
-            userPanel.style.display =
-                "inline";
-
-            userName.textContent =
-                user.displayName ||
-                user.email ||
-                "User";
-
-
-            updateDashboard(user);
-
-
-            /* =========================
-               AUTO CREATE / UPDATE USER
-            ========================= */
-
-            try{
-
-                await setDoc(
-                    doc(
-                        db,
-                        "users",
-                        user.uid
-                    ),
-                    {
-                        uid:user.uid,
-                        name:
-                            user.displayName ||
-                            "User",
-                        email:
-                            user.email ||
-                            "",
-                        updatedAt:
-                            serverTimestamp()
-                    },
-                    {
-                        merge:true
-                    }
-                );
-
-            }
-
-            catch(error){
-
-                console.error(
-                    "User profile save error:",
-                    error
-                );
-
-            }
-
-
-            if(user.uid === ADMIN_UID){
-
-                adminButton.style.display =
-                    "inline-block";
-
-            }
-
-            else{
-
-                adminButton.style.display =
-                    "none";
-
-            }
-
-        }
-
-        else{
-
-            authButtons.style.display =
-                "inline";
-
-            userPanel.style.display =
-                "none";
-
-            adminButton.style.display =
-                "none";
-
-        }
-
-    }
+await setDoc(
+doc(db,"users",user.uid),
+{
+uid:user.uid,
+name:user.displayName||"User",
+email:user.email||"",
+updatedAt:serverTimestamp()
+},
+{merge:true}
 );
+
+}
+catch(error){
+console.error(error);
+}
+
+if(user.uid===ADMIN_UID)
+adminButton.style.display="inline-block";
+else
+adminButton.style.display="none";
+
+}
+else{
+
+authButtons.style.display="inline";
+userPanel.style.display="none";
+adminButton.style.display="none";
+
+}
+
+});
 
 </script>
 
