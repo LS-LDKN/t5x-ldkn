@@ -6,1149 +6,331 @@
 <title>T5X LDKN</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box
-}
-
-html{
-scroll-behavior:smooth
-}
-
-body{
-font-family:Arial,sans-serif;
-background:#050816;
-color:white;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#050816;color:white}
 
 nav{
-position:sticky;
-top:0;
-z-index:1000;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 7%;
-background:#080d20;
-border-bottom:1px solid #18233f;
+position:sticky;top:0;z-index:1000;display:flex;justify-content:space-between;
+align-items:center;padding:18px 7%;background:#080d20;border-bottom:1px solid #18233f
 }
+.logo{font-size:25px;font-weight:bold}
+.logo span{color:#00e5ff}
+.nav-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.nav-links a{color:white;text-decoration:none}
+.nav-links a:hover{color:#00e5ff}
+.nav-btn{border:1px solid #00e5ff;padding:9px 18px;border-radius:20px;color:#00e5ff!important}
 
-.logo{
-font-size:25px;
-font-weight:bold
-}
-
-.logo span{
-color:#00e5ff
-}
-
-.nav-links{
-display:flex;
-gap:20px;
-align-items:center;
-flex-wrap:wrap
-}
-
-.nav-links a{
-color:white;
-text-decoration:none
-}
-
-.nav-links a:hover{
-color:#00e5ff
-}
-
-.nav-btn{
-border:1px solid #00e5ff;
-padding:9px 18px;
-border-radius:20px;
-color:#00e5ff!important
-}
-
-section{
-padding:80px 7%
-}
-
-
-/* ================= HERO ================= */
+section{padding:80px 7%}
 
 .hero{
-min-height:85vh;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:50px 7%;
-gap:50px;
-position:relative;
-overflow:hidden;
-isolation:isolate;
+min-height:85vh;display:flex;align-items:center;justify-content:space-between;
+padding:50px 7%;gap:50px;position:relative;overflow:hidden;isolation:isolate
 }
-
 .hero::before{
-content:"";
-position:absolute;
-inset:0;
-z-index:-2;
-
-background:
-linear-gradient(rgba(0,229,255,.055) 1px,transparent 1px),
+content:"";position:absolute;inset:0;z-index:-2;
+background:linear-gradient(rgba(0,229,255,.055) 1px,transparent 1px),
 linear-gradient(90deg,rgba(0,229,255,.055) 1px,transparent 1px);
-
-background-size:45px 45px;
-animation:gridMove 12s linear infinite;
+background-size:45px 45px;animation:gridMove 12s linear infinite
 }
-
 .hero::after{
-content:"";
-position:absolute;
-width:500px;
-height:500px;
-border-radius:50%;
-
-background:radial-gradient(
-circle,
-rgba(0,229,255,.16) 0%,
-rgba(0,229,255,.05) 35%,
-transparent 70%
-);
-
-top:50%;
-left:72%;
-transform:translate(-50%,-50%);
-z-index:-1;
-
-animation:techGlow 4s ease-in-out infinite;
+content:"";position:absolute;width:500px;height:500px;border-radius:50%;
+background:radial-gradient(circle,rgba(0,229,255,.16) 0%,rgba(0,229,255,.05) 35%,transparent 70%);
+top:50%;left:72%;transform:translate(-50%,-50%);z-index:-1;
+animation:techGlow 4s ease-in-out infinite
 }
-
-.hero-content{
-max-width:800px;
-flex:1;
-position:relative;
-z-index:3;
-}
-
+.hero-content{max-width:800px;flex:1;position:relative;z-index:3}
 .hero-badge{
-display:inline-block;
-padding:8px 16px;
-border:1px solid #00e5ff;
-border-radius:20px;
-color:#00e5ff;
-font-size:13px;
-letter-spacing:2px;
-margin-bottom:20px;
-box-shadow:0 0 15px #00e5ff22;
+display:inline-block;padding:8px 16px;border:1px solid #00e5ff;border-radius:20px;
+color:#00e5ff;font-size:13px;letter-spacing:2px;margin-bottom:20px;
+box-shadow:0 0 15px #00e5ff22
 }
-
-.hero h1{
-font-size:60px;
-margin-bottom:20px
-}
-
-.hero h1 span{
-color:#00e5ff
-}
-
-.hero p{
-color:#aab4c9;
-font-size:19px;
-line-height:1.7
-}
-
-.hero-buttons{
-margin-top:30px
-}
-
+.hero h1{font-size:60px;margin-bottom:20px}
+.hero h1 span{color:#00e5ff}
+.hero p{color:#aab4c9;font-size:19px;line-height:1.7}
+.hero-buttons{margin-top:30px}
 .btn{
-display:inline-block;
-padding:14px 25px;
-border-radius:30px;
-margin:7px;
-text-decoration:none;
-font-weight:bold
+display:inline-block;padding:14px 25px;border-radius:30px;margin:7px;
+text-decoration:none;font-weight:bold
 }
-
-.primary{
-background:#00e5ff;
-color:#001018
-}
-
-.primary:hover{
-box-shadow:0 0 25px rgba(0,229,255,.6);
-transform:translateY(-2px);
-}
-
-.secondary{
-border:1px solid #00e5ff;
-color:#00e5ff
-}
-
-.secondary:hover{
-background:#00e5ff;
-color:#001018;
-}
-
-
-/* ================= PARTICLES ================= */
+.primary{background:#00e5ff;color:#001018}
+.primary:hover{box-shadow:0 0 25px rgba(0,229,255,.6);transform:translateY(-2px)}
+.secondary{border:1px solid #00e5ff;color:#00e5ff}
+.secondary:hover{background:#00e5ff;color:#001018}
 
 .tech-particle{
-position:absolute;
-color:#00e5ff;
-font-family:monospace;
-font-size:14px;
-font-weight:bold;
-opacity:.4;
-text-shadow:0 0 12px #00e5ff;
-pointer-events:none;
-z-index:2;
-animation:particleFloat 5s ease-in-out infinite;
+position:absolute;color:#00e5ff;font-family:monospace;font-size:14px;font-weight:bold;
+opacity:.4;text-shadow:0 0 12px #00e5ff;pointer-events:none;z-index:2;
+animation:particleFloat 5s ease-in-out infinite
 }
-
 .p1{top:15%;left:7%}
 .p2{top:28%;right:7%;animation-delay:1s}
 .p3{bottom:20%;left:14%;animation-delay:2s}
 .p4{bottom:14%;right:17%;animation-delay:3s}
 .p5{top:12%;right:28%;animation-delay:1.5s}
 
-
-/* ================= LOGO ================= */
-
 .hero-logo{
-width:390px;
-min-width:320px;
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
-z-index:3;
+width:390px;min-width:320px;display:flex;align-items:center;justify-content:center;
+position:relative;z-index:3
 }
-
 .t5x-logo-svg{
-width:350px;
-height:350px;
-filter:drop-shadow(0 0 18px rgba(0,229,255,.35));
-animation:logoFloat 4s ease-in-out infinite;
+width:350px;height:350px;filter:drop-shadow(0 0 18px rgba(0,229,255,.35));
+animation:logoFloat 4s ease-in-out infinite
 }
-
-@keyframes logoFloat{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
-}
-
-@keyframes gridMove{
-from{transform:translate(0,0)}
-to{transform:translate(45px,45px)}
-}
-
+@keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes gridMove{from{transform:translate(0,0)}to{transform:translate(45px,45px)}}
 @keyframes techGlow{
-0%,100%{
-opacity:.5;
-transform:translate(-50%,-50%) scale(1);
+0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(1)}
+50%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}
 }
-50%{
-opacity:1;
-transform:translate(-50%,-50%) scale(1.15);
-}
-}
-
 @keyframes particleFloat{
-0%,100%{
-transform:translateY(0);
-opacity:.25;
-}
-50%{
-transform:translateY(-20px);
-opacity:.8;
-}
+0%,100%{transform:translateY(0);opacity:.25}
+50%{transform:translateY(-20px);opacity:.8}
 }
 
+.title{text-align:center;font-size:35px;margin-bottom:45px}
+.title span{color:#00e5ff}
+.about{max-width:900px;margin:auto;text-align:center;color:#aab4c9;font-size:18px;line-height:1.8}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;max-width:1000px;margin:auto}
 
-/* ================= GENERAL ================= */
-
-.title{
-text-align:center;
-font-size:35px;
-margin-bottom:45px
+.card,.team-card,.dashboard-card{
+background:#0b1228;border:1px solid #1c2a49;padding:30px;border-radius:18px;
+text-align:center;transition:.3s
 }
-
-.title span{
-color:#00e5ff
+.card:hover,.dashboard-card:hover{
+transform:translateY(-6px);border-color:#00e5ff;box-shadow:0 0 20px rgba(0,229,255,.08)
 }
-
-.about{
-max-width:900px;
-margin:auto;
-text-align:center;
-color:#aab4c9;
-font-size:18px;
-line-height:1.8
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:22px;
-max-width:1000px;
-margin:auto
-}
-
-.card,
-.team-card,
-.dashboard-card{
-background:#0b1228;
-border:1px solid #1c2a49;
-padding:30px;
-border-radius:18px;
-text-align:center;
-transition:.3s
-}
-
-.card:hover,
-.dashboard-card:hover{
-transform:translateY(-6px);
-border-color:#00e5ff;
-box-shadow:0 0 20px rgba(0,229,255,.08);
-}
-
-.card h3,
-.dashboard-card h3{
-color:#00e5ff;
-margin-bottom:12px
-}
-
-.card p,
-.team-card p,
-.dashboard-card p{
-color:#aab4c9;
-line-height:1.6
-}
-
-.team-card{
-border-color:#00e5ff
-}
-
-.team-card:hover{
-transform:translateY(-6px);
-box-shadow:0 0 20px rgba(0,229,255,.12);
-}
-
+.card h3,.dashboard-card h3{color:#00e5ff;margin-bottom:12px}
+.card p,.team-card p,.dashboard-card p{color:#aab4c9;line-height:1.6}
+.team-card{border-color:#00e5ff}
+.team-card:hover{transform:translateY(-6px);box-shadow:0 0 20px rgba(0,229,255,.12)}
 .avatar{
-width:90px;
-height:90px;
-border-radius:50%;
-background:#00e5ff;
-color:#001018;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
-font-weight:bold;
-margin:0 auto 20px
+width:90px;height:90px;border-radius:50%;background:#00e5ff;color:#001018;
+display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:bold;margin:0 auto 20px
 }
+.team-card h3{font-size:25px}
+.role{color:#00e5ff;margin:10px 0}
 
-.team-card h3{
-font-size:25px
-}
-
-.role{
-color:#00e5ff;
-margin:10px 0
-}
-
-
-/* ================= PROJECTS ================= */
-
-.projects-section{
-background:#060a1a;
-}
-
+.projects-section{background:#060a1a}
 .project-card{
-background:#0b1228;
-border:1px solid #1c2a49;
-border-radius:18px;
-overflow:hidden;
-transition:.3s;
+background:#0b1228;border:1px solid #1c2a49;border-radius:18px;overflow:hidden;transition:.3s
 }
-
 .project-card:hover{
-transform:translateY(-7px);
-border-color:#00e5ff;
-box-shadow:0 0 25px rgba(0,229,255,.12);
+transform:translateY(-7px);border-color:#00e5ff;box-shadow:0 0 25px rgba(0,229,255,.12)
 }
-
 .project-image{
-width:100%;
-height:190px;
-object-fit:cover;
-background:#050816;
-display:block;
+width:100%;height:190px;object-fit:cover;background:#050816;display:block
 }
-
 .project-image-placeholder{
-height:190px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:55px;
-background:
-radial-gradient(circle at center,#102744,#050816 70%);
-color:#00e5ff;
+height:190px;display:flex;align-items:center;justify-content:center;font-size:55px;
+background:radial-gradient(circle at center,#102744,#050816 70%);color:#00e5ff
 }
-
-.project-content{
-padding:22px;
-}
-
+.project-content{padding:22px}
 .project-category{
-display:inline-block;
-font-size:12px;
-padding:5px 10px;
-border:1px solid #00e5ff;
-border-radius:15px;
-color:#00e5ff;
-margin-bottom:12px;
+display:inline-block;font-size:12px;padding:5px 10px;border:1px solid #00e5ff;
+border-radius:15px;color:#00e5ff;margin-bottom:12px
 }
-
-.project-content h3{
-font-size:23px;
-margin-bottom:10px;
-}
-
-.project-content p{
-color:#aab4c9;
-line-height:1.6;
-min-height:75px;
-}
-
-.project-actions{
-display:flex;
-gap:8px;
-margin-top:18px;
-}
-
+.project-content h3{font-size:23px;margin-bottom:10px}
+.project-content p{color:#aab4c9;line-height:1.6;min-height:75px}
+.project-actions{display:flex;gap:8px;margin-top:18px}
 .project-btn{
-flex:1;
-padding:10px;
-border-radius:20px;
-border:1px solid #00e5ff;
-background:transparent;
-color:#00e5ff;
-cursor:pointer;
-text-decoration:none;
-text-align:center;
-font-weight:bold;
+flex:1;padding:10px;border-radius:20px;border:1px solid #00e5ff;background:transparent;
+color:#00e5ff;cursor:pointer;text-decoration:none;text-align:center;font-weight:bold
 }
+.project-btn:hover{background:#00e5ff;color:#001018}
+.projects-empty{text-align:center;color:#71809d;padding:40px;grid-column:1/-1}
 
-.project-btn:hover{
-background:#00e5ff;
-color:#001018;
-}
-
-.projects-empty{
-text-align:center;
-color:#71809d;
-padding:40px;
-grid-column:1/-1;
-}
-
-.project-admin-actions{
-display:flex;
-gap:8px;
-margin-top:10px;
-}
-
-.project-admin-actions button{
-flex:1;
-padding:9px;
-border-radius:18px;
-cursor:pointer;
-font-weight:bold;
-}
-
-.edit-project-btn{
-border:1px solid #00e5ff;
-background:transparent;
-color:#00e5ff;
-}
-
-.delete-project-btn{
-border:1px solid #ff4d6d;
-background:transparent;
-color:#ff4d6d;
-}
-
-
-/* ================= AUTH ================= */
-
-.auth-section{
-display:none;
-min-height:80vh;
-align-items:center;
-justify-content:center
-}
-
+.auth-section{display:none;min-height:80vh;align-items:center;justify-content:center}
 .auth-box{
-width:90%;
-max-width:420px;
-background:#0b1228;
-border:1px solid #00e5ff;
-border-radius:20px;
-padding:35px;
-box-shadow:0 0 25px rgba(0,229,255,.08);
+width:90%;max-width:420px;background:#0b1228;border:1px solid #00e5ff;
+border-radius:20px;padding:35px;box-shadow:0 0 25px rgba(0,229,255,.08)
 }
-
-.auth-box h2{
-text-align:center;
-margin-bottom:25px
+.auth-box h2{text-align:center;margin-bottom:25px}
+input,textarea,select{
+width:100%;padding:14px;margin:8px 0;border-radius:10px;border:1px solid #263656;
+background:#050816;color:white;outline:none;font-family:Arial,sans-serif
 }
-
-input,
-textarea,
-select{
-width:100%;
-padding:14px;
-margin:8px 0;
-border-radius:10px;
-border:1px solid #263656;
-background:#050816;
-color:white;
-outline:none;
-font-family:Arial,sans-serif;
+textarea{resize:vertical;min-height:110px}
+select{cursor:pointer}
+input:focus,textarea:focus,select:focus{
+border-color:#00e5ff;box-shadow:0 0 8px rgba(0,229,255,.15)
 }
-
-textarea{
-resize:vertical;
-min-height:110px;
-}
-
-select{
-cursor:pointer;
-}
-
-input:focus,
-textarea:focus,
-select:focus{
-border-color:#00e5ff;
-box-shadow:0 0 8px rgba(0,229,255,.15);
-}
-
 .auth-btn{
-width:100%;
-padding:14px;
-margin-top:15px;
-border:0;
-border-radius:25px;
-background:#00e5ff;
-color:#001018;
-font-weight:bold;
-cursor:pointer
+width:100%;padding:14px;margin-top:15px;border:0;border-radius:25px;
+background:#00e5ff;color:#001018;font-weight:bold;cursor:pointer
 }
-
-.auth-btn:hover{
-box-shadow:0 0 18px rgba(0,229,255,.4);
-}
-
-.auth-btn:disabled{
-opacity:.5;
-cursor:not-allowed
-}
-
-.switch,
-.forgot{
-text-align:center;
-margin-top:18px;
-color:#9da7bc
-}
-
-.switch span,
-.forgot span{
-color:#00e5ff;
-cursor:pointer
-}
-
-.message{
-text-align:center;
-margin-top:15px;
-min-height:20px
-}
-
-#userPanel{
-display:none
-}
-
-.user-name{
-color:#00e5ff;
-margin-right:10px
-}
-
+.auth-btn:hover{box-shadow:0 0 18px rgba(0,229,255,.4)}
+.auth-btn:disabled{opacity:.5;cursor:not-allowed}
+.switch,.forgot{text-align:center;margin-top:18px;color:#9da7bc}
+.switch span,.forgot span{color:#00e5ff;cursor:pointer}
+.message{text-align:center;margin-top:15px;min-height:20px}
+#userPanel{display:none}
+.user-name{color:#00e5ff;margin-right:10px}
 .logout{
-border:1px solid #ff4d6d;
-background:transparent;
-color:#ff4d6d;
-padding:8px 15px;
-border-radius:20px;
-cursor:pointer
+border:1px solid #ff4d6d;background:transparent;color:#ff4d6d;padding:8px 15px;
+border-radius:20px;cursor:pointer
 }
+.logout:hover{background:#ff4d6d;color:white}
 
-.logout:hover{
-background:#ff4d6d;
-color:white;
-}
-
-
-/* ================= DASHBOARD ================= */
-
-.dashboard-section,
-.admin-section{
-display:none;
-min-height:80vh
-}
-
-.dashboard-box,
-.admin-box{
-max-width:1100px;
-margin:auto
-}
-
+.dashboard-section,.admin-section{display:none;min-height:80vh}
+.dashboard-box,.admin-box{max-width:1100px;margin:auto}
 .welcome-box{
-background:#0b1228;
-border:1px solid #00e5ff;
-border-radius:20px;
-padding:35px;
-margin-bottom:25px
+background:#0b1228;border:1px solid #00e5ff;border-radius:20px;padding:35px;margin-bottom:25px
 }
-
-.welcome-box h2{
-font-size:32px;
-margin-bottom:10px
-}
-
-.welcome-box h2 span{
-color:#00e5ff
-}
-
-.welcome-box p{
-color:#aab4c9;
-line-height:1.6
-}
-
-.dashboard-cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:22px
-}
-
-.dashboard-card .icon{
-font-size:35px;
-margin-bottom:15px
-}
-
-
-/* ================= EDIT PROFILE ================= */
+.welcome-box h2{font-size:32px;margin-bottom:10px}
+.welcome-box h2 span{color:#00e5ff}
+.welcome-box p{color:#aab4c9;line-height:1.6}
+.dashboard-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.dashboard-card .icon{font-size:35px;margin-bottom:15px}
 
 .profile-edit-box{
-display:none;
-margin-top:25px;
-background:#0b1228;
-border:1px solid #00e5ff;
-border-radius:18px;
-padding:25px
+display:none;margin-top:25px;background:#0b1228;border:1px solid #00e5ff;
+border-radius:18px;padding:25px
 }
-
-.profile-edit-box h3{
-color:#00e5ff;
-margin-bottom:15px
-}
-
-.profile-label{
-display:block;
-color:#aab4c9;
-margin-top:10px;
-margin-bottom:5px
-}
-
-.profile-edit-actions{
-display:flex;
-gap:10px;
-margin-top:15px
-}
-
-.profile-edit-actions button{
-flex:1
-}
-
+.profile-edit-box h3{color:#00e5ff;margin-bottom:15px}
+.profile-label{display:block;color:#aab4c9;margin-top:10px;margin-bottom:5px}
+.profile-edit-actions{display:flex;gap:10px;margin-top:15px}
+.profile-edit-actions button{flex:1}
 .profile-cancel-btn{
-width:100%;
-padding:14px;
-border:1px solid #ff4d6d;
-border-radius:25px;
-background:transparent;
-color:#ff4d6d;
-font-weight:bold;
-cursor:pointer
+width:100%;padding:14px;border:1px solid #ff4d6d;border-radius:25px;
+background:transparent;color:#ff4d6d;font-weight:bold;cursor:pointer
 }
-
-.profile-cancel-btn:hover{
-background:#ff4d6d;
-color:white;
-}
-
-.profile-message{
-text-align:center;
-margin-top:12px;
-min-height:20px
-}
-
-
-/* ================= CHAT ================= */
+.profile-cancel-btn:hover{background:#ff4d6d;color:white}
+.profile-message{text-align:center;margin-top:12px;min-height:20px}
 
 .chat-box{
-margin-top:30px;
-background:#0b1228;
-border:1px solid #00e5ff;
-border-radius:20px;
-padding:25px
+margin-top:30px;background:#0b1228;border:1px solid #00e5ff;border-radius:20px;padding:25px
 }
-
-.chat-box h2{
-margin-bottom:20px
+.chat-box h2{margin-bottom:20px}
+.chat-box h2 span{color:#00e5ff}
+.chat-messages,.admin-chat-messages{
+height:350px;overflow-y:auto;padding:15px;background:#050816;
+border:1px solid #1c2a49;border-radius:15px
 }
-
-.chat-box h2 span{
-color:#00e5ff
-}
-
-.chat-messages,
-.admin-chat-messages{
-height:350px;
-overflow-y:auto;
-padding:15px;
-background:#050816;
-border:1px solid #1c2a49;
-border-radius:15px
-}
-
-.chat-empty{
-text-align:center;
-color:#71809d;
-margin-top:140px
-}
-
+.chat-empty{text-align:center;color:#71809d;margin-top:140px}
 .chat-message{
-max-width:75%;
-padding:10px 14px;
-margin:8px 0;
-border-radius:15px;
-word-break:break-word;
-line-height:1.5
+max-width:75%;padding:10px 14px;margin:8px 0;border-radius:15px;
+word-break:break-word;line-height:1.5
 }
-
 .chat-message.user{
-margin-left:auto;
-background:#00e5ff;
-color:#001018;
-border-bottom-right-radius:4px
+margin-left:auto;background:#00e5ff;color:#001018;border-bottom-right-radius:4px
 }
-
 .chat-message.admin{
-margin-right:auto;
-background:#18233f;
-color:white;
-border-bottom-left-radius:4px
+margin-right:auto;background:#18233f;color:white;border-bottom-left-radius:4px
 }
+.chat-time{display:block;font-size:10px;margin-top:5px;opacity:.7}
+.chat-input-area,.admin-chat-input{display:flex;gap:10px;margin-top:15px}
+.chat-input-area input,.admin-chat-input input{margin:0;flex:1}
+.chat-input-area .auth-btn,.admin-chat-input button{width:110px;margin:0}
 
-.chat-time{
-display:block;
-font-size:10px;
-margin-top:5px;
-opacity:.7
-}
-
-.chat-input-area,
-.admin-chat-input{
-display:flex;
-gap:10px;
-margin-top:15px
-}
-
-.chat-input-area input,
-.admin-chat-input input{
-margin:0;
-flex:1
-}
-
-.chat-input-area .auth-btn,
-.admin-chat-input button{
-width:110px;
-margin:0
-}
-
-
-/* ================= ADMIN ================= */
-
-.admin-layout{
-display:grid;
-grid-template-columns:280px 1fr;
-gap:20px
-}
-
+.admin-layout{display:grid;grid-template-columns:280px 1fr;gap:20px}
 .user-list{
-background:#0b1228;
-border:1px solid #1c2a49;
-border-radius:18px;
-padding:15px;
-max-height:500px;
-overflow-y:auto
+background:#0b1228;border:1px solid #1c2a49;border-radius:18px;padding:15px;
+max-height:500px;overflow-y:auto
 }
-
-.user-list h3{
-color:#00e5ff;
-margin-bottom:15px
-}
-
+.user-list h3{color:#00e5ff;margin-bottom:15px}
 .user-item{
-padding:14px;
-margin-bottom:8px;
-background:#050816;
-border:1px solid #1c2a49;
-border-radius:12px;
-cursor:pointer;
-transition:.2s
+padding:14px;margin-bottom:8px;background:#050816;border:1px solid #1c2a49;
+border-radius:12px;cursor:pointer;transition:.2s
 }
-
-.user-item:hover,
-.user-item.active{
-border-color:#00e5ff;
-background:#10203b;
-}
-
-.user-item strong{
-display:block;
-margin-bottom:5px
-}
-
-.user-item small{
-color:#71809d;
-word-break:break-word
-}
-
+.user-item:hover,.user-item.active{border-color:#00e5ff;background:#10203b}
+.user-item strong{display:block;margin-bottom:5px}
+.user-item small{color:#71809d;word-break:break-word}
 .admin-chat{
-background:#0b1228;
-border:1px solid #00e5ff;
-border-radius:18px;
-padding:20px
+background:#0b1228;border:1px solid #00e5ff;border-radius:18px;padding:20px
 }
-
-.admin-chat-title{
-color:#00e5ff;
-margin-bottom:15px
-}
-
+.admin-chat-title{color:#00e5ff;margin-bottom:15px}
 .no-user{
-height:100%;
-min-height:300px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:#71809d
+height:100%;min-height:300px;display:flex;align-items:center;justify-content:center;
+text-align:center;color:#71809d
 }
-
-
-/* ================= PROJECT ADMIN ================= */
 
 .project-admin-box{
-margin-top:25px;
-background:#0b1228;
-border:1px solid #00e5ff;
-border-radius:20px;
-padding:25px;
+margin-top:25px;background:#0b1228;border:1px solid #00e5ff;border-radius:20px;padding:25px
 }
-
-.project-admin-box h3{
-color:#00e5ff;
-margin-bottom:20px;
-font-size:24px;
-}
-
-.project-form-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px;
-}
-
-.project-form-full{
-grid-column:1/-1;
-}
-
+.project-admin-box h3{color:#00e5ff;margin-bottom:20px;font-size:24px}
+.project-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.project-form-full{grid-column:1/-1}
 .project-file{
-padding:12px;
-border:1px dashed #00e5ff;
-border-radius:10px;
-background:#050816;
+padding:12px;border:1px dashed #00e5ff;border-radius:10px;background:#050816
 }
-
-.project-file small{
-display:block;
-color:#71809d;
-margin-top:6px;
-}
-
+.project-file small{display:block;color:#71809d;margin-top:6px}
 .admin-projects-list{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:18px;
-margin-top:25px;
+display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:25px
 }
-
 .admin-project-item{
-background:#050816;
-border:1px solid #1c2a49;
-border-radius:15px;
-overflow:hidden;
+background:#050816;border:1px solid #1c2a49;border-radius:15px;overflow:hidden
 }
-
-.admin-project-item img{
-width:100%;
-height:130px;
-object-fit:cover;
-}
-
-.admin-project-info{
-padding:15px;
-}
-
-.admin-project-info h4{
-margin-bottom:6px;
-}
-
-.admin-project-info p{
-color:#71809d;
-font-size:13px;
-margin-bottom:12px;
-}
-
-.admin-project-actions{
-display:flex;
-gap:8px;
-}
-
+.admin-project-item img{width:100%;height:130px;object-fit:cover}
+.admin-project-info{padding:15px}
+.admin-project-info h4{margin-bottom:6px}
+.admin-project-info p{color:#71809d;font-size:13px;margin-bottom:12px}
+.admin-project-actions{display:flex;gap:8px}
 .admin-project-actions button{
-flex:1;
-padding:9px;
-border-radius:18px;
-cursor:pointer;
-font-weight:bold;
+flex:1;padding:9px;border-radius:18px;cursor:pointer;font-weight:bold
 }
-
-.project-save{
-background:#00e5ff;
-color:#001018;
-border:0;
-}
-
-.project-cancel{
-background:transparent;
-color:#ff4d6d;
-border:1px solid #ff4d6d;
-}
-
-.project-delete{
-background:transparent;
-color:#ff4d6d;
-border:1px solid #ff4d6d;
-}
-
-.project-edit{
-background:transparent;
-color:#00e5ff;
-border:1px solid #00e5ff;
-}
-
-.project-message{
-text-align:center;
-min-height:20px;
-margin-top:12px;
-}
-
-
-/* ================= FOOTER ================= */
+.project-save{background:#00e5ff;color:#001018;border:0}
+.project-cancel{background:transparent;color:#ff4d6d;border:1px solid #ff4d6d}
+.project-delete{background:transparent;color:#ff4d6d;border:1px solid #ff4d6d}
+.project-edit{background:transparent;color:#00e5ff;border:1px solid #00e5ff}
+.project-message{text-align:center;min-height:20px;margin-top:12px}
 
 footer{
-text-align:center;
-padding:30px;
-border-top:1px solid #18233f;
-color:#71809d;
-line-height:2
+text-align:center;padding:30px;border-top:1px solid #18233f;color:#71809d;line-height:2
 }
-
-
-/* ================= MOBILE ================= */
 
 @media(max-width:700px){
-
-nav{
-padding:15px 5%
-}
-
-.nav-links{
-gap:8px;
-font-size:12px
-}
-
-.nav-links a{
-font-size:12px;
-}
-
-.hero{
-flex-direction:column;
-text-align:center;
-padding:50px 20px;
-gap:30px
-}
-
-.hero h1{
-font-size:42px
-}
-
-.hero p{
-font-size:16px
-}
-
-.hero-logo{
-width:100%;
-min-width:0
-}
-
-.t5x-logo-svg{
-width:270px;
-height:270px
-}
-
-.user-name{
-display:none
-}
-
-.dashboard-section,
-.admin-section{
-padding:50px 5%
-}
-
-.admin-layout{
-grid-template-columns:1fr
-}
-
-.chat-message{
-max-width:88%
-}
-
-.profile-edit-actions{
-flex-direction:column
-}
-
-.chat-input-area,
-.admin-chat-input{
-flex-direction:column
-}
-
-.chat-input-area .auth-btn,
-.admin-chat-input button{
-width:100%
-}
-
-.project-form-grid{
-grid-template-columns:1fr;
-}
-
-.project-form-full{
-grid-column:auto;
-}
-
-section{
-padding:60px 5%
-}
-
-.tech-particle{
-font-size:10px;
-}
-
-.p1{left:4%}
-.p2{right:4%}
-.p3{left:7%}
-.p4{right:7%}
-.p5{right:15%}
-
+nav{padding:15px 5%}
+.nav-links{gap:8px;font-size:12px}
+.nav-links a{font-size:12px}
+.hero{flex-direction:column;text-align:center;padding:50px 20px;gap:30px}
+.hero h1{font-size:42px}
+.hero p{font-size:16px}
+.hero-logo{width:100%;min-width:0}
+.t5x-logo-svg{width:270px;height:270px}
+.user-name{display:none}
+.dashboard-section,.admin-section{padding:50px 5%}
+.admin-layout{grid-template-columns:1fr}
+.chat-message{max-width:88%}
+.profile-edit-actions{flex-direction:column}
+.chat-input-area,.admin-chat-input{flex-direction:column}
+.chat-input-area .auth-btn,.admin-chat-input button{width:100%}
+.project-form-grid{grid-template-columns:1fr}
+.project-form-full{grid-column:auto}
+section{padding:60px 5%}
+.tech-particle{font-size:10px}
+.p1{left:4%}.p2{right:4%}.p3{left:7%}.p4{right:7%}.p5{right:15%}
 }
 </style>
 </head>
 
-
 <body>
 
-
-<!-- ================= NAVBAR ================= -->
-
 <nav>
-
-<div class="logo">
-T5X<span>LDKN</span>
-</div>
+<div class="logo">T5X<span>LDKN</span></div>
 
 <div class="nav-links">
-
 <a href="#home" onclick="showHome()">Home</a>
-
 <a href="#about" onclick="showHome()">About</a>
-
 <a href="#projects" onclick="showHome()">Projects</a>
-
 <a href="#team" onclick="showHome()">Team</a>
 
 <span id="authButtons">
-
-<a href="#auth"
-class="nav-btn"
-onclick="showLogin()">
-Login
-</a>
-
+<a href="#auth" class="nav-btn" onclick="showLogin()">Login</a>
 </span>
-
 
 <span id="userPanel">
+<a href="#dashboard" class="nav-btn" onclick="showDashboard()">Dashboard</a>
 
-<a href="#dashboard"
-class="nav-btn"
-onclick="showDashboard()">
-Dashboard
-</a>
+<a href="#admin" class="nav-btn" id="adminButton"
+style="display:none" onclick="showAdmin()">Admin</a>
 
-<a href="#admin"
-class="nav-btn"
-id="adminButton"
-style="display:none"
-onclick="showAdmin()">
-Admin
-</a>
+<span class="user-name" id="userName"></span>
 
-<span class="user-name"
-id="userName">
+<button class="logout" onclick="logout()">Logout</button>
 </span>
-
-<button
-class="logout"
-onclick="logout()">
-Logout
-</button>
-
-</span>
-
 </div>
-
 </nav>
-
-
-<!-- ================= HOME ================= -->
 
 <main id="homePage">
 
@@ -1162,13 +344,9 @@ Logout
 
 <div class="hero-content">
 
-<div class="hero-badge">
-TECH • AI • CODING
-</div>
+<div class="hero-badge">TECH • AI • CODING</div>
 
-<h1>
-Welcome to <span>T5X LDKN</span>
-</h1>
+<h1>Welcome to <span>T5X LDKN</span></h1>
 
 <p>
 A technology and coding community focused on
@@ -1177,148 +355,69 @@ AI, programming, web development and modern technology.
 
 <div class="hero-buttons">
 
-<a
-href="https://whatsapp.com/channel/0029Vb8tcdx4inopfi9wxx2C"
-target="_blank"
-rel="noopener noreferrer"
-class="btn primary">
-
+<a href="https://whatsapp.com/channel/0029Vb8tcdx4inopfi9wxx2C"
+target="_blank" rel="noopener noreferrer" class="btn primary">
 Join Community
-
 </a>
 
-<a
-href="#projects"
-class="btn secondary">
-
+<a href="#projects" class="btn secondary">
 Explore Projects
-
 </a>
 
 </div>
-
 </div>
-
-
-<!-- LOGO -->
 
 <div class="hero-logo">
 
-<svg
-class="t5x-logo-svg"
-viewBox="0 0 420 420"
+<svg class="t5x-logo-svg" viewBox="0 0 420 420"
 xmlns="http://www.w3.org/2000/svg">
 
 <defs>
 
-<linearGradient
-id="logoGradient"
-x1="0%"
-y1="0%"
-x2="100%"
-y2="100%">
-
+<linearGradient id="logoGradient"
+x1="0%" y1="0%" x2="100%" y2="100%">
 <stop offset="0%" stop-color="#00e5ff"/>
 <stop offset="50%" stop-color="#00b8ff"/>
 <stop offset="100%" stop-color="#0066ff"/>
-
 </linearGradient>
 
 <filter id="glow">
-
-<feGaussianBlur
-stdDeviation="7"
-result="blur"/>
-
+<feGaussianBlur stdDeviation="7" result="blur"/>
 <feMerge>
-
 <feMergeNode in="blur"/>
 <feMergeNode in="SourceGraphic"/>
-
 </feMerge>
-
 </filter>
 
 </defs>
 
-<circle
-cx="210"
-cy="210"
-r="190"
-fill="none"
-stroke="#00e5ff"
-stroke-width="3"
-opacity=".25"
-filter="url(#glow)"
-/>
+<circle cx="210" cy="210" r="190" fill="none"
+stroke="#00e5ff" stroke-width="3" opacity=".25" filter="url(#glow)"/>
 
-<circle
-cx="210"
-cy="210"
-r="165"
-fill="#080d20"
-stroke="url(#logoGradient)"
-stroke-width="8"
-/>
+<circle cx="210" cy="210" r="165" fill="#080d20"
+stroke="url(#logoGradient)" stroke-width="8"/>
 
-<circle
-cx="210"
-cy="210"
-r="145"
-fill="none"
-stroke="#00e5ff"
-stroke-width="2"
-opacity=".4"
-/>
+<circle cx="210" cy="210" r="145" fill="none"
+stroke="#00e5ff" stroke-width="2" opacity=".4"/>
 
-<path
-d="M65 210 H100
-M320 210 H355
-M210 65 V100
-M210 320 V355"
-stroke="#00e5ff"
-stroke-width="5"
-stroke-linecap="round"
-/>
+<path d="M65 210 H100 M320 210 H355 M210 65 V100 M210 320 V355"
+stroke="#00e5ff" stroke-width="5" stroke-linecap="round"/>
 
 <circle cx="65" cy="210" r="5" fill="#00e5ff"/>
 <circle cx="355" cy="210" r="5" fill="#00e5ff"/>
 <circle cx="210" cy="65" r="5" fill="#00e5ff"/>
 <circle cx="210" cy="355" r="5" fill="#00e5ff"/>
 
-<text
-x="210"
-y="195"
-text-anchor="middle"
-font-family="Arial,sans-serif"
-font-size="82"
-font-weight="900"
-letter-spacing="4"
-fill="url(#logoGradient)"
-filter="url(#glow)">
-T5X
-</text>
+<text x="210" y="195" text-anchor="middle"
+font-family="Arial,sans-serif" font-size="82" font-weight="900"
+letter-spacing="4" fill="url(#logoGradient)" filter="url(#glow)">T5X</text>
 
-<line
-x1="125"
-y1="218"
-x2="295"
-y2="218"
-stroke="#00e5ff"
-stroke-width="3"
-/>
+<line x1="125" y1="218" x2="295" y2="218"
+stroke="#00e5ff" stroke-width="3"/>
 
-<text
-x="210"
-y="270"
-text-anchor="middle"
-font-family="Arial,sans-serif"
-font-size="43"
-font-weight="800"
-letter-spacing="9"
-fill="white">
-LDKN
-</text>
+<text x="210" y="270" text-anchor="middle"
+font-family="Arial,sans-serif" font-size="43" font-weight="800"
+letter-spacing="9" fill="white">LDKN</text>
 
 <circle cx="125" cy="295" r="4" fill="#00e5ff"/>
 <circle cx="145" cy="295" r="4" fill="#00e5ff"/>
@@ -1326,684 +425,329 @@ LDKN
 <circle cx="295" cy="295" r="4" fill="#00e5ff"/>
 
 </svg>
-
 </div>
-
 </section>
 
-
-<!-- ================= ABOUT ================= -->
-
 <section id="about">
-
-<h2 class="title">
-About <span>T5X LDKN</span>
-</h2>
+<h2 class="title">About <span>T5X LDKN</span></h2>
 
 <p class="about">
-
 T5X LDKN is a technology-focused platform created for
 learning, building and exploring modern digital technology.
 Our interests include Artificial Intelligence, Coding,
 Web Development and innovative software projects.
-
 </p>
-
 </section>
 
-
-<!-- ================= WHAT WE DO ================= -->
-
 <section>
-
-<h2 class="title">
-What We <span>Do</span>
-</h2>
+<h2 class="title">What We <span>Do</span></h2>
 
 <div class="cards">
 
 <div class="card">
 <h3>AI</h3>
-<p>
-Exploring Artificial Intelligence,
-AI tools and intelligent applications.
-</p>
+<p>Exploring Artificial Intelligence, AI tools and intelligent applications.</p>
 </div>
 
 <div class="card">
 <h3>Coding</h3>
-<p>
-Learning programming and building
-useful software projects.
-</p>
+<p>Learning programming and building useful software projects.</p>
 </div>
 
 <div class="card">
 <h3>Web Development</h3>
-<p>
-Creating modern, responsive and
-interactive websites.
-</p>
+<p>Creating modern, responsive and interactive websites.</p>
 </div>
 
 <div class="card">
 <h3>Technology</h3>
-<p>
-Exploring new technologies and
-turning ideas into projects.
-</p>
+<p>Exploring new technologies and turning ideas into projects.</p>
 </div>
 
+</div>
+</section>
+
+<section id="projects" class="projects-section">
+
+<h2 class="title">AI <span>Projects</span></h2>
+
+<p class="about" style="margin-bottom:35px">
+Explore the AI, coding and technology projects created by T5X LDKN.
+</p>
+
+<div class="cards" id="projectsGrid">
+<div class="projects-empty">Loading projects...</div>
 </div>
 
 </section>
-
-
-<!-- ================= AI PROJECTS ================= -->
-
-<section
-id="projects"
-class="projects-section">
-
-<h2 class="title">
-AI <span>Projects</span>
-</h2>
-
-<p
-class="about"
-style="margin-bottom:35px">
-
-Explore the AI, coding and technology projects
-created by T5X LDKN.
-
-</p>
-
-<div
-class="cards"
-id="projectsGrid">
-
-<div class="projects-empty">
-Loading projects...
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= TEAM ================= -->
 
 <section id="team">
 
-<h2 class="title">
-Our <span>Team</span>
-</h2>
+<h2 class="title">Our <span>Team</span></h2>
 
 <div class="cards">
 
 <div class="team-card">
-
-<div class="avatar">
-L
+<div class="avatar">L</div>
+<h3>Lakhan Ji</h3>
+<div class="role">Founder & Developer</div>
+<p>Founder and developer of T5X LDKN. Interested in AI, Coding and Web Development.</p>
 </div>
-
-<h3>
-Lakhan Ji
-</h3>
-
-<div class="role">
-Founder & Developer
-</div>
-
-<p>
-Founder and developer of T5X LDKN.
-Interested in AI, Coding and Web Development.
-</p>
-
-</div>
-
 
 <div class="team-card">
-
-<div class="avatar">
-D
+<div class="avatar">D</div>
+<h3>Drishti</h3>
+<div class="role">Team Member</div>
+<p>Team member of T5X LDKN, contributing to the technology community and projects.</p>
 </div>
-
-<h3>
-Drishti
-</h3>
-
-<div class="role">
-Team Member
-</div>
-
-<p>
-Team member of T5X LDKN,
-contributing to the technology community and projects.
-</p>
-
-</div>
-
 
 <div class="team-card">
-
-<div class="avatar">
-K
+<div class="avatar">K</div>
+<h3>Khushi Goel</h3>
+<div class="role">Team Member</div>
+<p>Team member of T5X LDKN, contributing to the technology community and projects.</p>
 </div>
-
-<h3>
-Khushi Goel
-</h3>
-
-<div class="role">
-Team Member
-</div>
-
-<p>
-Team member of T5X LDKN,
-contributing to the technology community and projects.
-</p>
-
-</div>
-
 
 <div class="team-card">
-
-<div class="avatar">
-D
+<div class="avatar">D</div>
+<h3>Devansh Goel</h3>
+<div class="role">Team Member</div>
+<p>Team member of T5X LDKN, contributing to the technology community and projects.</p>
 </div>
-
-<h3>
-Devansh Goel
-</h3>
-
-<div class="role">
-Team Member
-</div>
-
-<p>
-Team member of T5X LDKN,
-contributing to the technology community and projects.
-</p>
-
-</div>
-
 
 <div class="team-card">
-
-<div class="avatar">
-N
-</div>
-
-<h3>
-Nirdesh
-</h3>
-
-<div class="role">
-Team Member
-</div>
-
-<p>
-Team member of T5X LDKN,
-contributing to the technology community and projects.
-</p>
-
+<div class="avatar">N</div>
+<h3>Nirdesh</h3>
+<div class="role">Team Member</div>
+<p>Team member of T5X LDKN, contributing to the technology community and projects.</p>
 </div>
 
 </div>
-
 </section>
 
 </main>
 
+<section class="dashboard-section" id="dashboard">
 
-<!-- ================= DASHBOARD ================= -->
-
-<section
-class="dashboard-section"
-id="dashboard">
-
-<h2 class="title">
-User <span>Dashboard</span>
-</h2>
+<h2 class="title">User <span>Dashboard</span></h2>
 
 <div class="dashboard-box">
 
 <div class="welcome-box">
-
-<h2>
-Welcome,
-<span id="dashboardName">
-User
-</span>
-👋
-</h2>
-
-<p>
-Welcome to your T5X LDKN dashboard.
-Your account is successfully logged in.
-</p>
-
+<h2>Welcome, <span id="dashboardName">User</span> 👋</h2>
+<p>Welcome to your T5X LDKN dashboard. Your account is successfully logged in.</p>
 </div>
-
 
 <div class="dashboard-cards">
 
 <div class="dashboard-card">
-
-<div class="icon">
-👤
-</div>
-
+<div class="icon">👤</div>
 <h3>Name</h3>
-
-<p id="dashboardUserName">
-Loading...
-</p>
-
+<p id="dashboardUserName">Loading...</p>
 </div>
-
 
 <div class="dashboard-card">
-
-<div class="icon">
-📧
-</div>
-
+<div class="icon">📧</div>
 <h3>Email</h3>
-
-<p id="dashboardEmail">
-Loading...
-</p>
-
+<p id="dashboardEmail">Loading...</p>
 </div>
-
 
 <div class="dashboard-card">
-
-<div class="icon">
-🟢
-</div>
-
+<div class="icon">🟢</div>
 <h3>Account Status</h3>
-
-<p>
-Active & Logged In
-</p>
-
+<p>Active & Logged In</p>
 </div>
-
 
 <div class="dashboard-card">
-
-<div class="icon">
-🚀
-</div>
-
+<div class="icon">🚀</div>
 <h3>T5X LDKN</h3>
-
-<p>
-AI • Coding • Web Development
-</p>
-
+<p>AI • Coding • Web Development</p>
 </div>
 
 </div>
-
-
-<!-- EDIT PROFILE -->
 
 <div style="margin-top:25px;text-align:center">
 
-<button
-class="auth-btn"
-style="max-width:250px"
-onclick="showEditProfile()">
-
-✏️ Edit Profile
-
-</button>
+<button class="auth-btn" style="max-width:250px"
+onclick="showEditProfile()">✏️ Edit Profile</button>
 
 </div>
 
+<div class="profile-edit-box" id="profileEditBox">
 
-<div
-class="profile-edit-box"
-id="profileEditBox">
+<h3>✏️ Edit Profile</h3>
 
-<h3>
-✏️ Edit Profile
-</h3>
+<label class="profile-label">Name</label>
 
-<label class="profile-label">
-Name
-</label>
+<input type="text" id="editProfileName" placeholder="Your Name">
 
-<input
-type="text"
-id="editProfileName"
-placeholder="Your Name">
+<label class="profile-label">Email</label>
 
-<label class="profile-label">
-Email
-</label>
-
-<input
-type="email"
-id="editProfileEmail"
-readonly>
+<input type="email" id="editProfileEmail" readonly>
 
 <div class="profile-edit-actions">
 
-<button
-class="auth-btn"
-onclick="saveProfile()">
+<button class="auth-btn" onclick="saveProfile()">Save Changes</button>
 
-Save Changes
-
-</button>
-
-<button
-class="profile-cancel-btn"
-onclick="cancelEditProfile()">
-
-Cancel
-
-</button>
+<button class="profile-cancel-btn"
+onclick="cancelEditProfile()">Cancel</button>
 
 </div>
 
-<p
-class="profile-message"
-id="profileMessage">
-</p>
+<p class="profile-message" id="profileMessage"></p>
 
 </div>
-
-
-<!-- USER CHAT -->
 
 <div class="chat-box">
 
-<h2>
-💬 <span>Chat with Admin</span>
-</h2>
+<h2>💬 <span>Chat with Admin</span></h2>
 
-<div
-id="chatMessages"
-class="chat-messages">
-
-<p class="chat-empty">
-Start chatting with T5X LDKN Admin 👋
-</p>
-
+<div id="chatMessages" class="chat-messages">
+<p class="chat-empty">Start chatting with T5X LDKN Admin 👋</p>
 </div>
 
 <div class="chat-input-area">
 
-<input
-type="text"
-id="chatInput"
-placeholder="Type your message..."
-autocomplete="off">
+<input type="text" id="chatInput"
+placeholder="Type your message..." autocomplete="off">
 
-<button
-class="auth-btn"
-onclick="sendMessage()">
-
-Send
-
-</button>
+<button class="auth-btn" onclick="sendMessage()">Send</button>
 
 </div>
-
 </div>
-
 
 <div style="margin-top:30px;text-align:center">
 
-<button
-class="auth-btn"
-style="max-width:250px"
-onclick="showHome()">
-
-Back to Website
-
-</button>
+<button class="auth-btn" style="max-width:250px"
+onclick="showHome()">Back to Website</button>
 
 </div>
 
 </div>
-
 </section>
 
+<section class="admin-section" id="admin">
 
-<!-- ================= ADMIN ================= -->
-
-<section
-class="admin-section"
-id="admin">
-
-<h2 class="title">
-Admin <span>Panel</span>
-</h2>
+<h2 class="title">Admin <span>Panel</span></h2>
 
 <div class="admin-box">
 
-
-<!-- ================= PROJECT MANAGEMENT ================= -->
-
 <div class="project-admin-box">
 
-<h3>
-🚀 AI Projects Management
-</h3>
+<h3>🚀 AI Projects Management</h3>
 
 <p style="color:#71809d;margin-bottom:20px">
 Only Admin can add, edit and delete projects.
 </p>
 
-
 <div class="project-form-grid">
 
 <div>
 
-<label class="profile-label">
-Project Title
-</label>
+<label class="profile-label">Project Title</label>
 
-<input
-type="text"
-id="projectTitle"
+<input type="text" id="projectTitle"
 placeholder="Example: T5X AI Assistant">
 
 </div>
 
-
 <div>
 
-<label class="profile-label">
-Category
-</label>
+<label class="profile-label">Category</label>
 
 <select id="projectCategory">
 
-<option value="AI">
-AI
-</option>
-
-<option value="Coding">
-Coding
-</option>
-
-<option value="Web Development">
-Web Development
-</option>
-
-<option value="Technology">
-Technology
-</option>
+<option value="AI">AI</option>
+<option value="Coding">Coding</option>
+<option value="Web Development">Web Development</option>
+<option value="Technology">Technology</option>
 
 </select>
 
 </div>
 
-
 <div class="project-form-full">
 
-<label class="profile-label">
-Description
-</label>
+<label class="profile-label">Description</label>
 
-<textarea
-id="projectDescription"
+<textarea id="projectDescription"
 placeholder="Write project description..."></textarea>
 
 </div>
 
-
 <div>
 
-<label class="profile-label">
-Project Link
-</label>
+<label class="profile-label">Project Link</label>
 
-<input
-type="url"
-id="projectURL"
+<input type="url" id="projectURL"
 placeholder="https://example.com">
 
 </div>
 
-
 <div>
 
-<label class="profile-label">
-Project Image
-</label>
+<label class="profile-label">Project Image</label>
 
-<input
-type="file"
-id="projectImage"
-class="project-file"
-accept="image/*">
+<input type="file" id="projectImage"
+class="project-file" accept="image/*">
 
-<small>
-JPG, PNG, WEBP etc.
-</small>
+<small>JPG, PNG, WEBP etc. — Max 5MB</small>
 
 </div>
 
 </div>
-
 
 <div style="display:flex;gap:10px;margin-top:15px">
 
-<button
-class="auth-btn"
-id="projectSaveButton"
-onclick="saveProject()">
+<button class="auth-btn" id="projectSaveButton"
+onclick="saveProject()">➕ Add Project</button>
 
-➕ Add Project
-
-</button>
-
-<button
-class="profile-cancel-btn"
+<button class="profile-cancel-btn"
 id="projectCancelButton"
 onclick="cancelProjectEdit()"
-style="display:none">
-
-Cancel Edit
-
-</button>
+style="display:none">Cancel Edit</button>
 
 </div>
 
+<p class="project-message" id="projectMessage"></p>
 
-<p
-class="project-message"
-id="projectMessage">
-</p>
-
-
-<div
-class="admin-projects-list"
-id="adminProjectsList">
-
-<p style="color:#71809d">
-Loading projects...
-</p>
-
+<div class="admin-projects-list" id="adminProjectsList">
+<p style="color:#71809d">Loading projects...</p>
 </div>
 
 </div>
 
-
-<!-- ================= USERS + CHAT ================= -->
-
-<div
-class="admin-layout"
-style="margin-top:30px">
-
+<div class="admin-layout" style="margin-top:30px">
 
 <div class="user-list">
 
-<h3>
-👥 Users
-</h3>
+<h3>👥 Users</h3>
 
 <div id="usersList">
-
-<p style="color:#71809d">
-Loading users...
-</p>
-
+<p style="color:#71809d">Loading users...</p>
 </div>
 
 </div>
-
 
 <div class="admin-chat">
 
-<h3
-class="admin-chat-title"
-id="adminChatTitle">
-
+<h3 class="admin-chat-title" id="adminChatTitle">
 Select a user to start chat
-
 </h3>
 
-<div
-id="adminChatMessages"
-class="admin-chat-messages">
+<div id="adminChatMessages" class="admin-chat-messages">
 
-<div class="no-user">
-
-👈 Select a user from the list
-
-</div>
+<div class="no-user">👈 Select a user from the list</div>
 
 </div>
 
 <div class="admin-chat-input">
 
-<input
-type="text"
-id="adminChatInput"
-placeholder="Type reply..."
-autocomplete="off"
-disabled>
+<input type="text" id="adminChatInput"
+placeholder="Type reply..." autocomplete="off" disabled>
 
-<button
-class="auth-btn"
-id="adminSendButton"
-onclick="adminSendMessage()"
-disabled>
-
-Send
-
-</button>
+<button class="auth-btn" id="adminSendButton"
+onclick="adminSendMessage()" disabled>Send</button>
 
 </div>
 
@@ -2012,207 +756,98 @@ Send
 </div>
 
 </div>
-
 </section>
 
-
-<!-- ================= AUTH ================= -->
-
-<section
-class="auth-section"
-id="auth">
+<section class="auth-section" id="auth">
 
 <div class="auth-box">
 
-
-<!-- SIGNUP -->
-
 <div id="signupForm">
 
-<h2>
-Create Account
-</h2>
+<h2>Create Account</h2>
 
-<input
-type="text"
-id="signupName"
-placeholder="Your Name">
+<input type="text" id="signupName" placeholder="Your Name">
 
-<input
-type="email"
-id="signupEmail"
-placeholder="Gmail">
+<input type="email" id="signupEmail" placeholder="Gmail">
 
-<input
-type="password"
-id="signupPassword"
+<input type="password" id="signupPassword"
 placeholder="Password (6+ characters)">
 
-<button
-class="auth-btn"
-onclick="signup()">
+<button class="auth-btn" onclick="signup()">Create Account</button>
 
-Create Account
-
-</button>
-
-<p
-class="message"
-id="signupMessage">
-</p>
+<p class="message" id="signupMessage"></p>
 
 <p class="switch">
-
 Already have an account?
-
-<span onclick="showLogin()">
-Login
-</span>
-
+<span onclick="showLogin()">Login</span>
 </p>
 
 </div>
 
+<div id="loginForm" style="display:none">
 
-<!-- LOGIN -->
+<h2>Welcome Back</h2>
 
-<div
-id="loginForm"
-style="display:none">
+<input type="email" id="loginEmail" placeholder="Gmail">
 
-<h2>
-Welcome Back
-</h2>
+<input type="password" id="loginPassword" placeholder="Password">
 
-<input
-type="email"
-id="loginEmail"
-placeholder="Gmail">
-
-<input
-type="password"
-id="loginPassword"
-placeholder="Password">
-
-<button
-class="auth-btn"
-onclick="login()">
-
-Login
-
-</button>
+<button class="auth-btn" onclick="login()">Login</button>
 
 <p class="forgot">
-
-<span onclick="showForgotPassword()">
-Forgot Password?
-</span>
-
+<span onclick="showForgotPassword()">Forgot Password?</span>
 </p>
 
-<p
-class="message"
-id="loginMessage">
-</p>
+<p class="message" id="loginMessage"></p>
 
 <p class="switch">
-
 Don't have an account?
-
-<span onclick="showSignup()">
-Sign Up
-</span>
-
+<span onclick="showSignup()">Sign Up</span>
 </p>
 
 </div>
 
+<div id="forgotForm" style="display:none">
 
-<!-- FORGOT -->
+<h2>Reset Password</h2>
 
-<div
-id="forgotForm"
-style="display:none">
-
-<h2>
-Reset Password
-</h2>
-
-<p
-style="color:#aab4c9;text-align:center;line-height:1.6;margin-bottom:15px">
-
-Enter your registered email and we will send you
-a password reset link.
-
+<p style="color:#aab4c9;text-align:center;line-height:1.6;margin-bottom:15px">
+Enter your registered email and we will send you a password reset link.
 </p>
 
-<input
-type="email"
-id="forgotEmail"
+<input type="email" id="forgotEmail"
 placeholder="Enter your Gmail">
 
-<button
-class="auth-btn"
-onclick="forgotPassword()">
+<button class="auth-btn"
+onclick="forgotPassword()">Send Reset Link</button>
 
-Send Reset Link
-
-</button>
-
-<p
-class="message"
-id="forgotMessage">
-</p>
+<p class="message" id="forgotMessage"></p>
 
 <p class="switch">
-
 Remember your password?
-
-<span onclick="showLogin()">
-Login
-</span>
-
+<span onclick="showLogin()">Login</span>
 </p>
 
 </div>
 
 </div>
-
 </section>
-
-
-<!-- ================= FOOTER ================= -->
 
 <footer>
 
-<p>
-📧 Contact Gmail: lakhangoswami413@gmail.com
-</p>
-
-<p>
-📞 Contact: +91 9548032485
-</p>
-
-<p>
-© 2026 T5X LDKN — All Rights Reserved
-</p>
+<p>📧 Contact Gmail: lakhangoswami413@gmail.com</p>
+<p>📞 Contact: +91 9548032485</p>
+<p>© 2026 T5X LDKN — All Rights Reserved</p>
 
 </footer>
 
 
-<!-- ================= FIREBASE ================= -->
-
 <script type="module">
 
-import {
-initializeApp
-}
-from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 import {
-
 getAuth,
 createUserWithEmailAndPassword,
 signInWithEmailAndPassword,
@@ -2220,14 +855,10 @@ sendPasswordResetEmail,
 updateProfile,
 onAuthStateChanged,
 signOut
-
 }
-from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 import {
-
 getFirestore,
 collection,
 doc,
@@ -2237,27 +868,20 @@ updateDoc,
 deleteDoc,
 onSnapshot,
 serverTimestamp
-
 }
-from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 import {
-
 getStorage,
 ref,
 uploadBytes,
 getDownloadURL,
 deleteObject
-
 }
-from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
 
 
-/* ================= FIREBASE CONFIG ================= */
-
+/* ================= FIREBASE ================= */
 const firebaseConfig = {
   apiKey: "AIzaSyBwwlCkGQcqWiULRU_6SE_zQ_kMxYBx8mk",
   authDomain: "t5x-ldkn.firebaseapp.com",
@@ -2268,39 +892,79 @@ const firebaseConfig = {
   appId: "1:278540583487:web:631a100fd6a286962eae8a",
   measurementId: "G-LSDEL437QQ"
 };
-const app = initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
+const storage=getStorage(app);
 
-const db = getFirestore(app);
-
-const storage = getStorage(app);
+const ADMIN_UID="oNSKRlCO5SeQ4gXtyyNB7CDK7dx1";
 
 
-/* ================= ADMIN ================= */
-
-const ADMIN_UID =
-"oNSKRlCO5SeQ4gXtyyNB7CDK7dx1";
-
+/* ================= STATE ================= */
 
 let chatUnsubscribe=null;
 let adminChatUnsubscribe=null;
 let usersUnsubscribe=null;
 let projectsUnsubscribe=null;
+let adminProjectsUnsubscribe=null;
 
 let selectedUserId=null;
+
 let editingProjectId=null;
 let editingProjectImageURL="";
+let editingProjectImagePath="";
 
 
-/* ================= CHAT ID ================= */
+/* ================= HELPERS ================= */
+
+function isAdmin(){
+
+const user=auth.currentUser;
+
+return user && user.uid===ADMIN_UID;
+
+}
+
 
 function getChatId(userId){
 
-return [
-ADMIN_UID,
-userId
-].sort().join("_");
+return [ADMIN_UID,userId].sort().join("_");
+
+}
+
+
+function safeFileName(name){
+
+return name.replace(
+/[^a-zA-Z0-9._-]/g,
+"_"
+);
+
+}
+
+
+function getFirebaseError(error){
+
+if(!error)
+return "Unknown error";
+
+if(error.code==="storage/unauthorized")
+return "Storage permission denied. Firebase Storage Rules check karo.";
+
+if(error.code==="storage/unauthenticated")
+return "Firebase login required for Storage.";
+
+if(error.code==="storage/quota-exceeded")
+return "Firebase Storage quota exceeded.";
+
+if(error.code==="storage/object-not-found")
+return "Storage file nahi mila.";
+
+if(error.code==="permission-denied")
+return "Firestore permission denied. Firestore Rules check karo.";
+
+return error.message || error.code || "Unknown error";
 
 }
 
@@ -2441,29 +1105,17 @@ window.scrollTo(0,0);
 
 function updateDashboard(user){
 
-const name=
-user.displayName||
-user.email||
-"User";
+const name=user.displayName||user.email||"User";
 
-document.getElementById("dashboardName")
-.textContent=name;
-
-document.getElementById("dashboardUserName")
-.textContent=name;
-
-document.getElementById("dashboardEmail")
-.textContent=
-user.email||
-"No email";
-
-document.getElementById("userName")
-.textContent=name;
+document.getElementById("dashboardName").textContent=name;
+document.getElementById("dashboardUserName").textContent=name;
+document.getElementById("dashboardEmail").textContent=user.email||"No email";
+document.getElementById("userName").textContent=name;
 
 }
 
 
-/* ================= EDIT PROFILE ================= */
+/* ================= PROFILE ================= */
 
 window.showEditProfile=function(){
 
@@ -2476,31 +1128,21 @@ return;
 
 }
 
-document.getElementById("editProfileName")
-.value=user.displayName||"";
+document.getElementById("editProfileName").value=user.displayName||"";
+document.getElementById("editProfileEmail").value=user.email||"";
+document.getElementById("profileMessage").textContent="";
 
-document.getElementById("editProfileEmail")
-.value=user.email||"";
+document.getElementById("profileEditBox").style.display="block";
 
-document.getElementById("profileMessage")
-.textContent="";
-
-document.getElementById("profileEditBox")
-.style.display="block";
-
-document.getElementById("editProfileName")
-.focus();
+document.getElementById("editProfileName").focus();
 
 };
 
 
 window.cancelEditProfile=function(){
 
-document.getElementById("profileEditBox")
-.style.display="none";
-
-document.getElementById("profileMessage")
-.textContent="";
+document.getElementById("profileEditBox").style.display="none";
+document.getElementById("profileMessage").textContent="";
 
 };
 
@@ -2516,18 +1158,13 @@ return;
 
 }
 
-const name=
-document.getElementById("editProfileName")
-.value.trim();
+const name=document.getElementById("editProfileName").value.trim();
 
-const message=
-document.getElementById("profileMessage");
+const message=document.getElementById("profileMessage");
 
 if(!name){
 
-message.textContent=
-"Please enter your name.";
-
+message.textContent="Please enter your name.";
 return;
 
 }
@@ -2536,38 +1173,27 @@ try{
 
 await updateProfile(
 user,
-{
-displayName:name
-}
+{displayName:name}
 );
 
 await setDoc(
-
 doc(db,"users",user.uid),
-
 {
 uid:user.uid,
 name:name,
 email:user.email||"",
 updatedAt:serverTimestamp()
 },
-
-{
-merge:true
-}
-
+{merge:true}
 );
 
 updateDashboard(user);
 
-message.textContent=
-"Profile updated successfully!";
+message.textContent="Profile updated successfully!";
 
 setTimeout(()=>{
 
-document.getElementById("profileEditBox")
-.style.display="none";
-
+document.getElementById("profileEditBox").style.display="none";
 message.textContent="";
 
 },1000);
@@ -2579,8 +1205,7 @@ catch(error){
 console.error(error);
 
 message.textContent=
-"Profile update nahi hua: "+
-error.message;
+"Profile update nahi hua: "+getFirebaseError(error);
 
 }
 
@@ -2591,37 +1216,24 @@ error.message;
 
 window.signup=async function(){
 
-const name=
-document.getElementById("signupName")
-.value.trim();
+const name=document.getElementById("signupName").value.trim();
+const email=document.getElementById("signupEmail").value.trim();
+const password=document.getElementById("signupPassword").value;
 
-const email=
-document.getElementById("signupEmail")
-.value.trim();
-
-const password=
-document.getElementById("signupPassword")
-.value;
-
-const message=
-document.getElementById("signupMessage");
+const message=document.getElementById("signupMessage");
 
 message.textContent="";
 
 if(!name||!email||!password){
 
-message.textContent=
-"Please fill all fields.";
-
+message.textContent="Please fill all fields.";
 return;
 
 }
 
 if(password.length<6){
 
-message.textContent=
-"Password must be at least 6 characters.";
-
+message.textContent="Password must be at least 6 characters.";
 return;
 
 }
@@ -2637,15 +1249,11 @@ password
 
 await updateProfile(
 result.user,
-{
-displayName:name
-}
+{displayName:name}
 );
 
 await setDoc(
-
 doc(db,"users",result.user.uid),
-
 {
 uid:result.user.uid,
 name:name,
@@ -2653,43 +1261,29 @@ email:email,
 createdAt:serverTimestamp(),
 updatedAt:serverTimestamp()
 },
-
-{
-merge:true
-}
-
+{merge:true}
 );
 
-message.textContent=
-"Account created successfully!";
+message.textContent="Account created successfully!";
 
 document.getElementById("signupName").value="";
 document.getElementById("signupEmail").value="";
 document.getElementById("signupPassword").value="";
 
-setTimeout(
-()=>showDashboard(),
-700
-);
+setTimeout(()=>showDashboard(),700);
 
 }
 
 catch(error){
 
 if(error.code==="auth/email-already-in-use")
-
-message.textContent=
-"This email is already registered.";
+message.textContent="This email is already registered.";
 
 else if(error.code==="auth/invalid-email")
-
-message.textContent=
-"Please enter a valid email.";
+message.textContent="Please enter a valid email.";
 
 else
-
-message.textContent=
-error.message;
+message.textContent=error.message;
 
 }
 
@@ -2700,24 +1294,16 @@ error.message;
 
 window.login=async function(){
 
-const email=
-document.getElementById("loginEmail")
-.value.trim();
+const email=document.getElementById("loginEmail").value.trim();
+const password=document.getElementById("loginPassword").value;
 
-const password=
-document.getElementById("loginPassword")
-.value;
-
-const message=
-document.getElementById("loginMessage");
+const message=document.getElementById("loginMessage");
 
 message.textContent="";
 
 if(!email||!password){
 
-message.textContent=
-"Please enter email and password.";
-
+message.textContent="Please enter email and password.";
 return;
 
 }
@@ -2730,13 +1316,9 @@ email,
 password
 );
 
-message.textContent=
-"Login successful!";
+message.textContent="Login successful!";
 
-setTimeout(
-()=>showDashboard(),
-700
-);
+setTimeout(()=>showDashboard(),700);
 
 }
 
@@ -2746,61 +1328,46 @@ if(
 error.code==="auth/invalid-credential"||
 error.code==="auth/wrong-password"
 )
-
-message.textContent=
-"Wrong email or password.";
+message.textContent="Wrong email or password.";
 
 else
-
-message.textContent=
-error.message;
+message.textContent=error.message;
 
 }
 
 };
 
 
-/* ================= FORGOT PASSWORD ================= */
+/* ================= FORGOT ================= */
 
 window.forgotPassword=async function(){
 
-const email=
-document.getElementById("forgotEmail")
-.value.trim();
+const email=document.getElementById("forgotEmail").value.trim();
 
-const message=
-document.getElementById("forgotMessage");
+const message=document.getElementById("forgotMessage");
 
 message.textContent="";
 
 if(!email){
 
-message.textContent=
-"Please enter your email.";
-
+message.textContent="Please enter your email.";
 return;
 
 }
 
 try{
 
-await sendPasswordResetEmail(
-auth,
-email
-);
+await sendPasswordResetEmail(auth,email);
 
-message.textContent=
-"Password reset link has been sent.";
+message.textContent="Password reset link has been sent.";
 
-document.getElementById("forgotEmail")
-.value="";
+document.getElementById("forgotEmail").value="";
 
 }
 
 catch(error){
 
-message.textContent=
-error.message;
+message.textContent=error.message;
 
 }
 
@@ -2835,6 +1402,11 @@ projectsUnsubscribe();
 projectsUnsubscribe=null;
 }
 
+if(adminProjectsUnsubscribe){
+adminProjectsUnsubscribe();
+adminProjectsUnsubscribe=null;
+}
+
 selectedUserId=null;
 
 showHome();
@@ -2851,13 +1423,12 @@ console.error(error);
 
 
 /* =========================================================
-   ================= USER CHAT =============================
-   ========================================================= */
+   USER CHAT
+========================================================= */
 
 function loadChat(userId){
 
-const box=
-document.getElementById("chatMessages");
+const box=document.getElementById("chatMessages");
 
 if(chatUnsubscribe){
 
@@ -2876,7 +1447,6 @@ getChatId(userId),
 
 chatUnsubscribe=
 onSnapshot(
-
 chatRef,
 
 snapshot=>{
@@ -2885,9 +1455,7 @@ box.innerHTML="";
 
 let messages=[];
 
-snapshot.forEach(
-d=>messages.push(d.data())
-);
+snapshot.forEach(d=>messages.push(d.data()));
 
 messages.sort(
 (a,b)=>
@@ -2908,32 +1476,20 @@ return;
 
 messages.forEach(data=>{
 
-const div=
-document.createElement("div");
+const div=document.createElement("div");
 
 div.className=
 "chat-message "+
-(
-data.senderType==="user"
-?
-"user"
-:
-"admin"
-);
+(data.senderType==="user"?"user":"admin");
 
-div.textContent=
-data.text||"";
+div.textContent=data.text||"";
 
 if(data.createdAt){
 
-const time=
-document.createElement("span");
+const time=document.createElement("span");
 
-time.className=
-"chat-time";
-
-time.textContent=
-formatTime(data.createdAt);
+time.className="chat-time";
+time.textContent=formatTime(data.createdAt);
 
 div.appendChild(time);
 
@@ -2943,8 +1499,7 @@ box.appendChild(div);
 
 });
 
-box.scrollTop=
-box.scrollHeight;
+box.scrollTop=box.scrollHeight;
 
 },
 
@@ -2964,8 +1519,6 @@ Unable to load chat.
 }
 
 
-/* ================= USER SEND ================= */
-
 window.sendMessage=async function(){
 
 const user=auth.currentUser;
@@ -2977,11 +1530,9 @@ return;
 
 }
 
-const input=
-document.getElementById("chatInput");
+const input=document.getElementById("chatInput");
 
-const text=
-input.value.trim();
+const text=input.value.trim();
 
 if(!text)
 return;
@@ -2989,24 +1540,19 @@ return;
 try{
 
 await addDoc(
-
 collection(
 db,
 "chats",
 getChatId(user.uid),
 "messages"
 ),
-
 {
-
 text:text,
 senderId:user.uid,
 senderName:user.displayName||"User",
 senderType:"user",
 createdAt:serverTimestamp()
-
 }
-
 );
 
 input.value="";
@@ -3017,7 +1563,7 @@ catch(error){
 
 alert(
 "Message send nahi hua: "+
-error.message
+getFirebaseError(error)
 );
 
 }
@@ -3026,13 +1572,12 @@ error.message
 
 
 /* =========================================================
-   ================= USERS =================================
-   ========================================================= */
+   USERS
+========================================================= */
 
 function loadUsers(){
 
-const box=
-document.getElementById("usersList");
+const box=document.getElementById("usersList");
 
 if(usersUnsubscribe){
 
@@ -3043,7 +1588,6 @@ usersUnsubscribe=null;
 
 usersUnsubscribe=
 onSnapshot(
-
 collection(db,"users"),
 
 snapshot=>{
@@ -3064,25 +1608,20 @@ return;
 
 count++;
 
-const div=
-document.createElement("div");
+const div=document.createElement("div");
 
 div.className="user-item";
 
 if(selectedUserId===user.uid)
 div.classList.add("active");
 
-const strong=
-document.createElement("strong");
+const strong=document.createElement("strong");
 
-strong.textContent=
-user.name||"User";
+strong.textContent=user.name||"User";
 
-const small=
-document.createElement("small");
+const small=document.createElement("small");
 
-small.textContent=
-user.email||"";
+small.textContent=user.email||"";
 
 div.appendChild(strong);
 div.appendChild(small);
@@ -3127,52 +1666,27 @@ Unable to load users.
 }
 
 
-/* ================= SELECT USER ================= */
-
-function selectAdminUser(
-userId,
-userName
-){
+function selectAdminUser(userId,userName){
 
 selectedUserId=userId;
 
-document.getElementById(
-"adminChatTitle"
-)
-.textContent=
-"💬 Chat with "+userName;
+document.getElementById("adminChatTitle")
+.textContent="💬 Chat with "+userName;
 
-document.getElementById(
-"adminChatInput"
-)
-.disabled=false;
-
-document.getElementById(
-"adminSendButton"
-)
-.disabled=false;
+document.getElementById("adminChatInput").disabled=false;
+document.getElementById("adminSendButton").disabled=false;
 
 loadAdminChat(userId);
 
-document.querySelectorAll(
-".user-item"
-)
-.forEach(
-item=>
-item.classList.remove("active")
-);
+document.querySelectorAll(".user-item")
+.forEach(item=>item.classList.remove("active"));
 
 }
 
 
-/* ================= ADMIN CHAT ================= */
-
 function loadAdminChat(userId){
 
-const box=
-document.getElementById(
-"adminChatMessages"
-);
+const box=document.getElementById("adminChatMessages");
 
 if(adminChatUnsubscribe){
 
@@ -3183,7 +1697,6 @@ adminChatUnsubscribe=null;
 
 adminChatUnsubscribe=
 onSnapshot(
-
 collection(
 db,
 "chats",
@@ -3197,9 +1710,7 @@ box.innerHTML="";
 
 let messages=[];
 
-snapshot.forEach(
-d=>messages.push(d.data())
-);
+snapshot.forEach(d=>messages.push(d.data()));
 
 messages.sort(
 (a,b)=>
@@ -3210,9 +1721,7 @@ messages.sort(
 if(!messages.length){
 
 box.innerHTML=
-`<div class="no-user">
-No messages yet.
-</div>`;
+`<div class="no-user">No messages yet.</div>`;
 
 return;
 
@@ -3220,32 +1729,20 @@ return;
 
 messages.forEach(data=>{
 
-const div=
-document.createElement("div");
+const div=document.createElement("div");
 
 div.className=
 "chat-message "+
-(
-data.senderType==="admin"
-?
-"admin"
-:
-"user"
-);
+(data.senderType==="admin"?"admin":"user");
 
-div.textContent=
-data.text||"";
+div.textContent=data.text||"";
 
 if(data.createdAt){
 
-const time=
-document.createElement("span");
+const time=document.createElement("span");
 
-time.className=
-"chat-time";
-
-time.textContent=
-formatTime(data.createdAt);
+time.className="chat-time";
+time.textContent=formatTime(data.createdAt);
 
 div.appendChild(time);
 
@@ -3255,8 +1752,7 @@ box.appendChild(div);
 
 });
 
-box.scrollTop=
-box.scrollHeight;
+box.scrollTop=box.scrollHeight;
 
 },
 
@@ -3275,8 +1771,6 @@ Unable to load messages.
 
 }
 
-
-/* ================= ADMIN SEND ================= */
 
 window.adminSendMessage=async function(){
 
@@ -3298,21 +1792,14 @@ return;
 
 if(!selectedUserId){
 
-alert(
-"Please select a user first."
-);
-
+alert("Please select a user first.");
 return;
 
 }
 
-const input=
-document.getElementById(
-"adminChatInput"
-);
+const input=document.getElementById("adminChatInput");
 
-const text=
-input.value.trim();
+const text=input.value.trim();
 
 if(!text)
 return;
@@ -3320,24 +1807,19 @@ return;
 try{
 
 await addDoc(
-
 collection(
 db,
 "chats",
 getChatId(selectedUserId),
 "messages"
 ),
-
 {
-
 text:text,
 senderId:admin.uid,
 senderName:"T5X LDKN Admin",
 senderType:"admin",
 createdAt:serverTimestamp()
-
 }
-
 );
 
 input.value="";
@@ -3348,7 +1830,7 @@ catch(error){
 
 alert(
 "Admin message send nahi hua: "+
-error.message
+getFirebaseError(error)
 );
 
 }
@@ -3357,27 +1839,12 @@ error.message
 
 
 /* =========================================================
-   ================= PROJECTS ===============================
-   ========================================================= */
-
-
-/* ---------- ADMIN CHECK ---------- */
-
-function isAdmin(){
-
-const user=auth.currentUser;
-
-return user && user.uid===ADMIN_UID;
-
-}
-
-
-/* ---------- LOAD PUBLIC PROJECTS ---------- */
+   PROJECTS - PUBLIC
+========================================================= */
 
 function loadProjects(){
 
-const grid=
-document.getElementById("projectsGrid");
+const grid=document.getElementById("projectsGrid");
 
 if(!grid)
 return;
@@ -3391,7 +1858,6 @@ projectsUnsubscribe=null;
 
 projectsUnsubscribe=
 onSnapshot(
-
 collection(db,"projects"),
 
 snapshot=>{
@@ -3428,25 +1894,17 @@ return;
 
 projects.forEach(project=>{
 
-const card=
-document.createElement("div");
+const card=document.createElement("div");
 
 card.className="project-card";
 
-
 if(project.imageURL){
 
-const img=
-document.createElement("img");
+const img=document.createElement("img");
 
 img.className="project-image";
-
-img.src=
-project.imageURL;
-
-img.alt=
-project.title||"Project";
-
+img.src=project.imageURL;
+img.alt=project.title||"Project";
 img.loading="lazy";
 
 card.appendChild(img);
@@ -3455,86 +1913,56 @@ card.appendChild(img);
 
 else{
 
-const placeholder=
-document.createElement("div");
+const placeholder=document.createElement("div");
 
-placeholder.className=
-"project-image-placeholder";
-
+placeholder.className="project-image-placeholder";
 placeholder.textContent="🤖";
 
 card.appendChild(placeholder);
 
 }
 
+const content=document.createElement("div");
 
-const content=
-document.createElement("div");
+content.className="project-content";
 
-content.className=
-"project-content";
+const category=document.createElement("span");
 
+category.className="project-category";
+category.textContent=project.category||"Technology";
 
-const category=
-document.createElement("span");
+const title=document.createElement("h3");
 
-category.className=
-"project-category";
+title.textContent=project.title||"Untitled Project";
 
-category.textContent=
-project.category||"Technology";
-
-
-const title=
-document.createElement("h3");
-
-title.textContent=
-project.title||"Untitled Project";
-
-
-const description=
-document.createElement("p");
+const description=document.createElement("p");
 
 description.textContent=
-project.description||
-"No description available.";
-
+project.description||"No description available.";
 
 content.appendChild(category);
 content.appendChild(title);
 content.appendChild(description);
 
-
 if(project.projectURL){
 
-const actions=
-document.createElement("div");
+const actions=document.createElement("div");
 
-actions.className=
-"project-actions";
+actions.className="project-actions";
 
-
-const link=
-document.createElement("a");
+const link=document.createElement("a");
 
 link.className="project-btn";
-
-link.href=
-project.projectURL;
-
+link.href=project.projectURL;
 link.target="_blank";
-
 link.rel="noopener noreferrer";
-
-link.textContent=
-"View Project";
+link.textContent="View Project";
 
 actions.appendChild(link);
 
 content.appendChild(actions);
 
 }
-
 
 card.appendChild(content);
 
@@ -3560,26 +1988,31 @@ Unable to load projects.
 }
 
 
-/* ---------- LOAD ADMIN PROJECTS ---------- */
+/* =========================================================
+   ADMIN PROJECT LIST
+========================================================= */
 
 function loadAdminProjects(){
 
 if(!isAdmin())
 return;
 
-const box=
-document.getElementById(
-"adminProjectsList"
-);
+const box=document.getElementById("adminProjectsList");
 
 box.innerHTML=
 `<p style="color:#71809d">
 Loading projects...
 </p>`;
 
+if(adminProjectsUnsubscribe){
 
+adminProjectsUnsubscribe();
+adminProjectsUnsubscribe=null;
+
+}
+
+adminProjectsUnsubscribe=
 onSnapshot(
-
 collection(db,"projects"),
 
 snapshot=>{
@@ -3616,88 +2049,50 @@ return;
 
 projects.forEach(project=>{
 
-const item=
-document.createElement("div");
+const item=document.createElement("div");
 
-item.className=
-"admin-project-item";
-
+item.className="admin-project-item";
 
 if(project.imageURL){
 
-const img=
-document.createElement("img");
+const img=document.createElement("img");
 
-img.src=
-project.imageURL;
-
-img.alt=
-project.title||"Project";
+img.src=project.imageURL;
+img.alt=project.title||"Project";
 
 item.appendChild(img);
 
 }
 
+const info=document.createElement("div");
 
-const info=
-document.createElement("div");
+info.className="admin-project-info";
 
-info.className=
-"admin-project-info";
+const title=document.createElement("h4");
 
+title.textContent=project.title||"Untitled";
 
-const title=
-document.createElement("h4");
+const desc=document.createElement("p");
 
-title.textContent=
-project.title||"Untitled";
+desc.textContent=project.category||"Technology";
 
+const actions=document.createElement("div");
 
-const desc=
-document.createElement("p");
+actions.className="admin-project-actions";
 
-desc.textContent=
-project.category||"Technology";
+const editBtn=document.createElement("button");
 
+editBtn.className="project-edit";
+editBtn.textContent="✏️ Edit";
 
-const actions=
-document.createElement("div");
+editBtn.onclick=()=>editProject(project);
 
-actions.className=
-"admin-project-actions";
+const deleteBtn=document.createElement("button");
 
+deleteBtn.className="project-delete";
+deleteBtn.textContent="🗑️ Delete";
 
-const editBtn=
-document.createElement("button");
-
-editBtn.className=
-"project-edit";
-
-editBtn.textContent=
-"✏️ Edit";
-
-editBtn.onclick=()=>{
-
-editProject(project);
-
-};
-
-
-const deleteBtn=
-document.createElement("button");
-
-deleteBtn.className=
-"project-delete";
-
-deleteBtn.textContent=
-"🗑️ Delete";
-
-deleteBtn.onclick=()=>{
-
-deleteProject(project);
-
-};
-
+deleteBtn.onclick=()=>deleteProject(project);
 
 actions.appendChild(editBtn);
 actions.appendChild(deleteBtn);
@@ -3730,7 +2125,9 @@ Unable to load admin projects.
 }
 
 
-/* ---------- SAVE PROJECT ---------- */
+/* =========================================================
+   SAVE PROJECT - FIXED
+========================================================= */
 
 window.saveProject=async function(){
 
@@ -3773,12 +2170,44 @@ document.getElementById("projectSaveButton");
 message.textContent="";
 
 
-if(!title||!description){
+/* VALIDATION */
+
+if(!title){
+
+message.textContent="Project title is required.";
+return;
+
+}
+
+if(!description){
+
+message.textContent="Project description is required.";
+return;
+
+}
+
+
+/* IMAGE VALIDATION */
+
+if(imageFile){
+
+if(!imageFile.type.startsWith("image/")){
 
 message.textContent=
-"Project title and description are required.";
+"Please select a valid image.";
 
 return;
+
+}
+
+if(imageFile.size>5*1024*1024){
+
+message.textContent=
+"Image must be 5MB or smaller.";
+
+return;
+
+}
 
 }
 
@@ -3786,46 +2215,79 @@ return;
 try{
 
 saveButton.disabled=true;
-saveButton.textContent=
-"Saving...";
+saveButton.textContent="Saving...";
 
 
-/* ================= EDIT ================= */
+/* =================================================
+   EDIT PROJECT
+================================================= */
 
 if(editingProjectId){
 
 let imageURL=
-editingProjectImageURL;
+editingProjectImageURL||"";
+
+let imagePath=
+editingProjectImagePath||"";
 
 
-/* Replace image */
+/* NEW IMAGE */
 
 if(imageFile){
 
-const imageRef=
-ref(
-storage,
+message.textContent=
+"Uploading new image...";
+
+
+const safeName=
+safeFileName(imageFile.name);
+
+const newImagePath=
 "projectImages/"+
 editingProjectId+
 "_"+Date.now()+
-"_"+imageFile.name
+"_"+safeName;
+
+
+console.log(
+"Storage upload path:",
+newImagePath
 );
 
-const upload=
+
+const imageRef=
+ref(storage,newImagePath);
+
+
+/* UPLOAD */
+
 await uploadBytes(
 imageRef,
 imageFile
 );
 
+
+/* DOWNLOAD URL */
+
 imageURL=
-await getDownloadURL(
-upload.ref
+await getDownloadURL(imageRef);
+
+imagePath=newImagePath;
+
+
+console.log(
+"Image uploaded:",
+imageURL
 );
 
 }
 
 
-/* Update */
+/* FIRESTORE UPDATE */
+
+message.textContent=
+"Updating project data...";
+
 
 await updateDoc(
 
@@ -3836,59 +2298,144 @@ editingProjectId
 ),
 
 {
-
 title:title,
 category:category,
 description:description,
 projectURL:projectURL,
 imageURL:imageURL,
+imagePath:imagePath,
 updatedAt:serverTimestamp()
-
 }
 
 );
 
 
+/* DELETE OLD IMAGE */
+
+if(
+imageFile &&
+editingProjectImagePath &&
+editingProjectImagePath!==imagePath
+){
+
+try{
+
+await deleteObject(
+ref(
+storage,
+editingProjectImagePath
+)
+);
+
+console.log(
+"Old image deleted"
+);
+
+}
+
+catch(oldImageError){
+
+console.warn(
+"Old image delete skipped:",
+oldImageError
+);
+
+}
+
+}
+
+
 message.textContent=
-"Project updated successfully!";
+"✅ Project updated successfully!";
 
 
 }
 
+
+/* =================================================
+   ADD PROJECT
+================================================= */
+
 else{
 
+message.textContent=
+"Creating project...";
 
-/* ================= ADD ================= */
 
 const projectRef=
-doc(collection(db,"projects"));
+doc(
+collection(db,"projects")
+);
+
 
 let imageURL="";
+let imagePath="";
 
+
+/* IMAGE */
 
 if(imageFile){
+
+message.textContent=
+"Uploading image...";
+
+
+const safeName=
+safeFileName(imageFile.name);
+
+
+imagePath=
+"projectImages/"+
+projectRef.id+
+"_"+Date.now()+
+"_"+safeName;
+
+
+console.log(
+"Storage upload path:",
+imagePath
+);
+
 
 const imageRef=
 ref(
 storage,
-"projectImages/"+
-projectRef.id+
-"_"+Date.now()+
-"_"+imageFile.name
+imagePath
 );
 
-const upload=
+
+/* UPLOAD IMAGE */
+
 await uploadBytes(
 imageRef,
 imageFile
 );
 
+
+/* GET URL */
+
+message.textContent=
+"Getting image URL...";
+
+
 imageURL=
 await getDownloadURL(
-upload.ref
+imageRef
+);
+
+
+console.log(
+"Image uploaded:",
+imageURL
 );
 
 }
+
+
+/* SAVE FIRESTORE */
+
+message.textContent=
+"Saving project data...";
 
 
 await setDoc(
@@ -3896,28 +2443,27 @@ await setDoc(
 projectRef,
 
 {
-
 title:title,
 category:category,
 description:description,
 projectURL:projectURL,
 imageURL:imageURL,
+imagePath:imagePath,
 createdBy:ADMIN_UID,
 createdAt:serverTimestamp(),
 updatedAt:serverTimestamp()
-
 }
 
 );
 
 
 message.textContent=
-"Project added successfully!";
+"✅ Project added successfully!";
 
 }
 
 
-/* RESET */
+/* CLEAR */
 
 clearProjectForm();
 
@@ -3925,11 +2471,14 @@ clearProjectForm();
 
 catch(error){
 
-console.error(error);
+console.error(
+"PROJECT SAVE ERROR:",
+error
+);
 
 message.textContent=
-"Project save nahi hua: "+
-error.message;
+"❌ Save failed: "+
+getFirebaseError(error);
 
 }
 
@@ -3955,7 +2504,9 @@ saveButton.textContent=
 };
 
 
-/* ---------- EDIT PROJECT ---------- */
+/* =========================================================
+   EDIT PROJECT
+========================================================= */
 
 function editProject(project){
 
@@ -3972,34 +2523,31 @@ project.id;
 editingProjectImageURL=
 project.imageURL||"";
 
+editingProjectImagePath=
+project.imagePath||"";
+
 
 document.getElementById("projectTitle")
-.value=
-project.title||"";
+.value=project.title||"";
 
 document.getElementById("projectCategory")
-.value=
-project.category||"AI";
+.value=project.category||"AI";
 
 document.getElementById("projectDescription")
-.value=
-project.description||"";
+.value=project.description||"";
 
 document.getElementById("projectURL")
-.value=
-project.projectURL||"";
+.value=project.projectURL||"";
 
 document.getElementById("projectImage")
 .value="";
 
 
 document.getElementById("projectSaveButton")
-.textContent=
-"Update Project";
+.textContent="Update Project";
 
 document.getElementById("projectCancelButton")
-.style.display=
-"block";
+.style.display="block";
 
 document.getElementById("projectMessage")
 .textContent=
@@ -4014,7 +2562,9 @@ behavior:"smooth"
 }
 
 
-/* ---------- CANCEL PROJECT EDIT ---------- */
+/* =========================================================
+   CANCEL EDIT
+========================================================= */
 
 window.cancelProjectEdit=function(){
 
@@ -4023,12 +2573,16 @@ clearProjectForm();
 };
 
 
-/* ---------- CLEAR FORM ---------- */
+/* =========================================================
+   CLEAR PROJECT FORM
+========================================================= */
 
 function clearProjectForm(){
 
 editingProjectId=null;
+
 editingProjectImageURL="";
+editingProjectImagePath="";
 
 document.getElementById("projectTitle").value="";
 document.getElementById("projectCategory").value="AI";
@@ -4037,12 +2591,10 @@ document.getElementById("projectURL").value="";
 document.getElementById("projectImage").value="";
 
 document.getElementById("projectSaveButton")
-.textContent=
-"➕ Add Project";
+.textContent="➕ Add Project";
 
 document.getElementById("projectCancelButton")
-.style.display=
-"none";
+.style.display="none";
 
 document.getElementById("projectMessage")
 .textContent="";
@@ -4050,7 +2602,9 @@ document.getElementById("projectMessage")
 }
 
 
-/* ---------- DELETE PROJECT ---------- */
+/* =========================================================
+   DELETE PROJECT
+========================================================= */
 
 window.deleteProject=async function(project){
 
@@ -4071,27 +2625,54 @@ confirm(
 if(!confirmDelete)
 return;
 
+
 try{
 
-await deleteDoc(
+/* DELETE FIRESTORE */
 
+await deleteDoc(
 doc(
 db,
 "projects",
 project.id
 )
-
 );
 
 
-/*
-Image delete optional.
-If old image exists and its URL is not
-available as a Storage reference, Firestore
-document is still safely deleted.
-*/
+/* DELETE STORAGE IMAGE */
 
-alert("Project deleted successfully.");
+if(project.imagePath){
+
+try{
+
+await deleteObject(
+ref(
+storage,
+project.imagePath
+)
+);
+
+console.log(
+"Project image deleted"
+);
+
+}
+
+catch(imageError){
+
+console.warn(
+"Image delete skipped:",
+imageError
+);
+
+}
+
+}
+
+
+alert(
+"Project deleted successfully."
+);
 
 }
 
@@ -4101,7 +2682,7 @@ console.error(error);
 
 alert(
 "Project delete nahi hua: "+
-error.message
+getFirebaseError(error)
 );
 
 }
@@ -4109,18 +2690,14 @@ error.message
 };
 
 
-/* =========================================================
-   ================= TIME ===================================
-   ========================================================= */
+/* ================= TIME ================= */
 
 function formatTime(timestamp){
 
 if(!timestamp?.toDate)
 return "";
 
-return timestamp
-.toDate()
-.toLocaleString(
+return timestamp.toDate().toLocaleString(
 "en-IN",
 {
 day:"2-digit",
@@ -4133,9 +2710,7 @@ minute:"2-digit"
 }
 
 
-/* =========================================================
-   ================= ENTER SEND =============================
-   ========================================================= */
+/* ================= ENTER SEND ================= */
 
 document.addEventListener(
 "keydown",
@@ -4145,23 +2720,19 @@ if(event.key!=="Enter")
 return;
 
 if(
-document.activeElement?.id===
-"chatInput"
+document.activeElement?.id==="chatInput"
 ){
 
 event.preventDefault();
-
 sendMessage();
 
 }
 
 if(
-document.activeElement?.id===
-"adminChatInput"
+document.activeElement?.id==="adminChatInput"
 ){
 
 event.preventDefault();
-
 adminSendMessage();
 
 }
@@ -4170,39 +2741,28 @@ adminSendMessage();
 );
 
 
-/* =========================================================
-   ================= AUTH STATE =============================
-   ========================================================= */
+/* ================= AUTH STATE ================= */
 
 onAuthStateChanged(
 auth,
 async user=>{
 
 const authButtons=
-document.getElementById(
-"authButtons"
-);
+document.getElementById("authButtons");
 
 const userPanel=
-document.getElementById(
-"userPanel"
-);
+document.getElementById("userPanel");
 
 const userName=
-document.getElementById(
-"userName"
-);
+document.getElementById("userName");
 
 const adminButton=
-document.getElementById(
-"adminButton"
-);
+document.getElementById("adminButton");
 
 
 if(user){
 
 authButtons.style.display="none";
-
 userPanel.style.display="inline";
 
 userName.textContent=
@@ -4220,25 +2780,13 @@ await setDoc(
 doc(db,"users",user.uid),
 
 {
-
 uid:user.uid,
-
-name:
-user.displayName||
-"User",
-
-email:
-user.email||
-"",
-
-updatedAt:
-serverTimestamp()
-
+name:user.displayName||"User",
+email:user.email||"",
+updatedAt:serverTimestamp()
 },
 
-{
-merge:true
-}
+{merge:true}
 
 );
 
@@ -4253,23 +2801,18 @@ console.error(error);
 
 if(user.uid===ADMIN_UID)
 
-adminButton.style.display=
-"inline-block";
+adminButton.style.display="inline-block";
 
 else
 
-adminButton.style.display=
-"none";
-
+adminButton.style.display="none";
 
 }
 
 else{
 
 authButtons.style.display="inline";
-
 userPanel.style.display="none";
-
 adminButton.style.display="none";
 
 }
@@ -4277,9 +2820,7 @@ adminButton.style.display="none";
 });
 
 
-/* =========================================================
-   ================= START PROJECTS =========================
-   ========================================================= */
+/* ================= START ================= */
 
 loadProjects();
 
