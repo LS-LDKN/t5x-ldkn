@@ -527,3 +527,141 @@ footer {
     }
 
 }
+/* =========================
+   HOMEPAGE LOGO
+========================= */
+
+.hero{
+    gap:60px;
+}
+
+.hero-content{
+    flex:1;
+}
+
+.hero-badge{
+    display:inline-block;
+    padding:8px 16px;
+    margin-bottom:22px;
+    border:1px solid #00e5ff;
+    border-radius:30px;
+    color:#00e5ff;
+    font-size:12px;
+    letter-spacing:3px;
+}
+
+.hero-logo{
+    flex:0 0 330px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.logo-circle{
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    border:2px solid #00e5ff;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,229,255,.12),
+            transparent 65%
+        );
+    box-shadow:
+        0 0 25px rgba(0,229,255,.25),
+        0 0 70px rgba(0,229,255,.15),
+        inset 0 0 35px rgba(0,229,255,.08);
+
+    animation:logoFloat 4s ease-in-out infinite;
+}
+
+.logo-circle::before{
+    content:"";
+    position:absolute;
+    inset:12px;
+    border-radius:50%;
+    border:1px solid rgba(0,229,255,.35);
+}
+
+.logo-circle::after{
+    content:"";
+    position:absolute;
+    inset:-8px;
+    border-radius:50%;
+    border:1px solid rgba(0,229,255,.15);
+}
+
+.logo-t5x{
+    font-size:68px;
+    font-weight:900;
+    letter-spacing:5px;
+    color:white;
+    text-shadow:
+        0 0 10px #00e5ff,
+        0 0 25px rgba(0,229,255,.7);
+}
+
+.logo-line{
+    width:120px;
+    height:2px;
+    background:#00e5ff;
+    box-shadow:0 0 12px #00e5ff;
+    margin:8px 0 12px;
+}
+
+.logo-ldkn{
+    font-size:20px;
+    font-weight:bold;
+    letter-spacing:10px;
+    color:#00e5ff;
+    margin-left:10px;
+    text-shadow:0 0 12px rgba(0,229,255,.8);
+}
+
+@keyframes logoFloat{
+
+    0%,100%{
+        transform:translateY(0) rotate(0deg);
+    }
+
+    50%{
+        transform:translateY(-12px) rotate(1deg);
+    }
+
+}
+
+
+/* MOBILE LOGO */
+
+@media(max-width:700px){
+
+    .hero{
+        flex-direction:column;
+        gap:45px;
+    }
+
+    .hero-logo{
+        flex:0 0 auto;
+    }
+
+    .logo-circle{
+        width:230px;
+        height:230px;
+    }
+
+    .logo-t5x{
+        font-size:52px;
+    }
+
+    .logo-ldkn{
+        font-size:16px;
+        letter-spacing:7px;
+    }
+
+}
