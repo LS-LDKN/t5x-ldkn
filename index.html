@@ -389,6 +389,56 @@ input:focus{
     word-break:break-word;
 }
 
+/* EDIT PROFILE */
+
+.profile-edit-box{
+    display:none;
+    margin-top:25px;
+    background:#0b1228;
+    border:1px solid #00e5ff;
+    border-radius:18px;
+    padding:25px;
+}
+
+.profile-edit-box h3{
+    color:#00e5ff;
+    margin-bottom:15px;
+}
+
+.profile-edit-box .profile-label{
+    display:block;
+    color:#aab4c9;
+    margin-top:10px;
+    margin-bottom:5px;
+}
+
+.profile-edit-actions{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.profile-edit-actions button{
+    flex:1;
+}
+
+.profile-cancel-btn{
+    width:100%;
+    padding:14px;
+    border:1px solid #ff4d6d;
+    border-radius:25px;
+    background:transparent;
+    color:#ff4d6d;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.profile-message{
+    text-align:center;
+    margin-top:12px;
+    min-height:20px;
+}
+
 /* CHAT */
 
 .chat-box{
@@ -621,6 +671,10 @@ footer{
 
     .chat-message{
         max-width:88%;
+    }
+
+    .profile-edit-actions{
+        flex-direction:column;
     }
 
     .chat-input-area,
@@ -899,6 +953,61 @@ footer{
                 <h3>T5X LDKN</h3>
                 <p>AI • Coding • Web Development</p>
             </div>
+
+        </div>
+
+
+        <!-- EDIT PROFILE -->
+
+        <div style="margin-top:25px;text-align:center;">
+
+            <button
+                class="auth-btn"
+                style="max-width:250px;"
+                onclick="showEditProfile()">
+                ✏️ Edit Profile
+            </button>
+
+        </div>
+
+        <div class="profile-edit-box" id="profileEditBox">
+
+            <h3>✏️ Edit Profile</h3>
+
+            <label class="profile-label">Name</label>
+
+            <input
+                type="text"
+                id="editProfileName"
+                placeholder="Your Name"
+                autocomplete="name"
+            >
+
+            <label class="profile-label">Email</label>
+
+            <input
+                type="email"
+                id="editProfileEmail"
+                readonly
+            >
+
+            <div class="profile-edit-actions">
+
+                <button
+                    class="auth-btn"
+                    onclick="saveProfile()">
+                    Save Changes
+                </button>
+
+                <button
+                    class="profile-cancel-btn"
+                    onclick="cancelEditProfile()">
+                    Cancel
+                </button>
+
+            </div>
+
+            <p class="profile-message" id="profileMessage"></p>
 
         </div>
 
@@ -1319,6 +1428,150 @@ window.showLogin = function(){
         .textContent = "";
 
     window.scrollTo(0,0);
+};
+
+
+/* =========================
+   EDIT PROFILE
+========================= */
+
+window.showEditProfile = function(){
+
+    const user = auth.currentUser;
+
+    if(!user){
+        showLogin();
+        return;
+    }
+
+    const editBox =
+        document.getElementById("profileEditBox");
+
+    const nameInput =
+        document.getElementById("editProfileName");
+
+    const emailInput =
+        document.getElementById("editProfileEmail");
+
+    const message =
+        document.getElementById("profileMessage");
+
+    nameInput.value =
+        user.displayName || "";
+
+    emailInput.value =
+        user.email || "";
+
+    message.textContent = "";
+
+    editBox.style.display = "block";
+
+    nameInput.focus();
+};
+
+window.cancelEditProfile = function(){
+
+    document.getElementById(
+        "profileEditBox"
+    ).style.display = "none";
+
+    document.getElementById(
+        "profileMessage"
+    ).textContent = "";
+};
+
+window.saveProfile = async function(){
+
+    const user = auth.currentUser;
+
+    if(!user){
+        showLogin();
+        return;
+    }
+
+    const nameInput =
+        document.getElementById("editProfileName");
+
+    const message =
+        document.getElementById("profileMessage");
+
+    const name =
+        nameInput.value.trim();
+
+    message.textContent = "";
+
+    if(!name){
+
+        message.textContent =
+            "Please enter your name.";
+
+        return;
+    }
+
+    try{
+
+        await updateProfile(
+            user,
+            {
+                displayName:name
+            }
+        );
+
+        await setDoc(
+            doc(
+                db,
+                "users",
+                user.uid
+            ),
+            {
+                uid:user.uid,
+                name:name,
+                email:user.email || "",
+                updatedAt:serverTimestamp()
+            },
+            {
+                merge:true
+            }
+        );
+
+        document.getElementById(
+            "dashboardName"
+        ).textContent = name;
+
+        document.getElementById(
+            "dashboardUserName"
+        ).textContent = name;
+
+        document.getElementById(
+            "userName"
+        ).textContent = name;
+
+        message.textContent =
+            "Profile updated successfully!";
+
+        setTimeout(() => {
+
+            document.getElementById(
+                "profileEditBox"
+            ).style.display = "none";
+
+            message.textContent = "";
+
+        },1000);
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Profile update error:",
+            error
+        );
+
+        message.textContent =
+            "Profile update nahi hua: " +
+            error.message;
+    }
 };
 
 
