@@ -45,8 +45,9 @@ color:#00e5ff
 
 .nav-links{
 display:flex;
-gap:25px;
-align-items:center
+gap:20px;
+align-items:center;
+flex-wrap:wrap
 }
 
 .nav-links a{
@@ -79,14 +80,10 @@ align-items:center;
 justify-content:space-between;
 padding:50px 7%;
 gap:50px;
-
 position:relative;
 overflow:hidden;
 isolation:isolate;
 }
-
-
-/* MOVING CYBER GRID */
 
 .hero::before{
 content:"";
@@ -101,9 +98,6 @@ linear-gradient(90deg,rgba(0,229,255,.055) 1px,transparent 1px);
 background-size:45px 45px;
 animation:gridMove 12s linear infinite;
 }
-
-
-/* GLOW */
 
 .hero::after{
 content:"";
@@ -126,7 +120,6 @@ z-index:-1;
 
 animation:techGlow 4s ease-in-out infinite;
 }
-
 
 .hero-content{
 max-width:800px;
@@ -196,7 +189,7 @@ color:#001018;
 }
 
 
-/* FLOATING TECH PARTICLES */
+/* ================= PARTICLES ================= */
 
 .tech-particle{
 position:absolute;
@@ -208,38 +201,14 @@ opacity:.4;
 text-shadow:0 0 12px #00e5ff;
 pointer-events:none;
 z-index:2;
-
 animation:particleFloat 5s ease-in-out infinite;
 }
 
-.p1{
-top:15%;
-left:7%
-}
-
-.p2{
-top:28%;
-right:7%;
-animation-delay:1s
-}
-
-.p3{
-bottom:20%;
-left:14%;
-animation-delay:2s
-}
-
-.p4{
-bottom:14%;
-right:17%;
-animation-delay:3s
-}
-
-.p5{
-top:12%;
-right:28%;
-animation-delay:1.5s
-}
+.p1{top:15%;left:7%}
+.p2{top:28%;right:7%;animation-delay:1s}
+.p3{bottom:20%;left:14%;animation-delay:2s}
+.p4{bottom:14%;right:17%;animation-delay:3s}
+.p5{top:12%;right:28%;animation-delay:1.5s}
 
 
 /* ================= LOGO ================= */
@@ -250,7 +219,6 @@ min-width:320px;
 display:flex;
 align-items:center;
 justify-content:center;
-
 position:relative;
 z-index:3;
 }
@@ -263,58 +231,35 @@ animation:logoFloat 4s ease-in-out infinite;
 }
 
 @keyframes logoFloat{
-
-0%,100%{
-transform:translateY(0)
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
 }
-
-50%{
-transform:translateY(-10px)
-}
-
-}
-
-
-/* ================= ANIMATIONS ================= */
 
 @keyframes gridMove{
-
-from{
-transform:translate(0,0)
-}
-
-to{
-transform:translate(45px,45px)
-}
-
+from{transform:translate(0,0)}
+to{transform:translate(45px,45px)}
 }
 
 @keyframes techGlow{
-
 0%,100%{
 opacity:.5;
 transform:translate(-50%,-50%) scale(1);
 }
-
 50%{
 opacity:1;
 transform:translate(-50%,-50%) scale(1.15);
 }
-
 }
 
 @keyframes particleFloat{
-
 0%,100%{
 transform:translateY(0);
 opacity:.25;
 }
-
 50%{
 transform:translateY(-20px);
 opacity:.8;
 }
-
 }
 
 
@@ -411,6 +356,128 @@ margin:10px 0
 }
 
 
+/* ================= PROJECTS ================= */
+
+.projects-section{
+background:#060a1a;
+}
+
+.project-card{
+background:#0b1228;
+border:1px solid #1c2a49;
+border-radius:18px;
+overflow:hidden;
+transition:.3s;
+}
+
+.project-card:hover{
+transform:translateY(-7px);
+border-color:#00e5ff;
+box-shadow:0 0 25px rgba(0,229,255,.12);
+}
+
+.project-image{
+width:100%;
+height:190px;
+object-fit:cover;
+background:#050816;
+display:block;
+}
+
+.project-image-placeholder{
+height:190px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:55px;
+background:
+radial-gradient(circle at center,#102744,#050816 70%);
+color:#00e5ff;
+}
+
+.project-content{
+padding:22px;
+}
+
+.project-category{
+display:inline-block;
+font-size:12px;
+padding:5px 10px;
+border:1px solid #00e5ff;
+border-radius:15px;
+color:#00e5ff;
+margin-bottom:12px;
+}
+
+.project-content h3{
+font-size:23px;
+margin-bottom:10px;
+}
+
+.project-content p{
+color:#aab4c9;
+line-height:1.6;
+min-height:75px;
+}
+
+.project-actions{
+display:flex;
+gap:8px;
+margin-top:18px;
+}
+
+.project-btn{
+flex:1;
+padding:10px;
+border-radius:20px;
+border:1px solid #00e5ff;
+background:transparent;
+color:#00e5ff;
+cursor:pointer;
+text-decoration:none;
+text-align:center;
+font-weight:bold;
+}
+
+.project-btn:hover{
+background:#00e5ff;
+color:#001018;
+}
+
+.projects-empty{
+text-align:center;
+color:#71809d;
+padding:40px;
+grid-column:1/-1;
+}
+
+.project-admin-actions{
+display:flex;
+gap:8px;
+margin-top:10px;
+}
+
+.project-admin-actions button{
+flex:1;
+padding:9px;
+border-radius:18px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.edit-project-btn{
+border:1px solid #00e5ff;
+background:transparent;
+color:#00e5ff;
+}
+
+.delete-project-btn{
+border:1px solid #ff4d6d;
+background:transparent;
+color:#ff4d6d;
+}
+
+
 /* ================= AUTH ================= */
 
 .auth-section{
@@ -435,7 +502,9 @@ text-align:center;
 margin-bottom:25px
 }
 
-input{
+input,
+textarea,
+select{
 width:100%;
 padding:14px;
 margin:8px 0;
@@ -443,10 +512,22 @@ border-radius:10px;
 border:1px solid #263656;
 background:#050816;
 color:white;
-outline:none
+outline:none;
+font-family:Arial,sans-serif;
 }
 
-input:focus{
+textarea{
+resize:vertical;
+min-height:110px;
+}
+
+select{
+cursor:pointer;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
 border-color:#00e5ff;
 box-shadow:0 0 8px rgba(0,229,255,.15);
 }
@@ -774,6 +855,123 @@ color:#71809d
 }
 
 
+/* ================= PROJECT ADMIN ================= */
+
+.project-admin-box{
+margin-top:25px;
+background:#0b1228;
+border:1px solid #00e5ff;
+border-radius:20px;
+padding:25px;
+}
+
+.project-admin-box h3{
+color:#00e5ff;
+margin-bottom:20px;
+font-size:24px;
+}
+
+.project-form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.project-form-full{
+grid-column:1/-1;
+}
+
+.project-file{
+padding:12px;
+border:1px dashed #00e5ff;
+border-radius:10px;
+background:#050816;
+}
+
+.project-file small{
+display:block;
+color:#71809d;
+margin-top:6px;
+}
+
+.admin-projects-list{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:18px;
+margin-top:25px;
+}
+
+.admin-project-item{
+background:#050816;
+border:1px solid #1c2a49;
+border-radius:15px;
+overflow:hidden;
+}
+
+.admin-project-item img{
+width:100%;
+height:130px;
+object-fit:cover;
+}
+
+.admin-project-info{
+padding:15px;
+}
+
+.admin-project-info h4{
+margin-bottom:6px;
+}
+
+.admin-project-info p{
+color:#71809d;
+font-size:13px;
+margin-bottom:12px;
+}
+
+.admin-project-actions{
+display:flex;
+gap:8px;
+}
+
+.admin-project-actions button{
+flex:1;
+padding:9px;
+border-radius:18px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.project-save{
+background:#00e5ff;
+color:#001018;
+border:0;
+}
+
+.project-cancel{
+background:transparent;
+color:#ff4d6d;
+border:1px solid #ff4d6d;
+}
+
+.project-delete{
+background:transparent;
+color:#ff4d6d;
+border:1px solid #ff4d6d;
+}
+
+.project-edit{
+background:transparent;
+color:#00e5ff;
+border:1px solid #00e5ff;
+}
+
+.project-message{
+text-align:center;
+min-height:20px;
+margin-top:12px;
+}
+
+
 /* ================= FOOTER ================= */
 
 footer{
@@ -794,8 +992,12 @@ padding:15px 5%
 }
 
 .nav-links{
-gap:10px;
-font-size:13px
+gap:8px;
+font-size:12px
+}
+
+.nav-links a{
+font-size:12px;
 }
 
 .hero{
@@ -854,36 +1056,27 @@ flex-direction:column
 width:100%
 }
 
+.project-form-grid{
+grid-template-columns:1fr;
+}
+
+.project-form-full{
+grid-column:auto;
+}
+
 section{
 padding:60px 5%
 }
-
-
-/* MOBILE PARTICLES */
 
 .tech-particle{
 font-size:10px;
 }
 
-.p1{
-left:4%
-}
-
-.p2{
-right:4%
-}
-
-.p3{
-left:7%
-}
-
-.p4{
-right:7%
-}
-
-.p5{
-right:15%
-}
+.p1{left:4%}
+.p2{right:4%}
+.p3{left:7%}
+.p4{right:7%}
+.p5{right:15%}
 
 }
 </style>
@@ -906,6 +1099,8 @@ T5X<span>LDKN</span>
 <a href="#home" onclick="showHome()">Home</a>
 
 <a href="#about" onclick="showHome()">About</a>
+
+<a href="#projects" onclick="showHome()">Projects</a>
 
 <a href="#team" onclick="showHome()">Team</a>
 
@@ -953,60 +1148,34 @@ Logout
 </nav>
 
 
-
 <!-- ================= HOME ================= -->
 
 <main id="homePage">
 
-
 <section class="hero" id="home">
 
-
-<!-- FLOATING TECH PARTICLES -->
-
-<div class="tech-particle p1">
-01
-</div>
-
-<div class="tech-particle p2">
-&lt;/&gt;
-</div>
-
-<div class="tech-particle p3">
-{ AI }
-</div>
-
-<div class="tech-particle p4">
-0101
-</div>
-
-<div class="tech-particle p5">
-#T5X
-</div>
-
-
+<div class="tech-particle p1">01</div>
+<div class="tech-particle p2">&lt;/&gt;</div>
+<div class="tech-particle p3">{ AI }</div>
+<div class="tech-particle p4">0101</div>
+<div class="tech-particle p5">#T5X</div>
 
 <div class="hero-content">
-
 
 <div class="hero-badge">
 TECH • AI • CODING
 </div>
 
-
 <h1>
 Welcome to <span>T5X LDKN</span>
 </h1>
-
 
 <p>
 A technology and coding community focused on
 AI, programming, web development and modern technology.
 </p>
 
-
 <div class="hero-buttons">
-
 
 <a
 href="https://whatsapp.com/channel/0029Vb8tcdx4inopfi9wxx2C"
@@ -1018,35 +1187,29 @@ Join Community
 
 </a>
 
-
 <a
-href="#about"
+href="#projects"
 class="btn secondary">
 
-Explore
+Explore Projects
 
 </a>
 
-
 </div>
 
 </div>
 
 
-
-<!-- ================= GRAPHICAL LOGO ================= -->
+<!-- LOGO -->
 
 <div class="hero-logo">
-
 
 <svg
 class="t5x-logo-svg"
 viewBox="0 0 420 420"
 xmlns="http://www.w3.org/2000/svg">
 
-
 <defs>
-
 
 <linearGradient
 id="logoGradient"
@@ -1055,20 +1218,11 @@ y1="0%"
 x2="100%"
 y2="100%">
 
-<stop
-offset="0%"
-stop-color="#00e5ff"/>
-
-<stop
-offset="50%"
-stop-color="#00b8ff"/>
-
-<stop
-offset="100%"
-stop-color="#0066ff"/>
+<stop offset="0%" stop-color="#00e5ff"/>
+<stop offset="50%" stop-color="#00b8ff"/>
+<stop offset="100%" stop-color="#0066ff"/>
 
 </linearGradient>
-
 
 <filter id="glow">
 
@@ -1078,21 +1232,14 @@ result="blur"/>
 
 <feMerge>
 
-<feMergeNode
-in="blur"/>
-
-<feMergeNode
-in="SourceGraphic"/>
+<feMergeNode in="blur"/>
+<feMergeNode in="SourceGraphic"/>
 
 </feMerge>
 
 </filter>
 
 </defs>
-
-
-
-<!-- OUTER RING -->
 
 <circle
 cx="210"
@@ -1105,10 +1252,6 @@ opacity=".25"
 filter="url(#glow)"
 />
 
-
-
-<!-- MAIN CIRCLE -->
-
 <circle
 cx="210"
 cy="210"
@@ -1117,10 +1260,6 @@ fill="#080d20"
 stroke="url(#logoGradient)"
 stroke-width="8"
 />
-
-
-
-<!-- INNER CIRCLE -->
 
 <circle
 cx="210"
@@ -1132,10 +1271,6 @@ stroke-width="2"
 opacity=".4"
 />
 
-
-
-<!-- TECH LINES -->
-
 <path
 d="M65 210 H100
 M320 210 H355
@@ -1146,34 +1281,10 @@ stroke-width="5"
 stroke-linecap="round"
 />
 
-
-<circle
-cx="65"
-cy="210"
-r="5"
-fill="#00e5ff"/>
-
-<circle
-cx="355"
-cy="210"
-r="5"
-fill="#00e5ff"/>
-
-<circle
-cx="210"
-cy="65"
-r="5"
-fill="#00e5ff"/>
-
-<circle
-cx="210"
-cy="355"
-r="5"
-fill="#00e5ff"/>
-
-
-
-<!-- T5X -->
+<circle cx="65" cy="210" r="5" fill="#00e5ff"/>
+<circle cx="355" cy="210" r="5" fill="#00e5ff"/>
+<circle cx="210" cy="65" r="5" fill="#00e5ff"/>
+<circle cx="210" cy="355" r="5" fill="#00e5ff"/>
 
 <text
 x="210"
@@ -1185,14 +1296,8 @@ font-weight="900"
 letter-spacing="4"
 fill="url(#logoGradient)"
 filter="url(#glow)">
-
 T5X
-
 </text>
-
-
-
-<!-- LINE -->
 
 <line
 x1="125"
@@ -1203,10 +1308,6 @@ stroke="#00e5ff"
 stroke-width="3"
 />
 
-
-
-<!-- LDKN -->
-
 <text
 x="210"
 y="270"
@@ -1216,36 +1317,13 @@ font-size="43"
 font-weight="800"
 letter-spacing="9"
 fill="white">
-
 LDKN
-
 </text>
 
-
-<circle
-cx="125"
-cy="295"
-r="4"
-fill="#00e5ff"/>
-
-<circle
-cx="145"
-cy="295"
-r="4"
-fill="#00e5ff"/>
-
-<circle
-cx="275"
-cy="295"
-r="4"
-fill="#00e5ff"/>
-
-<circle
-cx="295"
-cy="295"
-r="4"
-fill="#00e5ff"/>
-
+<circle cx="125" cy="295" r="4" fill="#00e5ff"/>
+<circle cx="145" cy="295" r="4" fill="#00e5ff"/>
+<circle cx="275" cy="295" r="4" fill="#00e5ff"/>
+<circle cx="295" cy="295" r="4" fill="#00e5ff"/>
 
 </svg>
 
@@ -1254,16 +1332,13 @@ fill="#00e5ff"/>
 </section>
 
 
-
 <!-- ================= ABOUT ================= -->
 
 <section id="about">
 
-
 <h2 class="title">
 About <span>T5X LDKN</span>
 </h2>
-
 
 <p class="about">
 
@@ -1277,89 +1352,94 @@ Web Development and innovative software projects.
 </section>
 
 
-
 <!-- ================= WHAT WE DO ================= -->
 
 <section>
-
 
 <h2 class="title">
 What We <span>Do</span>
 </h2>
 
-
 <div class="cards">
 
-
 <div class="card">
-
 <h3>AI</h3>
-
 <p>
 Exploring Artificial Intelligence,
 AI tools and intelligent applications.
 </p>
-
 </div>
 
-
-
 <div class="card">
-
 <h3>Coding</h3>
-
 <p>
 Learning programming and building
 useful software projects.
 </p>
-
 </div>
 
-
-
 <div class="card">
-
 <h3>Web Development</h3>
-
 <p>
 Creating modern, responsive and
 interactive websites.
 </p>
-
 </div>
 
-
-
 <div class="card">
-
 <h3>Technology</h3>
-
 <p>
 Exploring new technologies and
 turning ideas into projects.
 </p>
-
 </div>
-
 
 </div>
 
 </section>
 
 
+<!-- ================= AI PROJECTS ================= -->
+
+<section
+id="projects"
+class="projects-section">
+
+<h2 class="title">
+AI <span>Projects</span>
+</h2>
+
+<p
+class="about"
+style="margin-bottom:35px">
+
+Explore the AI, coding and technology projects
+created by T5X LDKN.
+
+</p>
+
+<div
+class="cards"
+id="projectsGrid">
+
+<div class="projects-empty">
+Loading projects...
+</div>
+
+</div>
+
+</section>
+
 
 <!-- ================= TEAM ================= -->
 
 <section id="team">
 
-
 <h2 class="title">
 Our <span>Team</span>
 </h2>
 
-
 <div class="cards">
-
 
 <div class="team-card">
 
@@ -1381,7 +1461,6 @@ Interested in AI, Coding and Web Development.
 </p>
 
 </div>
-
 
 
 <div class="team-card">
@@ -1406,7 +1485,6 @@ contributing to the technology community and projects.
 </div>
 
 
-
 <div class="team-card">
 
 <div class="avatar">
@@ -1427,7 +1505,6 @@ contributing to the technology community and projects.
 </p>
 
 </div>
-
 
 
 <div class="team-card">
@@ -1452,7 +1529,6 @@ contributing to the technology community and projects.
 </div>
 
 
-
 <div class="team-card">
 
 <div class="avatar">
@@ -1474,13 +1550,11 @@ contributing to the technology community and projects.
 
 </div>
 
-
 </div>
 
 </section>
 
 </main>
-
 
 
 <!-- ================= DASHBOARD ================= -->
@@ -1489,14 +1563,11 @@ contributing to the technology community and projects.
 class="dashboard-section"
 id="dashboard">
 
-
 <h2 class="title">
 User <span>Dashboard</span>
 </h2>
 
-
 <div class="dashboard-box">
-
 
 <div class="welcome-box">
 
@@ -1516,9 +1587,7 @@ Your account is successfully logged in.
 </div>
 
 
-
 <div class="dashboard-cards">
-
 
 <div class="dashboard-card">
 
@@ -1526,9 +1595,7 @@ Your account is successfully logged in.
 👤
 </div>
 
-<h3>
-Name
-</h3>
+<h3>Name</h3>
 
 <p id="dashboardUserName">
 Loading...
@@ -1537,16 +1604,13 @@ Loading...
 </div>
 
 
-
 <div class="dashboard-card">
 
 <div class="icon">
 📧
 </div>
 
-<h3>
-Email
-</h3>
+<h3>Email</h3>
 
 <p id="dashboardEmail">
 Loading...
@@ -1555,16 +1619,13 @@ Loading...
 </div>
 
 
-
 <div class="dashboard-card">
 
 <div class="icon">
 🟢
 </div>
 
-<h3>
-Account Status
-</h3>
+<h3>Account Status</h3>
 
 <p>
 Active & Logged In
@@ -1573,16 +1634,13 @@ Active & Logged In
 </div>
 
 
-
 <div class="dashboard-card">
 
 <div class="icon">
 🚀
 </div>
 
-<h3>
-T5X LDKN
-</h3>
+<h3>T5X LDKN</h3>
 
 <p>
 AI • Coding • Web Development
@@ -1590,15 +1648,12 @@ AI • Coding • Web Development
 
 </div>
 
-
 </div>
 
 
+<!-- EDIT PROFILE -->
 
-<!-- EDIT PROFILE BUTTON -->
-
-<div
-style="margin-top:25px;text-align:center">
+<div style="margin-top:25px;text-align:center">
 
 <button
 class="auth-btn"
@@ -1612,43 +1667,33 @@ onclick="showEditProfile()">
 </div>
 
 
-
-<!-- EDIT PROFILE -->
-
 <div
 class="profile-edit-box"
 id="profileEditBox">
-
 
 <h3>
 ✏️ Edit Profile
 </h3>
 
-
 <label class="profile-label">
 Name
 </label>
-
 
 <input
 type="text"
 id="editProfileName"
 placeholder="Your Name">
 
-
 <label class="profile-label">
 Email
 </label>
-
 
 <input
 type="email"
 id="editProfileEmail"
 readonly>
 
-
 <div class="profile-edit-actions">
-
 
 <button
 class="auth-btn"
@@ -1658,7 +1703,6 @@ Save Changes
 
 </button>
 
-
 <button
 class="profile-cancel-btn"
 onclick="cancelEditProfile()">
@@ -1667,55 +1711,41 @@ Cancel
 
 </button>
 
-
 </div>
-
 
 <p
 class="profile-message"
 id="profileMessage">
 </p>
 
-
 </div>
-
 
 
 <!-- USER CHAT -->
 
 <div class="chat-box">
 
-
 <h2>
 💬 <span>Chat with Admin</span>
 </h2>
-
 
 <div
 id="chatMessages"
 class="chat-messages">
 
-
 <p class="chat-empty">
-
 Start chatting with T5X LDKN Admin 👋
-
 </p>
-
 
 </div>
 
-
-
 <div class="chat-input-area">
-
 
 <input
 type="text"
 id="chatInput"
 placeholder="Type your message..."
 autocomplete="off">
-
 
 <button
 class="auth-btn"
@@ -1725,18 +1755,12 @@ Send
 
 </button>
 
-
 </div>
 
 </div>
 
 
-
-<!-- BACK -->
-
-<div
-style="margin-top:30px;text-align:center">
-
+<div style="margin-top:30px;text-align:center">
 
 <button
 class="auth-btn"
@@ -1747,14 +1771,11 @@ Back to Website
 
 </button>
 
-
 </div>
-
 
 </div>
 
 </section>
-
 
 
 <!-- ================= ADMIN ================= -->
@@ -1763,27 +1784,174 @@ Back to Website
 class="admin-section"
 id="admin">
 
-
 <h2 class="title">
 Admin <span>Panel</span>
 </h2>
 
-
 <div class="admin-box">
 
 
-<div class="admin-layout">
+<!-- ================= PROJECT MANAGEMENT ================= -->
+
+<div class="project-admin-box">
+
+<h3>
+🚀 AI Projects Management
+</h3>
+
+<p style="color:#71809d;margin-bottom:20px">
+Only Admin can add, edit and delete projects.
+</p>
 
 
-<!-- USERS -->
+<div class="project-form-grid">
+
+<div>
+
+<label class="profile-label">
+Project Title
+</label>
+
+<input
+type="text"
+id="projectTitle"
+placeholder="Example: T5X AI Assistant">
+
+</div>
+
+
+<div>
+
+<label class="profile-label">
+Category
+</label>
+
+<select id="projectCategory">
+
+<option value="AI">
+AI
+</option>
+
+<option value="Coding">
+Coding
+</option>
+
+<option value="Web Development">
+Web Development
+</option>
+
+<option value="Technology">
+Technology
+</option>
+
+</select>
+
+</div>
+
+
+<div class="project-form-full">
+
+<label class="profile-label">
+Description
+</label>
+
+<textarea
+id="projectDescription"
+placeholder="Write project description..."></textarea>
+
+</div>
+
+
+<div>
+
+<label class="profile-label">
+Project Link
+</label>
+
+<input
+type="url"
+id="projectURL"
+placeholder="https://example.com">
+
+</div>
+
+
+<div>
+
+<label class="profile-label">
+Project Image
+</label>
+
+<input
+type="file"
+id="projectImage"
+class="project-file"
+accept="image/*">
+
+<small>
+JPG, PNG, WEBP etc.
+</small>
+
+</div>
+
+</div>
+
+
+<div style="display:flex;gap:10px;margin-top:15px">
+
+<button
+class="auth-btn"
+id="projectSaveButton"
+onclick="saveProject()">
+
+➕ Add Project
+
+</button>
+
+<button
+class="profile-cancel-btn"
+id="projectCancelButton"
+onclick="cancelProjectEdit()"
+style="display:none">
+
+Cancel Edit
+
+</button>
+
+</div>
+
+
+<p
+class="project-message"
+id="projectMessage">
+</p>
+
+
+<div
+class="admin-projects-list"
+id="adminProjectsList">
+
+<p style="color:#71809d">
+Loading projects...
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ================= USERS + CHAT ================= -->
+
+<div
+class="admin-layout"
+style="margin-top:30px">
+
 
 <div class="user-list">
-
 
 <h3>
 👥 Users
 </h3>
-
 
 <div id="usersList">
 
@@ -1793,15 +1961,10 @@ Loading users...
 
 </div>
 
-
 </div>
 
 
-
-<!-- ADMIN CHAT -->
-
 <div class="admin-chat">
-
 
 <h3
 class="admin-chat-title"
@@ -1811,11 +1974,9 @@ Select a user to start chat
 
 </h3>
 
-
 <div
 id="adminChatMessages"
 class="admin-chat-messages">
-
 
 <div class="no-user">
 
@@ -1823,13 +1984,9 @@ class="admin-chat-messages">
 
 </div>
 
-
 </div>
 
-
-
 <div class="admin-chat-input">
-
 
 <input
 type="text"
@@ -1837,7 +1994,6 @@ id="adminChatInput"
 placeholder="Type reply..."
 autocomplete="off"
 disabled>
-
 
 <button
 class="auth-btn"
@@ -1849,12 +2005,9 @@ Send
 
 </button>
 
-
 </div>
 
-
 </div>
-
 
 </div>
 
@@ -1863,13 +2016,11 @@ Send
 </section>
 
 
-
 <!-- ================= AUTH ================= -->
 
 <section
 class="auth-section"
 id="auth">
-
 
 <div class="auth-box">
 
@@ -1878,29 +2029,24 @@ id="auth">
 
 <div id="signupForm">
 
-
 <h2>
 Create Account
 </h2>
-
 
 <input
 type="text"
 id="signupName"
 placeholder="Your Name">
 
-
 <input
 type="email"
 id="signupEmail"
 placeholder="Gmail">
 
-
 <input
 type="password"
 id="signupPassword"
 placeholder="Password (6+ characters)">
-
 
 <button
 class="auth-btn"
@@ -1910,12 +2056,10 @@ Create Account
 
 </button>
 
-
 <p
 class="message"
 id="signupMessage">
 </p>
-
 
 <p class="switch">
 
@@ -1927,9 +2071,7 @@ Login
 
 </p>
 
-
 </div>
-
 
 
 <!-- LOGIN -->
@@ -1938,23 +2080,19 @@ Login
 id="loginForm"
 style="display:none">
 
-
 <h2>
 Welcome Back
 </h2>
-
 
 <input
 type="email"
 id="loginEmail"
 placeholder="Gmail">
 
-
 <input
 type="password"
 id="loginPassword"
 placeholder="Password">
-
 
 <button
 class="auth-btn"
@@ -1964,7 +2102,6 @@ Login
 
 </button>
 
-
 <p class="forgot">
 
 <span onclick="showForgotPassword()">
@@ -1973,12 +2110,10 @@ Forgot Password?
 
 </p>
 
-
 <p
 class="message"
 id="loginMessage">
 </p>
-
 
 <p class="switch">
 
@@ -1990,9 +2125,7 @@ Sign Up
 
 </p>
 
-
 </div>
-
 
 
 <!-- FORGOT -->
@@ -2001,11 +2134,9 @@ Sign Up
 id="forgotForm"
 style="display:none">
 
-
 <h2>
 Reset Password
 </h2>
-
 
 <p
 style="color:#aab4c9;text-align:center;line-height:1.6;margin-bottom:15px">
@@ -2015,12 +2146,10 @@ a password reset link.
 
 </p>
 
-
 <input
 type="email"
 id="forgotEmail"
 placeholder="Enter your Gmail">
-
 
 <button
 class="auth-btn"
@@ -2030,12 +2159,10 @@ Send Reset Link
 
 </button>
 
-
 <p
 class="message"
 id="forgotMessage">
 </p>
-
 
 <p class="switch">
 
@@ -2047,14 +2174,11 @@ Login
 
 </p>
 
-
 </div>
-
 
 </div>
 
 </section>
-
 
 
 <!-- ================= FOOTER ================= -->
@@ -2076,11 +2200,9 @@ Login
 </footer>
 
 
-
 <!-- ================= FIREBASE ================= -->
 
 <script type="module">
-
 
 import {
 initializeApp
@@ -2111,6 +2233,8 @@ collection,
 doc,
 setDoc,
 addDoc,
+updateDoc,
+deleteDoc,
 onSnapshot,
 serverTimestamp
 
@@ -2119,10 +2243,22 @@ from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
+import {
+
+getStorage,
+ref,
+uploadBytes,
+getDownloadURL,
+deleteObject
+
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
+
 
 /* ================= FIREBASE CONFIG ================= */
 
-    const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyBwwlCkGQcqWiULRU_6SE_zQ_kMxYBx8mk",
   authDomain: "t5x-ldkn.firebaseapp.com",
   databaseURL: "https://t5x-ldkn-default-rtdb.firebaseio.com",
@@ -2132,28 +2268,29 @@ from
   appId: "1:278540583487:web:631a100fd6a286962eae8a",
   measurementId: "G-LSDEL437QQ"
 };
-
-
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 
+const auth = getAuth(app);
 
 const db = getFirestore(app);
 
+const storage = getStorage(app);
 
 
-/* ADMIN UID */
+/* ================= ADMIN ================= */
 
-const ADMIN_UID ="oNSKRlCO5SeQ4gXtyyNB7CDK7dx1";
+const ADMIN_UID =
+"oNSKRlCO5SeQ4gXtyyNB7CDK7dx1";
 
-let chatUnsubscribe = null;
 
-let adminChatUnsubscribe = null;
+let chatUnsubscribe=null;
+let adminChatUnsubscribe=null;
+let usersUnsubscribe=null;
+let projectsUnsubscribe=null;
 
-let usersUnsubscribe = null;
-
-let selectedUserId = null;
-
+let selectedUserId=null;
+let editingProjectId=null;
+let editingProjectImageURL="";
 
 
 /* ================= CHAT ID ================= */
@@ -2168,169 +2305,98 @@ userId
 }
 
 
+/* ================= PAGE CONTROL ================= */
 
-/* ================= HOME ================= */
+function hideAllPages(){
+
+document.getElementById("homePage").style.display="none";
+document.getElementById("auth").style.display="none";
+document.getElementById("dashboard").style.display="none";
+document.getElementById("admin").style.display="none";
+
+}
+
 
 window.showHome=function(){
 
-document.getElementById("homePage")
-.style.display="block";
+hideAllPages();
 
-document.getElementById("auth")
-.style.display="none";
-
-document.getElementById("dashboard")
-.style.display="none";
-
-document.getElementById("admin")
-.style.display="none";
+document.getElementById("homePage").style.display="block";
 
 window.scrollTo(0,0);
 
 };
 
-
-
-/* ================= LOGIN ================= */
 
 window.showLogin=function(){
 
-document.getElementById("homePage")
-.style.display="none";
+hideAllPages();
 
-document.getElementById("dashboard")
-.style.display="none";
+document.getElementById("auth").style.display="flex";
 
-document.getElementById("admin")
-.style.display="none";
+document.getElementById("signupForm").style.display="none";
+document.getElementById("forgotForm").style.display="none";
+document.getElementById("loginForm").style.display="block";
 
-document.getElementById("auth")
-.style.display="flex";
-
-
-document.getElementById("signupForm")
-.style.display="none";
-
-document.getElementById("forgotForm")
-.style.display="none";
-
-document.getElementById("loginForm")
-.style.display="block";
-
-
-document.getElementById("loginMessage")
-.textContent="";
+document.getElementById("loginMessage").textContent="";
 
 window.scrollTo(0,0);
 
 };
 
-
-
-/* ================= SIGNUP PAGE ================= */
 
 window.showSignup=function(){
 
-document.getElementById("homePage")
-.style.display="none";
+hideAllPages();
 
-document.getElementById("dashboard")
-.style.display="none";
+document.getElementById("auth").style.display="flex";
 
-document.getElementById("admin")
-.style.display="none";
+document.getElementById("loginForm").style.display="none";
+document.getElementById("forgotForm").style.display="none";
+document.getElementById("signupForm").style.display="block";
 
-document.getElementById("auth")
-.style.display="flex";
-
-
-document.getElementById("loginForm")
-.style.display="none";
-
-document.getElementById("forgotForm")
-.style.display="none";
-
-document.getElementById("signupForm")
-.style.display="block";
-
-
-document.getElementById("signupMessage")
-.textContent="";
+document.getElementById("signupMessage").textContent="";
 
 window.scrollTo(0,0);
 
 };
 
-
-
-/* ================= FORGOT PASSWORD PAGE ================= */
 
 window.showForgotPassword=function(){
 
-document.getElementById("homePage")
-.style.display="none";
+hideAllPages();
 
-document.getElementById("dashboard")
-.style.display="none";
+document.getElementById("auth").style.display="flex";
 
-document.getElementById("admin")
-.style.display="none";
+document.getElementById("loginForm").style.display="none";
+document.getElementById("signupForm").style.display="none";
+document.getElementById("forgotForm").style.display="block";
 
-document.getElementById("auth")
-.style.display="flex";
-
-
-document.getElementById("loginForm")
-.style.display="none";
-
-document.getElementById("signupForm")
-.style.display="none";
-
-document.getElementById("forgotForm")
-.style.display="block";
-
-
-document.getElementById("forgotMessage")
-.textContent="";
+document.getElementById("forgotMessage").textContent="";
 
 window.scrollTo(0,0);
 
 };
-
 
 
 /* ================= DASHBOARD ================= */
 
 window.showDashboard=function(){
 
-const user =
-auth.currentUser;
-
+const user=auth.currentUser;
 
 if(!user){
 
 showLogin();
-
 return;
 
 }
 
+hideAllPages();
 
-document.getElementById("homePage")
-.style.display="none";
-
-document.getElementById("auth")
-.style.display="none";
-
-document.getElementById("admin")
-.style.display="none";
-
-document.getElementById("dashboard")
-.style.display="block";
-
+document.getElementById("dashboard").style.display="block";
 
 updateDashboard(user);
-
 loadChat(user.uid);
 
 window.scrollTo(0,0);
@@ -2338,79 +2404,58 @@ window.scrollTo(0,0);
 };
 
 
-
 /* ================= ADMIN ================= */
 
 window.showAdmin=function(){
 
-const user =
-auth.currentUser;
-
+const user=auth.currentUser;
 
 if(!user){
 
 showLogin();
-
 return;
 
 }
-
 
 if(user.uid!==ADMIN_UID){
 
 alert("Access denied.");
-
 showDashboard();
-
 return;
 
 }
 
+hideAllPages();
 
-document.getElementById("homePage")
-.style.display="none";
-
-document.getElementById("auth")
-.style.display="none";
-
-document.getElementById("dashboard")
-.style.display="none";
-
-document.getElementById("admin")
-.style.display="block";
-
+document.getElementById("admin").style.display="block";
 
 loadUsers();
+loadAdminProjects();
 
 window.scrollTo(0,0);
 
 };
 
 
-
 /* ================= DASHBOARD DATA ================= */
 
 function updateDashboard(user){
 
-const name =
-user.displayName ||
-user.email ||
+const name=
+user.displayName||
+user.email||
 "User";
-
 
 document.getElementById("dashboardName")
 .textContent=name;
 
-
 document.getElementById("dashboardUserName")
 .textContent=name;
 
-
 document.getElementById("dashboardEmail")
 .textContent=
-user.email ||
+user.email||
 "No email";
-
 
 document.getElementById("userName")
 .textContent=name;
@@ -2418,45 +2463,35 @@ document.getElementById("userName")
 }
 
 
-
 /* ================= EDIT PROFILE ================= */
 
 window.showEditProfile=function(){
 
-const user =
-auth.currentUser;
-
+const user=auth.currentUser;
 
 if(!user){
 
 showLogin();
-
 return;
 
 }
 
-
 document.getElementById("editProfileName")
 .value=user.displayName||"";
-
 
 document.getElementById("editProfileEmail")
 .value=user.email||"";
 
-
 document.getElementById("profileMessage")
 .textContent="";
 
-
 document.getElementById("profileEditBox")
 .style.display="block";
-
 
 document.getElementById("editProfileName")
 .focus();
 
 };
-
 
 
 window.cancelEditProfile=function(){
@@ -2470,30 +2505,23 @@ document.getElementById("profileMessage")
 };
 
 
-
 window.saveProfile=async function(){
 
-const user =
-auth.currentUser;
-
+const user=auth.currentUser;
 
 if(!user){
 
 showLogin();
-
 return;
 
 }
 
-
-const name =
+const name=
 document.getElementById("editProfileName")
 .value.trim();
 
-
-const message =
+const message=
 document.getElementById("profileMessage");
-
 
 if(!name){
 
@@ -2504,9 +2532,7 @@ return;
 
 }
 
-
 try{
-
 
 await updateProfile(
 user,
@@ -2515,27 +2541,15 @@ displayName:name
 }
 );
 
-
-
 await setDoc(
 
-doc(
-db,
-"users",
-user.uid
-),
+doc(db,"users",user.uid),
 
 {
-
 uid:user.uid,
-
 name:name,
-
 email:user.email||"",
-
-updatedAt:
-serverTimestamp()
-
+updatedAt:serverTimestamp()
 },
 
 {
@@ -2544,13 +2558,10 @@ merge:true
 
 );
 
-
 updateDashboard(user);
-
 
 message.textContent=
 "Profile updated successfully!";
-
 
 setTimeout(()=>{
 
@@ -2560,7 +2571,6 @@ document.getElementById("profileEditBox")
 message.textContent="";
 
 },1000);
-
 
 }
 
@@ -2577,32 +2587,26 @@ error.message;
 };
 
 
-
 /* ================= SIGNUP ================= */
 
 window.signup=async function(){
 
-const name =
+const name=
 document.getElementById("signupName")
 .value.trim();
 
-
-const email =
+const email=
 document.getElementById("signupEmail")
 .value.trim();
 
-
-const password =
+const password=
 document.getElementById("signupPassword")
 .value;
 
-
-const message =
+const message=
 document.getElementById("signupMessage");
 
-
 message.textContent="";
-
 
 if(!name||!email||!password){
 
@@ -2613,7 +2617,6 @@ return;
 
 }
 
-
 if(password.length<6){
 
 message.textContent=
@@ -2623,17 +2626,14 @@ return;
 
 }
 
-
 try{
 
-
-const result =
+const result=
 await createUserWithEmailAndPassword(
 auth,
 email,
 password
 );
-
 
 await updateProfile(
 result.user,
@@ -2642,30 +2642,16 @@ displayName:name
 }
 );
 
-
 await setDoc(
 
-doc(
-db,
-"users",
-result.user.uid
-),
+doc(db,"users",result.user.uid),
 
 {
-
-uid:
-result.user.uid,
-
+uid:result.user.uid,
 name:name,
-
 email:email,
-
-createdAt:
-serverTimestamp(),
-
-updatedAt:
-serverTimestamp()
-
+createdAt:serverTimestamp(),
+updatedAt:serverTimestamp()
 },
 
 {
@@ -2674,49 +2660,31 @@ merge:true
 
 );
 
-
 message.textContent=
 "Account created successfully!";
 
-
-document.getElementById("signupName")
-.value="";
-
-document.getElementById("signupEmail")
-.value="";
-
-document.getElementById("signupPassword")
-.value="";
-
+document.getElementById("signupName").value="";
+document.getElementById("signupEmail").value="";
+document.getElementById("signupPassword").value="";
 
 setTimeout(
 ()=>showDashboard(),
 700
 );
 
-
 }
 
 catch(error){
 
-
-if(
-error.code===
-"auth/email-already-in-use"
-)
+if(error.code==="auth/email-already-in-use")
 
 message.textContent=
 "This email is already registered.";
 
-
-else if(
-error.code===
-"auth/invalid-email"
-)
+else if(error.code==="auth/invalid-email")
 
 message.textContent=
 "Please enter a valid email.";
-
 
 else
 
@@ -2728,27 +2696,22 @@ error.message;
 };
 
 
-
 /* ================= LOGIN ================= */
 
 window.login=async function(){
 
-const email =
+const email=
 document.getElementById("loginEmail")
 .value.trim();
 
-
-const password =
+const password=
 document.getElementById("loginPassword")
 .value;
 
-
-const message =
+const message=
 document.getElementById("loginMessage");
 
-
 message.textContent="";
-
 
 if(!email||!password){
 
@@ -2759,9 +2722,7 @@ return;
 
 }
 
-
 try{
-
 
 await signInWithEmailAndPassword(
 auth,
@@ -2769,35 +2730,25 @@ email,
 password
 );
 
-
 message.textContent=
 "Login successful!";
-
 
 setTimeout(
 ()=>showDashboard(),
 700
 );
 
-
 }
 
 catch(error){
 
-
 if(
-
-error.code===
-"auth/invalid-credential"||
-
-error.code===
-"auth/wrong-password"
-
+error.code==="auth/invalid-credential"||
+error.code==="auth/wrong-password"
 )
 
 message.textContent=
 "Wrong email or password.";
-
 
 else
 
@@ -2809,22 +2760,18 @@ error.message;
 };
 
 
-
 /* ================= FORGOT PASSWORD ================= */
 
 window.forgotPassword=async function(){
 
-const email =
+const email=
 document.getElementById("forgotEmail")
 .value.trim();
 
-
-const message =
+const message=
 document.getElementById("forgotMessage");
 
-
 message.textContent="";
-
 
 if(!email){
 
@@ -2835,25 +2782,20 @@ return;
 
 }
 
-
 try{
-
 
 await sendPasswordResetEmail(
 auth,
 email
 );
 
-
 message.textContent=
 "Password reset link has been sent.";
-
 
 document.getElementById("forgotEmail")
 .value="";
 
 }
-
 
 catch(error){
 
@@ -2865,48 +2807,37 @@ error.message;
 };
 
 
-
 /* ================= LOGOUT ================= */
 
 window.logout=async function(){
 
 try{
 
-
 await signOut(auth);
 
-
 if(chatUnsubscribe){
-
 chatUnsubscribe();
-
 chatUnsubscribe=null;
-
 }
-
 
 if(adminChatUnsubscribe){
-
 adminChatUnsubscribe();
-
 adminChatUnsubscribe=null;
-
 }
-
 
 if(usersUnsubscribe){
-
 usersUnsubscribe();
-
 usersUnsubscribe=null;
-
 }
 
+if(projectsUnsubscribe){
+projectsUnsubscribe();
+projectsUnsubscribe=null;
+}
 
 selectedUserId=null;
 
 showHome();
-
 
 }
 
@@ -2919,71 +2850,54 @@ console.error(error);
 };
 
 
-
-/* ================= USER CHAT ================= */
+/* =========================================================
+   ================= USER CHAT =============================
+   ========================================================= */
 
 function loadChat(userId){
 
-const box =
+const box=
 document.getElementById("chatMessages");
-
 
 if(chatUnsubscribe){
 
 chatUnsubscribe();
-
 chatUnsubscribe=null;
 
 }
 
-
-const ref =
+const chatRef=
 collection(
-
 db,
-
 "chats",
-
 getChatId(userId),
-
 "messages"
-
 );
 
-
-chatUnsubscribe =
+chatUnsubscribe=
 onSnapshot(
 
-ref,
+chatRef,
 
 snapshot=>{
 
-
 box.innerHTML="";
 
-
 let messages=[];
-
 
 snapshot.forEach(
 d=>messages.push(d.data())
 );
 
-
 messages.sort(
-
 (a,b)=>
-
 (a.createdAt?.seconds||0)-
 (b.createdAt?.seconds||0)
-
 );
-
 
 if(!messages.length){
 
 box.innerHTML=
-
 `<p class="chat-empty">
 Start chatting with T5X LDKN Admin 👋
 </p>`;
@@ -2992,15 +2906,12 @@ return;
 
 }
 
-
 messages.forEach(data=>{
 
-
-const div =
+const div=
 document.createElement("div");
 
-
-div.className =
+div.className=
 "chat-message "+
 (
 data.senderType==="user"
@@ -3010,50 +2921,38 @@ data.senderType==="user"
 "admin"
 );
 
-
-div.textContent =
+div.textContent=
 data.text||"";
-
 
 if(data.createdAt){
 
-const time =
+const time=
 document.createElement("span");
 
-
-time.className =
+time.className=
 "chat-time";
 
-
-time.textContent =
-formatTime(
-data.createdAt
-);
-
+time.textContent=
+formatTime(data.createdAt);
 
 div.appendChild(time);
 
 }
 
-
 box.appendChild(div);
 
 });
 
-
-box.scrollTop =
+box.scrollTop=
 box.scrollHeight;
 
 },
-
 
 error=>{
 
 console.error(error);
 
-
 box.innerHTML=
-
 `<p class="chat-empty">
 Unable to load chat.
 </p>`;
@@ -3065,77 +2964,52 @@ Unable to load chat.
 }
 
 
-
-/* ================= USER SEND MESSAGE ================= */
+/* ================= USER SEND ================= */
 
 window.sendMessage=async function(){
 
-const user =
-auth.currentUser;
-
+const user=auth.currentUser;
 
 if(!user){
 
 showLogin();
-
 return;
 
 }
 
-
-const input =
+const input=
 document.getElementById("chatInput");
 
-
-const text =
+const text=
 input.value.trim();
-
 
 if(!text)
 return;
 
-
 try{
-
 
 await addDoc(
 
 collection(
-
 db,
-
 "chats",
-
 getChatId(user.uid),
-
 "messages"
-
 ),
 
 {
 
 text:text,
-
-senderId:
-user.uid,
-
-senderName:
-user.displayName||
-"User",
-
-senderType:
-"user",
-
-createdAt:
-serverTimestamp()
+senderId:user.uid,
+senderName:user.displayName||"User",
+senderType:"user",
+createdAt:serverTimestamp()
 
 }
 
 );
 
-
 input.value="";
-
 
 }
 
@@ -3151,134 +3025,97 @@ error.message
 };
 
 
-
-/* ================= LOAD USERS ================= */
+/* =========================================================
+   ================= USERS =================================
+   ========================================================= */
 
 function loadUsers(){
 
-const box =
+const box=
 document.getElementById("usersList");
-
 
 if(usersUnsubscribe){
 
 usersUnsubscribe();
-
 usersUnsubscribe=null;
 
 }
 
-
-usersUnsubscribe =
+usersUnsubscribe=
 onSnapshot(
 
-collection(
-db,
-"users"
-),
+collection(db,"users"),
 
 snapshot=>{
-
 
 box.innerHTML="";
 
 let count=0;
 
-
 snapshot.forEach(userDoc=>{
 
-
-const user =
-userDoc.data();
-
+const user=userDoc.data();
 
 if(
-
 user.uid===ADMIN_UID||
-
 userDoc.id===ADMIN_UID
-
 )
-
 return;
-
 
 count++;
 
-
-const div =
+const div=
 document.createElement("div");
 
-
-div.className =
-"user-item";
-
+div.className="user-item";
 
 if(selectedUserId===user.uid)
-
 div.classList.add("active");
 
-
-const strong =
+const strong=
 document.createElement("strong");
 
+strong.textContent=
+user.name||"User";
 
-strong.textContent =
-user.name||
-"User";
-
-
-const small =
+const small=
 document.createElement("small");
 
-
-small.textContent =
-user.email||
-"";
-
+small.textContent=
+user.email||"";
 
 div.appendChild(strong);
-
 div.appendChild(small);
-
 
 div.onclick=()=>{
 
 selectAdminUser(
 user.uid,
-user.name||
-"User"
+user.name||"User"
 );
 
 };
 
-
 box.appendChild(div);
 
-
 });
-
 
 if(count===0){
 
 box.innerHTML=
-
 `<p style="color:#71809d">
 No users found.
 </p>`;
 
 }
 
-
 },
-
 
 error=>{
 
 console.error(error);
 
 box.innerHTML=
-
 `<p style="color:#ff4d6d">
 Unable to load users.
 </p>`;
@@ -3290,7 +3127,6 @@ Unable to load users.
 }
 
 
-
 /* ================= SELECT USER ================= */
 
 function selectAdminUser(
@@ -3298,32 +3134,25 @@ userId,
 userName
 ){
 
-selectedUserId =
-userId;
-
+selectedUserId=userId;
 
 document.getElementById(
 "adminChatTitle"
 )
-.textContent =
-"💬 Chat with "+
-userName;
-
+.textContent=
+"💬 Chat with "+userName;
 
 document.getElementById(
 "adminChatInput"
 )
 .disabled=false;
 
-
 document.getElementById(
 "adminSendButton"
 )
 .disabled=false;
 
-
 loadAdminChat(userId);
-
 
 document.querySelectorAll(
 ".user-item"
@@ -3336,70 +3165,51 @@ item.classList.remove("active")
 }
 
 
-
 /* ================= ADMIN CHAT ================= */
 
 function loadAdminChat(userId){
 
-const box =
+const box=
 document.getElementById(
 "adminChatMessages"
 );
 
-
 if(adminChatUnsubscribe){
 
 adminChatUnsubscribe();
-
 adminChatUnsubscribe=null;
 
 }
 
-
-adminChatUnsubscribe =
+adminChatUnsubscribe=
 onSnapshot(
 
 collection(
-
 db,
-
 "chats",
-
 getChatId(userId),
-
 "messages"
-
 ),
 
 snapshot=>{
 
-
 box.innerHTML="";
-
 
 let messages=[];
 
-
 snapshot.forEach(
-d=>
-messages.push(d.data())
+d=>messages.push(d.data())
 );
-
 
 messages.sort(
-
 (a,b)=>
-
 (a.createdAt?.seconds||0)-
 (b.createdAt?.seconds||0)
-
 );
-
 
 if(!messages.length){
 
 box.innerHTML=
-
 `<div class="no-user">
 No messages yet.
 </div>`;
@@ -3408,18 +3218,13 @@ return;
 
 }
 
-
 messages.forEach(data=>{
 
-
-const div =
+const div=
 document.createElement("div");
 
-
-div.className =
-
+div.className=
 "chat-message "+
-
 (
 data.senderType==="admin"
 ?
@@ -3428,49 +3233,38 @@ data.senderType==="admin"
 "user"
 );
 
-
-div.textContent =
+div.textContent=
 data.text||"";
-
 
 if(data.createdAt){
 
-const time =
+const time=
 document.createElement("span");
 
-
-time.className =
+time.className=
 "chat-time";
 
-
-time.textContent =
-formatTime(
-data.createdAt
-);
-
+time.textContent=
+formatTime(data.createdAt);
 
 div.appendChild(time);
 
 }
 
-
 box.appendChild(div);
 
 });
 
-
-box.scrollTop =
+box.scrollTop=
 box.scrollHeight;
 
 },
-
 
 error=>{
 
 console.error(error);
 
 box.innerHTML=
-
 `<div class="no-user">
 Unable to load messages.
 </div>`;
@@ -3482,32 +3276,25 @@ Unable to load messages.
 }
 
 
-
 /* ================= ADMIN SEND ================= */
 
 window.adminSendMessage=async function(){
 
-const admin =
-auth.currentUser;
-
+const admin=auth.currentUser;
 
 if(!admin){
 
 showLogin();
-
 return;
 
 }
-
 
 if(admin.uid!==ADMIN_UID){
 
 alert("Access denied.");
-
 return;
 
 }
-
 
 if(!selectedUserId){
 
@@ -3519,71 +3306,49 @@ return;
 
 }
 
-
-const input =
+const input=
 document.getElementById(
 "adminChatInput"
 );
 
-
-const text =
+const text=
 input.value.trim();
-
 
 if(!text)
 return;
 
-
 try{
-
 
 await addDoc(
 
 collection(
-
 db,
-
 "chats",
-
 getChatId(selectedUserId),
-
 "messages"
-
 ),
 
 {
 
 text:text,
-
-senderId:
-admin.uid,
-
-senderName:
-"T5X LDKN Admin",
-
-senderType:
-"admin",
-
-createdAt:
-serverTimestamp()
+senderId:admin.uid,
+senderName:"T5X LDKN Admin",
+senderType:"admin",
+createdAt:serverTimestamp()
 
 }
 
 );
 
-
 input.value="";
-
 
 }
 
 catch(error){
 
 alert(
-
 "Admin message send nahi hua: "+
 error.message
-
 );
 
 }
@@ -3591,23 +3356,797 @@ error.message
 };
 
 
+/* =========================================================
+   ================= PROJECTS ===============================
+   ========================================================= */
 
-/* ================= ENTER SEND ================= */
+
+/* ---------- ADMIN CHECK ---------- */
+
+function isAdmin(){
+
+const user=auth.currentUser;
+
+return user && user.uid===ADMIN_UID;
+
+}
+
+
+/* ---------- LOAD PUBLIC PROJECTS ---------- */
+
+function loadProjects(){
+
+const grid=
+document.getElementById("projectsGrid");
+
+if(!grid)
+return;
+
+if(projectsUnsubscribe){
+
+projectsUnsubscribe();
+projectsUnsubscribe=null;
+
+}
+
+projectsUnsubscribe=
+onSnapshot(
+
+collection(db,"projects"),
+
+snapshot=>{
+
+grid.innerHTML="";
+
+let projects=[];
+
+snapshot.forEach(projectDoc=>{
+
+projects.push({
+id:projectDoc.id,
+...projectDoc.data()
+});
+
+});
+
+projects.sort(
+(a,b)=>
+(b.createdAt?.seconds||0)-
+(a.createdAt?.seconds||0)
+);
+
+if(!projects.length){
+
+grid.innerHTML=
+`<div class="projects-empty">
+🚀 No projects added yet.
+</div>`;
+
+return;
+
+}
+
+projects.forEach(project=>{
+
+const card=
+document.createElement("div");
+
+card.className="project-card";
+
+
+if(project.imageURL){
+
+const img=
+document.createElement("img");
+
+img.className="project-image";
+
+img.src=
+project.imageURL;
+
+img.alt=
+project.title||"Project";
+
+img.loading="lazy";
+
+card.appendChild(img);
+
+}
+
+else{
+
+const placeholder=
+document.createElement("div");
+
+placeholder.className=
+"project-image-placeholder";
+
+placeholder.textContent="🤖";
+
+card.appendChild(placeholder);
+
+}
+
+
+const content=
+document.createElement("div");
+
+content.className=
+"project-content";
+
+
+const category=
+document.createElement("span");
+
+category.className=
+"project-category";
+
+category.textContent=
+project.category||"Technology";
+
+
+const title=
+document.createElement("h3");
+
+title.textContent=
+project.title||"Untitled Project";
+
+
+const description=
+document.createElement("p");
+
+description.textContent=
+project.description||
+"No description available.";
+
+
+content.appendChild(category);
+content.appendChild(title);
+content.appendChild(description);
+
+
+if(project.projectURL){
+
+const actions=
+document.createElement("div");
+
+actions.className=
+"project-actions";
+
+
+const link=
+document.createElement("a");
+
+link.className="project-btn";
+
+link.href=
+project.projectURL;
+
+link.target="_blank";
+
+link.rel="noopener noreferrer";
+
+link.textContent=
+"View Project";
+
+actions.appendChild(link);
+
+content.appendChild(actions);
+
+}
+
+
+card.appendChild(content);
+
+grid.appendChild(card);
+
+});
+
+},
+
+error=>{
+
+console.error(error);
+
+grid.innerHTML=
+`<div class="projects-empty">
+Unable to load projects.
+</div>`;
+
+}
+
+);
+
+}
+
+
+/* ---------- LOAD ADMIN PROJECTS ---------- */
+
+function loadAdminProjects(){
+
+if(!isAdmin())
+return;
+
+const box=
+document.getElementById(
+"adminProjectsList"
+);
+
+box.innerHTML=
+`<p style="color:#71809d">
+Loading projects...
+</p>`;
+
+
+onSnapshot(
+
+collection(db,"projects"),
+
+snapshot=>{
+
+box.innerHTML="";
+
+let projects=[];
+
+snapshot.forEach(projectDoc=>{
+
+projects.push({
+id:projectDoc.id,
+...projectDoc.data()
+});
+
+});
+
+projects.sort(
+(a,b)=>
+(b.createdAt?.seconds||0)-
+(a.createdAt?.seconds||0)
+);
+
+if(!projects.length){
+
+box.innerHTML=
+`<p style="color:#71809d">
+No projects added.
+</p>`;
+
+return;
+
+}
+
+projects.forEach(project=>{
+
+const item=
+document.createElement("div");
+
+item.className=
+"admin-project-item";
+
+
+if(project.imageURL){
+
+const img=
+document.createElement("img");
+
+img.src=
+project.imageURL;
+
+img.alt=
+project.title||"Project";
+
+item.appendChild(img);
+
+}
+
+
+const info=
+document.createElement("div");
+
+info.className=
+"admin-project-info";
+
+
+const title=
+document.createElement("h4");
+
+title.textContent=
+project.title||"Untitled";
+
+
+const desc=
+document.createElement("p");
+
+desc.textContent=
+project.category||"Technology";
+
+
+const actions=
+document.createElement("div");
+
+actions.className=
+"admin-project-actions";
+
+
+const editBtn=
+document.createElement("button");
+
+editBtn.className=
+"project-edit";
+
+editBtn.textContent=
+"✏️ Edit";
+
+editBtn.onclick=()=>{
+
+editProject(project);
+
+};
+
+
+const deleteBtn=
+document.createElement("button");
+
+deleteBtn.className=
+"project-delete";
+
+deleteBtn.textContent=
+"🗑️ Delete";
+
+deleteBtn.onclick=()=>{
+
+deleteProject(project);
+
+};
+
+
+actions.appendChild(editBtn);
+actions.appendChild(deleteBtn);
+
+info.appendChild(title);
+info.appendChild(desc);
+info.appendChild(actions);
+
+item.appendChild(info);
+
+box.appendChild(item);
+
+});
+
+},
+
+error=>{
+
+console.error(error);
+
+box.innerHTML=
+`<p style="color:#ff4d6d">
+Unable to load admin projects.
+</p>`;
+
+}
+
+);
+
+}
+
+
+/* ---------- SAVE PROJECT ---------- */
+
+window.saveProject=async function(){
+
+if(!isAdmin()){
+
+alert("Access denied.");
+return;
+
+}
+
+const title=
+document.getElementById("projectTitle")
+.value.trim();
+
+const category=
+document.getElementById("projectCategory")
+.value;
+
+const description=
+document.getElementById("projectDescription")
+.value.trim();
+
+const projectURL=
+document.getElementById("projectURL")
+.value.trim();
+
+const imageInput=
+document.getElementById("projectImage");
+
+const imageFile=
+imageInput.files[0];
+
+const message=
+document.getElementById("projectMessage");
+
+const saveButton=
+document.getElementById("projectSaveButton");
+
+
+message.textContent="";
+
+
+if(!title||!description){
+
+message.textContent=
+"Project title and description are required.";
+
+return;
+
+}
+
+
+try{
+
+saveButton.disabled=true;
+saveButton.textContent=
+"Saving...";
+
+
+/* ================= EDIT ================= */
+
+if(editingProjectId){
+
+let imageURL=
+editingProjectImageURL;
+
+
+/* Replace image */
+
+if(imageFile){
+
+const imageRef=
+ref(
+storage,
+"projectImages/"+
+editingProjectId+
+"_"+Date.now()+
+"_"+imageFile.name
+);
+
+const upload=
+await uploadBytes(
+imageRef,
+imageFile
+);
+
+imageURL=
+await getDownloadURL(
+upload.ref
+);
+
+}
+
+
+/* Update */
+
+await updateDoc(
+
+doc(
+db,
+"projects",
+editingProjectId
+),
+
+{
+
+title:title,
+category:category,
+description:description,
+projectURL:projectURL,
+imageURL:imageURL,
+updatedAt:serverTimestamp()
+
+}
+
+);
+
+
+message.textContent=
+"Project updated successfully!";
+
+
+}
+
+else{
+
+
+/* ================= ADD ================= */
+
+const projectRef=
+doc(collection(db,"projects"));
+
+let imageURL="";
+
+
+if(imageFile){
+
+const imageRef=
+ref(
+storage,
+"projectImages/"+
+projectRef.id+
+"_"+Date.now()+
+"_"+imageFile.name
+);
+
+const upload=
+await uploadBytes(
+imageRef,
+imageFile
+);
+
+imageURL=
+await getDownloadURL(
+upload.ref
+);
+
+}
+
+
+await setDoc(
+
+projectRef,
+
+{
+
+title:title,
+category:category,
+description:description,
+projectURL:projectURL,
+imageURL:imageURL,
+createdBy:ADMIN_UID,
+createdAt:serverTimestamp(),
+updatedAt:serverTimestamp()
+
+}
+
+);
+
+
+message.textContent=
+"Project added successfully!";
+
+}
+
+
+/* RESET */
+
+clearProjectForm();
+
+}
+
+catch(error){
+
+console.error(error);
+
+message.textContent=
+"Project save nahi hua: "+
+error.message;
+
+}
+
+finally{
+
+saveButton.disabled=false;
+
+if(editingProjectId){
+
+saveButton.textContent=
+"Update Project";
+
+}
+else{
+
+saveButton.textContent=
+"➕ Add Project";
+
+}
+
+}
+
+};
+
+
+/* ---------- EDIT PROJECT ---------- */
+
+function editProject(project){
+
+if(!isAdmin()){
+
+alert("Access denied.");
+return;
+
+}
+
+editingProjectId=
+project.id;
+
+editingProjectImageURL=
+project.imageURL||"";
+
+
+document.getElementById("projectTitle")
+.value=
+project.title||"";
+
+document.getElementById("projectCategory")
+.value=
+project.category||"AI";
+
+document.getElementById("projectDescription")
+.value=
+project.description||"";
+
+document.getElementById("projectURL")
+.value=
+project.projectURL||"";
+
+document.getElementById("projectImage")
+.value="";
+
+
+document.getElementById("projectSaveButton")
+.textContent=
+"Update Project";
+
+document.getElementById("projectCancelButton")
+.style.display=
+"block";
+
+document.getElementById("projectMessage")
+.textContent=
+"Editing: "+(project.title||"Project");
+
+
+document.querySelector(".project-admin-box")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* ---------- CANCEL PROJECT EDIT ---------- */
+
+window.cancelProjectEdit=function(){
+
+clearProjectForm();
+
+};
+
+
+/* ---------- CLEAR FORM ---------- */
+
+function clearProjectForm(){
+
+editingProjectId=null;
+editingProjectImageURL="";
+
+document.getElementById("projectTitle").value="";
+document.getElementById("projectCategory").value="AI";
+document.getElementById("projectDescription").value="";
+document.getElementById("projectURL").value="";
+document.getElementById("projectImage").value="";
+
+document.getElementById("projectSaveButton")
+.textContent=
+"➕ Add Project";
+
+document.getElementById("projectCancelButton")
+.style.display=
+"none";
+
+document.getElementById("projectMessage")
+.textContent="";
+
+}
+
+
+/* ---------- DELETE PROJECT ---------- */
+
+window.deleteProject=async function(project){
+
+if(!isAdmin()){
+
+alert("Access denied.");
+return;
+
+}
+
+const confirmDelete=
+confirm(
+'Delete "'+
+(project.title||"this project")+
+'"?'
+);
+
+if(!confirmDelete)
+return;
+
+try{
+
+await deleteDoc(
+
+doc(
+db,
+"projects",
+project.id
+)
+
+);
+
+
+/*
+Image delete optional.
+If old image exists and its URL is not
+available as a Storage reference, Firestore
+document is still safely deleted.
+*/
+
+alert("Project deleted successfully.");
+
+}
+
+catch(error){
+
+console.error(error);
+
+alert(
+"Project delete nahi hua: "+
+error.message
+);
+
+}
+
+};
+
+
+/* =========================================================
+   ================= TIME ===================================
+   ========================================================= */
+
+function formatTime(timestamp){
+
+if(!timestamp?.toDate)
+return "";
+
+return timestamp
+.toDate()
+.toLocaleString(
+"en-IN",
+{
+day:"2-digit",
+month:"short",
+hour:"2-digit",
+minute:"2-digit"
+}
+);
+
+}
+
+
+/* =========================================================
+   ================= ENTER SEND =============================
+   ========================================================= */
 
 document.addEventListener(
 "keydown",
 event=>{
 
-
 if(event.key!=="Enter")
 return;
 
-
 if(
-
 document.activeElement?.id===
 "chatInput"
-
 ){
 
 event.preventDefault();
@@ -3616,12 +4155,9 @@ sendMessage();
 
 }
 
-
 if(
-
 document.activeElement?.id===
 "adminChatInput"
-
 ){
 
 event.preventDefault();
@@ -3630,119 +4166,70 @@ adminSendMessage();
 
 }
 
-});
-
-
-
-/* ================= TIME ================= */
-
-function formatTime(timestamp){
-
-if(!timestamp?.toDate)
-return "";
-
-
-return timestamp
-.toDate()
-.toLocaleString(
-
-"en-IN",
-
-{
-
-day:"2-digit",
-
-month:"short",
-
-hour:"2-digit",
-
-minute:"2-digit"
-
 }
-
 );
 
-}
 
-
-
-/* ================= AUTH STATE ================= */
+/* =========================================================
+   ================= AUTH STATE =============================
+   ========================================================= */
 
 onAuthStateChanged(
 auth,
 async user=>{
 
-
-const authButtons =
+const authButtons=
 document.getElementById(
 "authButtons"
 );
 
-
-const userPanel =
+const userPanel=
 document.getElementById(
 "userPanel"
 );
 
-
-const userName =
+const userName=
 document.getElementById(
 "userName"
 );
 
-
-const adminButton =
+const adminButton=
 document.getElementById(
 "adminButton"
 );
 
 
-
 if(user){
 
+authButtons.style.display="none";
 
-authButtons.style.display=
-"none";
-
-
-userPanel.style.display=
-"inline";
-
+userPanel.style.display="inline";
 
 userName.textContent=
-
 user.displayName||
-
 user.email||
-
 "User";
-
 
 updateDashboard(user);
 
 
 try{
 
-
 await setDoc(
 
-doc(
-db,
-"users",
-user.uid
-),
+doc(db,"users",user.uid),
 
 {
 
-uid:
-user.uid,
+uid:user.uid,
 
 name:
 user.displayName||
 "User",
 
 email:
-user.email||"",
+user.email||
+"",
 
 updatedAt:
 serverTimestamp()
@@ -3755,7 +4242,6 @@ merge:true
 
 );
 
-
 }
 
 catch(error){
@@ -3763,7 +4249,6 @@ catch(error){
 console.error(error);
 
 }
-
 
 
 if(user.uid===ADMIN_UID)
@@ -3781,23 +4266,22 @@ adminButton.style.display=
 
 else{
 
+authButtons.style.display="inline";
 
-authButtons.style.display=
-"inline";
+userPanel.style.display="none";
 
-
-userPanel.style.display=
-"none";
-
-
-adminButton.style.display=
-"none";
-
+adminButton.style.display="none";
 
 }
 
 });
 
+
+/* =========================================================
+   ================= START PROJECTS =========================
+   ========================================================= */
+
+loadProjects();
 
 </script>
 
