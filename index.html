@@ -439,44 +439,6 @@ input:focus{
     min-height:20px;
 }
 
-/* PROFILE PHOTO */
-.profile-photo-area{
-    text-align:center;
-    margin:10px 0 20px;
-}
-.profile-avatar,.dashboard-avatar{
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    margin:0 auto 12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#18233f;
-    border:2px solid #00e5ff;
-    font-size:38px;
-}
-.profile-photo,.dashboard-profile-photo{
-    width:90px;
-    height:90px;
-    object-fit:cover;
-    border-radius:50%;
-    border:2px solid #00e5ff;
-    margin:0 auto 12px;
-}
-.photo-btn{
-    display:inline-block;
-    padding:10px 18px;
-    border:1px solid #00e5ff;
-    border-radius:22px;
-    color:#00e5ff;
-    cursor:pointer;
-}
-.dashboard-profile{
-    text-align:center;
-    margin-bottom:12px;
-}
-
 /* CHAT */
 
 .chat-box{
@@ -955,11 +917,6 @@ footer{
 
         <div class="welcome-box">
 
-            <div class="dashboard-profile">
-                <div id="dashboardAvatar" class="dashboard-avatar">👤</div>
-                <img id="dashboardProfilePhoto" class="dashboard-profile-photo" alt="Profile Photo" style="display:none;">
-            </div>
-
             <h2>
                 Welcome, <span id="dashboardName">User</span> 👋
             </h2>
@@ -1016,14 +973,6 @@ footer{
         <div class="profile-edit-box" id="profileEditBox">
 
             <h3>✏️ Edit Profile</h3>
-
-            <div class="profile-photo-area">
-                <div id="editProfileAvatar" class="profile-avatar">👤</div>
-                <img id="editProfilePhoto" class="profile-photo" alt="Profile Photo" style="display:none;">
-                <label class="photo-btn">📷 Change Photo
-                    <input type="file" id="profilePhotoInput" accept="image/*" style="display:none;" onchange="previewProfilePhoto(event)">
-                </label>
-            </div>
 
             <label class="profile-label">Name</label>
 
@@ -1365,14 +1314,6 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-import {
-    getStorage,
-    ref,
-    uploadBytes,
-    getDownloadURL
-}
-from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
-
 
 /* =========================
    FIREBASE CONFIG
@@ -1381,11 +1322,10 @@ from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
 const firebaseConfig = {
     apiKey: "AIzaSyBwwlCkGQcqWiULRU_6SE_zQ_kMxYBx8mk",
     authDomain: "t5x-ldkn.firebaseapp.com",
-    databaseURL: "https://t5x-ldkn-default-rtdb.firebaseio.com",
     projectId: "t5x-ldkn",
     storageBucket: "t5x-ldkn.firebasestorage.app",
     messagingSenderId: "278540583487",
-    appId: "1:278540583487:web:631a100fd6a286962eae8a",
+    appId: "1:278540583487:web:631a100fd6a286962eae8",
     measurementId: "G-LSDEL437QQ"
 };
 
@@ -1399,7 +1339,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 const db = getFirestore(app);
-const storage = getStorage(app);
 
 
 /* =========================
@@ -1525,17 +1464,6 @@ window.showEditProfile = function(){
 
     message.textContent = "";
 
-    const photo = document.getElementById("editProfilePhoto");
-    const avatar = document.getElementById("editProfileAvatar");
-    if(user.photoURL){
-        photo.src = user.photoURL;
-        photo.style.display = "block";
-        avatar.style.display = "none";
-    }else{
-        photo.style.display = "none";
-        avatar.style.display = "flex";
-    }
-
     editBox.style.display = "block";
 
     nameInput.focus();
@@ -1550,9 +1478,6 @@ window.cancelEditProfile = function(){
     document.getElementById(
         "profileMessage"
     ).textContent = "";
-
-    const input = document.getElementById("profilePhotoInput");
-    if(input) input.value = "";
 };
 
 window.saveProfile = async function(){
@@ -1564,69 +1489,88 @@ window.saveProfile = async function(){
         return;
     }
 
-    const nameInput = document.getElementById("editProfileName");
-    const message = document.getElementById("profileMessage");
-    const fileInput = document.getElementById("profilePhotoInput");
-    const name = nameInput.value.trim();
+    const nameInput =
+        document.getElementById("editProfileName");
+
+    const message =
+        document.getElementById("profileMessage");
+
+    const name =
+        nameInput.value.trim();
 
     message.textContent = "";
 
     if(!name){
-        message.textContent = "Please enter your name.";
+
+        message.textContent =
+            "Please enter your name.";
+
         return;
     }
 
     try{
-        let photoURL = user.photoURL || "";
-        const file = fileInput.files[0];
 
-        if(file){
-            if(!file.type.startsWith("image/")){
-                message.textContent = "Please select an image file.";
-                return;
+        await updateProfile(
+            user,
+            {
+                displayName:name
             }
-            if(file.size > 5 * 1024 * 1024){
-                message.textContent = "Photo must be less than 5MB.";
-                return;
-            }
-
-            const photoRef = ref(
-                storage,
-                "profilePhotos/" + user.uid + "/" + Date.now() + "_" + file.name
-            );
-
-            await uploadBytes(photoRef,file);
-            photoURL = await getDownloadURL(photoRef);
-        }
-
-        await updateProfile(user,{
-            displayName:name,
-            photoURL:photoURL
-        });
+        );
 
         await setDoc(
-            doc(db,"users",user.uid),
+            doc(
+                db,
+                "users",
+                user.uid
+            ),
             {
                 uid:user.uid,
                 name:name,
                 email:user.email || "",
-                photoURL:photoURL,
                 updatedAt:serverTimestamp()
             },
-            {merge:true}
+            {
+                merge:true
+            }
         );
 
-        updateDashboard(user);
-        document.getElementById("userName").textContent = name;
-        message.textContent = "Profile updated successfully!";
+        document.getElementById(
+            "dashboardName"
+        ).textContent = name;
+
+        document.getElementById(
+            "dashboardUserName"
+        ).textContent = name;
+
+        document.getElementById(
+            "userName"
+        ).textContent = name;
+
+        message.textContent =
+            "Profile updated successfully!";
 
         setTimeout(() => {
-            cancelEditProfile();
-        },800);
+
+            document.getElementById(
+                "profileEditBox"
+            ).style.display = "none";
+
+            message.textContent = "";
+
+        },1000);
+
     }
+
     catch(error){
-        console.error("Profile update error:",error);
-        message.textContent = "Profile update nahi hua: " + error.message;
+
+        console.error(
+            "Profile update error:",
+            error
+        );
+
+        message.textContent =
+            "Profile update nahi hua: " +
+            error.message;
     }
 };
 
@@ -1782,23 +1726,19 @@ window.showAdmin = function(){
 
 function updateDashboard(user){
 
-    const name = user.displayName || user.email || "User";
+    const name =
+        user.displayName ||
+        user.email ||
+        "User";
 
-    document.getElementById("dashboardName").textContent = name;
-    document.getElementById("dashboardUserName").textContent = name;
-    document.getElementById("dashboardEmail").textContent = user.email || "No email";
+    document.getElementById("dashboardName")
+        .textContent = name;
 
-    const photo = document.getElementById("dashboardProfilePhoto");
-    const avatar = document.getElementById("dashboardAvatar");
+    document.getElementById("dashboardUserName")
+        .textContent = name;
 
-    if(user.photoURL){
-        photo.src = user.photoURL;
-        photo.style.display = "block";
-        avatar.style.display = "none";
-    }else{
-        photo.style.display = "none";
-        avatar.style.display = "flex";
-    }
+    document.getElementById("dashboardEmail")
+        .textContent = user.email || "No email";
 }
 
 
