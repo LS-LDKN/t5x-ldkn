@@ -665,3 +665,105 @@ footer {
     }
 
 }
+/* ===== HOME ANIMATED TECH EFFECT ===== */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-2;
+    background:
+        linear-gradient(rgba(0,229,255,.055) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(0,229,255,.055) 1px,transparent 1px);
+    background-size:45px 45px;
+    animation:gridMove 12s linear infinite;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:radial-gradient(
+        circle,
+        rgba(0,229,255,.16) 0%,
+        rgba(0,229,255,.05) 35%,
+        transparent 70%
+    );
+    top:50%;
+    left:72%;
+    transform:translate(-50%,-50%);
+    z-index:-1;
+    animation:techGlow 4s ease-in-out infinite;
+}
+
+.hero-content,
+.hero-logo{
+    position:relative;
+    z-index:3;
+}
+
+.tech-particle{
+    position:absolute;
+    color:#00e5ff;
+    font-family:monospace;
+    font-size:14px;
+    font-weight:bold;
+    opacity:.4;
+    text-shadow:0 0 12px #00e5ff;
+    pointer-events:none;
+    z-index:2;
+    animation:particleFloat 5s ease-in-out infinite;
+}
+
+.p1{top:15%;left:7%}
+.p2{top:28%;right:7%;animation-delay:1s}
+.p3{bottom:20%;left:14%;animation-delay:2s}
+.p4{bottom:14%;right:17%;animation-delay:3s}
+.p5{top:12%;right:28%;animation-delay:1.5s}
+
+@keyframes gridMove{
+    from{transform:translate(0,0)}
+    to{transform:translate(45px,45px)}
+}
+
+@keyframes techGlow{
+    0%,100%{
+        opacity:.5;
+        transform:translate(-50%,-50%) scale(1);
+    }
+    50%{
+        opacity:1;
+        transform:translate(-50%,-50%) scale(1.15);
+    }
+}
+
+@keyframes particleFloat{
+    0%,100%{
+        transform:translateY(0);
+        opacity:.25;
+    }
+    50%{
+        transform:translateY(-20px);
+        opacity:.8;
+    }
+}
+
+@media(max-width:700px){
+    .tech-particle{
+        font-size:10px;
+    }
+
+    .p1{left:4%}
+    .p2{right:4%}
+    .p3{left:7%}
+    .p4{right:7%}
+    .p5{right:15%}
+}
